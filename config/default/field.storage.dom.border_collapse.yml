@@ -1,0 +1,27 @@
+uuid: e7593f57-089e-4faa-aae2-0576c6a94aaa
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.border_collapse
+field_name: border_collapse
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: collapse
+      label: collapse
+    -
+      value: separate
+      label: separate
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

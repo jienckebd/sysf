@@ -1,0 +1,22 @@
+uuid: 91804eb6-c02d-435b-94a9-56122bb251a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.app.workspace
+    - field.storage.app.field_color
+  module:
+    - color_field
+id: app.workspace.field_color
+field_name: field_color
+entity_type: app
+bundle: workspace
+label: Color
+description: 'Select a color that will be used to indicate this workspace.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

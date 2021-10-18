@@ -1,0 +1,94 @@
+uuid: 33c8e08c-fe75-49a2-8e1b-6e1e15719d55
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.drupal_block
+    - field.storage.block_content.field_plugin_block
+  module:
+    - bd
+    - design_system
+    - plugin
+third_party_settings:
+  bd:
+    overview:
+      entity_field_group: ''
+      default_field_widget:
+        plugin_id: ''
+      default_field_formatter:
+        plugin_id: ''
+      weight: ''
+      cardinality: ''
+    element:
+      field_items:
+        container: ''
+      field_item:
+        container: ''
+      field_value:
+        container: ''
+        override: ''
+        callback: ''
+      label:
+        container: ''
+        override: ''
+        display_position: before
+      description:
+        container: ''
+        override: ''
+        display_position: after
+    behavior:
+      access:
+        view:
+          0:
+            condition:
+              plugin_id: ''
+          1:
+            condition:
+              plugin_id: ''
+          condition_list:
+            actions: {  }
+        edit:
+          0:
+            condition:
+              plugin_id: ''
+          1:
+            condition:
+              plugin_id: ''
+          restrict_behavior: ''
+          condition_list:
+            actions: {  }
+      translation:
+        force_langcode: ''
+        disable: 0
+      default_value:
+        plugin:
+          plugin_id: ''
+      multi_value:
+        max: ''
+        delimiter: ''
+      empty_value:
+        plugin:
+          plugin_id: ''
+      dom:
+        attribute: ''
+        subattribute: ''
+        theme_hook: ''
+        theme_hook_selector: ''
+        theme_hook_match_key: ''
+        theme_hook_match_value: ''
+        build_css_field_name: ''
+        build_css: 0
+  design_system:
+    field_formatter_config_key_override: ''
+id: block_content.drupal_block.field_plugin_block
+field_name: field_plugin_block
+entity_type: block_content
+bundle: drupal_block
+label: Block
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: '\Drupal\bd\Entity\EntityFieldDefaultValue::derivedDefaultValue'
+settings: {  }
+field_type: 'plugin:block'

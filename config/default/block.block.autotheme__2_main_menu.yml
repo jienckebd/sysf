@@ -1,0 +1,30 @@
+uuid: 0c7166f2-5840-4ee5-894f-72b2cbbe54df
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - design_system
+  theme:
+    - autotheme__2
+id: autotheme__2_main_menu
+theme: autotheme__2
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+  design_system:
+    menu_link: {  }
+    nested_menu: hide
+    initial_parent: null
+    hide_toggle: false
+visibility: {  }

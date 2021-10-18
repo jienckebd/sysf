@@ -1,0 +1,2798 @@
+entity_type:
+  generate: true
+  label: 'Entity Type'
+  label_plural: 'Entity Types'
+  base: normalized_content
+  tag:
+    - sys
+    - entity_api
+  entity_operation:
+    field:
+      title: 'Manage Fields'
+      weight: 10
+    display:
+      title: 'Manage Display'
+      weight: 20
+    form_display:
+      title: 'Manage Form Display'
+      weight: 30
+  field:
+    definition:
+      data_index:
+        template: index
+        settings:
+          index_all_field: true
+entity_op:
+  generate: true
+  label: 'Entity Operation'
+  label_plural: 'Entity Operations'
+  base: normalized_content
+  tag:
+    - sys
+    - entity_api
+entity_context:
+  generate: true
+  label: 'Entity Context'
+  label_plural: 'Entity Contexts'
+  base: normalized_content
+  tag:
+    - sys
+    - entity_api
+entity_template:
+  generate: true
+  label: 'Entity template'
+  label_plural: 'Entity templates'
+  base: normalized_content
+  tag:
+    - sys
+    - entity_api
+  field:
+    definition:
+      label:
+        template: label
+      machine_name:
+        template: machine_name
+      data:
+        template: data
+      source:
+        template: source
+      uid:
+        template: uid
+      created:
+        template: created
+      changed:
+        template: changed
+      description:
+        template: description
+app:
+  generate: true
+  label: App
+  label_plural: Apps
+  base: normalized_content
+  tag:
+    - sys
+    - platform_architecture
+env:
+  generate: true
+  label: Environment
+  label_plural: Environments
+  base: normalized_content
+  tag:
+    - sys
+    - platform_architecture
+platform:
+  generate: true
+  label: Platform
+  label_plural: Platforms
+  base: normalized_content
+  tag:
+    - sys
+    - platform_architecture
+network:
+  generate: true
+  label: Network
+  label_plural: Networks
+  base: normalized_content
+  tag:
+    - sys
+    - platform_architecture
+k8s_cluster:
+  generate: true
+  label: 'Kubernetes cluster'
+  label_plural: 'Kubernetes cluster'
+  base: normalized_content
+  tag:
+    - sys
+    - infra
+    - k8s
+k8s_deploy:
+  generate: true
+  label: 'Kubernetes deployment'
+  label_plural: 'Kubernetes deployments'
+  base: normalized_content
+  tag:
+    - sys
+    - infra
+    - k8s
+k8s_pod:
+  generate: true
+  label: 'Kubernetes pod'
+  label_plural: 'Kubernetes pods'
+  base: normalized_content
+  tag:
+    - sys
+    - infra
+    - k8s
+    - resource
+k8s_service:
+  generate: true
+  label: 'Kubernetes service'
+  label_plural: 'Kubernetes services'
+  base: normalized_content
+  tag:
+    - sys
+    - infra
+    - k8s
+    - resource
+k8s_entity:
+  generate: true
+  label: 'Kubernetes entity'
+  label_plural: 'Kubernetes entity'
+  base: normalized_content
+  tag:
+    - sys
+    - infra
+    - k8s
+    - resource
+docker_container:
+  generate: true
+  label: 'Docker container'
+  label_plural: 'Docker containers'
+  base: normalized_content
+  tag:
+    - sys
+    - infra
+    - docker
+    - resource
+docker_image:
+  generate: true
+  label: 'Docker image'
+  label_plural: 'Docker image'
+  base: normalized_content
+  tag:
+    - sys
+    - infra
+    - docker
+    - resource
+docker_volume:
+  generate: true
+  label: 'Docker volume'
+  label_plural: 'Docker volumes'
+  base: normalized_content
+  tag:
+    - sys
+    - infra
+    - docker
+    - resource
+datasource:
+  generate: true
+  label: Datasource
+  label_plural: Datasource
+  description: 'Models a source of data like a MySQL or relational database, NoSQL database, solr core, data index, etc.'
+  base: normalized_content
+  tag:
+    - sys
+    - infra
+    - resource
+connection:
+  generate: true
+  label: Connection
+  label_plural: Connections
+  description: 'Models a connection with optional authentication.'
+  base: normalized_content
+  tag:
+    - sys
+    - infra
+  definition:
+    host:
+      type: string
+      label: Host
+      required: true
+      translatable: true
+      revisionable: true
+    port:
+      type: integer
+      label: Port
+      required: true
+      translatable: true
+      revisionable: true
+    protocol:
+      type: string
+      label: Protocol
+      required: true
+      translatable: true
+      revisionable: true
+theme_entity:
+  generate: true
+  label: Theme
+  label_plural: Themes
+  base: normalized_content
+  field:
+    definition:
+      base_entity:
+        template: base_entity
+        label: 'Base theme'
+        description: 'Set a base theme to inherit its styling, behaviors, etc.'
+        settings:
+          target_type: theme_entity
+  links:
+    layout: '{{ path__canonical }}/layout'
+  op:
+    layout:
+      plugin: entity_form
+      plugin_config:
+        entity_selector: field_layout
+        op: layout_builder
+      route:
+        defaults:
+          add:
+            section_storage_type: overrides
+            section_storage: ''
+        options:
+          add:
+            _layout_builder: true
+            parameters:
+              section_storage:
+                layout_builder_tempstore: true
+                converter: layout_builder.param_converter
+              '{{ entity_type_id }}':
+                type: 'entity:{{ entity_type_id }}'
+  menu:
+    task:
+      layout:
+        rel: layout
+        label: Layout
+        base_route: 'entity.{{ entity_type_id }}.canonical'
+    link:
+      collection:
+        rel: collection
+        label: '{{ entity_type_label_plural }}'
+        parent: system.themes_page
+        weight: 100
+behavior:
+  generate: true
+  label: Behavior
+  label_plural: Behaviors
+  base: normalized_content
+integration:
+  generate: true
+  label: Integration
+  label_plural: Integrations
+  base: normalized_content
+dom:
+  generate: true
+  label: DOM
+  label_plural: DOMs
+  base: normalized_content
+  class: Drupal\design_system\Entity\Entity\Dom
+  entity_operation:
+    field:
+      title: 'Manage Fields'
+      weight: 10
+    display:
+      title: 'Manage Display'
+      weight: 20
+    form_display:
+      title: 'Manage Form Display'
+      weight: 30
+  menu:
+    link:
+      collection:
+        rel: collection
+        label: '{{ entity_type_label_plural }}'
+        parent: system.themes_page
+        weight: 90
+  field:
+    definition:
+      base_entity:
+        template: base_entity
+        label: 'Base dom'
+        settings:
+          target_type: dom
+block_content:
+  alter: true
+  label: Component
+  label_plural: Components
+  base: normalized_content
+  class: Drupal\design_system\Entity\Entity\BlockContent
+  handlers:
+    access: \Drupal\Core\Entity\EntityAccessControlHandler
+  menu:
+    link:
+      collection:
+        rel: collection
+        label: '{{ entity_type_label_plural }}'
+        parent: system.themes_page
+        weight: 0
+  tag:
+    - design_system
+  field:
+    alter:
+      info:
+        label: Name
+        description: 'Provide a name.'
+        constraints: {  }
+    definition:
+      base_entity:
+        template: base_entity
+        label: 'Base component'
+        description: 'Set a base component to inherit its styling, behaviors, etc.'
+        settings:
+          target_type: block_content
+      container:
+        type: entity_reference_revisions
+        label: Containers
+        required: false
+        translatable: true
+        revisionable: true
+        cardinality: -1
+        display_options:
+          form:
+            type: inline_entity_form_complex
+            region: content
+            settings:
+              match_operator: CONTAINS
+              form_mode: default
+              revision: false
+              override_labels: false
+              label_singular: ''
+              label_plural: ''
+              collapsible: false
+              collapsed: false
+              allow_new: true
+              allow_existing: true
+              allow_duplicate: true
+            third_party_settings: {  }
+        settings:
+          target_type: block_content
+          handler: 'default:block_content'
+          handler_settings:
+            target_bundles:
+              container: container
+            sort:
+              field: info
+              direction: ASC
+            auto_create: true
+            auto_create_bundle: ''
+      tags:
+        type: entity_reference
+        label: 'Component Tags'
+        description: 'Apply tags to components to organize them.'
+        settings:
+          target_type: taxonomy_term
+          handler_settings:
+            target_bundles:
+              component_tag: component_tag
+        required: false
+        translatable: true
+        revisionable: true
+        cardinality: -1
+      view_mode:
+        type: entity_reference
+        label: 'Component variant'
+        required: false
+        translatable: true
+        revisionable: true
+        settings:
+          target_type: entity_view_mode
+          handler: 'default:entity_view_mode'
+          handler_settings:
+            property_match:
+              targetEntityType: block_content
+  display:
+    view:
+      template:
+        default:
+          field_definition_types:
+            - field_config
+  bundle_override:
+    layout:
+      display:
+        view:
+          mode:
+            default:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            full:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+    component:
+      display:
+        view:
+          mode:
+            default:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            full:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+    layout_row:
+      display:
+        view:
+          mode:
+            default:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            full:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+    region:
+      display:
+        view:
+          mode:
+            default:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            full:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+    drupal_block:
+      display:
+        view:
+          mode:
+            default:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            full:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+    layout_builder:
+      display:
+        view:
+          mode:
+            default:
+              use_layout_builder: '1'
+              allow_custom: '1'
+              inherit: ''
+              weight: '0'
+            full:
+              use_layout_builder: '1'
+              allow_custom: '1'
+              inherit: ''
+              weight: '0'
+            token:
+              use_layout_builder: '1'
+              inherit: ''
+              weight: '0'
+              allow_custom: 0
+    text:
+      display:
+        view:
+          mode:
+            default:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            full:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+    entity_field_widget:
+      display:
+        view:
+          mode:
+            default:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            full:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+    entity_field_formatter:
+      display:
+        view:
+          mode:
+            default:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            full:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+    image:
+      display:
+        view:
+          mode:
+            default:
+              inherit: block_content.basic.default
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            full:
+              inherit: block_content.basic.default
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: block_content.basic.default
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+    image_banner:
+      display:
+        view:
+          mode:
+            default:
+              use_layout_builder: '1'
+              inherit: ''
+              weight: '0'
+              allow_custom: 0
+            full:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+    icon:
+      display:
+        view:
+          mode:
+            default:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            full:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+    icon_card:
+      display:
+        view:
+          mode:
+            default:
+              use_layout_builder: '1'
+              inherit: ''
+              weight: '0'
+              allow_custom: 0
+            full:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+    heading:
+      display:
+        view:
+          mode:
+            default:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            full:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+    carousel:
+      display:
+        view:
+          mode:
+            default:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            full:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+block_content_type:
+  alter: true
+  resource:
+    per_entity:
+      optional:
+        entity_definition:
+          entity_field_group:
+            block_content:
+              entity_type: '{{ bundle_of_entity_type_id }}'
+              bundle: '{{ entity_id }}'
+              id: '{{ bundle_of_entity_type_id }}.{{ entity_id }}.component'
+              label: Component
+              description: 'Configure required and common fields of this component.'
+              type: details
+              weight: 0
+              show_inline: true
+              settings:
+                open: true
+              settings_inline:
+                open: true
+            container:
+              entity_type: '{{ bundle_of_entity_type_id }}'
+              bundle: '{{ entity_id }}'
+              id: '{{ bundle_of_entity_type_id }}.{{ entity_id }}.container'
+              label: Containers
+              description: 'Configure any number of containers that will wrap this component.'
+              type: details
+              weight: 90
+              show_inline: true
+              settings:
+                open: true
+              settings_inline:
+                open: false
+            advanced:
+              entity_type: '{{ bundle_of_entity_type_id }}'
+              bundle: '{{ entity_id }}'
+              id: '{{ bundle_of_entity_type_id }}.{{ entity_id }}.advanced'
+              label: Advanced
+              description: 'Configure less common scenarios such as inclusion in our component library.'
+              type: details
+              weight: 100
+              show_inline: true
+              settings:
+                open: true
+              settings_inline:
+                open: false
+            component_library:
+              entity_type: '{{ bundle_of_entity_type_id }}'
+              bundle: '{{ entity_id }}'
+              id: '{{ bundle_of_entity_type_id }}.{{ entity_id }}.component_library'
+              type: details
+              label: 'Component library'
+              description: 'Optionally re-use this component elsewhere by exposing it in our component library.'
+              weight: 100
+              parent: '{{ bundle_of_entity_type_id }}.{{ entity_id }}.advanced'
+              show_inline: true
+              settings:
+                open: false
+          base_field_override:
+            reuse:
+              entity_type: '{{ bundle_of_entity_type_id }}'
+              bundle: '{{ entity_id }}'
+              id: '{{ bundle_of_entity_type_id }}.{{ entity_id }}.reuse'
+              field_name: reuse
+              label: Reuse
+              field_type: '{{ field_type }}'
+              weight: 0
+              third_party_settings:
+                bd:
+                  overview:
+                    entity_field_group: '{{ bundle_of_entity_type_id }}.{{ entity_id }}.component_library'
+            label:
+              entity_type: '{{ bundle_of_entity_type_id }}'
+              bundle: '{{ entity_id }}'
+              id: '{{ bundle_of_entity_type_id }}.{{ entity_id }}.label'
+              field_name: label
+              label: Label
+              field_type: '{{ field_type }}'
+              weight: 10
+              third_party_settings:
+                bd:
+                  overview:
+                    entity_field_group: '{{ bundle_of_entity_type_id }}.{{ entity_id }}.component_library'
+            container:
+              entity_type: '{{ bundle_of_entity_type_id }}'
+              bundle: '{{ entity_id }}'
+              id: '{{ bundle_of_entity_type_id }}.{{ entity_id }}.container'
+              field_name: container
+              label: Containers
+              field_type: '{{ field_type }}'
+              weight: 0
+              settings:
+                target_type: block_content
+                handler: 'default:block_content'
+                handler_settings:
+                  target_bundles:
+                    container: container
+                  sort:
+                    field: info
+                    direction: ASC
+                  auto_create: true
+                  auto_create_bundle: ''
+              third_party_settings:
+                bd:
+                  overview:
+                    entity_field_group: '{{ bundle_of_entity_type_id }}.{{ entity_id }}.container'
+                    default_field_widget:
+                      plugin_id: inline_entity_form_complex
+config_entity_wrapper:
+  generate: true
+  label: Config
+  label_plural: Configs
+  base: normalized_content
+  tag:
+    - admin
+  field:
+    definition:
+      subject:
+        type: dynamic_entity_reference
+        label: 'Subject entity'
+        description: 'The entity that owns this config entity wrapper.'
+        translatable: true
+        revisionable: true
+  bundle_override:
+    block_content_type:
+      display:
+        mode:
+          default:
+            allow_custom: '0'
+            inherit: ''
+            weight: '0'
+location:
+  generate: true
+  label: Location
+  label_plural: Locations
+  base: normalized_content
+override:
+  generate: true
+  label: Override
+  label_plural: Overrides
+  base: normalized_content
+relation:
+  generate: true
+  label: Relation
+  label_plural: Relations
+  base: normalized_content
+  field:
+    definition:
+      source:
+        template: source
+      target:
+        template: target
+entity_field_group:
+  generate: true
+  label: 'Entity field group'
+  label_plural: 'Entity field groups'
+  base: normalized_config
+  id_template: '{{ entity_type }}.{{ bundle }}.{{ label_machine_name }}'
+  links:
+    collection: /admin/structure/entity-field-group
+  handlers:
+    route_provider:
+      entity_type_attach: \Drupal\bd\Entity\Routing\Provider\EntityTypeAttach
+    local_action_provider:
+      entity_type_attach: \Drupal\bd\Entity\Menu\ActionProvider\EntityTypeAttach
+bundle_field_definition:
+  generate: true
+  label: 'Computed field'
+  label_plural: 'Computed fields'
+  base: normalized_config
+  id_template: '{{ entity_type }}.{{ bundle }}.{{ label_machine_name }}'
+  links:
+    collection: /admin/structure/bundle-field-definition
+  handlers:
+    route_provider:
+      entity_type_attach: \Drupal\bd\Entity\Routing\Provider\EntityTypeAttach
+    local_action_provider:
+      entity_type_attach: \Drupal\bd\Entity\Menu\ActionProvider\EntityTypeAttach
+normalized_content:
+  template: true
+  base: normalized
+  group_label: Content
+  class: Drupal\bd\Entity\Entity\Content
+  bundle_label: '{{ entity_type_label_singular }} type'
+  handlers:
+    storage: Drupal\bd\Entity\Storage\SqlContentEntityStorage
+    storage_schema: Drupal\bd\Entity\Storage\SqlContentEntityStorageSchema
+    views_data: Drupal\bd\Entity\Views\EntityViewsData
+    route_provider:
+      html: Drupal\bd\Entity\Routing\DefaultHtmlRouteProvider
+    translation: Drupal\bd\Entity\Translation\EntityTranslationHandler
+    inline_form: Drupal\bd\Entity\Form\ContentInline
+    form:
+      default: Drupal\design_system\Form\ContentEntityViewDisplayForm
+      edit: Drupal\design_system\Form\ContentEntityViewDisplayForm
+      add: Drupal\design_system\Form\ContentEntityViewDisplayForm
+      delete: Drupal\bd\Entity\Form\Delete
+      delete-multiple-confirm: Drupal\bd\Entity\Form\DeleteMultiple
+      layout_builder: Drupal\layout_builder\Form\OverridesEntityForm
+  base_table: '{{ entity_type_id }}'
+  data_table: '{{ entity_type_id }}_field_data'
+  revision_table: '{{ entity_type_id }}_revision'
+  revision_data_table: '{{ entity_type_id }}_field_revision'
+  show_revision_ui: true
+  translatable: true
+  list_cache_contexts: false
+  entity_keys:
+    id: id
+    uuid: uuid
+    revision: revision_id
+    bundle: bundle
+    label: label
+    langcode: langcode
+    status: status
+    published: status
+    uid: uid
+    owner: uid
+    created: created
+    changed: changed
+    description: description
+  revision_metadata_keys:
+    revision_user: revision_user
+    revision_created: revision_created
+    revision_log_message: revision_log_message
+  field:
+    definition:
+      label:
+        template: label
+      uid:
+        template: uid
+      created:
+        template: created
+      changed:
+        template: changed
+      description:
+        template: description
+  bundle_entity_type: '{{ bundle_entity_type_id }}'
+  field_ui_base_route: 'entity.{{ bundle_entity_type_id }}.edit_form'
+  common_reference_target: false
+  permission_granularity: bundle
+  resource:
+    per_entity_type:
+      required:
+        template:
+          view:
+            admin: true
+            entity_browser: true
+          block:
+            admin_view_exposed_form: true
+          entity_form_mode:
+            inline: true
+          entity_view_mode:
+            embed: true
+          entity_browser:
+            modal: true
+  links:
+    canonical: '{{ path__canonical }}'
+    version-history: '{{ path__canonical }}/revisions'
+    revision: '{{ path__canonical }}/revisions/{{{ entity_type_id }}_revision}/view'
+    add-page: '{{ path__collection }}/add'
+    add-form: '{{ path__collection }}/add/{{{ bundle_entity_type_id }}}'
+  menu:
+    link:
+      collection:
+        rel: collection
+        label: '{{ entity_type_label_plural }}'
+        parent: system.admin_structure
+    action:
+      add-page:
+        rel: add-page
+        label: 'Add {{ entity_type_label_singular }}'
+        appears_on:
+          - 'entity.{{ entity_type_id }}.collection'
+    task:
+      canonical:
+        rel: canonical
+        label: View
+        base_route: 'entity.{{ entity_type_id }}.canonical'
+      edit-form:
+        rel: edit-form
+        label: Edit
+        base_route: 'entity.{{ entity_type_id }}.canonical'
+      delete-form:
+        rel: delete-form
+        label: Delete
+        base_route: 'entity.{{ entity_type_id }}.canonical'
+normalized_bundle:
+  template: true
+  base: normalized_config
+  class: Drupal\bd\Entity\Entity\Bundle
+  config_prefix: 'bundle.{{ bundle_of_entity_type_id }}'
+  config_export:
+    - id
+    - label
+    - description
+    - dependencies
+    - status
+    - langcode
+  constraints:
+    UniqueEntityLabel:
+      per_bundle: true
+  handlers:
+    form:
+      default: Drupal\bd\Entity\Form\Bundle
+      add: Drupal\bd\Entity\Form\Bundle
+      edit: Drupal\bd\Entity\Form\Bundle
+      delete-multiple-confirm: Drupal\bd\Entity\Form\DeleteMultiple
+  links:
+    canonical: '/admin/structure/{{ bundle_of_entity_type_id }}/type/{{{ entity_type_id }}}'
+    edit-form: '/admin/structure/{{ bundle_of_entity_type_id }}/type/{{{ entity_type_id }}}/edit'
+    delete-form: '/admin/structure/{{ bundle_of_entity_type_id }}/type/{{{ entity_type_id }}}/delete'
+    collection: '/admin/structure/{{ bundle_of_entity_type_id }}/type'
+  menu:
+    link:
+      collection:
+        rel: collection
+        label: '{{ entity_type_label_plural }}'
+        parent: 'entity.{{ bundle_of_entity_type_id }}.collection'
+normalized_config:
+  template: true
+  base: normalized
+  group_label: Configuration
+  class: Drupal\bd\Entity\Entity\Config
+  config_prefix: '{{ entity_type_id }}'
+  tag:
+    - admin
+  entity_keys:
+    id: id
+    label: label
+    uuid: uuid
+  handlers:
+    inline_form: Drupal\bd\Entity\Form\ConfigInline
+    form:
+      default: Drupal\bd\Entity\Form\Config
+      add: Drupal\bd\Entity\Form\Config
+      edit: Drupal\bd\Entity\Form\Config
+      delete: Drupal\Core\Entity\EntityDeleteForm
+      delete-multiple-confirm: Drupal\bd\Entity\Form\DeleteMultiple
+  links:
+    add-form: '{{ path__collection }}/add'
+  menu:
+    link:
+      collection:
+        rel: collection
+        label: '{{ entity_type_label_plural }}'
+        parent: system.admin_structure
+    action:
+      add-form:
+        rel: add-form
+        label: 'Add {{ entity_type_label_singular }}'
+        appears_on:
+          - 'entity.{{ entity_type_id }}.collection'
+    task:
+      edit-form:
+        rel: edit-form
+        label: Edit
+        base_route: 'entity.{{ entity_type_id }}.edit_form'
+      delete-form:
+        rel: delete-form
+        label: Delete
+        base_route: 'entity.{{ entity_type_id }}.edit_form'
+  display:
+    view: {  }
+    form:
+      op:
+        '*':
+          new:
+            button:
+              submit:
+                label_template: 'Create @entity_type_label_singular'
+                message:
+                  pass:
+                    clear: true
+                    list:
+                      - 'Your @entity_type_label_singular @entity_label was created successfully.'
+                  fail:
+                    clear: false
+                    list:
+                      - 'There was an error saving the form.'
+                ajax:
+                  refresh:
+                    plugin: refresh_form
+          existing:
+            button:
+              submit:
+                label_template: 'Save @entity_type_label_singular'
+                message:
+                  pass:
+                    clear: true
+                    list:
+                      - 'Your @entity_type_label_singular @entity_label was saved successfully.'
+                  fail:
+                    clear: false
+                    list:
+                      - 'There was an error saving the form.'
+                ajax:
+                  refresh:
+                    plugin: refresh_form
+        delete:
+          existing:
+            button:
+              submit:
+                label_template: 'Delete @entity_type_label_singular'
+                message:
+                  pass:
+                    clear: true
+                    list:
+                      - 'Your @entity_type_label_singular @entity_label was deleted successfully.'
+                  fail:
+                    clear: false
+                    list:
+                      - 'There was an error saving the form.'
+                ajax:
+                  redirect:
+                    plugin: redirect
+                    definition:
+                      rel: collection
+normalized:
+  template: true
+  id: '{{ entity_type_id }}'
+  provider: bd
+  label_collection: '{{ entity_type_label_plural }}'
+  label_singular: '{{ entity_type_label_singular }}'
+  label_count:
+    singular: '@count {{ entity_type_label_singular }}'
+    plural: '@count {{ entity_type_label_plural }}'
+  handlers:
+    access: Drupal\bd\Entity\Access\EntityAccessControlHandler
+    permission_provider: Drupal\bd\Entity\Access\EntityPermissionProvider
+    list_builder: Drupal\bd\Entity\ListBuilder\EntityListBuilder
+    view_builder: Drupal\bd\Entity\EntityViewBuilder
+    route_provider:
+      html: Drupal\bd\Entity\Routing\DefaultHtmlRouteProvider
+  admin_permission: '{{ entity_type_id }} administer'
+  links:
+    edit-form: '{{ path__canonical }}/edit'
+    delete-form: '{{ path__canonical }}/delete'
+    collection: '{{ path__collection }}'
+  menu:
+    task:
+      canonical:
+        rel: canonical
+        label: View
+        base_route: 'entity.{{ entity_type_id }}.canonical'
+      edit-form:
+        rel: edit-form
+        label: Edit
+        base_route: 'entity.{{ entity_type_id }}.canonical'
+      delete-form:
+        rel: delete-form
+        label: Delete
+        base_route: 'entity.{{ entity_type_id }}.canonical'
+    route:
+      canonical:
+        option:
+          _title_template: '@entity_label'
+      collection:
+        option:
+          _title_template: '@entity_type_label_singular Admin Overview'
+      add_form:
+        option:
+          _title_template: 'Create @entity_type_or_bundle_label_singular'
+      add_page:
+        option:
+          _title_template: 'Create @entity_type_label_singular'
+      edit-form:
+        option:
+          _title_template: 'Edit @entity_type_or_bundle_label_singular @entity_label'
+      delete-form:
+        option:
+          _title_template: 'Delete @entity_type_or_bundle_label_singular @entity_label'
+entity_view_display:
+  alter: true
+  class: Drupal\design_system\Entity\Entity\EntityViewDisplay
+  originalClass: Drupal\Core\Entity\Entity\EntityViewDisplay
+  handlers:
+    storage: \Drupal\layout_builder\Entity\LayoutBuilderEntityViewDisplayStorage
+    form:
+      default: \Drupal\design_system\Form\EntityDisplay\EntityViewDisplayEditForm
+      edit: \Drupal\design_system\Form\EntityDisplay\EntityViewDisplayEditForm
+      layout_builder: \Drupal\layout_builder\Form\DefaultsEntityForm
+  display:
+    form:
+      op:
+        '*':
+          new:
+            button:
+              submit:
+                label_template: 'Save settings'
+                message:
+                  pass:
+                    clear: true
+                    list:
+                      - 'Your display settings were saved successfully.'
+                  fail:
+                    clear: false
+                    list:
+                      - 'There was an error saving the form.'
+                ajax:
+                  refresh:
+                    plugin: refresh_form
+          existing:
+            button:
+              submit:
+                label_template: 'Save settings'
+                message:
+                  pass:
+                    clear: true
+                    list:
+                      - 'Your display settings were saved successfully.'
+                  fail:
+                    clear: false
+                    list:
+                      - 'There was an error saving the form.'
+                ajax:
+                  refresh:
+                    plugin: refresh_form
+entity_form_display:
+  alter: true
+  display:
+    form:
+      op:
+        '*':
+          new:
+            button:
+              submit:
+                label_template: 'Save settings'
+                message:
+                  pass:
+                    clear: true
+                    list:
+                      - 'Your display settings were saved successfully.'
+                  fail:
+                    clear: false
+                    list:
+                      - 'There was an error saving the form.'
+                ajax:
+                  refresh:
+                    plugin: refresh_form
+          existing:
+            button:
+              submit:
+                label_template: 'Save settings'
+                message:
+                  pass:
+                    clear: true
+                    list:
+                      - 'Your display settings were saved successfully.'
+                  fail:
+                    clear: false
+                    list:
+                      - 'There was an error saving the form.'
+                ajax:
+                  refresh:
+                    plugin: refresh_form
+field_storage_config:
+  alter: true
+  handlers:
+    form:
+      default: \Drupal\bd\Entity\Form\Field\FieldStorageConfigEditForm
+      edit: \Drupal\bd\Entity\Form\Field\FieldStorageConfigEditForm
+field_config:
+  alter: true
+  handlers:
+    list_builder: \Drupal\bd\Entity\ListBuilder\FieldConfigListBuilder
+    form:
+      default: \Drupal\bd\Entity\Form\Field\FieldConfigEditForm
+      edit: \Drupal\bd\Entity\Form\Field\FieldConfigEditForm
+base_field_override:
+  alter: true
+  label: 'Base field override'
+  label_plural: 'Base field overrides'
+  base: normalized_config
+  admin_permission: 'administer site configuration'
+  handlers:
+    inline_form: Drupal\bd\Entity\Form\ConfigInline
+    form:
+      default: Drupal\bd\Entity\Form\Config
+      add: Drupal\bd\Entity\Form\Config
+      edit: Drupal\bd\Entity\Form\Config
+      delete: Drupal\Core\Entity\EntityDeleteForm
+      delete-multiple-confirm: Drupal\bd\Entity\Form\DeleteMultiple
+    list_builder: \Drupal\Core\Entity\EntityListBuilder
+    view_builder: \Drupal\bd\Entity\EntityViewBuilder
+    route_provider:
+      html: Drupal\bd\Entity\Routing\DefaultHtmlRouteProvider
+      entity_type_attach: \Drupal\bd\Entity\Routing\Provider\EntityTypeAttach
+    local_action_provider:
+      entity_type_attach: \Drupal\bd\Entity\Menu\ActionProvider\EntityTypeAttach
+    local_task_provider:
+      default: \Drupal\entity\Menu\DefaultEntityLocalTaskProvider
+  id_template: '{{ entity_type }}.{{ bundle }}.{{ label_machine_name }}'
+  links:
+    collection: /admin/structure/base-field-override
+    canonical: '/admin/structure/base-field-override/{base_field_override}'
+    edit-form: '/admin/structure/base-field-override/{base_field_override}/edit'
+    delete-form: '/admin/structure/base-field-override/{base_field_override}/delete'
+block:
+  alter: true
+  handlers:
+    view_builder: \Drupal\design_system\Block\BlockViewBuilder
+media:
+  alter: true
+  links:
+    canonical: '/media/{media}'
+  handlers:
+    route_provider:
+      html: \Drupal\bd\Entity\Routing\DefaultHtmlRouteProvider
+      revision: \Drupal\entity\Routing\RevisionRouteProvider
+  field:
+    alter:
+      directory:
+        description: 'Structure this asset in the media library by specifying its folder.'
+        default_value: 112
+  bundle_override:
+    image:
+      display:
+        view:
+          mode:
+            default:
+              inherit: media.audio.default
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            embed:
+              inherit: media.audio.default
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            full:
+              inherit: media.audio.default
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            slick:
+              inherit: media.audio.default
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: media.audio.default
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+node:
+  alter: true
+  handlers:
+    form:
+      default: \Drupal\Core\Entity\ContentEntityForm
+      edit: \Drupal\Core\Entity\ContentEntityForm
+      add: \Drupal\Core\Entity\ContentEntityForm
+    route_provider:
+      html: \Drupal\bd\Entity\Routing\DefaultHtmlRouteProvider
+      revision: \Drupal\entity\Routing\RevisionRouteProvider
+  links:
+    edit-form: '/admin/content/{node}/edit'
+  field:
+    alter:
+      title:
+        label: Title
+        description: 'Titles should be meaningful and concise and need to be unique.'
+        required: true
+    extra:
+      form:
+        menu:
+          label: Menu
+          description: 'Control placement of menu element.'
+          weight: 930
+    definition:
+      label_ia:
+        template: label_ia
+      label_browser:
+        template: label_browser
+      label_display:
+        template: label_display
+      description:
+        template: description
+      redirect:
+        type: entity_reference
+        label: Redirects
+        description: 'Configure redirects from other site-specific paths to this page.'
+        settings:
+          target_type: redirect
+        required: false
+        cardinality: -1
+        translatable: true
+        revisionable: true
+  bundle_override:
+    landing_page:
+      display:
+        mode:
+          default:
+            allow_custom: '1'
+            inherit: ''
+            weight: '0'
+          diff:
+            inherit: ''
+            weight: '1'
+            allow_custom: 0
+          full:
+            inherit: ''
+            weight: '2'
+            allow_custom: 0
+          pdf:
+            inherit: ''
+            weight: '3'
+            allow_custom: 0
+          rss:
+            inherit: ''
+            weight: '4'
+            allow_custom: 0
+          search_result:
+            inherit: ''
+            weight: '5'
+            allow_custom: 0
+          token:
+            inherit: ''
+            weight: '6'
+            allow_custom: 0
+          teaser:
+            inherit: ''
+            weight: '7'
+            allow_custom: 0
+          text_overlay_media:
+            inherit: ''
+            weight: '8'
+            allow_custom: 0
+    screen:
+      display:
+        view:
+          mode:
+            default:
+              use_layout_builder: '1'
+              allow_custom: '1'
+              inherit: ''
+              weight: '0'
+            diff:
+              use_layout_builder: '1'
+              inherit: ''
+              weight: '0'
+              allow_custom: 0
+            full:
+              use_layout_builder: '1'
+              inherit: ''
+              weight: '0'
+              allow_custom: 0
+            rss:
+              use_layout_builder: '1'
+              inherit: ''
+              weight: '0'
+              allow_custom: 0
+            search_index:
+              use_layout_builder: '1'
+              inherit: ''
+              weight: '0'
+              allow_custom: 0
+            search_result:
+              use_layout_builder: '1'
+              inherit: ''
+              weight: '0'
+              allow_custom: 0
+            teaser:
+              use_layout_builder: '1'
+              inherit: ''
+              weight: '0'
+              allow_custom: 0
+            token:
+              use_layout_builder: '1'
+              inherit: ''
+              weight: '0'
+              allow_custom: 0
+taxonomy_term:
+  alter: true
+  admin_permission: 'administer taxonomy'
+  handlers:
+    form:
+      default: \Drupal\Core\Entity\ContentEntityForm
+      edit: \Drupal\Core\Entity\ContentEntityForm
+      add: \Drupal\Core\Entity\ContentEntityForm
+    route_provider:
+      html: \Drupal\bd\Entity\Routing\DefaultHtmlRouteProvider
+      revision: \Drupal\entity\Routing\RevisionRouteProvider
+    access: \Drupal\entity\EntityAccessControlHandler
+    permission_provider: \Drupal\entity\EntityPermissionProvider
+    local_action_provider:
+      collection: \Drupal\entity\Menu\EntityCollectionLocalActionProvider
+    menu_link_provider:
+      bundle: \Drupal\entity\Menu\EntityBundleMenuLinkProvider
+    moderation: \Drupal\content_moderation\Entity\Handler\Moderation
+  links:
+    collection: /admin/structure/taxonomy
+    add-page: /admin/structure/taxonomy/add
+  field:
+    alter:
+      name:
+        label: 'Taxonomy term names must be unique within a taxonomy vocabulary.'
+      description:
+        label: 'Describe this taxonomy term for context to internal people only.'
+    definition:
+      label_ia:
+        template: label_ia
+      label_browser:
+        template: label_browser
+      label_display:
+        template: label_display
+      redirect:
+        type: entity_reference
+        label: Redirects
+        description: 'Configure redirects from other site-specific paths to this page.'
+        settings:
+          target_type: redirect
+        required: false
+        cardinality: -1
+        translatable: true
+        revisionable: true
+taxonomy_vocabulary:
+  alter: true
+  handlers:
+    access: \Drupal\entity\EntityAccessControlHandler
+    permission_provider: \Drupal\entity\EntityPermissionProvider
+    route_provider:
+      html: \Drupal\bd\Entity\Routing\DefaultHtmlRouteProvider
+      vocabulary: \Drupal\taxonomy\Entity\Routing\VocabularyRouteProvider
+  links:
+    collection: /admin/structure/taxonomy/manage
+    add-form: /admin/structure/taxonomy/manage/add
+user:
+  alter: true
+  links:
+    edit-form: '/admin/people/{user}/edit'
+  field:
+    alter:
+      mail:
+        description: ''
+  handlers:
+    form:
+      default: \Drupal\Core\Entity\ContentEntityForm
+      edit: \Drupal\Core\Entity\ContentEntityForm
+      add: \Drupal\Core\Entity\ContentEntityForm
+      register: \Drupal\Core\Entity\ContentEntityForm
+  display:
+    form:
+      op:
+        register:
+          new:
+            button:
+              submit:
+                label_template: Submit
+                message:
+                  pass:
+                    clear: true
+                    list:
+                      - 'We''ve received your registration. Thank you!'
+                  fail:
+                    clear: false
+                    list:
+                      - 'There was an error saving the form.'
+                ajax:
+                  refresh:
+                    plugin: refresh_form
+path_alias:
+  alter: true
+  handlers:
+    views_data: \Drupal\views\EntityViewsData
+redirect:
+  alter: true
+  handlers:
+    inline_form: \Drupal\design_system\Form\Inline\Redirect
+group:
+  alter: true
+  handlers:
+    form:
+      default: \Drupal\group\Entity\Form\GroupForm
+      edit: \Drupal\group\Entity\Form\GroupForm
+      add: \Drupal\group\Entity\Form\GroupForm
+group_content_type:
+  alter: true
+  admin_permission: 'administer groups'
+  links:
+    collection: /admin/group/content/type
+  handlers:
+    list_builder: \Drupal\Core\Entity\EntityListBuilder
+    route_provider:
+      html: \Drupal\bd\Entity\Routing\DefaultHtmlRouteProvider
+    menu_link_provider:
+      bundle: \Drupal\entity\Menu\EntityBundleMenuLinkProvider
+group_content:
+  alter: true
+  handlers:
+    form:
+      default: \Drupal\group\Entity\Form\GroupContentForm
+      edit: \Drupal\group\Entity\Form\GroupContentForm
+      add: \Drupal\group\Entity\Form\GroupContentForm
+config_entity_wrapper_type:
+  alter: true
+  handlers:
+    form:
+      default: \Drupal\bd\Config\Wrapper\Form\Bundle
+      edit: \Drupal\Config\Wrapper\Form\Bundle
+      add: \Drupal\Config\Wrapper\Form\Bundle
+tag__content:
+  alter: true
+  handlers:
+    form:
+      layout_builder: \Drupal\design_system\Form\LayoutBuilder\OverridesEntityForm
+  links:
+    layout: '{{ path__canonical }}/layout'
+  field:
+    extra:
+      form:
+        actions:
+          label: Actions
+          description: 'Provides the form submit buttons of an entity form.'
+          weight: 900
+        simple_sitemap:
+          label: Sitemap
+          description: 'Configure simple sitemap form behavior.'
+          weight: 910
+  display:
+    mode:
+      '*':
+        inherit: ''
+        weight: '0'
+        use_layout_builder: 1
+        allow_custom: 0
+    view: {  }
+    form:
+      entity_view_display:
+        enabled: true
+      op:
+        '*':
+          new:
+            button:
+              submit:
+                label_template: 'Create @entity_type_label_singular'
+                message:
+                  pass:
+                    clear: true
+                    list:
+                      - 'Your @entity_type_label_singular @entity_label was created successfully.'
+                  fail:
+                    clear: false
+                    list:
+                      - 'There was an error saving the form.'
+                ajax:
+                  redirect:
+                    plugin: redirect
+                    definition:
+                      rel: canonical
+          existing:
+            button:
+              submit:
+                label_template: 'Save @entity_type_label_singular'
+                message:
+                  pass:
+                    clear: true
+                    list:
+                      - 'Your @entity_type_label_singular @entity_label was saved successfully.'
+                  fail:
+                    clear: false
+                    list:
+                      - 'There was an error saving the form.'
+                ajax:
+                  redirect:
+                    plugin: redirect
+                    definition:
+                      rel: collection
+        delete:
+          existing:
+            button:
+              submit:
+                label_template: 'Delete @entity_type_label_singular'
+                message:
+                  pass:
+                    clear: true
+                    list:
+                      - 'Your @entity_type_label_singular @entity_label was deleted successfully.'
+                  fail:
+                    clear: false
+                    list:
+                      - 'There was an error saving the form.'
+                ajax:
+                  redirect:
+                    plugin: redirect
+                    definition:
+                      rel: collection
+tag__path__canonical:
+  alter: true
+  handlers:
+    form:
+      duplicate: \Drupal\bd\Entity\Form\Duplicate
+    route_provider:
+      catchall: \Drupal\bd\Entity\Routing\DefaultHtmlRouteProvider
+  links:
+    duplicate-form: '{{ path__canonical }}/duplicate'
+bundle_override:
+  landing_page:
+    display:
+      mode:
+        default:
+          allow_custom: '1'
+          inherit: ''
+          weight: '0'
+        diff:
+          inherit: ''
+          weight: '0'
+          allow_custom: 0
+        full:
+          inherit: ''
+          weight: '0'
+          allow_custom: 0
+        pdf:
+          inherit: ''
+          weight: '0'
+          allow_custom: 0
+        rss:
+          inherit: ''
+          weight: '0'
+          allow_custom: 0
+        search_result:
+          inherit: ''
+          weight: '0'
+          allow_custom: 0
+        teaser:
+          inherit: ''
+          weight: '0'
+          allow_custom: 0
+        text_overlay_media:
+          inherit: ''
+          weight: '0'
+          allow_custom: 0
+        token:
+          inherit: ''
+          weight: '0'
+          allow_custom: 0
+menu_link_content:
+  bundle_override:
+    main:
+      display:
+        view:
+          mode:
+            default:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+    footer:
+      display:
+        view:
+          mode:
+            default:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0

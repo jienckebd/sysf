@@ -1,0 +1,12 @@
+uuid: ae8aecf5-b742-4470-b9f2-6b4f86278e9e
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - views_bulk_edit
+id: media_edit_action
+label: 'Edit media'
+type: media
+plugin: 'entity:edit_action:media'
+configuration: {  }

@@ -1,0 +1,17 @@
+uuid: 16880115-8cdc-4f76-b2ab-15a4c7f723d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.s_100
+  module:
+    - crop
+name: s_100
+label: 'Standard (x100)'
+effects:
+  c6521005-c83f-4176-9b45-65ac1ea07ace:
+    uuid: c6521005-c83f-4176-9b45-65ac1ea07ace
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: s_100

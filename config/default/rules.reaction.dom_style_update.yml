@@ -1,0 +1,66 @@
+uuid: 6cff38f4-45c2-407e-8a20-827c139cd470
+langcode: en
+status: true
+dependencies: {  }
+id: dom_style_update
+label: 'Dom: style: update'
+events:
+  -
+    event_name: 'rules_entity_update:dom--style'
+  -
+    event_name: 'rules_entity_insert:dom--style'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: e37f91b3-18a3-4578-acc6-774b722701fb
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: fea6f013-689b-4f43-9350-13984b16b7db
+    weight: 0
+    conditions: {  }
+  actions:
+    id: rules_action_set
+    uuid: 8c60cb39-8092-47fd-8bf5-14a2ebfab386
+    weight: 0
+    actions:
+      -
+        id: rules_action
+        uuid: 2ab563c6-1a96-423c-b6c1-78177de8f8b1
+        weight: -50
+        context_values:
+          dependency_type: '113'
+          entity_type: dom
+          bundle: style
+        context_mapping:
+          entity: dom
+        context_processors:
+          dependency_type:
+            rules_tokens: {  }
+          entity_type:
+            rules_tokens: {  }
+          bundle:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: entity_dependency_build
+      -
+        id: rules_action
+        uuid: beb08039-b0bc-4467-b779-0acf241902c4
+        weight: -49
+        context_values:
+          dependency_type: '113'
+          entity_type: dom
+          bundle: color
+        context_mapping:
+          entity: dom
+        context_processors:
+          dependency_type:
+            rules_tokens: {  }
+          entity_type:
+            rules_tokens: {  }
+          bundle:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: entity_dependency_build

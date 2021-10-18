@@ -1,0 +1,29 @@
+uuid: 94c99bbe-fa93-4a6e-bc2b-24a23f21821e
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.border_right_style
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: border-right-style
+    behavior:
+      dom:
+        subattribute: border-right-style
+id: dom.style.border_right_style
+field_name: border_right_style
+entity_type: dom
+bundle: style
+label: border-right-style
+description: 'Sets the style of the right border'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

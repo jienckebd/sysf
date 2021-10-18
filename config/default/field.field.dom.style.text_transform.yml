@@ -1,0 +1,29 @@
+uuid: 43097178-54ae-4d07-b57f-331f81bed431
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.text_transform
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: text-transform
+    behavior:
+      dom:
+        subattribute: text-transform
+id: dom.style.text_transform
+field_name: text_transform
+entity_type: dom
+bundle: style
+label: text-transform
+description: 'Controls the letters in an element'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

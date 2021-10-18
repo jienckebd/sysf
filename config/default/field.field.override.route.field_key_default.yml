@@ -1,0 +1,86 @@
+uuid: 9130fb62-baba-4c97-bb96-e07e8f01ce59
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.override.route
+    - field.storage.override.field_key_default
+  module:
+    - bd
+    - key_value_field
+third_party_settings:
+  bd:
+    overview:
+      entity_field_group: ''
+      default_field_widget:
+        plugin_id: ''
+      default_field_formatter:
+        plugin_id: ''
+      weight: ''
+      cardinality: ''
+    element:
+      field_items:
+        container: ''
+      field_item:
+        container: ''
+      field_value:
+        container: ''
+        override: ''
+        callback: ''
+      label:
+        container: ''
+        override: ''
+        display_position: before
+      description:
+        container: ''
+        override: ''
+        display_position: after
+    behavior:
+      access:
+        view:
+          0:
+            condition:
+              plugin_id: ''
+          condition_list:
+            actions: {  }
+        edit:
+          0:
+            condition:
+              plugin_id: ''
+          restrict_behavior: ''
+          condition_list:
+            actions: {  }
+      translation:
+        force_langcode: ''
+        disable: 0
+      default_value:
+        plugin:
+          plugin_id: ''
+      multi_value:
+        max: ''
+        delimiter: ''
+      empty_value:
+        plugin:
+          plugin_id: ''
+      dom:
+        attribute: ''
+        subattribute: ''
+        theme_hook: ''
+        theme_hook_selector: ''
+        theme_hook_match_key: ''
+        theme_hook_match_value: ''
+        build_css_field_name: ''
+        build_css: 0
+id: override.route.field_key_default
+field_name: field_key_default
+entity_type: override
+bundle: route
+label: 'Route defaults'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: '\Drupal\bd\Entity\EntityFieldDefaultValue::derivedDefaultValue'
+settings:
+  default_format: basic_html
+field_type: key_value_long

@@ -1,0 +1,57 @@
+services:
+
+  design.system:
+    class: Drupal\design_system\DesignSystem
+    arguments: ['@entity.helper', '@entity_display.repository', '@renderer', '@plugin.manager.core.layout', '@token', '@context.repository', '@current_route_match', '@router.route_provider', '@database', '@messenger', '@config.factory', '@cache.default', '@logger.channel.design_system']
+
+  dom:
+    class: Drupal\design_system\Dom
+    arguments: [ '@entity.helper', '@entity_field.manager', '@entity.builder', '@config.processor', '@cache.default', '@logger.channel.entity' ]
+
+  design_system.media_helper:
+    class: '\Drupal\design_system\MediaHelper'
+    arguments: ['@entity.helper']
+
+  design_system.event_subscriber.generic:
+    class: Drupal\design_system\EventSubscriber\Generic
+    arguments: ['@entity.helper', '@design.system', '@design_system.media_helper', '@current_route_match', '@cache.default', '@logger.channel.design_system']
+    tags:
+      - { name: event_subscriber }
+
+  entity_display.builder:
+    class: Drupal\design_system\EntityDisplayBuilder
+    arguments: ['@design.system', '@entity.helper', '@entity_field.manager', '@entity_type.bundle.info', '@entity_display.repository', '@renderer', '@token', '@database', '@messenger', '@config.factory', '@cache.default', '@logger.channel.design_system']
+
+  design_system.route_subscriber:
+    class: Drupal\design_system\Routing\RouteSubscriber
+    arguments: ['@entity.helper', '@design.system', '@plugin.manager.layout_builder.section_storage']
+    tags:
+      - { name: event_subscriber }
+
+  design_system.context_provider.entity_display:
+    class: 'Drupal\design_system\Context\EntityDisplay'
+    arguments: [ '@entity_type.manager', '@current_route_match', '@logger.channel.design_system', '@string_translation' ]
+    tags:
+      - { name: 'context_provider' }
+
+  design_system.context_provider.theme_entity_default:
+    class: 'Drupal\design_system\Context\ThemeEntityDefault'
+    arguments: [ '@entity_type.manager', '@current_route_match', '@logger.channel.design_system', '@string_translation' ]
+    tags:
+      - { name: 'context_provider' }
+
+  design_system.context_provider.theme_entity_admin:
+    class: 'Drupal\design_system\Context\ThemeEntityAdmin'
+    arguments: [ '@entity_type.manager', '@current_route_match', '@logger.channel.design_system', '@string_translation' ]
+    tags:
+      - { name: 'context_provider' }
+
+  main_content_renderer.ajax_history:
+    class: Drupal\design_system\Render\MainContent\AjaxHistory
+    arguments: ['@title_resolver', '@plugin.manager.display_variant', '@event_dispatcher', '@module_handler', '@renderer', '@render_cache', '%renderer.config%']
+    tags:
+      - { name: render.main_content_renderer, format: drupal_ajax_history }
+
+  logger.channel.design_system:
+    parent: logger.channel_base
+    arguments: ['design_system']

@@ -1,0 +1,21 @@
+uuid: b2b7c1e5-20ea-4a1f-bd86-17997005bdb3
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.app.workspace
+    - field.storage.app.field_icon
+  module:
+    - fontawesome
+id: app.workspace.field_icon
+field_name: field_icon
+entity_type: app
+bundle: workspace
+label: Icon
+description: 'Select an icon that will be used to indicate this workspace.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: fontawesome_icon

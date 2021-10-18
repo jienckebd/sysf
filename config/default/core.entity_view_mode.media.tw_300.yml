@@ -1,0 +1,10 @@
+uuid: 5cf807dc-a1d0-424c-8a99-ca0ee00d9564
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.tw_300
+label: 'Tall wide (x300)'
+targetEntityType: media
+cache: true

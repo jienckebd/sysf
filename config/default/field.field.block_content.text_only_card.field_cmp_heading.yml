@@ -1,0 +1,29 @@
+uuid: a152eef8-f2a8-4e46-a6da-418fe8fc1cf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.heading
+    - block_content.type.text_only_card
+    - field.storage.block_content.field_cmp_heading
+id: block_content.text_only_card.field_cmp_heading
+field_name: field_cmp_heading
+entity_type: block_content
+bundle: text_only_card
+label: Heading
+description: 'Provide a heading component.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      heading: heading
+    sort:
+      field: info
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

@@ -1,0 +1,6 @@
+name: 'Sys: Core'
+core: 8.x
+type: module
+description: 'System Specific: Core'
+version: '8.x-1.0.0'
+package: Sys

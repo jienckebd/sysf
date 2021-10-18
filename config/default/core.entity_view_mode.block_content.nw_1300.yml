@@ -1,0 +1,10 @@
+uuid: 87154adc-14d2-446a-87f0-80c916a122fe
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.nw_1300
+label: 'Narrow wide (x1300)'
+targetEntityType: block_content
+cache: true

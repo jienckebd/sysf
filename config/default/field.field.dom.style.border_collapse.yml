@@ -1,0 +1,29 @@
+uuid: 900ba391-a54b-40ed-b9d5-ddbacaa06742
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.border_collapse
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: border-collapse
+    behavior:
+      dom:
+        subattribute: border-collapse
+id: dom.style.border_collapse
+field_name: border_collapse
+entity_type: dom
+bundle: style
+label: border-collapse
+description: 'Sets whether the table borders are collapsed into a single border or detached as in standard HTML'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

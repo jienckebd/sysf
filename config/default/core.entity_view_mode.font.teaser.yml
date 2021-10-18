@@ -1,0 +1,10 @@
+uuid: e3ce0804-8310-4275-8e38-6e145055a25c
+langcode: en
+status: false
+dependencies:
+  module:
+    - fontyourface
+id: font.teaser
+label: 'Teaser Mode'
+targetEntityType: font
+cache: false

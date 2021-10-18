@@ -1,0 +1,19 @@
+uuid: 9a20e0c6-719a-4159-be75-8a1187573eda
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.container
+    - field.storage.block_content.field_height
+id: block_content.container.field_height
+field_name: field_height
+entity_type: block_content
+bundle: container
+label: Height
+description: 'Set an explicit height in pixels, em, rem, or percentage.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

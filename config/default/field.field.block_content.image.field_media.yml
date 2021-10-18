@@ -1,0 +1,29 @@
+uuid: a5090213-d530-4566-aaf9-70767bbf3a63
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image
+    - field.storage.block_content.field_media
+    - media.type.image
+id: block_content.image.field_media
+field_name: field_media
+entity_type: block_content
+bundle: image
+label: Image
+description: 'Specify the image of this component.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: name
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: image
+field_type: entity_reference_revisions

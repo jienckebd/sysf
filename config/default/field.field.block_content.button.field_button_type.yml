@@ -1,0 +1,21 @@
+uuid: b7e31a82-9574-45f3-bf08-38172fd8ccef
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.button
+    - field.storage.block_content.field_button_type
+  module:
+    - options
+id: block_content.button.field_button_type
+field_name: field_button_type
+entity_type: block_content
+bundle: button
+label: 'Button type'
+description: 'Button types control the background, border, and text colors.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

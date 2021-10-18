@@ -1,0 +1,17 @@
+uuid: 4cf71b8e-f78c-452c-a22d-f669b06479ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.t_800
+  module:
+    - crop
+name: t_800
+label: 'Tall (x800)'
+effects:
+  3bb219b1-6ab3-4b02-94ce-12c3fe51e3ce:
+    uuid: 3bb219b1-6ab3-4b02-94ce-12c3fe51e3ce
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: t_800

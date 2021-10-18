@@ -1,0 +1,29 @@
+uuid: 58d4aa16-23d3-477b-a594-dec0fd90f8ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.background_attachment
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: background-attachment
+    behavior:
+      dom:
+        subattribute: background-attachment
+id: dom.style.background_attachment
+field_name: background_attachment
+entity_type: dom
+bundle: style
+label: background-attachment
+description: 'Sets whether a background image is fixed or scrolls with the rest of the page'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

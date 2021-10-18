@@ -1,0 +1,19 @@
+uuid: 90c45f8e-80de-43bb-a477-6a567b1e002c
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - plugin
+id: block_content.field_plugin_data_deriver
+field_name: field_plugin_data_deriver
+entity_type: block_content
+type: 'plugin:data_deriver'
+settings: {  }
+module: plugin
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

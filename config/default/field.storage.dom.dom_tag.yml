@@ -1,0 +1,22 @@
+uuid: 2c120ba1-72f6-44a1-afc6-b5da495b816f
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.dom_tag
+field_name: dom_tag
+entity_type: dom
+type: entity_reference
+settings:
+  target_type: dom
+  schema__derivative: null
+  schema__base_target_id: null
+  deriver: null
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

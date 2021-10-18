@@ -1,0 +1,10 @@
+uuid: 15ef18a7-d327-4a35-9695-d8f8717256e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: network.embed
+label: Embed
+targetEntityType: network
+cache: true

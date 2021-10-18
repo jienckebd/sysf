@@ -1,0 +1,54 @@
+# Core/contrib/vendor.
+/docroot/core
+/docroot/modules/contrib
+/docroot/profiles/contrib
+/docroot/themes/contrib
+/docroot/themes/*/*/node_modules
+/docroot/themes/*/*/*/node_modules
+*/node_modules
+/docroot/libraries
+vendor/
+
+# Drupal sites
+!/docroot/sites/default/development.services.yml
+!/docroot/sites/default/services.yml
+
+# Host machine
+.DS_STORE
+
+# BLT 11.2.0 update to support simulated deploys
+/travis_wait*
+/deployment_identifier
+
+/docroot/sites/default/files
+
+# Drupal scaffold.
+/.editorconfig
+/.gitattributes
+/docroot/.csslintrc
+/docroot/.eslintignore
+/docroot/.eslintrc.json
+/docroot/.ht.router.php
+/docroot/.htaccess
+/docroot/example.gitignore
+/docroot/index.php
+/docroot/INSTALL.txt
+/docroot/README.md
+/docroot/robots.txt
+/docroot/update.php
+/docroot/web.config
+/docroot/sites/README.txt
+/docroot/sites/example.settings.local.php
+/docroot/sites/example.sites.php
+/docroot/sites/default/default.services.yml
+/docroot/sites/default/default.settings.php
+/docroot/modules/README.txt
+/docroot/profiles/README.txt
+/docroot/themes/README.txt
+
+*.sql
+*.sql.gz
+*.tar.gz
+
+files-private
+.gitlab-ci.yml

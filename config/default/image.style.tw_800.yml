@@ -1,0 +1,17 @@
+uuid: 2e1d55ae-18fe-4b7a-a799-6a4e50993d7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.tw_800
+  module:
+    - crop
+name: tw_800
+label: 'Tall wide (x800)'
+effects:
+  2e501487-301e-489a-a484-32073e745f5f:
+    uuid: 2e501487-301e-489a-a484-32073e745f5f
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: tw_800

@@ -1,0 +1,10 @@
+uuid: aad0e300-e6f3-4a75-93fb-0bfbe34af7de
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.w_800
+label: 'Wide (x800)'
+targetEntityType: block_content
+cache: true

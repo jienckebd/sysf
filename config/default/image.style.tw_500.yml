@@ -1,0 +1,17 @@
+uuid: 927b2e48-7117-4e4f-b149-871ab48affa0
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.tw_500
+  module:
+    - crop
+name: tw_500
+label: 'Tall wide (x500)'
+effects:
+  1fc40e88-d826-4c8c-818b-67925a02c9d7:
+    uuid: 1fc40e88-d826-4c8c-818b-67925a02c9d7
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: tw_500

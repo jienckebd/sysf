@@ -1,0 +1,69 @@
+uuid: d0e27ace-79cd-467a-ac28-20a1e2eab331
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.region
+    - field.field.block_content.region.field_component
+    - field.field.block_content.region.field_default
+    - field.field.block_content.region.field_plugin_data_deriver
+  module:
+    - plugin
+id: block_content.region.default
+targetEntityType: block_content
+bundle: region
+mode: default
+content:
+  computed_components:
+    type: entity_reference_entity_view
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link: true
+      show_derivative_label: false
+      derivative_label_class: null
+      view_mode: default
+    third_party_settings: {  }
+  field_component:
+    type: entity_reference_entity_view
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link: true
+      show_derivative_label: false
+      derivative_label_class: null
+      view_mode: default
+    third_party_settings: {  }
+  field_plugin_data_deriver:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: plugin_label
+    region: content
+hidden:
+  base_entity: true
+  changed: true
+  container: true
+  default_langcode: true
+  field_default: true
+  id: true
+  info: true
+  langcode: true
+  metatag: true
+  reusable: true
+  reuse: true
+  revision_created: true
+  revision_default: true
+  revision_id: true
+  revision_log: true
+  revision_translation_affected: true
+  revision_user: true
+  search_api_excerpt: true
+  status: true
+  tags: true
+  type: true
+  uuid: true
+  variant: true

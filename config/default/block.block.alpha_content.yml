@@ -1,0 +1,20 @@
+uuid: 249c0ab9-17a7-444f-9fa0-44c467f16146
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - alpha
+id: alpha_content
+theme: alpha
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

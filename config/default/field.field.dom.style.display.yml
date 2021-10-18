@@ -1,0 +1,29 @@
+uuid: 1a081ca5-1c5c-49f8-9d74-abd93684edae
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.display
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: display
+    behavior:
+      dom:
+        subattribute: display
+id: dom.style.display
+field_name: display
+entity_type: dom
+bundle: style
+label: display
+description: 'Sets how/if an element is displayed'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

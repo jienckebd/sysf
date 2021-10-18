@@ -1,0 +1,11 @@
+uuid: 942ed976-4213-441a-aa9d-33a4a823ad1a
+langcode: en
+status: true
+dependencies: {  }
+label: 'Tag Group'
+id: tag_group
+description: ''
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

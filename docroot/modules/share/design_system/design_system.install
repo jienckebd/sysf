@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Provides install and update hooks for design_system.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function design_system_install() {
+
+  module_set_weight('design_system', 1001);
+
+  if (\Drupal::moduleHandler()->moduleExists('efs')) {
+    module_set_weight('efs', 0);
+  }
+
+  // Enable metatag_display_extender plugin.
+  $config = \Drupal::service('config.factory')->getEditable('views.settings');
+  $display_extenders = $config->get('display_extenders') ?: [];
+  $display_extenders[] = 'design_system';
+  $config->set('display_extenders', $display_extenders);
+  $config->save();
+
+}
+
+/**
+ * Implements hook_install().
+ */
+function design_system_update_8001() {
+  design_system_install();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function design_system_uninstall() {
+  // Disable metatag_display_extender plugin.
+  $config = \Drupal::service('config.factory')->getEditable('views.settings');
+  $display_extenders = $config->get('display_extenders') ?: [];
+
+  $key = array_search('design_system', $display_extenders);
+  if ($key !== FALSE) {
+    unset($display_extenders[$key]);
+    $config->set('display_extenders', $display_extenders);
+    $config->save();
+  }
+}

@@ -1,0 +1,11 @@
+uuid: e3f8e56e-03b4-4e86-8ad7-54526318226c
+langcode: en
+status: true
+dependencies: {  }
+label: Attribute
+id: attribute
+description: 'Provide a library of DOM element HTML attributes.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

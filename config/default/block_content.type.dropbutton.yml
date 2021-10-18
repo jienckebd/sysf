@@ -1,0 +1,8 @@
+uuid: c9d7ef9e-78bb-4c43-bc51-2c2da659aeb6
+langcode: en
+status: true
+dependencies: {  }
+id: dropbutton
+label: Dropbutton
+revision: 1
+description: 'Provides dropdown of buttons.'

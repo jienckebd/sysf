@@ -1,0 +1,29 @@
+uuid: ed54a3de-b50d-40f6-b5e6-5dfd17805ec0
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.background
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: background
+    behavior:
+      dom:
+        subattribute: background
+id: dom.style.background
+field_name: background
+entity_type: dom
+bundle: style
+label: background
+description: 'A shorthand property for setting all background properties in one declaration'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

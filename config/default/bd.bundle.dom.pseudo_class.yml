@@ -1,0 +1,11 @@
+uuid: f8d18187-aa77-4628-93dd-de61fe24cc6c
+langcode: en
+status: true
+dependencies: {  }
+label: 'Pseudo Class'
+id: pseudo_class
+description: 'Provides state classes on elements like hover, active, and focus.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

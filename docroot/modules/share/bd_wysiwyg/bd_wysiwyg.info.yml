@@ -1,0 +1,12 @@
+name: 'Better Drupal: WYSIWYG'
+core: 8.x
+type: module
+description: 'The WYSIWYG component of the Better Drupal framework.'
+version: '8.x-1.0'
+package: BD
+
+dependencies:
+  - ckeditor_templates_ui
+  - colorbutton
+  - panelbutton
+  - ckeditor_font

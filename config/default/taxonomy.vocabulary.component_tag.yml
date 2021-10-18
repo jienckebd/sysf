@@ -1,0 +1,8 @@
+uuid: 69d83da6-667a-48f0-bd67-2c2179dc8b12
+langcode: en
+status: true
+dependencies: {  }
+name: 'Component tags'
+vid: component_tag
+description: ''
+weight: 0

@@ -1,0 +1,21 @@
+uuid: 13f49ecb-992f-49da-bf50-27093589a4ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_max_height
+field_name: field_max_height
+entity_type: block_content
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

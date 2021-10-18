@@ -1,0 +1,1133 @@
+# Entity API.
+
+bd.bundle.*:
+  type: config_entity
+  label: 'Entity subtype'
+  mapping:
+    label:
+      type: label
+      label: 'label'
+    id:
+      type: string
+      label: 'Machine-readable name'
+    description:
+      type: description
+    help:
+      type: text
+      label: 'Explanation or submission guidelines'
+    new_revision:
+      type: boolean
+      label: 'Whether a new revision should be created by default'
+    preview_mode:
+      type: integer
+      label: 'Preview before submitting'
+    display_submitted:
+      type: boolean
+      label: 'Display setting for author and date Submitted by post information'
+
+bd.entity_field_group.*:
+  type: config_entity
+  label: "Entity field group"
+  form:
+    group:
+      entity_field_group:
+        label: "Entity field group"
+        type: details
+  mapping:
+    id:
+      type: entity_id
+      required: true
+      hidden: true
+      constraints:
+        UniquePropertyValue: {}
+    label:
+      type: label
+      required: true
+      group: entity_field_group
+    description:
+      type: description
+      required: false
+      group: entity_field_group
+      maxlength: 500
+    type:
+      type: option
+      label: "Group type"
+      description: "Determine the type of field grouping."
+      required: true
+      default_value: details
+      group: entity_field_group
+      option:
+        plugin_id: static
+        plugin_config:
+          details:
+            label: "Details"
+    settings:
+      type: mapping
+      label: "Settings"
+      mapping:
+        open:
+          type: boolean
+          label: "Open by default"
+          description: "Show open by default"
+          default_value: true
+    settings_inline:
+      type: mapping
+      label: "Settings on inline forms"
+      mapping:
+        open:
+          type: boolean
+          label: "Open by default"
+          description: "Show open by default"
+          default_value: true
+    entity_type:
+      type: entity_type_id
+      required: true
+      hidden: true
+    bundle:
+      type: bundle_id
+      required: false
+      hidden: true
+    parent:
+      type: entity_reference
+      label: "Parent"
+      description: "Select a parent group."
+      group: entity_field_group
+      target_type: "entity_field_group"
+      load_properties:
+        entity_type: ['%parent.%parent.%parent.%parent.%parent.entity_type']
+        bundle: ['%parent.%parent.%parent.%parent.%parent.bundle']
+    weight:
+      type: weight
+      label: "Weight"
+      description: "Select a default weight for this group is used when building new displays."
+      group: entity_field_group
+    show_inline:
+      type: boolean
+      label: "Show on inline form"
+      description: "Show this group when automatically generating inline forms."
+      group: entity_field_group
+      default_value: true
+
+bd.bundle_field_definition.*:
+  type: config_entity
+  label: "Computed field"
+  form:
+    group:
+      bundle_field_definition:
+        label: "Bundle field definition"
+        type: details
+        weight: -100
+        open: true
+      plugins:
+        label: "Plugins"
+        type: details
+        weight: -90
+        open: true
+  mapping:
+    id:
+      type: entity_id
+      required: true
+      hidden: true
+      constraints:
+        UniquePropertyValue: {}
+    label:
+      type: label
+      required: true
+      group: bundle_field_definition
+    description:
+      type: description
+      required: false
+      maxlength: 500
+      group: bundle_field_definition
+    entity_type:
+      type: entity_type_id
+      required: true
+      hidden: true
+    bundle:
+      type: bundle_id
+      required: false
+      hidden: true
+    cardinality:
+      type: integer
+      label: "Cardinality"
+      description: "Specify the number of allowed values. -1 means unlimited."
+      required: true
+      default_value: -1
+      group: bundle_field_definition
+    plugin_field_type:
+      type: plugin_instance
+      plugin_type: field_type
+      label: "Field type"
+      description: "Select a type of field."
+      configurable: false
+      group: plugins
+    plugin_computed_field_value:
+      type: plugin_instance
+      plugin_type: computed_field_value
+      label: "Computed field value plugin"
+      description: "Select a plugin to determine this field value."
+      group: plugins
+
+entity_type_id:
+  type: string
+  label: "Entity type ID"
+
+bundle_id:
+  type: string
+  label: "Bundle ID"
+
+entity_id:
+  type: string
+  label: "ID"
+  constraints:
+    UniquePropertyValue: {}
+
+normalized_bundle_definition:
+  type: mapping
+  label: "Bundle definition"
+  mapping:
+    label:
+      type: label
+    description:
+      type: description
+
+normalized_field_definition:
+  type: mapping
+  label: "Field definition"
+  mapping:
+    label:
+      type: label
+    description:
+      type: description
+
+normalized_entity_definition:
+  type: mapping
+  label: "Entity definition"
+  mapping:
+    label:
+      type: label
+    description:
+      type: description
+
+# Entity API: BD config object.
+
+entity_type_definition_normalize:
+  type: mapping
+  label: 'Entity type definition normalizer'
+  mapping:
+    label:
+      type: label
+      label: 'Label'
+    label_plural:
+      type: label
+      label: 'Plural Label'
+    tag:
+      type: sequence
+      label: 'Tags'
+      sequence:
+        type: string
+        label: 'Tag'
+    display:
+      type: mapping
+      label: "Display settings"
+      mapping:
+        view:
+          type: entity_type_bundle_display
+          label: "View displays"
+        form:
+          type: entity_type_bundle_display
+          label: "Form displays"
+    route:
+      type: mapping
+      label: "Route Config"
+      mapping:
+        base_path:
+          type: "string"
+          label: "Base Path"
+          description: "Base path used for canonical route. All entity routes use this as a base."
+        definition:
+          type: sequence
+          label: 'Route Definitions'
+          sequence:
+            type: mapping
+            label: 'Route Definition'
+            mapping:
+              option:
+                type: sequence
+                label: 'Route Options'
+                sequence:
+                  type: key_value
+                  label: 'Route Option'
+              default:
+                type: sequence
+                label: 'Route Defaults'
+                sequence:
+                  type: key_value
+                  label: 'Route Default'
+
+entity_type_bundle_display:
+  type: mapping
+  label: "Entity type display config"
+  mapping:
+    per_bundle:
+      type: sequence
+      label: "Per bundle"
+      sequence:
+        inherit:
+          type: entity_reference
+          label: "Inherit"
+          description: "Inherit display settings from another entity view display."
+          target_type: entity_view_display
+        allow_overrides:
+          type: boolean
+          label: "Allow overrides"
+          description: "Allow overrides per entity."
+        weight:
+          type: weight
+          label: "Weight"
+
+bd.entity.type:
+  type: config_object
+  label: "Entity type definitions"
+  mapping:
+    definition:
+      type: sequence
+      label: "Entity type definitions"
+      sequence:
+        type: entity_type_definition_normalize
+    template:
+      type: sequence
+      label: "Entity type templates"
+      description: "Provides entity type definitions not to be stored. These are available to use as base entity types."
+    alter:
+      type: sequence
+      label: "Entity type alters"
+      description: "Provides extensions to entity types provided by other modules."
+
+bd.entity.bundle:
+  type: config_object
+  label: "Entity bundle behavior"
+  mapping:
+    definition:
+      type: sequence
+      label: "Entity type bundle definitions"
+      sequence:
+        type: sequence
+        label: 'Entity type bundle definitions'
+        description: "Definitions of a given entity type."
+        sequence:
+          type: mapping
+          mapping:
+            definition:
+              type: sequence
+              sequence:
+                type: normalized_bundle_definition
+                label: "Bundle definition"
+            field:
+              type: mapping
+              label: "Bundle field definitions"
+              mapping:
+                definition:
+                  type: sequence
+                  sequence:
+                    type: normalized_field_definition
+                    label: "Bundle field storage definitions"
+                definition_computed:
+                  type: sequence
+                  sequence:
+                    type: normalized_field_definition
+                    label: "Computed bundle definitions"
+
+bd.entity.type.common:
+  type: config_object
+  label: "Entity type common"
+  description: "Provides configuration to all entity type definitions."
+  mapping:
+    translation:
+      type: mapping
+      label: "Entity type translation behavior"
+      mapping:
+        key:
+          type: mapping
+          label: "Entity type keys"
+          mapping:
+            singular:
+              type: sequence
+              label: "Entity type singular keys"
+              description: "Entity type config keys that need to be translated."
+              sequence:
+                - type: string
+                  label: "Entity type key"
+            plural:
+              type: sequence
+              label: "Entity type plural keys"
+              description: "Entity type config keys that need to be translated."
+              sequence:
+                - type: string
+                  label: "Entity type key"
+    route:
+      type: mapping
+      label: "Entity type routing"
+      mapping:
+        pattern:
+          type: mapping
+          label: "Route name patterns"
+          mapping:
+            entity:
+              type: sequence
+              label: "Entity routes"
+              sequence:
+                - type: string
+                  label: "Entity route pattern"
+            rel:
+              type: mapping
+              label: "Entity rel routes"
+              mapping:
+                collection:
+                  type: sequence
+                  label: "Entity collection route patterns"
+                  sequence:
+                    - type: string
+                      label: "Route pattern"
+                edit-form:
+                  type: sequence
+                  label: "Entity edit form route patterns"
+                  sequence:
+                    - type: string
+                      label: "Route pattern"
+                add-form:
+                  type: sequence
+                  label: "Entity add form route patterns"
+                  sequence:
+                    - type: string
+                      label: "Route pattern"
+                add-page:
+                  type: sequence
+                  label: "Entity add page route patterns"
+                  sequence:
+                    - type: string
+                      label: "Route pattern"
+                canonical:
+                  type: sequence
+                  label: "Entity canonical route patterns"
+                  sequence:
+                    - type: string
+                      label: "Route pattern"
+                delete-form:
+                  type: sequence
+                  label: "Entity delete form route patterns"
+                  sequence:
+                    - type: string
+                      label: "Route pattern"
+
+bd.entity:
+  type: config_object
+  label: "Entity config"
+  mapping:
+    definition:
+      type: sequence
+      label: "Entity definitions"
+      sequence:
+        type: sequence
+        label: "Entity definitions of given entity type"
+        sequence:
+          type: normalized_entity_definition
+          label: "Entity definition"
+    template:
+      type: sequence
+      label: "Entity templates"
+      sequence:
+        type: sequence
+        label: "Entity templates of given entity type"
+        sequence:
+          type: mapping
+          label: "Entity template"
+          mapping:
+            template_id:
+              type: string
+              label: "Template ID"
+            template_mapping:
+              type: mapping
+              label: "Template variable mapping"
+
+bd.entity.field.common:
+  type: config_object
+  label: "Common entity field config"
+  mapping:
+    template:
+      type: sequence
+      label: "Field definition templates"
+      sequence:
+        type: sequence
+        label: "Entity definitions of given entity type"
+        sequence:
+          type: normalized_field_definition
+          label: "Field definition template"
+    display_configurable_disable:
+      type: mapping
+      label: "Display configurable disable"
+
+bd.ief_attach:
+  type: config_object
+  label: "Entity config"
+  mapping:
+    tag:
+      type: entity_reference
+      label: "Tag"
+      target_type: dom
+      target_bundles:
+        - tag
+    override:
+      type: string
+      label: "Override"
+
+# Entity API: Config mappings.
+
+field_definition.third_party_settings:
+  type: mapping
+  label: "Field config"
+  mapping:
+    overview:
+      type: mapping
+      label: "Overview"
+      open: true
+      mapping:
+        entity_field_group:
+          type: entity_reference
+          label: "Entity field group"
+          target_type: "entity_field_group"
+          load_properties:
+            entity_type: ['%parent.%parent.%parent.%parent.%parent.entity_type']
+            bundle: ['%parent.%parent.%parent.%parent.%parent.bundle']
+        default_field_widget:
+          type: plugin_instance
+          label: "Default field widget"
+          plugin_type: field_widget
+          configurable: false
+        default_field_formatter:
+          type: plugin_instance
+          label: "Default field formatter"
+          plugin_type: field_formatter
+          configurable: false
+        weight:
+          type: weight
+          label: "Weight"
+          description: "Select a default weight for this field used when building new displays."
+        cardinality:
+          type: integer
+          label: "Cardinality"
+          description: "Override the maximum number of allowed values."
+    element:
+      type: mapping
+      label: "Elements"
+      open: true
+      mapping:
+        field_items:
+          type: mapping
+          label: "Field item list"
+          description: "Configure the wrapper of all field items."
+          mapping:
+            container:
+              type: component
+              label: "Containers"
+              component_type: container
+        field_item:
+          type: mapping
+          label: "Field item"
+          description: "Configure each field item of the field item list."
+          mapping:
+            container:
+              type: component
+              label: "Containers"
+              component_type: container
+        field_value:
+          type: mapping
+          label: "Field value"
+          description: "Configure the field value of this field."
+          condition:
+            context:
+              - view
+          mapping:
+            container:
+              type: component
+              label: "Containers"
+              component_type: container
+            override:
+              type: string
+              label: "Override"
+              description: "Override the field value."
+            callback:
+              type: string
+              label: "Value callback"
+        label:
+          type: mapping
+          label: "Field label"
+          description: "Configure the field label of this field."
+          mapping:
+            container:
+              type: component
+              label: "Containers"
+              component_type: container
+            override:
+              type: string
+              label: "Override"
+              description: "Override the field label."
+            display_position:
+              type: option
+              label: "Display position"
+              description: "Configure where the description displays relative to the label and field value."
+              default_value: before
+              option:
+                plugin_id: static
+                plugin_config:
+                  after:
+                    label: "After"
+                    description: "Show the description after the field label and value."
+                  before:
+                    label: "Before"
+                    description: "Show the description before the field label and value."
+                  hidden:
+                    label: "Hidden"
+                    description: "Hide the description from display."
+        description:
+          type: mapping
+          label: "Description"
+          description: "Configure the field label of this field."
+          mapping:
+            container:
+              type: component
+              label: "Containers"
+              component_type: container
+            override:
+              type: string
+              label: "Override"
+              description: "Override the description."
+            display_position:
+              type: option
+              label: "Display position"
+              description: "Configure where the description displays relative to the label and field value."
+              default_value: after
+              option:
+                plugin_id: static
+                plugin_config:
+                  after:
+                    label: "After"
+                    description: "Show the description after the field label and value."
+                  before:
+                    label: "Before"
+                    description: "Show the description before the field label and value."
+                  hidden:
+                    label: "Hidden"
+                    description: "Hide the description from display."
+    behavior:
+      type: mapping
+      label: "Behaviors"
+      open: true
+      mapping:
+        access:
+          type: mapping
+          label: "Access control"
+          description: "Configure access control."
+          mapping:
+            view:
+              type: mapping
+              label: "View access"
+              condition:
+                context:
+                  - view
+              mapping:
+                condition_list:
+                  type: sequence
+                  label: "Conditions"
+                  sequence:
+                    type: mapping
+                    mapping:
+                      condition:
+                        type: plugin_instance
+                        plugin_type: condition
+                        label: "Condition"
+                        description: "Configure conditions that must be met in order to view this field."
+            edit:
+              type: mapping
+              label: "Edit access"
+              condition:
+                context:
+                  - form
+              mapping:
+                condition_list:
+                  type: sequence
+                  label: "Conditions"
+                  sequence:
+                    type: mapping
+                    mapping:
+                      condition:
+                        type: plugin_instance
+                        plugin_type: condition
+                        label: "Condition"
+                        description: "Configure conditions that must be met in order to view this field."
+                restrict_behavior:
+                  type: option
+                  label: "Restriction behavior"
+                  description: "Configure how the field will be restricted if access denied."
+                  option:
+                    plugin_id: static
+                    plugin_config:
+                      hide:
+                        label: "Hide"
+                        description: "Hide the element completely."
+                      disable:
+                        label: "Disable"
+                        description: "Disable the element."
+        duplicate:
+          type: mapping
+          label: "Duplication"
+          description: "Configure duplication behavior."
+          mapping:
+            disable:
+              type: boolean
+              label: "Disable"
+              description: "Disable duplicating this field value."
+        translation:
+          type: mapping
+          label: "Translation"
+          description: "Configure translation behavior."
+          mapping:
+            disable:
+              type: boolean
+              label: "Disable translation"
+              description: "Disable translation of this field."
+            force_langcode:
+              type: option
+              label: "Force language"
+              description: "Force the field to render in a given language."
+              option:
+                plugin_id: langcode
+        default_value:
+          type: mapping
+          label: "Default value"
+          description: "Configure default values for this field."
+          condition:
+            context:
+              - form
+            entity:
+              - field_config
+          mapping:
+            plugin:
+              type: plugin_instance
+              label: "Value provider plugin"
+              plugin_type: value_provider
+        multi_value:
+          type: mapping
+          label: "Multiple field value"
+          description: "Configure behaviors for fields with multiple field values."
+          condition:
+            context:
+              - form
+            field:
+              cardinality: '> 1'
+          mapping:
+            max:
+              type: integer
+              label: Maximum values to show
+              description: If field has more values than this, only this many will show.
+            delimiter:
+              type: option
+              label: Delimiter
+              description: Specify how multiple field values will be delimited.
+              option:
+                plugin_id: static
+                plugin_config:
+                  hide:
+                    label: "Comma"
+                    description: "Separate multiple field values with commas on 1 line."
+                  li:
+                    label: "Unordered list"
+                    description: "Field values parent will be a <ul> and each value will be wrapped in an <li> element."
+                  ol:
+                    label: "Ordered list"
+                    description: "Field values parent will be a <ol> and each value will be wrapped in an <li> element."
+        empty_value:
+          type: mapping
+          label: "Empty value"
+          description: "Configure what happens when this field does not have a value."
+          condition:
+            context:
+              - view
+          mapping:
+            plugin:
+              type: plugin_instance
+              label: "Value provider plugin"
+              plugin_type: value_provider
+        dom:
+          type: mapping
+          label: "DOM"
+          description: "Configure what happens when this field does not have a value."
+          condition:
+            context: {  }
+          mapping:
+            attribute:
+              type: string
+              label: 'Attribute'
+            subattribute:
+              type: string
+              label: 'Sub attribute'
+            theme_hook:
+              type: string
+              label: 'Theme hook'
+            theme_hook_selector:
+              type: string
+              label: 'Theme hook selector'
+            theme_hook_match_key:
+              type: string
+              label: 'Theme hook match key'
+            theme_hook_match_value:
+              type: string
+              label: 'Theme hook match value'
+            build_css:
+              type: boolean
+              label: 'Build CSS'
+            build_css_field_name:
+              type: string
+              label: 'Build CSS field name'
+
+entity_reference:
+  type: mapping
+  label: "Entity Reference"
+  mapping:
+    target_type:
+      type: entity_type_id
+      label: "Entity Type"
+    target_bundles:
+      type: sequence
+      label: "Bundles"
+      sequence:
+        type: bundle_id
+        label: "Entity type bundle"
+
+# Options.
+
+option:
+  type: key_value
+  label: "Option"
+
+plugin.plugin_configuration.options_provider.static:
+  type: plugin_configuration
+  label: 'Static'
+  mapping:
+    option:
+      type: sequence
+      label: 'Options'
+      sequence:
+        type: option
+
+plugin.plugin_configuration.options_provider.entity_list:
+  type: plugin_configuration
+  label: 'Entity list'
+  mapping:
+    entity_type:
+      type: entity_type_id
+      label: 'Entity Type'
+      required: true
+    bundle:
+      type: bundle_id
+      label: 'Bundle'
+
+plugin.plugin_configuration.options_provider.dependency_type:
+  type: plugin_configuration
+  label: 'Dependency type'
+  mapping: {  }
+
+plugin.plugin_configuration.options_provider.language:
+  type: plugin_configuration
+  label: 'Languages'
+  mapping: {  }
+
+plugin.plugin_configuration.options_provider.permission:
+  type: plugin_configuration
+  label: 'Permissions'
+  mapping: {  }
+
+plugin.plugin_configuration.options_provider.context:
+  type: plugin_configuration
+  label: 'Context'
+  mapping: {  }
+
+plugin.plugin_configuration.options_provider.entity_type:
+  type: plugin_configuration
+  label: 'Entity types'
+  mapping:
+    tag:
+      type: string
+      label: 'Entity type tag'
+
+plugin.plugin_configuration.options_provider.bundle:
+  type: plugin_configuration
+  label: 'Entity list'
+  mapping:
+    entity_type:
+      type: entity_type_id
+      label: 'Entity Type'
+      required: true
+
+plugin.plugin_configuration.options_provider.entity_field:
+  type: plugin_configuration
+  label: 'Entity field'
+  mapping:
+    entity_type:
+      type: entity_type_id
+      label: 'Entity Type'
+      required: true
+    bundle:
+      type: bundle_id
+      label: 'Bundle'
+
+plugin.plugin_configuration.computed_field_value.layout_builder_component:
+  type: plugin_configuration
+  label: "Layout builder component"
+
+plugin.plugin_configuration.computed_field_value.entity_field_value:
+  type: plugin_configuration
+  label: "Entity field value"
+  mapping:
+    value_selector:
+      type: value_selector
+
+plugin.plugin_configuration.data_deriver.entity_collection:
+  type: mapping
+  label: 'Entity collection'
+  mapping:
+    entity_type:
+      type: string
+      label: 'Entity Type'
+    bundle:
+      type: string
+      label: 'Bundle'
+    propagate_field_name:
+      type: string
+      label: 'Propagate field name'
+
+plugin.plugin_configuration.data_deriver.theme_region:
+  type: mapping
+  label: 'Theme region'
+  mapping:
+    theme_id:
+      type: string
+      label: 'Theme ID'
+
+plugin.plugin_configuration.data_deriver.theme_region_block_content:
+  type: mapping
+  label: 'Theme region block content'
+  mapping:
+    theme_id:
+      type: entity_reference
+      target_type: theme_entity
+      label: 'Theme'
+    region_id:
+      type: string
+      label: 'Region'
+
+plugin.plugin_configuration.data_deriver.layout_region:
+  type: mapping
+  label: 'Layout region'
+  mapping:
+    value_selector:
+      type: string
+      label: 'Field value selector'
+      description: "Enter a field name selector."
+
+plugin.plugin_configuration.data_deriver.clone_entity:
+  type: mapping
+  label: 'Clone entities'
+  mapping:
+    base_entity:
+      type: entity_reference
+      label: 'Base Entity'
+      description: "Select a base entity."
+      target_type: dom
+
+plugin.plugin_configuration.data_deriver.csv:
+  type: mapping
+  label: 'Entity collection'
+  mapping:
+    entity_type:
+      type: string
+      label: 'Entity Type'
+    bundle:
+      type: string
+      label: 'Bundle'
+
+plugin.plugin_configuration.data_deriver.plugin_collection:
+  type: mapping
+  label: 'Entity collection'
+  mapping:
+    plugin_type_id:
+      type: string
+      label: 'Plugin Type ID'
+
+plugin.plugin_configuration.data_deriver.field_value:
+  type: mapping
+  label: 'Field value'
+  mapping:
+    value_selector:
+      type: string
+      label: 'Field name selector'
+      description: "Enter a field name selector."
+
+plugin.plugin_configuration.value_provider.callback:
+  type: mapping
+  label: 'Callback'
+  mapping:
+    callback:
+      type: callback
+      label: 'Callback'
+
+plugin.plugin_configuration.value_provider.clone_entity:
+  type: mapping
+  label: 'Callback'
+  mapping:
+    callback:
+      type: dynamic_entity_reference
+      label: 'Base entity'
+
+plugin.plugin_configuration.value_provider.data_deriver:
+  type: mapping
+  label: 'Callback'
+  mapping:
+    data_deriver_plugin:
+      type: plugin_instance
+      label: 'Data deriver plugin'
+      plugin_type: data_deriver
+
+plugin.plugin_configuration.value_provider.entity_field_value:
+  type: mapping
+  label: 'Callback'
+  mapping:
+    value_selector:
+      type: value_selector
+      label: 'Value selector'
+
+plugin.plugin_configuration.value_provider.static_value:
+  type: mapping
+  label: 'Callback'
+  mapping:
+    field_widget_plugin_selector:
+      type: plugin_instance
+      label: 'Field widget'
+      description: "Select a field widget to use to specify the field values."
+      plugin_type: field_widget
+      configurable: false
+    clone_entity_reference:
+      type: boolean
+      label: 'Clone entity references'
+      description: "Clone any entity reference values."
+      default_value: true
+    field_items:
+      type: field_items
+      label: 'Field items'
+
+field_items:
+  type: sequence
+  label: "Field items"
+  sequence:
+    - type: field_item
+      label: "Field item"
+
+plugin_id:
+#  class: '\Drupal\plugin\Plugin\DataType\PluginId'
+  type: string
+
+plugin_configuration:
+#  class: '\Drupal\plugin\Plugin\DataType\PluginConfiguration'
+  type: array
+
+plugin_instance:
+# Can't always reliably create instance of plugin, such as field type plugin.
+#  class: '\Drupal\plugin\Plugin\DataType\PluginInstance'
+  type: mapping
+  mapping:
+    plugin_id:
+      type: plugin_id
+      label: "Plugin ID"
+    plugin_config:
+      type: plugin_configuration
+      label: "Plugin configuration"
+
+# Constraints.
+
+constraint.plugin.unique_entity_label:
+  type: mapping
+  mapping:
+    per_bundle:
+      type: boolean
+      label: 'Per bundle'
+
+constraint.plugin.unique_property_value:
+  type: mapping
+  mapping:
+    property_selector:
+      type: string
+      label: 'Property selector'
+
+# Misc.
+
+key_value:
+  type: mapping
+  label: 'Key value'
+  mapping:
+    key:
+      type: string
+      label: "Key"
+    value:
+      type: string
+      label: "Value"
+
+value_selector:
+  type: string
+  label: "Value selector"
+  description: "Specify a value selector that can parse this entity to get this value."
+
+description:
+  type: text
+  label: "Description"
+
+component:
+  type: entity_reference
+  label: "Component"
+  target_type: component
+
+callback:
+  type: callback
+  label: "Callback"
+
+weight:
+  type: integer
+  label: "Weight"
+
+# Business rules.
+
+business_rules.action.type.create_relation:
+  type: mapping
+  label: 'Create relation'
+  mapping:
+    cache_id:
+      type: string
+      label: 'Cache ID'
+      required: true
+
+business_rules.action.type.delete_relation:
+  type: mapping
+  label: 'Delete relation'
+  mapping:
+    cache_id:
+      type: string
+      label: 'Cache ID'
+      required: true
+
+business_rules.action.type.cache_purge:
+  type: mapping
+  label: 'Cache purge'
+  mapping:
+    cache_id:
+      type: string
+      label: 'Cache ID'
+      required: true

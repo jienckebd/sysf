@@ -1,0 +1,72 @@
+uuid: b2de7731-b180-46eb-acff-fd26892299e4
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.cursor
+field_name: cursor
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: url
+      label: url
+    -
+      value: auto
+      label: auto
+    -
+      value: crosshair
+      label: crosshair
+    -
+      value: default
+      label: default
+    -
+      value: pointer
+      label: pointer
+    -
+      value: move
+      label: move
+    -
+      value: e-resize
+      label: e-resize
+    -
+      value: ne-resize
+      label: ne-resize
+    -
+      value: nw-resize
+      label: nw-resize
+    -
+      value: n-resize
+      label: n-resize
+    -
+      value: se-resize
+      label: se-resize
+    -
+      value: sw-resize
+      label: sw-resize
+    -
+      value: s-resize
+      label: s-resize
+    -
+      value: w-resize
+      label: w-resize
+    -
+      value: text
+      label: text
+    -
+      value: wait
+      label: wait
+    -
+      value: help
+      label: help
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

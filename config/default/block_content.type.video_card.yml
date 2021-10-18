@@ -1,0 +1,8 @@
+uuid: a3ec8bb7-603d-47f9-a4b9-134660093866
+langcode: en
+status: true
+dependencies: {  }
+id: video_card
+label: 'Video card'
+revision: 1
+description: 'Provides a card with a video.'

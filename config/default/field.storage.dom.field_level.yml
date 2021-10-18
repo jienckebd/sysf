@@ -1,0 +1,20 @@
+uuid: 89242bf4-0cad-40d6-b265-e86bc7186039
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.field_level
+field_name: field_level
+entity_type: dom
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,10 @@
+uuid: 939fcc6f-ebfe-4b11-88c8-b6e04a8129b7
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.tw_800
+label: 'Tall wide (x800)'
+targetEntityType: block_content
+cache: true

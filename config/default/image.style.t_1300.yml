@@ -1,0 +1,17 @@
+uuid: d50ea2a9-e50a-44a3-b13a-5f0006856a6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.t_1300
+  module:
+    - crop
+name: t_1300
+label: 'Tall (x1300)'
+effects:
+  2cb34542-1c9b-49b1-8260-73d2979d384b:
+    uuid: 2cb34542-1c9b-49b1-8260-73d2979d384b
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: t_1300

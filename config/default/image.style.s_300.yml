@@ -1,0 +1,17 @@
+uuid: d9dc406a-b870-428e-9b10-39fc178e5b5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.s_300
+  module:
+    - crop
+name: s_300
+label: 'Standard (x300)'
+effects:
+  e08e839e-dbd3-4226-b776-05f595def5c8:
+    uuid: e08e839e-dbd3-4226-b776-05f595def5c8
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: s_300

@@ -1,0 +1,19 @@
+uuid: bd79bd27-c84d-4b29-a46b-76a707663cbc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - qrfield
+id: node.field_qr_code
+field_name: field_qr_code
+entity_type: node
+type: qrfield
+settings: {  }
+module: qrfield
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

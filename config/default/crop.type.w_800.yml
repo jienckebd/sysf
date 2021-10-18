@@ -1,0 +1,12 @@
+uuid: 02cae879-55a9-42b6-a7d6-cc4ca4e43e37
+langcode: en
+status: true
+dependencies: {  }
+id: w_800
+label: 'Wide (x800)'
+description: null
+aspect_ratio: '3:1'
+soft_limit_width: 2400
+soft_limit_height: 800
+hard_limit_width: null
+hard_limit_height: null

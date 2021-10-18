@@ -1,0 +1,10 @@
+uuid: bba615da-c82e-4a98-9ace-e3e4839dec0b
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: config_entity_wrapper.embed
+label: Embed
+targetEntityType: config_entity_wrapper
+cache: true

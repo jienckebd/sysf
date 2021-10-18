@@ -1,0 +1,17 @@
+uuid: b17ea929-2d6b-4e39-a5cf-ee0be51fba5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.s_800
+  module:
+    - crop
+name: s_800
+label: 'Standard (x800)'
+effects:
+  547d5b67-33ad-4253-adf0-bde5a772ee98:
+    uuid: 547d5b67-33ad-4253-adf0-bde5a772ee98
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: s_800

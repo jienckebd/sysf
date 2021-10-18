@@ -1,0 +1,8 @@
+uuid: da7c14c0-bed9-4d98-8227-da896195730c
+langcode: en
+status: true
+dependencies: {  }
+id: social_share
+label: 'Social share'
+revision: 1
+description: "Panel of social share buttons to Facebook, Twitter, around 20 more networks.\r\n"

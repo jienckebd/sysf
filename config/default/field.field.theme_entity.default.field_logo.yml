@@ -1,0 +1,43 @@
+uuid: f43290ec-5817-4ed1-9ed6-7c4c76657f3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.theme_entity.default
+    - field.storage.theme_entity.field_logo
+    - media.type.image
+  module:
+    - bd
+third_party_settings:
+  bd:
+    data_deriver:
+      plugin: ''
+    dom:
+      attribute: ''
+      subattribute: ''
+      theme_hook: ''
+      theme_hook_selector: ''
+      theme_hook_match_key: ''
+      theme_hook_match_value: ''
+    dependency:
+      type: ef354209-cb30-4cbe-abab-de5b8bda6a68
+id: theme_entity.default.field_logo
+field_name: field_logo
+entity_type: theme_entity
+bundle: default
+label: Logo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: null
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

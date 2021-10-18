@@ -1,0 +1,27 @@
+uuid: e0f649a1-ff2f-4d1c-b6bd-3c3686ad9302
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.table_layout
+field_name: table_layout
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: auto
+      label: auto
+    -
+      value: fixed
+      label: fixed
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

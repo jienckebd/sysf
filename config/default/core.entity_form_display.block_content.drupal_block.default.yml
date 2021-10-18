@@ -1,0 +1,61 @@
+uuid: a1caad93-8910-4cbe-90b9-c727ae6f213b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.drupal_block
+    - field.field.block_content.drupal_block.field_plugin_block
+  module:
+    - inline_entity_form
+    - plugin
+id: block_content.drupal_block.default
+targetEntityType: block_content
+bundle: drupal_block
+mode: default
+content:
+  actions:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  container:
+    type: inline_entity_form_complex
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      allow_duplicate: true
+    third_party_settings: {  }
+  field_plugin_block:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: 'plugin_selector:plugin_select_list'
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  base_entity: true
+  langcode: true
+  reusable: true
+  reuse: true
+  revision_log: true
+  simple_sitemap: true
+  status: true
+  tags: true
+  variant: true

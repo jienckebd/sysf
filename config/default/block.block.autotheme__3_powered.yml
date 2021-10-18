@@ -1,0 +1,20 @@
+uuid: 60371143-99d3-4836-9ddc-7a3964ec4d0b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - autotheme__3
+id: autotheme__3_powered
+theme: autotheme__3
+region: header
+weight: 10
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

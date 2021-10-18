@@ -1,0 +1,29 @@
+uuid: 7580716f-56c9-4674-b972-778f7a1614d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.overflow
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: overflow
+    behavior:
+      dom:
+        subattribute: overflow
+id: dom.style.overflow
+field_name: overflow
+entity_type: dom
+bundle: style
+label: overflow
+description: 'Sets what happens if the content of an element overflow its area'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

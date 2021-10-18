@@ -1,0 +1,21 @@
+uuid: 9806e5ac-1984-4e6b-9885-3e091934b828
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.media_type
+    - field.storage.dom.grid_bitmap
+  module:
+    - options
+id: dom.media_type.grid_bitmap
+field_name: grid_bitmap
+entity_type: dom
+bundle: media_type
+label: grid/bitmap
+description: 'Defines the structure.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

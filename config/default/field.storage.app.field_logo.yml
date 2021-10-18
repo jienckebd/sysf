@@ -1,0 +1,23 @@
+uuid: 6f0a3f6e-31c8-4cf4-adb3-25d99fcb7fd2
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - media
+id: app.field_logo
+field_name: field_logo
+entity_type: app
+type: entity_reference
+settings:
+  target_type: media
+  schema__derivative: 0
+  schema__base_target_id: 0
+  deriver: null
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,114 @@
+uuid: dddd9c01-c226-449a-a4eb-848e7ad4681a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.layout
+    - block_content.type.layout_row
+    - field.storage.block_content.field_cmp_layout_row
+  module:
+    - bd
+    - design_system
+third_party_settings:
+  bd:
+    overview:
+      entity_field_group:
+        widget:
+          value: {  }
+      weight:
+        widget:
+          value: ''
+      cardinality:
+        widget:
+          value: ''
+      default_field_widget: {  }
+      default_field_formatter: {  }
+    element:
+      field_value:
+        override:
+          widget:
+            value: ''
+        callback:
+          widget:
+            value: ''
+        container: {  }
+      label:
+        override:
+          widget:
+            value: ''
+        display_position:
+          widget:
+            value: before
+        container: {  }
+      description:
+        override:
+          widget:
+            value: ''
+        display_position:
+          widget:
+            value: after
+        container: {  }
+      field_items:
+        container: {  }
+      field_item:
+        container: {  }
+    behavior:
+      access:
+        edit:
+          restrict_behavior:
+            widget:
+              value: ''
+          condition_list:
+            actions: {  }
+          0:
+            condition: {  }
+          1:
+            condition: {  }
+        view:
+          condition_list:
+            actions: {  }
+          0:
+            condition: {  }
+          1:
+            condition: {  }
+      translation:
+        force_langcode:
+          widget:
+            value: ''
+        disable:
+          widget:
+            value: 0
+      multi_value:
+        max:
+          widget:
+            value: ''
+        delimiter:
+          widget:
+            value: ''
+      default_value:
+        plugin: {  }
+      empty_value:
+        plugin: {  }
+  design_system:
+    field_formatter_config_key_override: ''
+id: block_content.layout.field_cmp_layout_row
+field_name: field_cmp_layout_row
+entity_type: block_content
+bundle: layout
+label: Rows
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: bd_default_value_callback
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      layout_row: layout_row
+    sort:
+      field: info
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

@@ -1,0 +1,4081 @@
+uuid: 59c6335a-48d5-458a-9f93-c6a2bd0ea145
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.screen.field_domain_access
+    - field.field.node.screen.field_domain_all_affiliates
+    - field.field.node.screen.field_domain_source
+    - field.field.node.screen.field_image
+    - field.field.node.screen.field_meta_tags
+    - field.field.node.screen.field_qr_code
+    - field.field.node.screen.field_tags
+    - field.field.node.screen.field_yoast_seo
+    - field.field.node.screen.layout_builder__layout
+    - field.field.node.screen.schedule_status_change
+    - node.type.screen
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: layout_builder_blank
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          a411e005-43b0-4311-b26c-88991201b8b4:
+            uuid: a411e005-43b0-4311-b26c-88991201b8b4
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+            additional: {  }
+            weight: 0
+          618a8b02-b1bd-435c-b95d-e8e38bb2e813:
+            uuid: 618a8b02-b1bd-435c-b95d-e8e38bb2e813
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 1
+          accd6ac8-763f-4864-beea-8d397232000d:
+            uuid: accd6ac8-763f-4864-beea-8d397232000d
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 2
+          a548947a-781c-4fe2-8ecf-3adcf273d51f:
+            uuid: a548947a-781c-4fe2-8ecf-3adcf273d51f
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 3
+          183fb2f4-7337-476b-9aa2-7f650dbbcd03:
+            uuid: 183fb2f4-7337-476b-9aa2-7f650dbbcd03
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 4
+          8c597c66-2808-4198-bfcf-6fd60b476d47:
+            uuid: 8c597c66-2808-4198-bfcf-6fd60b476d47
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 5
+          de917efe-b52f-496c-bc0b-f9e469ab2b9a:
+            uuid: de917efe-b52f-496c-bc0b-f9e469ab2b9a
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 6
+          7e4d3612-d77f-49da-a078-fcba3aae2fcb:
+            uuid: 7e4d3612-d77f-49da-a078-fcba3aae2fcb
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 7
+          438cca3c-c834-4cc9-aea1-07b68372c22f:
+            uuid: 438cca3c-c834-4cc9-aea1-07b68372c22f
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 8
+          e25a9c14-fd83-43d8-bfc8-461f8637c975:
+            uuid: e25a9c14-fd83-43d8-bfc8-461f8637c975
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 9
+          cefca3b1-897e-4085-aec5-9a32eb3fc98a:
+            uuid: cefca3b1-897e-4085-aec5-9a32eb3fc98a
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 10
+          4acd23ab-58ef-42c5-9945-ef52e8c6eefc:
+            uuid: 4acd23ab-58ef-42c5-9945-ef52e8c6eefc
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 11
+          ff32eea8-4757-4adb-9ca1-7281bb01f3c7:
+            uuid: ff32eea8-4757-4adb-9ca1-7281bb01f3c7
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 12
+          3d28a9c4-4e7e-4901-9902-36a49fba71d5:
+            uuid: 3d28a9c4-4e7e-4901-9902-36a49fba71d5
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 13
+          30f647ab-98b5-4ade-9220-2c73128a803f:
+            uuid: 30f647ab-98b5-4ade-9220-2c73128a803f
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 14
+          40d5788b-873b-4873-80f3-bf9d288d36fd:
+            uuid: 40d5788b-873b-4873-80f3-bf9d288d36fd
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 15
+          63919533-28b5-4aa7-a0ac-4d0c1cdeae60:
+            uuid: 63919533-28b5-4aa7-a0ac-4d0c1cdeae60
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:field_qr_code'
+                    settings:
+                      id: 'field_block:node:screen:field_qr_code'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 16
+          382732a8-f235-458d-afff-63dd8fc94b9e:
+            uuid: 382732a8-f235-458d-afff-63dd8fc94b9e
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 17
+          3cc55f0d-a967-4b9b-96ec-797fbf435c15:
+            uuid: 3cc55f0d-a967-4b9b-96ec-797fbf435c15
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 18
+          04eddb79-a7b5-478c-a79b-44d6a937fb68:
+            uuid: 04eddb79-a7b5-478c-a79b-44d6a937fb68
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 19
+          577121e1-6afc-4f17-9dec-894b9c183b9e:
+            uuid: 577121e1-6afc-4f17-9dec-894b9c183b9e
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 20
+          2793be6b-1c80-4190-bebb-900cf3ca38a6:
+            uuid: 2793be6b-1c80-4190-bebb-900cf3ca38a6
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 21
+          05a7d690-3737-462f-93e4-4006ccd39150:
+            uuid: 05a7d690-3737-462f-93e4-4006ccd39150
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 22
+          bc8b1447-286a-4eb5-8ca7-38c235cb2d2c:
+            uuid: bc8b1447-286a-4eb5-8ca7-38c235cb2d2c
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 23
+          f42e80dc-11bf-48e5-8e7a-44d21c0875c3:
+            uuid: f42e80dc-11bf-48e5-8e7a-44d21c0875c3
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 24
+          1579904a-d426-4494-84d9-48ef829d3ff4:
+            uuid: 1579904a-d426-4494-84d9-48ef829d3ff4
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 25
+          1787f7ef-f8c9-4a3e-826d-c85b01f5bc57:
+            uuid: 1787f7ef-f8c9-4a3e-826d-c85b01f5bc57
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 26
+          a819d0cf-f749-4efb-ae3a-d97cd7ead952:
+            uuid: a819d0cf-f749-4efb-ae3a-d97cd7ead952
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 27
+          ef6288a2-2202-449b-aeb4-8a71066abd5c:
+            uuid: ef6288a2-2202-449b-aeb4-8a71066abd5c
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 28
+          5b3c8654-9079-4700-a1d9-cc2184b850b2:
+            uuid: 5b3c8654-9079-4700-a1d9-cc2184b850b2
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:field_qr_code'
+                    settings:
+                      id: 'field_block:node:screen:field_qr_code'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 29
+          a74b2210-c497-4669-ae13-4aab79b0f875:
+            uuid: a74b2210-c497-4669-ae13-4aab79b0f875
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 30
+          bb2d9ee8-aee5-4883-8c06-ef8e1bc17b29:
+            uuid: bb2d9ee8-aee5-4883-8c06-ef8e1bc17b29
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 31
+          63f687f0-421d-49e5-a5cb-50558fad9adf:
+            uuid: 63f687f0-421d-49e5-a5cb-50558fad9adf
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 32
+          d56c64c1-510d-4fc9-be4b-2c434426592e:
+            uuid: d56c64c1-510d-4fc9-be4b-2c434426592e
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 33
+          cced845d-084f-4d36-bc1b-6756ee09f5ee:
+            uuid: cced845d-084f-4d36-bc1b-6756ee09f5ee
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 34
+          ef595bde-41f1-48db-87ba-2d5088318508:
+            uuid: ef595bde-41f1-48db-87ba-2d5088318508
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 35
+          8e872264-9ad9-4393-8391-b1a4676abc7a:
+            uuid: 8e872264-9ad9-4393-8391-b1a4676abc7a
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 36
+          789c6a9f-cf54-4b9d-a273-33596b50c1e1:
+            uuid: 789c6a9f-cf54-4b9d-a273-33596b50c1e1
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 37
+          71cd6d85-dd40-46bc-99ff-96bde8fc31d6:
+            uuid: 71cd6d85-dd40-46bc-99ff-96bde8fc31d6
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 38
+          78e50c75-e14e-4894-9ed8-9fe934d6b5b3:
+            uuid: 78e50c75-e14e-4894-9ed8-9fe934d6b5b3
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 39
+          6583b297-8564-4e2c-b32e-bc83c5892d58:
+            uuid: 6583b297-8564-4e2c-b32e-bc83c5892d58
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 40
+          48784475-05f7-490e-aeb5-94706e87c58e:
+            uuid: 48784475-05f7-490e-aeb5-94706e87c58e
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 41
+          8c270fda-b708-4256-b338-f93f978f1ce9:
+            uuid: 8c270fda-b708-4256-b338-f93f978f1ce9
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:field_qr_code'
+                    settings:
+                      id: 'field_block:node:screen:field_qr_code'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 42
+          9192cb36-a9e5-4be1-9639-082bc80458a0:
+            uuid: 9192cb36-a9e5-4be1-9639-082bc80458a0
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 43
+          a9bb90d6-44c5-4516-b5b3-a8c2725752a1:
+            uuid: a9bb90d6-44c5-4516-b5b3-a8c2725752a1
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 44
+          724e91d6-428f-4a7a-922e-7486ca5335c0:
+            uuid: 724e91d6-428f-4a7a-922e-7486ca5335c0
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 45
+          bf3b5433-d6d9-4d6b-aa20-7e7e2f44da37:
+            uuid: bf3b5433-d6d9-4d6b-aa20-7e7e2f44da37
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 46
+          1c5d619d-99d1-40c5-9602-9a246aca4837:
+            uuid: 1c5d619d-99d1-40c5-9602-9a246aca4837
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 47
+          afe7d0dd-84ab-4057-97bf-73d205517893:
+            uuid: afe7d0dd-84ab-4057-97bf-73d205517893
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 48
+          a397e38b-e546-4982-8e8e-2e11a90fce88:
+            uuid: a397e38b-e546-4982-8e8e-2e11a90fce88
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 49
+          cb301b6d-9a64-49ef-a1b6-9eb2a1156d03:
+            uuid: cb301b6d-9a64-49ef-a1b6-9eb2a1156d03
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 50
+          4bdcc122-dede-453e-a811-4c20ff3f8d66:
+            uuid: 4bdcc122-dede-453e-a811-4c20ff3f8d66
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:field_image'
+                    settings:
+                      id: 'field_block:node:screen:field_image'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: image
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 51
+          2946f929-1b5a-4377-8cb7-b41581144943:
+            uuid: 2946f929-1b5a-4377-8cb7-b41581144943
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 52
+          3499f8ad-8e53-42be-b770-df7da2fb27de:
+            uuid: 3499f8ad-8e53-42be-b770-df7da2fb27de
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 53
+          f4c6b45f-bf48-4601-9e8b-834f3a8087e0:
+            uuid: f4c6b45f-bf48-4601-9e8b-834f3a8087e0
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 54
+          d8c756e7-7d9e-45c6-8c99-9a9cca6f722c:
+            uuid: d8c756e7-7d9e-45c6-8c99-9a9cca6f722c
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 55
+          5c2a6fbb-5fd4-4812-bb36-b43d952b5bb1:
+            uuid: 5c2a6fbb-5fd4-4812-bb36-b43d952b5bb1
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 56
+          3f1607f5-9cb0-4864-991c-d104b48a08e8:
+            uuid: 3f1607f5-9cb0-4864-991c-d104b48a08e8
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 57
+          fd565b65-066f-462c-8133-0e3beb1f44e2:
+            uuid: fd565b65-066f-462c-8133-0e3beb1f44e2
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 58
+          8cac53c6-551c-4c43-ae60-c23a34079c47:
+            uuid: 8cac53c6-551c-4c43-ae60-c23a34079c47
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 59
+          45fe63ea-dbe4-47b6-91cd-6421c4f20c66:
+            uuid: 45fe63ea-dbe4-47b6-91cd-6421c4f20c66
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 60
+          1b8c9173-cfdb-4f43-bfe6-3fa2e0dcbe7b:
+            uuid: 1b8c9173-cfdb-4f43-bfe6-3fa2e0dcbe7b
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 61
+          cb4efd4e-990b-4956-8fa1-457732a8e7c2:
+            uuid: cb4efd4e-990b-4956-8fa1-457732a8e7c2
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 62
+          8d70174c-6ba2-4f80-b7e6-5efa2208c74b:
+            uuid: 8d70174c-6ba2-4f80-b7e6-5efa2208c74b
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 63
+          d7be5982-bf46-4dbe-8453-3432ca66a7ee:
+            uuid: d7be5982-bf46-4dbe-8453-3432ca66a7ee
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:field_image'
+                    settings:
+                      id: 'field_block:node:screen:field_image'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 64
+          b85a5c91-1e61-470f-9aae-ee34c68b1fdd:
+            uuid: b85a5c91-1e61-470f-9aae-ee34c68b1fdd
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 65
+          8a28a4da-334f-494b-970d-b7d582687fd2:
+            uuid: 8a28a4da-334f-494b-970d-b7d582687fd2
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 66
+          bb4792ac-c1d8-47eb-a64b-dc89e148fda0:
+            uuid: bb4792ac-c1d8-47eb-a64b-dc89e148fda0
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 67
+          21c093d3-a244-41bd-9134-a48578062616:
+            uuid: 21c093d3-a244-41bd-9134-a48578062616
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 68
+          5ff58aaa-ef4d-461d-9556-5d4261b83489:
+            uuid: 5ff58aaa-ef4d-461d-9556-5d4261b83489
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 69
+          3629c815-fb91-4166-acae-a14ba5695308:
+            uuid: 3629c815-fb91-4166-acae-a14ba5695308
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 70
+          7529f5cc-ecdf-4cb0-bac3-b5b2160f4905:
+            uuid: 7529f5cc-ecdf-4cb0-bac3-b5b2160f4905
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 71
+          40a2e0dc-e8ce-4fe1-8a1e-807e97d870a9:
+            uuid: 40a2e0dc-e8ce-4fe1-8a1e-807e97d870a9
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 72
+          cfecf088-4fd0-4bc6-8b18-9494efbe892d:
+            uuid: cfecf088-4fd0-4bc6-8b18-9494efbe892d
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:field_tags'
+                    settings:
+                      id: 'field_block:node:screen:field_tags'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 73
+          6f16a553-0032-4be0-839c-9b6beb28ce8c:
+            uuid: 6f16a553-0032-4be0-839c-9b6beb28ce8c
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 74
+          1162ca69-3645-44f5-a59a-b890f15d3a07:
+            uuid: 1162ca69-3645-44f5-a59a-b890f15d3a07
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 75
+          f761ce33-988c-4c21-bfd2-2ce75689bfc6:
+            uuid: f761ce33-988c-4c21-bfd2-2ce75689bfc6
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 76
+          7beb65ca-c081-4235-9574-4ef2c4dde79c:
+            uuid: 7beb65ca-c081-4235-9574-4ef2c4dde79c
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 77
+          0e94013b-773c-4f04-a4dc-1e0ab07ba328:
+            uuid: 0e94013b-773c-4f04-a4dc-1e0ab07ba328
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 78
+          b598df31-b640-4da9-92d9-7d8b978dbc2b:
+            uuid: b598df31-b640-4da9-92d9-7d8b978dbc2b
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 79
+          5935d8c6-0e67-42cb-89bb-fb576c7def87:
+            uuid: 5935d8c6-0e67-42cb-89bb-fb576c7def87
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 80
+          36be1de5-7494-4135-86d8-670ae1b2429d:
+            uuid: 36be1de5-7494-4135-86d8-670ae1b2429d
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 81
+          28d471f5-cc0d-49bd-8aaa-2122bd1172c3:
+            uuid: 28d471f5-cc0d-49bd-8aaa-2122bd1172c3
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:field_metatag'
+                    settings:
+                      id: 'field_block:node:screen:field_metatag'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: metatag_empty_formatter
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 82
+          d2d9ff77-ec60-4f82-aab5-ff3ec8ddb287:
+            uuid: d2d9ff77-ec60-4f82-aab5-ff3ec8ddb287
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 83
+          408746fc-3861-48da-9e9c-6633ab09fbac:
+            uuid: 408746fc-3861-48da-9e9c-6633ab09fbac
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 84
+          31dcf798-0cf4-432a-9e9a-58240b55feaa:
+            uuid: 31dcf798-0cf4-432a-9e9a-58240b55feaa
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 85
+          3e4a0fa8-8185-4ca8-8f81-20259832ceb8:
+            uuid: 3e4a0fa8-8185-4ca8-8f81-20259832ceb8
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 86
+          b87aaf30-75b9-42bc-8bae-c092e8053a9e:
+            uuid: b87aaf30-75b9-42bc-8bae-c092e8053a9e
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 87
+          01af5773-305c-4059-81fb-dcf712a26ac3:
+            uuid: 01af5773-305c-4059-81fb-dcf712a26ac3
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 88
+          1d2543fa-d294-4568-96c8-a8f209fadef7:
+            uuid: 1d2543fa-d294-4568-96c8-a8f209fadef7
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 89
+          71fd9dd8-a9d5-4036-8111-7d9623ee5a25:
+            uuid: 71fd9dd8-a9d5-4036-8111-7d9623ee5a25
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 90
+          214f38e9-5c0c-47b5-87ec-325fef1ca83f:
+            uuid: 214f38e9-5c0c-47b5-87ec-325fef1ca83f
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:field_meta_tags'
+                    settings:
+                      id: 'field_block:node:screen:field_meta_tags'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: metatag_empty_formatter
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 91
+          32e26b0d-5dea-4be7-b6db-2e9776e9e8a3:
+            uuid: 32e26b0d-5dea-4be7-b6db-2e9776e9e8a3
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 92
+          fbf8f462-a75c-46cd-b6ac-3e96bd805bdd:
+            uuid: fbf8f462-a75c-46cd-b6ac-3e96bd805bdd
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 93
+          dc7e02e2-8d17-4088-abbf-a926d00f698d:
+            uuid: dc7e02e2-8d17-4088-abbf-a926d00f698d
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 94
+          b1842de0-9b6b-4eee-a4ad-ae81949cc202:
+            uuid: b1842de0-9b6b-4eee-a4ad-ae81949cc202
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 95
+          4f9e34a1-aed8-4f44-abda-416444418fa5:
+            uuid: 4f9e34a1-aed8-4f44-abda-416444418fa5
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 96
+          10a9a2b7-570d-470e-9401-dee0778cd51b:
+            uuid: 10a9a2b7-570d-470e-9401-dee0778cd51b
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 97
+          b65189d6-9216-4bff-a238-fb430831e50a:
+            uuid: b65189d6-9216-4bff-a238-fb430831e50a
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 98
+          d792fe44-f559-4598-9cbd-284fe2dfaf8e:
+            uuid: d792fe44-f559-4598-9cbd-284fe2dfaf8e
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 99
+          0bbb20e7-fe71-43cc-b0e5-fe803574c7fa:
+            uuid: 0bbb20e7-fe71-43cc-b0e5-fe803574c7fa
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:field_yoast_seo'
+                    settings:
+                      id: 'field_block:node:screen:field_yoast_seo'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 100
+          ca0043b8-77a9-4b90-a7bf-799abf19e6d4:
+            uuid: ca0043b8-77a9-4b90-a7bf-799abf19e6d4
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:content_moderation_control'
+                    settings:
+                      id: 'extra_field_block:node:screen:content_moderation_control'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 101
+          a4404c14-364d-4741-b451-acd55e7dc609:
+            uuid: a4404c14-364d-4741-b451-acd55e7dc609
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 102
+          2fc6f7c4-b3b4-44a2-bf6a-3fe66026133e:
+            uuid: 2fc6f7c4-b3b4-44a2-bf6a-3fe66026133e
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 103
+          b4e8ac9d-52e8-4c80-a0c7-4176fdbcb7c6:
+            uuid: b4e8ac9d-52e8-4c80-a0c7-4176fdbcb7c6
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 104
+          847eba86-f917-454c-9d7d-132638467059:
+            uuid: 847eba86-f917-454c-9d7d-132638467059
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 105
+          bf900c5a-9b5e-4aa2-8448-cf39905fa1ab:
+            uuid: bf900c5a-9b5e-4aa2-8448-cf39905fa1ab
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:content_moderation_control'
+                    settings:
+                      id: 'extra_field_block:node:screen:content_moderation_control'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 106
+          3d6f2b55-cfdb-4899-bb5e-7e79764ff00a:
+            uuid: 3d6f2b55-cfdb-4899-bb5e-7e79764ff00a
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 107
+          5bbe099d-14dc-48eb-b97e-49e9c508cfca:
+            uuid: 5bbe099d-14dc-48eb-b97e-49e9c508cfca
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 108
+          0d802596-850c-4c4f-a744-d8471a7f5df6:
+            uuid: 0d802596-850c-4c4f-a744-d8471a7f5df6
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 109
+          d0a3c05f-e427-4131-92dd-087bcf17fd1f:
+            uuid: d0a3c05f-e427-4131-92dd-087bcf17fd1f
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 110
+          6de563b8-2f11-4a48-bbec-2adae6aef789:
+            uuid: 6de563b8-2f11-4a48-bbec-2adae6aef789
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:content_moderation_control'
+                    settings:
+                      id: 'extra_field_block:node:screen:content_moderation_control'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 111
+          97b964a1-9c5a-416c-9c8e-1ab3739a146c:
+            uuid: 97b964a1-9c5a-416c-9c8e-1ab3739a146c
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 112
+          a7ca5f63-c623-400c-be9b-9523f483a40c:
+            uuid: a7ca5f63-c623-400c-be9b-9523f483a40c
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 113
+          f582c273-d75a-4c6a-bee4-6b8ef5efd0b1:
+            uuid: f582c273-d75a-4c6a-bee4-6b8ef5efd0b1
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 114
+          742a6519-7889-477c-8298-8be2d85c589c:
+            uuid: 742a6519-7889-477c-8298-8be2d85c589c
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 115
+          f93e777d-90cb-4614-a872-e3a3dd907c68:
+            uuid: f93e777d-90cb-4614-a872-e3a3dd907c68
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:content_moderation_control'
+                    settings:
+                      id: 'extra_field_block:node:screen:content_moderation_control'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 116
+          dbbe7020-8b70-40e3-a05f-5974ac902ab2:
+            uuid: dbbe7020-8b70-40e3-a05f-5974ac902ab2
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 117
+          a86f10d6-8d4f-4d68-b984-03565429984a:
+            uuid: a86f10d6-8d4f-4d68-b984-03565429984a
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 118
+          7fdb72d0-c024-4d0b-9f2e-72b06dd774a5:
+            uuid: 7fdb72d0-c024-4d0b-9f2e-72b06dd774a5
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 119
+          b3b04d50-fe01-4f0d-a2ab-cdb80809b54e:
+            uuid: b3b04d50-fe01-4f0d-a2ab-cdb80809b54e
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 120
+          a85af5ff-e5dc-4442-aa87-4b1ce1812e45:
+            uuid: a85af5ff-e5dc-4442-aa87-4b1ce1812e45
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:content_moderation_control'
+                    settings:
+                      id: 'extra_field_block:node:screen:content_moderation_control'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 121
+          4644630b-01a0-4e61-81ff-40cc0259bbac:
+            uuid: 4644630b-01a0-4e61-81ff-40cc0259bbac
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 122
+          b0242ec5-1d80-4902-ab9f-3b90e30c364a:
+            uuid: b0242ec5-1d80-4902-ab9f-3b90e30c364a
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 123
+          44beff04-39ef-4b4f-9a83-750085985d93:
+            uuid: 44beff04-39ef-4b4f-9a83-750085985d93
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 124
+          191de7e0-c285-4990-b2e6-77ea2cbec4af:
+            uuid: 191de7e0-c285-4990-b2e6-77ea2cbec4af
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 125
+          57c66e5d-5000-4a00-9bc7-d9c3e4026ec3:
+            uuid: 57c66e5d-5000-4a00-9bc7-d9c3e4026ec3
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:content_moderation_control'
+                    settings:
+                      id: 'extra_field_block:node:screen:content_moderation_control'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 126
+          1e72900e-fa38-4b9f-97f3-7c9ffaf9ad73:
+            uuid: 1e72900e-fa38-4b9f-97f3-7c9ffaf9ad73
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 127
+          1209fab8-02a7-4c5e-aef7-fed2c5824aeb:
+            uuid: 1209fab8-02a7-4c5e-aef7-fed2c5824aeb
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 128
+          044a602c-1908-4d9d-b074-0254fe032ad0:
+            uuid: 044a602c-1908-4d9d-b074-0254fe032ad0
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 129
+          8519dbdd-173a-47ca-8cce-9afdcf7316d5:
+            uuid: 8519dbdd-173a-47ca-8cce-9afdcf7316d5
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 130
+          f4b24247-54c9-45ee-8c9e-6c7321f82748:
+            uuid: f4b24247-54c9-45ee-8c9e-6c7321f82748
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:field_override'
+                    settings:
+                      id: 'field_block:node:screen:field_override'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 131
+          2d31d8f6-edd7-493d-ad05-10959a3c8e21:
+            uuid: 2d31d8f6-edd7-493d-ad05-10959a3c8e21
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:content_moderation_control'
+                    settings:
+                      id: 'extra_field_block:node:screen:content_moderation_control'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 132
+          f5a79cfe-8f42-4e0d-a6bd-42f56a9a0a3b:
+            uuid: f5a79cfe-8f42-4e0d-a6bd-42f56a9a0a3b
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 133
+          53ab7c2b-24f0-472c-a04b-1c6a92a79f26:
+            uuid: 53ab7c2b-24f0-472c-a04b-1c6a92a79f26
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 134
+          aa697ff2-2b61-47a3-b2af-d3eecbe4037d:
+            uuid: aa697ff2-2b61-47a3-b2af-d3eecbe4037d
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 135
+          a33d2ea0-1671-401b-9950-6c8c8ccc52c2:
+            uuid: a33d2ea0-1671-401b-9950-6c8c8ccc52c2
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 136
+          9a1d4380-7773-44a4-bbda-8ea783ccafc6:
+            uuid: 9a1d4380-7773-44a4-bbda-8ea783ccafc6
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:content_moderation_control'
+                    settings:
+                      id: 'extra_field_block:node:screen:content_moderation_control'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 137
+          1234c491-c6a0-40fb-b1cb-3afec472961a:
+            uuid: 1234c491-c6a0-40fb-b1cb-3afec472961a
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 138
+          471a685b-c912-458f-be22-9613c1c63b19:
+            uuid: 471a685b-c912-458f-be22-9613c1c63b19
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 139
+          fa3a38b3-0487-4144-b4d1-4b8bca1f62f4:
+            uuid: fa3a38b3-0487-4144-b4d1-4b8bca1f62f4
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 140
+          28228c21-b5cf-408c-a8d8-b544277df723:
+            uuid: 28228c21-b5cf-408c-a8d8-b544277df723
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 141
+          724d69f6-2e96-4b7c-9685-fc38a59bdae9:
+            uuid: 724d69f6-2e96-4b7c-9685-fc38a59bdae9
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:content_moderation_control'
+                    settings:
+                      id: 'extra_field_block:node:screen:content_moderation_control'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 142
+          b1f84057-dcb3-4321-aa6d-f6b3a4e8f3d9:
+            uuid: b1f84057-dcb3-4321-aa6d-f6b3a4e8f3d9
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 143
+          0fc972f0-f202-4d17-bd81-d28b497a1c27:
+            uuid: 0fc972f0-f202-4d17-bd81-d28b497a1c27
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 144
+          1cd0554a-6f3e-412b-bb89-fe7a6bb630fc:
+            uuid: 1cd0554a-6f3e-412b-bb89-fe7a6bb630fc
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 145
+          e2106fb4-1ad9-4d64-8a6e-b68b81e1dc6b:
+            uuid: e2106fb4-1ad9-4d64-8a6e-b68b81e1dc6b
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 146
+          a56b5e48-1adf-4fc2-9126-3cc4b87ccfd2:
+            uuid: a56b5e48-1adf-4fc2-9126-3cc4b87ccfd2
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:content_moderation_control'
+                    settings:
+                      id: 'extra_field_block:node:screen:content_moderation_control'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 147
+          d581d5e1-7bfe-4154-a6be-b600925b6464:
+            uuid: d581d5e1-7bfe-4154-a6be-b600925b6464
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 148
+          163f12c9-c010-4fa5-bea3-064816733e61:
+            uuid: 163f12c9-c010-4fa5-bea3-064816733e61
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 149
+          3ea0a1e8-a577-493a-9e4f-c191d337dc10:
+            uuid: 3ea0a1e8-a577-493a-9e4f-c191d337dc10
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:title'
+                    settings:
+                      id: 'field_block:node:screen:title'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: string
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 150
+          c1f9a6d8-ec4d-4a16-8a81-67c0c4c97ed3:
+            uuid: c1f9a6d8-ec4d-4a16-8a81-67c0c4c97ed3
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 151
+          f689e493-a253-4175-bc31-ca0b745d1dac:
+            uuid: f689e493-a253-4175-bc31-ca0b745d1dac
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:content_moderation_control'
+                    settings:
+                      id: 'extra_field_block:node:screen:content_moderation_control'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 152
+          15dc78bd-4ee8-4da5-a58a-7f85f051a246:
+            uuid: 15dc78bd-4ee8-4da5-a58a-7f85f051a246
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:node:screen:links'
+                    settings:
+                      id: 'extra_field_block:node:screen:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 153
+          f69ba405-40eb-4e72-a6e0-5b1fabb25c40:
+            uuid: f69ba405-40eb-4e72-a6e0-5b1fabb25c40
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:uid'
+                    settings:
+                      id: 'field_block:node:screen:uid'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: entity_reference_label
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 154
+          47c421f8-8f0d-444c-8b0c-02f0b63c5bfd:
+            uuid: 47c421f8-8f0d-444c-8b0c-02f0b63c5bfd
+            region: null
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'field_block:node:screen:created'
+                    settings:
+                      id: 'field_block:node:screen:created'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        label: hidden
+                        type: timestamp
+                        settings: {  }
+                        third_party_settings: {  }
+            additional: {  }
+            weight: 155
+        third_party_settings: {  }
+id: node.screen.default
+targetEntityType: node
+bundle: screen
+mode: default
+content: {  }
+hidden:
+  changed: true
+  default_langcode: true
+  description: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_image: true
+  field_meta_tags: true
+  field_qr_code: true
+  field_tags: true
+  field_yoast_seo: true
+  label_browser: true
+  label_display: true
+  label_ia: true
+  langcode: true
+  layout_builder__layout: true
+  menu_link: true
+  metatag: true
+  moderation_state: true
+  nid: true
+  path: true
+  promote: true
+  redirect: true
+  revision_default: true
+  revision_log: true
+  revision_timestamp: true
+  revision_translation_affected: true
+  revision_uid: true
+  schedule_status_change: true
+  search_api_excerpt: true
+  status: true
+  sticky: true
+  title: true
+  type: true
+  uuid: true
+  vid: true

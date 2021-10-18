@@ -1,0 +1,28 @@
+uuid: 15374c43-c532-4442-9cd2-ae77fbdff862
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.theme_entity__admin
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: exposedformtheme_entity__adminblock_1
+theme: seven
+region: content
+weight: 4
+provider: null
+plugin: 'views_exposed_filter_block:theme_entity__admin-block_1'
+settings:
+  id: 'views_exposed_filter_block:theme_entity__admin-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/structure/theme_entity
+    negate: false

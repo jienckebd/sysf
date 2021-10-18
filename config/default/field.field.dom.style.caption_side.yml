@@ -1,0 +1,29 @@
+uuid: 9db3037c-0b8c-4a50-bfa0-b0ac3826b0ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.caption_side
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: caption-side
+    behavior:
+      dom:
+        subattribute: caption-side
+id: dom.style.caption_side
+field_name: caption_side
+entity_type: dom
+bundle: style
+label: caption-side
+description: 'Sets the position of the table caption'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

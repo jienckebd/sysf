@@ -1,0 +1,17 @@
+uuid: d02fa5f5-107b-48e6-bfff-2e2a8a70d6c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.w_800
+  module:
+    - crop
+name: w_800
+label: 'Wide (x800)'
+effects:
+  81926b8d-b88d-4fb6-85bc-30149517f944:
+    uuid: 81926b8d-b88d-4fb6-85bc-30149517f944
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: w_800

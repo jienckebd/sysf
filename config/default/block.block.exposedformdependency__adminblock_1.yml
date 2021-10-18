@@ -1,0 +1,28 @@
+uuid: 0c6bcbb7-691f-44fe-89a1-3fdb3ac7b1f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.dependency__admin
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: exposedformdependency__adminblock_1
+theme: seven
+region: content
+weight: -8
+provider: null
+plugin: 'views_exposed_filter_block:dependency__admin-block_1'
+settings:
+  id: 'views_exposed_filter_block:dependency__admin-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/structure/dependency
+    negate: false

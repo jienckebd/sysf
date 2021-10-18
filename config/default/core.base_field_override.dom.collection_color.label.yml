@@ -1,0 +1,19 @@
+uuid: f8de0622-233b-47c6-9ea1-9861a1438ebe
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.collection_color
+id: dom.collection_color.label
+field_name: label
+entity_type: dom
+bundle: collection_color
+label: 'Administrative Label'
+description: 'Provide this color scheme an administrative label you can use to identify and re-use it in the future.'
+required: false
+translatable: false
+default_value:
+  actions: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

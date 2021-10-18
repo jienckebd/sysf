@@ -1,0 +1,10 @@
+uuid: 02d5e2e3-662f-488c-8947-3e80735e1858
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.s_800
+label: 'Standard (x800)'
+targetEntityType: media
+cache: true

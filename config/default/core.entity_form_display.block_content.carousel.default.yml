@@ -1,0 +1,83 @@
+uuid: 47a3b00e-4198-49b8-be0e-e2d2d6ecfd42
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.carousel
+    - field.field.block_content.carousel.field_component
+  module:
+    - inline_entity_form
+id: block_content.carousel.default
+targetEntityType: block_content
+bundle: carousel
+mode: default
+content:
+  actions:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  container:
+    type: inline_entity_form_complex
+    region: content
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      allow_duplicate: true
+    third_party_settings: {  }
+    weight: 4
+  field_component:
+    type: inline_entity_form_complex
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      allow_duplicate: true
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  revision_log:
+    type: string_textarea
+    weight: 3
+    settings:
+      rows: 4
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  base_entity: true
+  reusable: true
+  simple_sitemap: true
+  status: true
+  tags: true
+  view_mode: true

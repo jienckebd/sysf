@@ -1,0 +1,18 @@
+uuid: f0185f47-91ed-47c9-9cb1-6ab8ba88d66a
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.index
+field_name: index
+entity_type: dom
+type: entity_index
+settings: {  }
+module: bd
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,943 @@
+uuid: 90916696-1a9c-4ea2-a544-4d7852064fc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.theme_entity.default
+    - core.entity_form_mode.dom.inline
+    - entity_browser.browser.media_image_modal
+    - field.field.theme_entity.default.field_breakpoint
+    - field.field.theme_entity.default.field_color_scheme
+    - field.field.theme_entity.default.field_component
+    - field.field.theme_entity.default.field_dom_tag
+    - field.field.theme_entity.default.field_font
+    - field.field.theme_entity.default.field_icon
+    - field.field.theme_entity.default.field_image
+    - field.field.theme_entity.default.field_integration
+    - field.field.theme_entity.default.field_layout
+    - field.field.theme_entity.default.field_logo
+    - field.field.theme_entity.default.field_selector
+    - field.field.theme_entity.default.field_tag_group
+  module:
+    - design_system
+    - entity_browser
+    - entity_browser_entity_form
+    - field_group
+    - inline_entity_form
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_overview
+        - group_layout
+        - group_components
+        - group_styles
+        - group_colors
+        - group_fonts
+        - group_devices
+        - group_integrations
+        - group_advanced
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: Tabs
+    group_integrations:
+      children:
+        - field_integration
+      parent_name: group_tabs
+      weight: 28
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Integrations
+    group_styles:
+      children:
+        - field_tag_group
+        - field_dom_tag
+        - field_selector
+      parent_name: group_tabs
+      weight: 24
+      format_type: tab
+      region: content
+      format_settings:
+        description: ''
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+        show_empty_fields: false
+      label: Elements
+    group_components:
+      children:
+        - field_component
+      parent_name: group_tabs
+      weight: 23
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Components
+    group_devices:
+      children:
+        - field_breakpoint
+      parent_name: group_tabs
+      weight: 27
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Devices
+    group_fonts:
+      children:
+        - field_font
+      parent_name: group_tabs
+      weight: 26
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Fonts
+    group_overview:
+      children:
+        - group_overview_details
+        - group_media
+      parent_name: group_tabs
+      weight: 20
+      format_type: tab
+      region: content
+      format_settings:
+        description: ''
+        formatter: open
+        required_fields: true
+        id: ''
+        classes: ''
+        show_empty_fields: false
+      label: Theme
+    group_colors:
+      children:
+        - field_color_scheme
+      parent_name: group_tabs
+      weight: 25
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Colors
+    group_layout:
+      children:
+        - field_layout
+      parent_name: group_tabs
+      weight: 22
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Layout
+    group_advanced:
+      children:
+        - revision_log_message
+        - langcode
+        - status
+        - uid
+        - created
+      parent_name: group_tabs
+      weight: 29
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Advanced
+    group_media:
+      children:
+        - field_logo
+        - field_icon
+        - field_image
+      parent_name: group_overview
+      weight: 24
+      format_type: details
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: Media
+    group_overview_details:
+      children:
+        - label
+        - description
+        - base_entity
+      parent_name: group_overview
+      weight: 20
+      format_type: details
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: Overview
+id: theme_entity.default.default
+targetEntityType: theme_entity
+bundle: default
+mode: default
+content:
+  actions:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  base_entity:
+    type: options_select
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  description:
+    type: string_textarea
+    weight: 22
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_breakpoint:
+    type: inline_entity_form_complex
+    weight: 12
+    region: content
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      allow_duplicate: true
+    third_party_settings: {  }
+  field_color_scheme:
+    type: inline_entity_form_simple
+    weight: 0
+    region: content
+    settings:
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      default_bundle: ''
+    third_party_settings: {  }
+  field_component:
+    type: inline_entity_form_simple
+    weight: 0
+    region: content
+    settings:
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      default_bundle: ''
+    third_party_settings: {  }
+  field_dom_tag:
+    type: inline_entity_form_simple
+    weight: 1
+    region: content
+    settings:
+      form_mode: inline
+      label_singular: ''
+      label_plural: ''
+      revision: false
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      default_bundle: ''
+    third_party_settings:
+      design_system:
+        overview:
+          entity_field_group: ''
+          default_field_widget:
+            plugin_id: ''
+          default_field_formatter:
+            plugin_id: ''
+          weight: ''
+          cardinality: ''
+        element:
+          field_items:
+            container: ''
+          field_item:
+            container: ''
+          field_value:
+            container: ''
+            override: ''
+            callback: ''
+          label:
+            container: ''
+            override: ''
+            display_position: before
+          description:
+            container: ''
+            override: ''
+            display_position: after
+        behavior:
+          access:
+            view:
+              0:
+                condition:
+                  plugin_id: ''
+              condition_list:
+                actions:
+                  add: ''
+            edit:
+              0:
+                condition:
+                  plugin_id: ''
+              restrict_behavior: ''
+              condition_list:
+                actions:
+                  add: ''
+          translation:
+            force_langcode: ''
+            disable: 0
+          default_value:
+            plugin:
+              plugin_id: ''
+          multi_value:
+            max: ''
+            delimiter: ''
+          empty_value:
+            plugin:
+              plugin_id: ''
+          dom:
+            attribute: ''
+            subattribute: ''
+            theme_hook: ''
+            theme_hook_selector: ''
+            theme_hook_match_key: ''
+            theme_hook_match_value: ''
+            build_css_field_name: ''
+            build_css: 0
+  field_font:
+    type: entity_browser_entity_reference
+    weight: 0
+    region: content
+    settings:
+      entity_browser: font_modal
+      field_widget_display: rendered_entity
+      field_widget_display_settings:
+        view_mode: teaser
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_replace: false
+    third_party_settings:
+      design_system:
+        overview:
+          entity_field_group: ''
+          default_field_widget:
+            plugin_id: ''
+          default_field_formatter:
+            plugin_id: ''
+          weight: ''
+          cardinality: ''
+        element:
+          field_items:
+            container: ''
+          field_item:
+            container: ''
+          field_value:
+            container: ''
+            override: ''
+            callback: ''
+          label:
+            container: ''
+            override: ''
+            display_position: before
+          description:
+            container: ''
+            override: ''
+            display_position: after
+        behavior:
+          access:
+            view:
+              0:
+                condition:
+                  plugin_id: ''
+              1:
+                condition:
+                  plugin_id: ''
+              condition_list:
+                actions:
+                  add: ''
+            edit:
+              0:
+                condition:
+                  plugin_id: ''
+              1:
+                condition:
+                  plugin_id: ''
+              restrict_behavior: ''
+              condition_list:
+                actions:
+                  add: ''
+          translation:
+            force_langcode: ''
+            disable: 0
+          default_value:
+            plugin:
+              plugin_id: ''
+          multi_value:
+            max: ''
+            delimiter: ''
+          empty_value:
+            plugin:
+              plugin_id: ''
+          dom:
+            attribute: ''
+            subattribute: ''
+            theme_hook: ''
+            theme_hook_selector: ''
+            theme_hook_match_key: ''
+            theme_hook_match_value: ''
+            build_css_field_name: ''
+            build_css: 0
+  field_icon:
+    type: entity_browser_entity_reference
+    weight: 27
+    region: content
+    settings:
+      entity_browser: media_image_modal
+      field_widget_display: rendered_entity
+      field_widget_display_settings:
+        view_mode: embed
+      field_widget_edit: true
+      field_widget_remove: true
+      field_widget_replace: true
+      open: true
+      selection_mode: selection_append
+    third_party_settings:
+      design_system:
+        overview:
+          entity_field_group: ''
+          default_field_widget:
+            plugin_id: ''
+          default_field_formatter:
+            plugin_id: ''
+          weight: ''
+          cardinality: ''
+        element:
+          field_items:
+            container: ''
+          field_item:
+            container: ''
+          field_value:
+            container: ''
+            override: ''
+            callback: ''
+          label:
+            container: ''
+            override: ''
+            display_position: before
+          description:
+            container: ''
+            override: ''
+            display_position: after
+        behavior:
+          access:
+            view:
+              0:
+                condition:
+                  plugin_id: ''
+              1:
+                condition:
+                  plugin_id: ''
+              condition_list:
+                actions:
+                  add: ''
+            edit:
+              0:
+                condition:
+                  plugin_id: ''
+              1:
+                condition:
+                  plugin_id: ''
+              restrict_behavior: ''
+              condition_list:
+                actions:
+                  add: ''
+          translation:
+            force_langcode: ''
+            disable: 0
+          default_value:
+            plugin:
+              plugin_id: ''
+          multi_value:
+            max: ''
+            delimiter: ''
+          empty_value:
+            plugin:
+              plugin_id: ''
+          dom:
+            attribute: ''
+            subattribute: ''
+            theme_hook: ''
+            theme_hook_selector: ''
+            theme_hook_match_key: ''
+            theme_hook_match_value: ''
+            build_css_field_name: ''
+            build_css: 0
+  field_image:
+    type: entity_browser_entity_reference
+    weight: 28
+    region: content
+    settings:
+      entity_browser: media_image_modal
+      field_widget_display: rendered_entity
+      field_widget_display_settings:
+        view_mode: embed
+      field_widget_edit: true
+      field_widget_remove: true
+      field_widget_replace: true
+      open: true
+      selection_mode: selection_append
+    third_party_settings:
+      design_system:
+        overview:
+          entity_field_group: ''
+          default_field_widget:
+            plugin_id: ''
+          default_field_formatter:
+            plugin_id: ''
+          weight: ''
+          cardinality: ''
+        element:
+          field_items:
+            container: ''
+          field_item:
+            container: ''
+          field_value:
+            container: ''
+            override: ''
+            callback: ''
+          label:
+            container: ''
+            override: ''
+            display_position: before
+          description:
+            container: ''
+            override: ''
+            display_position: after
+        behavior:
+          access:
+            view:
+              0:
+                condition:
+                  plugin_id: ''
+              condition_list:
+                actions:
+                  add: ''
+            edit:
+              0:
+                condition:
+                  plugin_id: ''
+              restrict_behavior: ''
+              condition_list:
+                actions:
+                  add: ''
+          translation:
+            force_langcode: ''
+            disable: 0
+          default_value:
+            plugin:
+              plugin_id: ''
+          multi_value:
+            max: ''
+            delimiter: ''
+          empty_value:
+            plugin:
+              plugin_id: ''
+          dom:
+            attribute: ''
+            subattribute: ''
+            theme_hook: ''
+            theme_hook_selector: ''
+            theme_hook_match_key: ''
+            theme_hook_match_value: ''
+            build_css_field_name: ''
+            build_css: 0
+  field_integration:
+    type: inline_entity_form_complex
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      allow_duplicate: true
+    third_party_settings: {  }
+  field_layout:
+    type: inline_entity_form_complex
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      allow_duplicate: true
+    third_party_settings: {  }
+  field_logo:
+    type: entity_browser_entity_reference
+    weight: 26
+    region: content
+    settings:
+      entity_browser: media_image_modal
+      field_widget_display: rendered_entity
+      field_widget_display_settings:
+        view_mode: embed
+      field_widget_edit: true
+      field_widget_remove: true
+      field_widget_replace: true
+      open: true
+      selection_mode: selection_append
+    third_party_settings:
+      design_system:
+        overview:
+          entity_field_group: ''
+          default_field_widget:
+            plugin_id: ''
+          default_field_formatter:
+            plugin_id: ''
+          weight: ''
+          cardinality: ''
+        element:
+          field_items:
+            container: ''
+          field_item:
+            container: ''
+          field_value:
+            container: ''
+            override: Array
+            callback: Array
+          label:
+            container: ''
+            override: Array
+            display_position: ''
+          description:
+            container: ''
+            override: Array
+            display_position: ''
+        behavior:
+          access:
+            view:
+              0:
+                condition:
+                  plugin_id: ''
+              1:
+                condition:
+                  plugin_id: ''
+              condition_list:
+                actions:
+                  add: ''
+            edit:
+              0:
+                condition:
+                  plugin_id: ''
+              1:
+                condition:
+                  plugin_id: ''
+              restrict_behavior: ''
+              condition_list:
+                actions:
+                  add: ''
+          translation:
+            force_langcode: ''
+            disable: 0
+          default_value:
+            plugin:
+              plugin_id: ''
+          multi_value:
+            max: ''
+            delimiter: ''
+          empty_value:
+            plugin:
+              plugin_id: ''
+          dom:
+            attribute: ''
+            subattribute: ''
+            theme_hook: ''
+            theme_hook_selector: ''
+            theme_hook_match_key: ''
+            theme_hook_match_value: ''
+            build_css_field_name: ''
+            build_css: 0
+  field_selector:
+    weight: 2
+    settings:
+      form_mode: inline
+      revision: true
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: true
+      override_labels: false
+      collapsible: false
+      collapsed: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: app_modal
+      design_system:
+        overview:
+          entity_field_group: ''
+          default_field_widget:
+            plugin_id: ''
+          default_field_formatter:
+            plugin_id: ''
+          weight: ''
+          cardinality: ''
+        element:
+          field_items:
+            container: ''
+          field_item:
+            container: ''
+          field_value:
+            container: ''
+            override: ''
+            callback: ''
+          label:
+            container: ''
+            override: ''
+            display_position: before
+          description:
+            container: ''
+            override: ''
+            display_position: after
+        behavior:
+          access:
+            view:
+              0:
+                condition:
+                  plugin_id: ''
+              1:
+                condition:
+                  plugin_id: ''
+              condition_list:
+                actions:
+                  add: ''
+            edit:
+              0:
+                condition:
+                  plugin_id: ''
+              1:
+                condition:
+                  plugin_id: ''
+              restrict_behavior: ''
+              condition_list:
+                actions:
+                  add: ''
+          translation:
+            force_langcode: ''
+            disable: 0
+          default_value:
+            plugin:
+              plugin_id: ''
+          multi_value:
+            max: ''
+            delimiter: ''
+          empty_value:
+            plugin:
+              plugin_id: ''
+          dom:
+            attribute: ''
+            subattribute: ''
+            theme_hook: ''
+            theme_hook_selector: ''
+            theme_hook_match_key: ''
+            theme_hook_match_value: ''
+            build_css_field_name: ''
+            build_css: 0
+    type: inline_entity_form_complex
+    region: content
+  field_tag_group:
+    type: inline_entity_form_simple
+    weight: 0
+    region: content
+    settings:
+      form_mode: inline
+      label_singular: ''
+      label_plural: ''
+      revision: false
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      default_bundle: ''
+    third_party_settings:
+      design_system:
+        overview:
+          entity_field_group: ''
+          default_field_widget:
+            plugin_id: ''
+          default_field_formatter:
+            plugin_id: ''
+          weight: ''
+          cardinality: ''
+        element:
+          field_items:
+            container: ''
+          field_item:
+            container: ''
+          field_value:
+            container: ''
+            override: ''
+            callback: ''
+          label:
+            container: ''
+            override: ''
+            display_position: before
+          description:
+            container: ''
+            override: ''
+            display_position: after
+        behavior:
+          access:
+            view:
+              0:
+                condition:
+                  plugin_id: ''
+              condition_list:
+                actions:
+                  add: ''
+            edit:
+              0:
+                condition:
+                  plugin_id: ''
+              restrict_behavior: ''
+              condition_list:
+                actions:
+                  add: ''
+          translation:
+            force_langcode: ''
+            disable: 0
+          default_value:
+            plugin:
+              plugin_id: ''
+          multi_value:
+            max: ''
+            delimiter: ''
+          empty_value:
+            plugin:
+              plugin_id: ''
+          dom:
+            attribute: ''
+            subattribute: ''
+            theme_hook: ''
+            theme_hook_selector: ''
+            theme_hook_match_key: ''
+            theme_hook_match_value: ''
+            build_css_field_name: ''
+            build_css: 0
+  label:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 4
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  revision_log_message:
+    type: string_textarea
+    weight: 3
+    settings:
+      rows: 4
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  uid:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  simple_sitemap: true

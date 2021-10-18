@@ -1,0 +1,14 @@
+name: Design System
+type: module
+description: 'Provides a design system.'
+core_version_requirement: ^8.8 || ^9
+
+dependencies:
+  - dropzonejs
+  - layout_builder
+  - field_ui
+  - language
+  - file
+  - color_field
+  - fontawesome
+  - inline_entity_form

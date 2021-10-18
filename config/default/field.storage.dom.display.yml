@@ -1,0 +1,75 @@
+uuid: c88737c4-fdb6-42d1-94b7-5c98eb6fe5cb
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.display
+field_name: display
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: none
+      label: none
+    -
+      value: inline
+      label: inline
+    -
+      value: block
+      label: block
+    -
+      value: inline-block
+      label: inline-block
+    -
+      value: flex
+      label: flex
+    -
+      value: list-item
+      label: list-item
+    -
+      value: run-in
+      label: run-in
+    -
+      value: compact
+      label: compact
+    -
+      value: marker
+      label: marker
+    -
+      value: table
+      label: table
+    -
+      value: inline-table
+      label: inline-table
+    -
+      value: row-group
+      label: row-group
+    -
+      value: table-header-group
+      label: table-header-group
+    -
+      value: table-footer-group
+      label: table-footer-group
+    -
+      value: table-row
+      label: table-row
+    -
+      value: table-column-group
+      label: table-column-group
+    -
+      value: table-column
+      label: table-column
+    -
+      value: table-celltable-caption
+      label: table-celltable-caption
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

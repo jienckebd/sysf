@@ -1,0 +1,27 @@
+uuid: 832d55da-d09a-44c0-9a27-c53b45aeec52
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.continuous_paged
+field_name: continuous_paged
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: continuous
+      label: continuous
+    -
+      value: paged
+      label: paged
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

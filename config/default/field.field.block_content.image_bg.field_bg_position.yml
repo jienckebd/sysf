@@ -1,0 +1,19 @@
+uuid: 4690fc5e-2058-4166-8dce-ed8b54015704
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_bg
+    - field.storage.block_content.field_bg_position
+id: block_content.image_bg.field_bg_position
+field_name: field_bg_position
+entity_type: block_content
+bundle: image_bg
+label: 'Background position'
+description: 'Specify a CSS background position.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

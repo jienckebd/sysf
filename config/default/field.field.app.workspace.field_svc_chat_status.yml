@@ -1,0 +1,23 @@
+uuid: a0566ecd-d067-4ba8-ba49-695459914553
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.app.workspace
+    - field.storage.app.field_svc_chat_status
+id: app.workspace.field_svc_chat_status
+field_name: field_svc_chat_status
+entity_type: app
+bundle: workspace
+label: 'Enable chat'
+description: 'Enable or disable the platform chat service within your app.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

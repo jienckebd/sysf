@@ -1,0 +1,8 @@
+uuid: 3c1105da-0eb6-4334-ade0-050a39127761
+langcode: en
+status: true
+dependencies: {  }
+id: entity_field_widget
+label: 'Entity field widget'
+revision: 0
+description: 'Wraps an entity field widget.'

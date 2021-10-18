@@ -1,0 +1,43 @@
+uuid: ef37d2d8-c8d2-4445-ac81-23b1ebd46f35
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.breakpoint
+    - bd.bundle.dom.media_type
+    - field.storage.dom.field_media_type
+  module:
+    - bd
+third_party_settings:
+  bd:
+    data_deriver:
+      plugin: ''
+    dom:
+      attribute: ''
+      subattribute: ''
+      theme_hook: ''
+      theme_hook_selector: ''
+      theme_hook_match_key: ''
+      theme_hook_match_value: ''
+    dependency:
+      type: ''
+id: dom.breakpoint.field_media_type
+field_name: field_media_type
+entity_type: dom
+bundle: breakpoint
+label: 'Media Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: null
+settings:
+  handler: 'default:dom'
+  handler_settings:
+    target_bundles:
+      media_type: media_type
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,20 @@
+uuid: 8177883a-6fdc-46c6-969b-8dd8e9d57de7
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - block_content
+id: block_content.field_behavior_collapse
+field_name: field_behavior_collapse
+entity_type: block_content
+type: entity_reference_revisions
+settings:
+  target_type: block_content
+module: entity_reference_revisions
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

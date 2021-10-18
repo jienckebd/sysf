@@ -1,0 +1,27 @@
+uuid: 7f9eb01c-063d-4324-b696-fd0ab31ab4be
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.list_style_position
+field_name: list_style_position
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: inside
+      label: inside
+    -
+      value: outside
+      label: outside
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

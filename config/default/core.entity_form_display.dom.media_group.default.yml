@@ -1,0 +1,130 @@
+uuid: ac63a046-5da0-4b09-9384-e8d2bebcdd7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.media_group
+    - field.field.dom.media_group.allowed_values
+    - field.field.dom.media_group.field_type
+    - field.field.dom.media_group.machine_name
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_general
+      parent_name: _none
+      label: Tabs
+      weight: 0
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        label: Tabs
+        region: content
+      region: content
+    group_general:
+      children:
+        - label
+        - label_display
+        - allowed_values
+        - description
+        - field_type
+        - machine_name
+      parent_name: group_tabs
+      label: 'General Settings'
+      weight: 0
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: true
+        region: content
+        formatter: open
+      region: content
+id: dom.media_group.default
+targetEntityType: dom
+bundle: media_group
+mode: default
+content:
+  actions:
+    weight: 900
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  allowed_values:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  description:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_type:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  label:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  label_display:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  machine_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  revision_log_message:
+    type: string_textarea
+    weight: 25
+    settings:
+      rows: 4
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 910
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  revision_created: true
+  status: true
+  uid: true

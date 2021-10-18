@@ -1,0 +1,21 @@
+uuid: 28bd140d-aee7-4dba-b8f1-1c0e2de50519
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_button_type
+field_name: field_button_type
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: '\Drupal\design_system\DesignSystem::getOptionGeneric'
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

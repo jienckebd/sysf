@@ -1,0 +1,23 @@
+uuid: d03f2ec9-2fb7-474a-83c5-ec19266928d4
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - block_content
+id: config_entity_wrapper.field_default_entity
+field_name: field_default_entity
+entity_type: config_entity_wrapper
+type: entity_reference
+settings:
+  target_type: block_content
+  schema__derivative: 0
+  schema__base_target_id: 0
+  deriver: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

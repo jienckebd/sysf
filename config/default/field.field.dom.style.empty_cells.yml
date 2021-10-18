@@ -1,0 +1,29 @@
+uuid: 9501b46c-d272-480d-b49a-a4dc91b686c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.empty_cells
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: empty-cells
+    behavior:
+      dom:
+        subattribute: empty-cells
+id: dom.style.empty_cells
+field_name: empty_cells
+entity_type: dom
+bundle: style
+label: empty-cells
+description: 'Sets whether or not to show empty cells in a table (only for the “separated borders” model)'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

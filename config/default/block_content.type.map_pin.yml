@@ -1,0 +1,8 @@
+uuid: a5f98d10-277d-44f5-9be6-e3bc76a54644
+langcode: en
+status: true
+dependencies: {  }
+id: map_pin
+label: 'Map pin'
+revision: 1
+description: "Map pin marker with optional geo coordinates.\r\n"

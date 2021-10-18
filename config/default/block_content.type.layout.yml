@@ -1,0 +1,8 @@
+uuid: a7452647-e910-4136-b7b1-06c93c129b21
+langcode: en
+status: true
+dependencies: {  }
+id: layout
+label: Layout
+revision: 1
+description: 'Provides a layout of regions in to which components are structured.'

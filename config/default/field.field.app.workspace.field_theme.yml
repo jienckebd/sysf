@@ -1,0 +1,29 @@
+uuid: d3ee094d-caa8-4857-a18e-eede0f57273b
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.app.workspace
+    - bd.bundle.theme_entity.default
+    - field.storage.app.field_theme
+id: app.workspace.field_theme
+field_name: field_theme
+entity_type: app
+bundle: workspace
+label: Theme
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:theme_entity'
+  handler_settings:
+    target_bundles:
+      theme: theme
+    sort:
+      field: title
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,8 @@
+uuid: 7ebfc7d1-d16c-473c-bd54-d30f744a0433
+langcode: en
+status: true
+dependencies: {  }
+id: text_only_card
+label: 'Text only card'
+revision: 1
+description: 'Provide a card with text and without any images or videos.'

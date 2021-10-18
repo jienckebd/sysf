@@ -1,0 +1,28 @@
+uuid: f482a123-a1a1-4157-8955-30c72b70c1d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.config_entity_wrapper__admin
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: exposedformconfig_entity_wrapper__adminblock_1
+theme: seven
+region: content
+weight: -9
+provider: null
+plugin: 'views_exposed_filter_block:config_entity_wrapper__admin-block_1'
+settings:
+  id: 'views_exposed_filter_block:config_entity_wrapper__admin-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/structure/config_entity_wrapper
+    negate: false

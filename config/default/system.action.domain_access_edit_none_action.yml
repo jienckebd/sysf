@@ -1,0 +1,12 @@
+uuid: 0da3f1e2-6c92-40ee-b500-5fa1424048ae
+langcode: en
+status: true
+dependencies:
+  module:
+    - domain_access
+id: domain_access_edit_none_action
+label: 'Remove editors from all affiliates'
+type: user
+plugin: domain_access_edit_none_action
+configuration:
+  domain_id: ''

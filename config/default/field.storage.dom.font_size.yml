@@ -1,0 +1,21 @@
+uuid: ab6b3f2d-8970-47f2-93eb-fa3e38a9a936
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.font_size
+field_name: font_size
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

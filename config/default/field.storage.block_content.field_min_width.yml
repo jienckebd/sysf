@@ -1,0 +1,21 @@
+uuid: 8a780d68-bccd-4a13-a6d6-7e43ef05799d
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_min_width
+field_name: field_min_width
+entity_type: block_content
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

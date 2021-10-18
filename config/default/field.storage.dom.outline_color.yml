@@ -1,0 +1,27 @@
+uuid: c3477249-bcad-44ee-ad9e-279f4286e94b
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.outline_color
+field_name: outline_color
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: color
+      label: color
+    -
+      value: invert
+      label: invert
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

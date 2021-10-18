@@ -1,0 +1,11 @@
+uuid: 5e6a5bca-e72e-4453-b066-b349b743e4b2
+langcode: en
+status: true
+dependencies: {  }
+label: 'Media Group'
+id: media_group
+description: 'Provide a library of media groups.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

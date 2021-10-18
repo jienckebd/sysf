@@ -1,0 +1,20 @@
+uuid: ab3473c0-b085-44d2-84ce-d4d5463137ad
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: behavior.field_duration
+field_name: field_duration
+entity_type: behavior
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

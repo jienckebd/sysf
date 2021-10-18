@@ -1,0 +1,8 @@
+uuid: a47b9b1b-6fcc-41e1-9aad-e15ef709e373
+langcode: en
+status: true
+dependencies: {  }
+id: layout_row
+label: 'Layout row'
+revision: 1
+description: 'Provides a row within a layout containing regions.'

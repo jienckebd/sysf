@@ -1,0 +1,12 @@
+uuid: bd1233c0-5527-4e07-8fc2-4af7abd642a7
+langcode: en
+status: true
+dependencies: {  }
+id: s_1300
+label: 'Standard (x1300)'
+description: null
+aspect_ratio: '4:3'
+soft_limit_width: 5200
+soft_limit_height: 3900
+hard_limit_width: null
+hard_limit_height: null

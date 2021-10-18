@@ -1,0 +1,28 @@
+uuid: 175aa73b-0e35-4f5a-b4b0-440239327e17
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.network__admin
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: exposedformnetwork__adminblock_1
+theme: seven
+region: content
+weight: 1
+provider: null
+plugin: 'views_exposed_filter_block:network__admin-block_1'
+settings:
+  id: 'views_exposed_filter_block:network__admin-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/structure/network
+    negate: false

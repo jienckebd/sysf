@@ -1,0 +1,21 @@
+uuid: 55bfd682-fe23-41b5-a894-8e200bb3d3bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.field_border_radius
+field_name: field_border_radius
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

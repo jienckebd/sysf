@@ -1,0 +1,28 @@
+uuid: 6d53ae39-c64d-49eb-a6f9-d6b24f290cc9
+langcode: en
+status: true
+dependencies: {  }
+id: app_insert_or_update
+label: 'App: insert or update'
+events:
+  -
+    event_name: 'rules_entity_insert:app'
+  -
+    event_name: 'rules_entity_update:app'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 0ec23649-24f3-4e8f-8b32-f5d4668a67b2
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: 58086e50-594e-4b61-b59a-82a37fce3e11
+    weight: 0
+    conditions: {  }
+  actions:
+    id: rules_action_set
+    uuid: 8bee8bcd-8719-4808-916a-f748b92e4513
+    weight: 0
+    actions: {  }

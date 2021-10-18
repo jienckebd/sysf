@@ -1,0 +1,19 @@
+uuid: b645f18d-bf94-417c-82b8-aa840cf4ee8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.property
+    - field.storage.dom.target_entity_type
+id: dom.property.target_entity_type
+field_name: target_entity_type
+entity_type: dom
+bundle: property
+label: 'Target Entity Type'
+description: 'The type of entity the derived field should target.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

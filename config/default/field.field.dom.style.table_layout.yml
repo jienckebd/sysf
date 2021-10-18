@@ -1,0 +1,29 @@
+uuid: b13a86c9-f096-4c1c-8bc5-7655aa06e933
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.table_layout
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: table-layout
+    behavior:
+      dom:
+        subattribute: table-layout
+id: dom.style.table_layout
+field_name: table_layout
+entity_type: dom
+bundle: style
+label: table-layout
+description: 'Sets the algorithm used to display the table cells, rows, and columns'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

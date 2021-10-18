@@ -1,0 +1,21 @@
+uuid: 679e27c9-6a62-43e8-a350-6f201344fb7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.app.workspace
+    - field.storage.app.field_env
+id: app.workspace.field_env
+field_name: field_env
+entity_type: app
+bundle: workspace
+label: Environments
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:env'
+  handler_settings: {  }
+field_type: entity_reference

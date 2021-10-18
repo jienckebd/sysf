@@ -1,0 +1,8 @@
+uuid: d2e198a2-955c-4f82-b12b-4207fa3ac053
+langcode: en
+status: true
+dependencies: {  }
+id: carousel
+label: Carousel
+revision: 1
+description: 'Provides very configurable slick carousel or slider.'

@@ -1,0 +1,113 @@
+uuid: 5cd8654f-e4c2-4809-93cb-e71ad962ae05
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.main.field_attr_target
+    - field.field.menu_link_content.main.field_icon
+    - field.field.menu_link_content.main.field_icon_only
+    - system.menu.main
+  module:
+    - fontawesome
+    - link
+    - menu_item_extras
+id: menu_link_content.main.default
+targetEntityType: menu_link_content
+bundle: main
+mode: default
+content:
+  actions:
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  description:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  enabled:
+    settings:
+      display_label: true
+    weight: 2
+    region: content
+    third_party_settings: {  }
+    type: boolean_checkbox
+  expanded:
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_attr_target:
+    weight: 11
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_icon:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: fontawesome_icon_widget
+    region: content
+  field_icon_only:
+    weight: 10
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  langcode:
+    type: language_select
+    weight: 6
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  link:
+    type: link_default
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  view_mode:
+    type: menu_item_extras_view_mode_selector_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  weight:
+    type: number
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  external: true
+  menu_name: true
+  parent: true
+  rediscover: true
+  revision_log_message: true

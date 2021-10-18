@@ -1,0 +1,10 @@
+uuid: 649a6148-e55e-4fea-9e1c-a94f9eeab70a
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.s_800
+label: 'Standard (x800)'
+targetEntityType: block_content
+cache: true

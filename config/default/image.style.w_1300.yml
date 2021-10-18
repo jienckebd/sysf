@@ -1,0 +1,17 @@
+uuid: b2c31bdb-90c9-419f-a4b9-544e20f7b400
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.w_1300
+  module:
+    - crop
+name: w_1300
+label: 'Wide (x1300)'
+effects:
+  b2a1ee6a-db06-48ef-8f60-2bd833f607d8:
+    uuid: b2a1ee6a-db06-48ef-8f60-2bd833f607d8
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: w_1300

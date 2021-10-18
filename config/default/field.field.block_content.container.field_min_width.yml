@@ -1,0 +1,19 @@
+uuid: 0c13a545-496b-46c6-ad06-1f607ebebf59
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.container
+    - field.storage.block_content.field_min_width
+id: block_content.container.field_min_width
+field_name: field_min_width
+entity_type: block_content
+bundle: container
+label: 'Min width'
+description: 'Set an explicit min width in pixels, em, rem, or percentage.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

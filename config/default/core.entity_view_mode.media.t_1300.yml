@@ -1,0 +1,10 @@
+uuid: c3e5aac9-ce72-4373-886b-a98ad88965a7
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.t_1300
+label: 'Tall (x1300)'
+targetEntityType: media
+cache: true

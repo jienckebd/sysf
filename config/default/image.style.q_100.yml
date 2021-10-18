@@ -1,0 +1,17 @@
+uuid: 3c156535-967e-4b3d-8c13-2df64ac38bd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.q_100
+  module:
+    - crop
+name: q_100
+label: 'Square (x100)'
+effects:
+  2dc2971c-2164-4251-ad02-bcd332d7f587:
+    uuid: 2dc2971c-2164-4251-ad02-bcd332d7f587
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: q_100

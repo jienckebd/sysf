@@ -1,0 +1,11 @@
+uuid: 846476cc-f34a-4cb1-a8b7-747ab5d97a1c
+langcode: en
+status: true
+dependencies: {  }
+label: Collection
+id: collection
+description: 'Provide a collection of DOM entities.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

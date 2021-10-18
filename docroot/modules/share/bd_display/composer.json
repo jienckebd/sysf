@@ -1,0 +1,17 @@
+{
+    "name": "drupal/bd_display",
+    "description": "The display component of the Better Drupal framework.",
+    "type": "drupal-module",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Bryan Jiencke",
+            "homepage": "https://www.drupal.org/u/jienckebd",
+            "role": "Maintainer"
+        }
+    ],
+    "require":{
+        "drupal/wysiwyg_template": "*",
+        "drupal/jsonapi_extras": "^2.10"
+    }
+}

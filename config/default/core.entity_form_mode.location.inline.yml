@@ -1,0 +1,10 @@
+uuid: 9699b64a-047e-4bcc-b8ab-a29dd49704d3
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: location.inline
+label: Inline
+targetEntityType: location
+cache: true

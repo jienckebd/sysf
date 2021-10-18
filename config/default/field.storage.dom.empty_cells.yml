@@ -1,0 +1,27 @@
+uuid: 822c5de2-557d-4f9c-b164-a0568f08b28d
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.empty_cells
+field_name: empty_cells
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: show
+      label: show
+    -
+      value: hide
+      label: hide
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

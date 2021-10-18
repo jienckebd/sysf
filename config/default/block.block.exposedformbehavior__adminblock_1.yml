@@ -1,0 +1,28 @@
+uuid: 06e99015-f4fb-4847-ab6b-d160515395cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.behavior__admin
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: exposedformbehavior__adminblock_1
+theme: seven
+region: content
+weight: -10
+provider: null
+plugin: 'views_exposed_filter_block:behavior__admin-block_1'
+settings:
+  id: 'views_exposed_filter_block:behavior__admin-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/structure/behavior
+    negate: false

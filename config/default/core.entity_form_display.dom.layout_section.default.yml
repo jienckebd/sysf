@@ -1,0 +1,128 @@
+uuid: 6bbfc11a-b991-4e0f-95b8-8b3ae249284b
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.layout_section
+    - field.field.dom.layout_section.field_layout_plugin
+    - field.field.dom.layout_section.field_region
+    - field.field.dom.layout_section.field_style
+  module:
+    - bd
+    - entity_browser_entity_form
+    - inline_entity_form
+    - plugin
+id: dom.layout_section.default
+targetEntityType: dom
+bundle: layout_section
+mode: default
+content:
+  actions:
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  display_label:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_layout_plugin:
+    type: 'plugin_selector:plugin_select_list'
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_region:
+    weight: 3
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      match_operator: CONTAINS
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_new: false
+      allow_existing: false
+      allow_duplicate: false
+    third_party_settings:
+      bd:
+        value:
+          tag: ''
+          attribute: ''
+          override: ''
+        label:
+          tag: ''
+          attribute: ''
+          override: ''
+        description:
+          tag: ''
+          attribute: ''
+          override: ''
+        access:
+          tag: ''
+          attribute: ''
+          override: ''
+        translate:
+          tag: ''
+          attribute: ''
+          override: ''
+      entity_browser_entity_form:
+        entity_browser_id: ''
+    type: inline_entity_form_complex
+    region: content
+  field_style:
+    weight: 4
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+    third_party_settings: {  }
+    type: inline_entity_form_simple
+    region: content
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 5
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  revision_information:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  revision_log_message:
+    type: string_textarea
+    weight: 7
+    settings:
+      rows: 4
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 910
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  description: true
+  revision_created: true
+  status: true
+  uid: true

@@ -1,0 +1,100 @@
+uuid: b37de2aa-ca6d-4aa4-bdf4-c3c760475a75
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.collection
+    - bd.bundle.theme_entity.default
+    - field.storage.theme_entity.field_selector
+  module:
+    - bd
+third_party_settings:
+  bd:
+    overview:
+      entity_field_group: ''
+      default_field_widget:
+        plugin_id: ''
+      default_field_formatter:
+        plugin_id: ''
+      weight: ''
+      cardinality: ''
+    element:
+      field_items:
+        container: ''
+      field_item:
+        container: ''
+      field_value:
+        container: ''
+        override: ''
+        callback: ''
+      label:
+        container: ''
+        override: ''
+        display_position: before
+      description:
+        container: ''
+        override: ''
+        display_position: after
+    behavior:
+      access:
+        view:
+          0:
+            condition:
+              plugin_id: ''
+          1:
+            condition:
+              plugin_id: ''
+          condition_list:
+            actions: {  }
+        edit:
+          0:
+            condition:
+              plugin_id: ''
+          1:
+            condition:
+              plugin_id: ''
+          restrict_behavior: ''
+          condition_list:
+            actions: {  }
+      translation:
+        force_langcode: ''
+        disable: 0
+      default_value:
+        plugin:
+          plugin_id: ''
+      multi_value:
+        max: ''
+        delimiter: ''
+      empty_value:
+        plugin:
+          plugin_id: ''
+      dom:
+        attribute: ''
+        subattribute: ''
+        theme_hook: ''
+        theme_hook_selector: ''
+        theme_hook_match_key: ''
+        theme_hook_match_value: ''
+        build_css_field_name: ''
+        build_css: 0
+id: theme_entity.default.field_selector
+field_name: field_selector
+entity_type: theme_entity
+bundle: default
+label: 'Custom selectors'
+description: 'Apply styling to custom selectors.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: '\Drupal\bd\Entity\EntityFieldDefaultValue::derivedDefaultValue'
+settings:
+  handler: 'default:dom'
+  handler_settings:
+    target_bundles:
+      collection: collection
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

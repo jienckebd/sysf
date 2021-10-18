@@ -1,0 +1,29 @@
+uuid: 2de8cceb-9ffd-4e1e-a188-ecbcb092594b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.video
+    - block_content.type.video_card
+    - field.storage.block_content.field_cmp_video
+id: block_content.video_card.field_cmp_video
+field_name: field_cmp_video
+entity_type: block_content
+bundle: video_card
+label: Video
+description: 'Specify the video.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      video: video
+    sort:
+      field: info
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

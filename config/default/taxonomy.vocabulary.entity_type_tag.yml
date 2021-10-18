@@ -1,0 +1,8 @@
+uuid: c45e5c60-59ba-4a6f-a6fd-aa2b17b82448
+langcode: en
+status: true
+dependencies: {  }
+name: 'Entity Type Tag'
+vid: entity_type_tag
+description: ''
+weight: 0

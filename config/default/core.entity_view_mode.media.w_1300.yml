@@ -1,0 +1,10 @@
+uuid: 22ca382a-b7bb-41bf-bfa9-39404a41fe50
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.w_1300
+label: 'Wide (x1300)'
+targetEntityType: media
+cache: true

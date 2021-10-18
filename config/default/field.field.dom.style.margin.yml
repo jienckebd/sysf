@@ -1,0 +1,28 @@
+uuid: cbb367d2-10e1-455b-8d44-43b9dd398dfb
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.margin
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: margin
+    behavior:
+      dom:
+        subattribute: margin
+id: dom.style.margin
+field_name: margin
+entity_type: dom
+bundle: style
+label: margin
+description: 'A shorthand property for setting the margin properties in one declaration'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

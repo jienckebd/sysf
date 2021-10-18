@@ -1,0 +1,14 @@
+uuid: c6d7400a-3459-4e4b-9fd4-95a9d89567ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.company
+id: company-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: company
+permissions_ui: true
+permissions: {  }

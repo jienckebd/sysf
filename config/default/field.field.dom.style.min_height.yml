@@ -1,0 +1,28 @@
+uuid: a2a05295-9c9b-403d-8b23-4355302efc44
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.min_height
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: min-height
+    behavior:
+      dom:
+        subattribute: min-height
+id: dom.style.min_height
+field_name: min_height
+entity_type: dom
+bundle: style
+label: min-height
+description: 'Sets the minimum height of an element'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

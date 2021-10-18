@@ -1,0 +1,22 @@
+uuid: 7a5a22f8-0902-470e-85ca-49db454cb1e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: theme_entity.field_breakpoint
+field_name: field_breakpoint
+entity_type: theme_entity
+type: entity_reference
+settings:
+  target_type: dom
+  schema__derivative: null
+  schema__base_target_id: null
+  deriver: null
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

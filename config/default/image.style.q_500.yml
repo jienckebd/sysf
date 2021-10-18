@@ -1,0 +1,17 @@
+uuid: 7977cf4a-1a53-4dab-81f7-c4515ed9c3f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.q_500
+  module:
+    - crop
+name: q_500
+label: 'Square (x500)'
+effects:
+  d137b240-6692-4599-837c-b242dc835c44:
+    uuid: d137b240-6692-4599-837c-b242dc835c44
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: q_500

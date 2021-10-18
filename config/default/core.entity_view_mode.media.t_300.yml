@@ -1,0 +1,10 @@
+uuid: 4818857a-23cd-4dab-ad1d-a771c9c6f57f
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.t_300
+label: 'Tall (x300)'
+targetEntityType: media
+cache: true

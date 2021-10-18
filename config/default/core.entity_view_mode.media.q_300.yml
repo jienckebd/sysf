@@ -1,0 +1,10 @@
+uuid: abda5603-705a-45af-852d-b6c617f56a9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.q_300
+label: 'Square (x300)'
+targetEntityType: media
+cache: true

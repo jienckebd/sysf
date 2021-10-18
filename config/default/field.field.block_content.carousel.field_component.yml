@@ -1,0 +1,114 @@
+uuid: 6f54c202-7cb4-4ace-9d79-72e2e1101dd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.carousel
+    - block_content.type.drupal_block
+    - block_content.type.image
+    - block_content.type.image_banner
+    - block_content.type.image_card
+    - block_content.type.text
+    - block_content.type.text_only_card
+    - block_content.type.video
+    - block_content.type.video_banner
+    - block_content.type.video_card
+    - field.storage.block_content.field_component
+  module:
+    - bd
+    - design_system
+    - entity_reference_revisions
+third_party_settings:
+  bd:
+    overview:
+      entity_field_group: ''
+      default_field_widget:
+        plugin_id: ''
+      default_field_formatter:
+        plugin_id: ''
+      weight: ''
+      cardinality: ''
+    element:
+      field_items:
+        container: ''
+      field_item:
+        container: ''
+      field_value:
+        container: ''
+        override: ''
+        callback: ''
+      label:
+        container: ''
+        override: ''
+        display_position: before
+      description:
+        container: ''
+        override: ''
+        display_position: after
+    behavior:
+      access:
+        view:
+          0:
+            condition:
+              plugin_id: ''
+          condition_list:
+            actions: {  }
+        edit:
+          0:
+            condition:
+              plugin_id: ''
+          restrict_behavior: ''
+          condition_list:
+            actions: {  }
+      translation:
+        force_langcode: ''
+        disable: 0
+      default_value:
+        plugin:
+          plugin_id: ''
+      multi_value:
+        max: ''
+        delimiter: ''
+      empty_value:
+        plugin:
+          plugin_id: ''
+      dom:
+        attribute: ''
+        subattribute: ''
+        theme_hook: ''
+        theme_hook_selector: ''
+        theme_hook_match_key: ''
+        theme_hook_match_value: ''
+        build_css_field_name: ''
+        build_css: 0
+  design_system:
+    field_formatter_config_key_override: ''
+id: block_content.carousel.field_component
+field_name: field_component
+entity_type: block_content
+bundle: carousel
+label: Component
+description: 'Select or create a component.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: '\Drupal\bd\Entity\EntityFieldDefaultValue::derivedDefaultValue'
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      drupal_block: drupal_block
+      image: image
+      image_banner: image_banner
+      image_card: image_card
+      text: text
+      text_only_card: text_only_card
+      video: video
+      video_banner: video_banner
+      video_card: video_card
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: image_banner
+field_type: entity_reference_revisions

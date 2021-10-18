@@ -1,0 +1,8 @@
+uuid: 1c48f6ae-0ee3-464e-9e5c-79eb4f411b94
+langcode: en
+status: true
+dependencies: {  }
+id: visualization
+label: Visualization
+revision: 1
+description: 'Provide an animated and/or interactive visualization.'

@@ -1,0 +1,11 @@
+services:
+  bd.generate_entity_storage:
+    class: Drupal\bd\Command\GenerateEntityStorageCommand
+    arguments: ['@bd.generate_entity_storage_generator']
+    tags:
+      - { name: drupal.command }
+  bd.generate_entity_storage_generator:
+    class: Drupal\bd\Generator\GenerateEntityStorageGenerator
+    arguments: []
+    tags:
+      - { name: drupal.generator }

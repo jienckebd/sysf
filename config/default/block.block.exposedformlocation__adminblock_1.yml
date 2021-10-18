@@ -1,0 +1,28 @@
+uuid: 82473705-6c80-460a-b15a-b2088697fc5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.location__admin
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: exposedformlocation__adminblock_1
+theme: seven
+region: content
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:location__admin-block_1'
+settings:
+  id: 'views_exposed_filter_block:location__admin-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/structure/location
+    negate: false

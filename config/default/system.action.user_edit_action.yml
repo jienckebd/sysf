@@ -1,0 +1,12 @@
+uuid: 8db2e42f-31ea-4e40-8783-008d098e243f
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+    - views_bulk_edit
+id: user_edit_action
+label: 'Edit users'
+type: user
+plugin: 'entity:edit_action:user'
+configuration: {  }

@@ -1,0 +1,80 @@
+uuid: b821325b-6241-4ee1-9cda-ed08ad5a60ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.contact_message.field_people_age
+  module:
+    - bd
+    - contact
+third_party_settings:
+  bd:
+    overview:
+      entity_field_group:
+        widget:
+          value: {  }
+      weight:
+        widget:
+          value: ''
+      cardinality:
+        widget:
+          value: ''
+    element:
+      field_value:
+        override:
+          widget:
+            value: ''
+        callback:
+          widget:
+            value: ''
+      label:
+        override:
+          widget:
+            value: ''
+        display_position:
+          widget:
+            value: before
+      description:
+        override:
+          widget:
+            value: ''
+        display_position:
+          widget:
+            value: after
+    behavior:
+      access:
+        edit:
+          restrict_behavior:
+            widget:
+              value: ''
+          condition_list:
+            actions: {  }
+        view:
+          condition_list:
+            actions: {  }
+      translation:
+        force_langcode:
+          widget:
+            value: ''
+        disable:
+          widget:
+            value: 0
+      multi_value:
+        max:
+          widget:
+            value: ''
+        delimiter:
+          widget:
+            value: ''
+id: contact_message.enrollment.field_people_age
+field_name: field_people_age
+entity_type: contact_message
+bundle: enrollment
+label: Ages
+description: 'Feel free to list their ages or a general range.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

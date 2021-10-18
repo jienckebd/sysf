@@ -1,0 +1,28 @@
+uuid: 97bb67fa-7b82-445d-806d-9f8e148dae2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.counter_reset
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: counter-reset
+    behavior:
+      dom:
+        subattribute: counter-reset
+id: dom.style.counter_reset
+field_name: counter_reset
+entity_type: dom
+bundle: style
+label: counter-reset
+description: 'Sets the value the counter is set to on each occurrence of a selector'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

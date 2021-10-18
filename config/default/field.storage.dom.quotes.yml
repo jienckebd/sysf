@@ -1,0 +1,21 @@
+uuid: e8a10167-53a6-46fe-9cb8-86981ca3df00
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.quotes
+field_name: quotes
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

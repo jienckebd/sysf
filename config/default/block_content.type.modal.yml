@@ -1,0 +1,8 @@
+uuid: b5e7b7be-ebb8-48ba-9abe-3d88812546c7
+langcode: en
+status: true
+dependencies: {  }
+id: modal
+label: Modal
+revision: 1
+description: "Popup dialog containing media and text loaded by ajax within the current browser frame.\r\n"

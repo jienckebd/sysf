@@ -1,0 +1,80 @@
+uuid: 6f679049-4b96-4369-89c0-1a377f24ec55
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.region
+    - field.field.block_content.region.field_component
+    - field.field.block_content.region.field_default
+    - field.field.block_content.region.field_plugin_data_deriver
+  module:
+    - inline_entity_form
+    - plugin
+id: block_content.region.default
+targetEntityType: block_content
+bundle: region
+mode: default
+content:
+  actions:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  container:
+    type: inline_entity_form_complex
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      allow_duplicate: true
+    third_party_settings: {  }
+  field_default:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_plugin_data_deriver:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: 'plugin_selector:plugin_select_list'
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  base_entity: true
+  field_component: true
+  langcode: true
+  reusable: true
+  reuse: true
+  revision_log: true
+  simple_sitemap: true
+  status: true
+  tags: true
+  variant: true
+  view_mode: true

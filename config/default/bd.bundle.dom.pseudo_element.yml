@@ -1,0 +1,11 @@
+uuid: 44246e48-7f8b-4703-bd1f-32688f1e0168
+langcode: en
+status: true
+dependencies: {  }
+label: 'Pseudo Element'
+id: pseudo_element
+description: 'Provides elements that appear relative to a normal DOM element like before, after, and first-line.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

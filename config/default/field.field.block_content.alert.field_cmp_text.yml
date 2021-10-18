@@ -1,0 +1,29 @@
+uuid: c68b8797-9cd8-4198-bc77-25af9a13f611
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.alert
+    - block_content.type.text
+    - field.storage.block_content.field_cmp_text
+id: block_content.alert.field_cmp_text
+field_name: field_cmp_text
+entity_type: block_content
+bundle: alert
+label: Text
+description: 'Provide the text of this alert.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      text: text
+    sort:
+      field: info
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

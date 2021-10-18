@@ -1,0 +1,23 @@
+uuid: 78462411-5cfb-44ae-bce8-c8a4c673d20a
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - contact
+id: contact_message.field_event_type
+field_name: field_event_type
+entity_type: contact_message
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+  schema__derivative: 0
+  schema__base_target_id: 0
+  deriver: ''
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

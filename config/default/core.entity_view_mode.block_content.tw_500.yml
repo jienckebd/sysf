@@ -1,0 +1,10 @@
+uuid: aed10a7f-97c7-4c9d-a227-0787d889c956
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.tw_500
+label: 'Tall wide (x500)'
+targetEntityType: block_content
+cache: true

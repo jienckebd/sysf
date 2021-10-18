@@ -1,0 +1,10 @@
+uuid: 33e9a4e5-2f6e-47e7-a0ec-296253779f50
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: app.embed
+label: Embed
+targetEntityType: app
+cache: true

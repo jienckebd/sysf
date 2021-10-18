@@ -1,0 +1,63 @@
+uuid: 8a9f13d5-1d5d-42b0-a650-bf97acddb2cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.theme_entity.default
+    - field.field.theme_entity.default.field_breakpoint
+    - field.field.theme_entity.default.field_color_scheme
+    - field.field.theme_entity.default.field_component
+    - field.field.theme_entity.default.field_dom_tag
+    - field.field.theme_entity.default.field_font
+    - field.field.theme_entity.default.field_icon
+    - field.field.theme_entity.default.field_image
+    - field.field.theme_entity.default.field_integration
+    - field.field.theme_entity.default.field_layout
+    - field.field.theme_entity.default.field_logo
+    - field.field.theme_entity.default.field_selector
+    - field.field.theme_entity.default.field_tag_group
+id: theme_entity.default.default
+targetEntityType: theme_entity
+bundle: default
+mode: default
+content:
+  field_selector:
+    weight: 0
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  base_entity: true
+  bundle: true
+  changed: true
+  created: true
+  default_langcode: true
+  description: true
+  field_breakpoint: true
+  field_color_scheme: true
+  field_component: true
+  field_dom_tag: true
+  field_font: true
+  field_icon: true
+  field_image: true
+  field_integration: true
+  field_layout: true
+  field_logo: true
+  field_tag_group: true
+  id: true
+  label: true
+  langcode: true
+  metatag: true
+  revision_created: true
+  revision_default: true
+  revision_id: true
+  revision_log_message: true
+  revision_translation_affected: true
+  revision_user: true
+  search_api_excerpt: true
+  status: true
+  uid: true
+  uuid: true

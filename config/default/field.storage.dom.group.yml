@@ -1,0 +1,23 @@
+uuid: ad793a86-aa53-4aa6-958f-d993628282a8
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - taxonomy
+id: dom.group
+field_name: group
+entity_type: dom
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+  schema__derivative: null
+  schema__base_target_id: null
+  deriver: null
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

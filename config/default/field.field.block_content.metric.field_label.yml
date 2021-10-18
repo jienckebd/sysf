@@ -1,0 +1,19 @@
+uuid: 35908faa-aa32-42d2-ba46-86827c82f681
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.metric
+    - field.storage.block_content.field_label
+id: block_content.metric.field_label
+field_name: field_label
+entity_type: block_content
+bundle: metric
+label: Label
+description: 'Provide a label for the metric.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

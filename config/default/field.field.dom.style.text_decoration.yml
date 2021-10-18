@@ -1,0 +1,29 @@
+uuid: 82c34d94-e4b2-4628-a45f-39f18a143522
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.text_decoration
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: text-decoration
+    behavior:
+      dom:
+        subattribute: text-decoration
+id: dom.style.text_decoration
+field_name: text_decoration
+entity_type: dom
+bundle: style
+label: text-decoration
+description: 'Adds decoration to text'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,17 @@
+uuid: 1e11e15e-4cf4-4010-923f-e3d0b81d83e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.q_800
+  module:
+    - crop
+name: q_800
+label: 'Square (x800)'
+effects:
+  9f48bef2-8a9e-457f-8b1b-a7b2f61ca443:
+    uuid: 9f48bef2-8a9e-457f-8b1b-a7b2f61ca443
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: q_800

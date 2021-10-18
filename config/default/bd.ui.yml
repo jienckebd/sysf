@@ -1,0 +1,40 @@
+color_palette:
+  default:
+    - '#000000'
+    - '#FFFFFF'
+    - '#F2F2F2'
+    - '#DDDDDD'
+    - '#EAE0CC'
+    - '#393D3F'
+    - '#C6C5B9'
+    - '#62929E'
+    - '#546A7B'
+    - '#D7C9AA'
+    - '#7B2D26'
+    - '#B5FED9'
+    - '#474935'
+    - '#EB8258'
+    - '#F6F740'
+    - '#E9EB9E'
+    - '#2b9dd6'
+    - '#1f75a0'
+layout:
+  default:
+    - 424
+breakpoint:
+  default:
+    - 7429
+    - 7430
+    - 7431
+default_base_theme: bravo
+default_admin_theme: seven
+block_place:
+  admin_context:
+    status: true
+message:
+  autohide:
+    status: true
+    delay: 7000
+    effect: fade
+_core:
+  default_config_hash: ox8nfh9C0zhflWQMvgKlI0HxdM9eGIt6rFRgJSuqET4

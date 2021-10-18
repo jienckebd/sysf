@@ -1,0 +1,33 @@
+uuid: b7a0f5cd-cd0b-42a1-939f-fd1b2093bd3b
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.field_font_weight
+field_name: field_font_weight
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '100'
+      label: '100'
+    -
+      value: '300'
+      label: '300'
+    -
+      value: '400'
+      label: '400'
+    -
+      value: '700'
+      label: '700'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

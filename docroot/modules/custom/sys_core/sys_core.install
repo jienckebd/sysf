@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the bd module.
+ */
+
+/**
+ * Release 2018.3.
+ */
+function sys_core_update_8001() {
+
+  /** @var \Drupal\bd\Service\Internal $sys_manager_internal */
+  $sys_manager_internal = \Drupal::service('sys.internal');
+
+  // Delete all tm_theme_alpha configs.
+  $sys_manager_internal->database->query("DELETE FROM config WHERE name LIKE '%tm_theme_alpha%';");
+}

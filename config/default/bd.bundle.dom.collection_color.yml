@@ -1,0 +1,11 @@
+uuid: c52f5f29-f145-4db7-a1f7-89c617dbf51b
+langcode: en
+status: true
+dependencies: {  }
+label: 'Color Scheme'
+id: collection_color
+description: 'Provide a set of colors.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

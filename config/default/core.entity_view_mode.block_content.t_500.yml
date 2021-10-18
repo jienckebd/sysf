@@ -1,0 +1,10 @@
+uuid: eded2306-1a75-42ff-b96d-ba603042548c
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.t_500
+label: 'Tall (x500)'
+targetEntityType: block_content
+cache: true

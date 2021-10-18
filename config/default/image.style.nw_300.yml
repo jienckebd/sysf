@@ -1,0 +1,17 @@
+uuid: 872a9990-fb47-4094-b334-58b3e652687e
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.nw_300
+  module:
+    - crop
+name: nw_300
+label: 'Narrow wide (x300)'
+effects:
+  4400181f-459f-489d-a326-d658ff94291f:
+    uuid: 4400181f-459f-489d-a326-d658ff94291f
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: nw_300

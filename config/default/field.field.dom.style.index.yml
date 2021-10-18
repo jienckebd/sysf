@@ -1,0 +1,38 @@
+uuid: c62ecbed-8e20-4e0e-9d0c-8ef7261c2e0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.index
+  module:
+    - bd
+third_party_settings:
+  bd:
+    data_deriver:
+      plugin: ''
+    dom:
+      attribute: ''
+      subattribute: index
+      theme_hook: ''
+      theme_hook_selector: ''
+      theme_hook_match_key: ''
+      theme_hook_match_value: ''
+      build_css: 0
+      build_css_field_name: ''
+    behavior:
+      dom:
+        subattribute: index
+id: dom.style.index
+field_name: index
+entity_type: dom
+bundle: style
+label: index
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: null
+settings:
+  field: {  }
+field_type: entity_index

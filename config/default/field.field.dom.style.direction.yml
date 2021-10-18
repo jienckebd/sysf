@@ -1,0 +1,29 @@
+uuid: c0c0c35c-b8a7-4e47-8250-434acd0d25e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.direction
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: direction
+    behavior:
+      dom:
+        subattribute: direction
+id: dom.style.direction
+field_name: direction
+entity_type: dom
+bundle: style
+label: direction
+description: 'Sets the text direction'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

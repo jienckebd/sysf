@@ -1,0 +1,29 @@
+uuid: 3acd0cf0-94b5-495c-b346-36e4224b687f
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.border_style
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: border-style
+    behavior:
+      dom:
+        subattribute: border-style
+id: dom.style.border_style
+field_name: border_style
+entity_type: dom
+bundle: style
+label: border-style
+description: 'Sets the style of the four borders, can have from one to four styles'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

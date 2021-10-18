@@ -1,0 +1,29 @@
+uuid: 3baa0f70-53f6-4daf-bef0-f306b2201130
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.font
+    - field.storage.dom.field_font_size
+  module:
+    - bd
+third_party_settings:
+  bd:
+    data_deriver:
+      plugin: ''
+id: dom.font.field_font_size
+field_name: field_font_size
+entity_type: dom
+bundle: font
+label: 'Font Size'
+description: 'Specify a font size in rem units, meaning its relative size to the font size of the root DOM element.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: null
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

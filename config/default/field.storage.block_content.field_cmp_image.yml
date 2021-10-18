@@ -1,0 +1,20 @@
+uuid: 08fd4592-f302-4c85-b0fe-771d58617153
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - block_content
+id: block_content.field_cmp_image
+field_name: field_cmp_image
+entity_type: block_content
+type: entity_reference_revisions
+settings:
+  target_type: block_content
+module: entity_reference_revisions
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

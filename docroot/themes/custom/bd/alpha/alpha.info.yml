@@ -1,0 +1,17 @@
+name: Alpha
+type: theme
+description: 'A theme that does nothing.'
+package: BD
+version: VERSION
+core_version_requirement: ^8.8 || ^9
+base theme: false
+
+libraries:
+  - alpha/global
+
+regions:
+  header: Header
+  pre_content: Pre content
+  content: Content
+  post_content: Post content
+  footer: Footer

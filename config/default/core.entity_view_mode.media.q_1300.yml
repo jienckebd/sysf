@@ -1,0 +1,10 @@
+uuid: 66db6a9e-63ad-40b6-a1e3-4f2557c8874b
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.q_1300
+label: 'Square (x1300)'
+targetEntityType: media
+cache: true

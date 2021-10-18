@@ -1,0 +1,33 @@
+uuid: c4e02d0e-8504-4db8-843d-a66a406bad8b
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.clear
+field_name: clear
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: left
+      label: left
+    -
+      value: right
+      label: right
+    -
+      value: both
+      label: both
+    -
+      value: none
+      label: none
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

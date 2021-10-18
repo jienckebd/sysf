@@ -1,0 +1,103 @@
+uuid: f059a7a5-0af5-46e8-99cd-d6bc2b9df51c
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.layout_section
+    - field.storage.dom.field_layout_plugin
+  module:
+    - bd
+    - plugin
+third_party_settings:
+  bd:
+    data_deriver:
+      plugin: ''
+    dom:
+      attribute: ''
+      subattribute: ''
+      theme_hook: ''
+      theme_hook_selector: ''
+      theme_hook_match_key: ''
+      theme_hook_match_value: ''
+      build_css: 0
+      build_css_field_name: ''
+id: dom.layout_section.field_layout_plugin
+field_name: field_layout_plugin
+entity_type: dom
+bundle: layout_section
+label: 'Row Layout'
+description: 'Select a number of columns for this row. Each column is a region that can be uniquely configured.'
+required: true
+translatable: true
+default_value:
+  -
+    plugin_id: standard_1
+    plugin_configuration:
+      wrapper_tag: div
+      attributes_wrapper:
+        class:
+          - layout--wrapper
+      attributes:
+        class:
+          - layout
+      attributes_inner:
+        class:
+          - layout--inner
+      row:
+        row1:
+          row1_col1:
+            attributes_wrapper:
+              class:
+                - region--wrapper
+            attributes:
+              class:
+                - region
+            attributes_inner:
+              class:
+                - region--inner
+      label: 'Layout Plugin'
+      description: ''
+      required: 0
+      third_party_settings:
+        bd:
+          data_deriver:
+            plugin: ''
+          dom:
+            attribute: ''
+            subattribute: ''
+            theme_hook: ''
+            theme_hook_selector: ''
+            theme_hook_match_key: ''
+            theme_hook_match_value: ''
+            build_css: 0
+            build_css_field_name: ''
+      default_value_input:
+        field_layout_plugin:
+          -
+            plugin_selector:
+              container:
+                select:
+                  container:
+                    plugin_id: standard_1
+                plugin_form:
+                  entity_layout:
+                    display_label:
+                      -
+                        value: ''
+                    field_subheading:
+                      -
+                        value: ''
+                        format: basic_html
+                    label:
+                      -
+                        value: ''
+            array_parents:
+              - default_value
+              - widget
+              - 0
+      translatable: true
+      entity_layout_id: null
+    plugin_configuration_schema_id: plugin.plugin_configuration.layout.standard_1
+default_value_callback: null
+settings: {  }
+field_type: 'plugin:layout'

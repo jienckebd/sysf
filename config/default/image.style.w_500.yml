@@ -1,0 +1,17 @@
+uuid: aa5d0506-cfad-46e8-973a-edc8cac0c783
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.w_500
+  module:
+    - crop
+name: w_500
+label: 'Wide (x500)'
+effects:
+  7a00d70e-940d-47ac-8631-10a3eb32db15:
+    uuid: 7a00d70e-940d-47ac-8631-10a3eb32db15
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: w_500

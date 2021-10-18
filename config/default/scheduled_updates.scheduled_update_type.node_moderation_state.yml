@@ -1,0 +1,22 @@
+uuid: 1e0e6792-5c3b-4e77-b81b-582f034081c7
+langcode: en
+status: true
+dependencies: {  }
+id: node_moderation_state
+label: 'Node: moderation state'
+update_entity_type: node
+update_types_supported:
+  - independent
+field_map:
+  field_moderation_state: moderation_state
+update_runner:
+  id: default_independent
+  after_run: DELETE
+  invalid_update_behavior: DELETE
+  create_revisions: BUNDLE_DEFAULT
+  update_user: USER_UPDATE_RUNNER
+  bundles:
+    event: event
+    resource: resource
+    screen: screen
+    video: video

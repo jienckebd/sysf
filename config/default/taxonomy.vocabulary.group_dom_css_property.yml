@@ -1,0 +1,8 @@
+uuid: cff9f826-f508-4a79-a21c-d43d42f31de4
+langcode: en
+status: true
+dependencies: {  }
+name: 'DOM CSS Property Group'
+vid: group_dom_css_property
+description: null
+weight: 0

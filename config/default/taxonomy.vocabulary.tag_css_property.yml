@@ -1,0 +1,8 @@
+uuid: e063302e-96af-42e1-9f15-3488b96c66f8
+langcode: en
+status: true
+dependencies: {  }
+name: 'CSS Property'
+vid: tag_css_property
+description: null
+weight: 0

@@ -1,0 +1,20 @@
+uuid: c9616290-aa8f-4cda-ba12-5a5b74ab32f4
+langcode: en
+status: true
+dependencies:
+  module:
+    - color_field
+    - bd
+id: app.field_color
+field_name: field_color
+entity_type: app
+type: color_field_type
+settings:
+  format: '#HEXHEX'
+module: color_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

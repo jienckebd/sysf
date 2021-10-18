@@ -1,0 +1,14 @@
+diff --git a/core/modules/layout_builder/src/Element/LayoutBuilder.php b/core/modules/layout_builder/src/Element/LayoutBuilder.php
+index 98923d7698..b95dc4b040 100644
+--- a/core/modules/layout_builder/src/Element/LayoutBuilder.php
++++ b/core/modules/layout_builder/src/Element/LayoutBuilder.php
+@@ -310,6 +310,9 @@ class LayoutBuilder extends RenderElement implements ContainerFactoryPluginInter
+
+       // Get weights of all children for use by the region label.
+       $weights = array_map(function ($a) {
++        if (!is_array($a)) {
++          return 0;
++        }
+         return isset($a['#weight']) ? $a['#weight'] : 0;
+       }, $build[$region]);
+

@@ -1,0 +1,8 @@
+uuid: 90265759-cc4b-487a-8ad7-07da1893b540
+langcode: en
+status: true
+dependencies: {  }
+id: alert
+label: Alert
+revision: 1
+description: 'Provide standout text of type status, warning, error, or legal.'

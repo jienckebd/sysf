@@ -1,0 +1,30 @@
+uuid: 6986a2f3-dca8-4ff4-8e91-dca70e239762
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.font_style
+field_name: font_style
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: normal
+      label: normal
+    -
+      value: italic
+      label: italic
+    -
+      value: oblique
+      label: oblique
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

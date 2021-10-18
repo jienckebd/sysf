@@ -1,0 +1,12 @@
+uuid: 28da62fa-7bf5-4d5c-b4ae-b38e3254504e
+langcode: en
+status: true
+dependencies: {  }
+id: w_1300
+label: 'Wide (x1300)'
+description: ''
+aspect_ratio: '3:1'
+soft_limit_width: 3900
+soft_limit_height: 1300
+hard_limit_width: null
+hard_limit_height: null

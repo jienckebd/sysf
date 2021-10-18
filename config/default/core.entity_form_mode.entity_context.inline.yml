@@ -1,0 +1,10 @@
+uuid: 116eb2cf-340b-455b-b4c3-c1183ed957a2
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: entity_context.inline
+label: Inline
+targetEntityType: entity_context
+cache: true

@@ -1,0 +1,28 @@
+uuid: 69bf2223-ed7a-4299-ae04-f861dcee83d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.right
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: right
+    behavior:
+      dom:
+        subattribute: right
+id: dom.style.right
+field_name: right
+entity_type: dom
+bundle: style
+label: right
+description: 'Sets how far the right edge of an element is to the left/right of the right edge of the parent element'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

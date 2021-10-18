@@ -1,0 +1,28 @@
+uuid: aea0adb6-9146-41a5-b54d-2b35eec30ace
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.dom__admin
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: exposedformdom__adminblock_1
+theme: seven
+region: content
+weight: -7
+provider: null
+plugin: 'views_exposed_filter_block:dom__admin-block_1'
+settings:
+  id: 'views_exposed_filter_block:dom__admin-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/structure/dom
+    negate: false

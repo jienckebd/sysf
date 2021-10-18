@@ -1,0 +1,11 @@
+uuid: f2eb7686-176a-467c-9484-8c3fa1d0ea4d
+langcode: en
+status: true
+dependencies: {  }
+label: Style
+id: style
+description: 'Build dynamic re-usable styles.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

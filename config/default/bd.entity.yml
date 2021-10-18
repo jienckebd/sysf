@@ -1,0 +1,159 @@
+definition:
+  taxonomy_term:
+    -
+      vid: dependency_type
+      name: 'If referencing entity is deleted, delete referenced entity'
+      uuid: ef354209-cb30-4cbe-abab-de5b8bda6a68
+    -
+      vid: dependency_type
+      name: 'If referencing entity is deleted, resync configuration of referenced entity'
+      uuid: 7a62863e-2a66-4acc-9b0a-15d3090955c5
+    -
+      vid: dependency_type
+      name: 'If referenced entity is deleted, delete referencing entity'
+      uuid: 92bb9244-fb2c-48aa-a157-5d97c186bdfa
+    -
+      vid: dependency_type
+      name: 'If referenced entity is deleted, resync configuration of referencing entity'
+      uuid: f3453c43-7134-4eff-b55a-505487cda6c6
+  dom:
+    tag:
+      deriver_plugin: csv
+      definition:
+        csv_file_path: ../var/dom/tag.csv
+        base_definition:
+          bundle: tag
+    media_type:
+      deriver_plugin: csv
+      definition:
+        csv_file_path: ../var/dom/media_type.csv
+        base_definition:
+          bundle: media_type
+    media_group:
+      deriver_plugin: csv
+      definition:
+        csv_file_path: ../var/dom/media_group.csv
+        base_definition:
+          bundle: media_group
+    media_feature:
+      deriver_plugin: csv
+      definition:
+        csv_file_path: ../var/dom/media_feature.csv
+        base_definition:
+          bundle: media_feature
+    attribute:
+      deriver_plugin: csv
+      definition:
+        csv_file_path: ../var/dom/attribute.csv
+        base_definition:
+          bundle: attribute
+    property:
+      deriver_plugin: csv
+      definition:
+        csv_file_path: ../var/dom/property.csv
+        base_definition:
+          bundle: property
+    psuedo_class:
+      deriver_plugin: csv
+      definition:
+        csv_file_path: ../var/dom/psuedo_class.csv
+        base_definition:
+          bundle: psuedo_class
+    pseudo_element:
+      deriver_plugin: csv
+      definition:
+        csv_file_path: ../var/dom/pseudo_element.csv
+        base_definition:
+          bundle: pseudo_element
+    tag_group:
+      deriver_plugin: csv
+      definition:
+        csv_file_path: ../var/dom/tag_group.csv
+        base_definition:
+          bundle: tag_group
+    property_group:
+      deriver_plugin: csv
+      definition:
+        csv_file_path: ../var/dom/property_group.csv
+        base_definition:
+          bundle: property_group
+    link_type_ajax_history:
+      bundle: link_type
+      label: 'Ajax history'
+      machine_name: ajax_history
+    link_type_modal__sm:
+      bundle: link_type
+      label: 'Small modal'
+      machine_name: modal__sm
+    link_type_modal__md:
+      bundle: link_type
+      label: 'Medium modal'
+      machine_name: modal__md
+    link_type_modal__lg:
+      bundle: link_type
+      label: 'Large modal'
+      machine_name: modal__lg
+    link_type_modal__fw:
+      bundle: link_type
+      label: 'Fullscreen modal'
+      machine_name: modal__fw
+template:
+  view:
+    admin:
+      template_id: view.admin
+      template_mapping:
+        uuid: null
+        langcode: en
+        label: '{{ entity_type_label_singular }}: Admin'
+        tag: admin
+        id: '{{ entity_type_id }}__admin'
+        base_table:
+          plugin: entity_type_get
+          selector: base_table
+        data_table:
+          plugin: entity_type_get
+          selector: data_table
+        base_field:
+          plugin: entity_type_get
+          selector: entity_keys.id
+  entity_form_display:
+    default:
+      template_id: entity_form_display
+      template_mapping: {  }
+    vertical_tabs:
+      template: entity_form_display
+      template_mapping: {  }
+  entity_form_mode:
+    inline:
+      template_id: entity_form_mode
+      template_mapping:
+        label: Inline
+        id: '{{ entity_type_id }}.inline'
+        entity_type_id: '{{ entity_type_id }}'
+        status: true
+        langcode: en
+        cache: true
+        mode: inline
+  entity_view_mode:
+    embed:
+      template_id: entity_view_mode
+      template_mapping:
+        label: Embed
+        id: '{{ entity_type_id }}.embed'
+        entity_type_id: '{{ entity_type_id }}'
+        status: true
+        langcode: en
+        cache: true
+        mode: embed
+    preview:
+      template_id: entity_view_mode
+      template_mapping:
+        label: Preview
+        id: '{{ entity_type_id }}.preview'
+        entity_type_id: '{{ entity_type_id }}'
+        status: true
+        langcode: en
+        cache: true
+        mode: preview
+_core:
+  default_config_hash: gufcU97fluQwlzZOerKQEaJbVsUHmBT8cs1Vq0kAooo

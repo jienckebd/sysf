@@ -1,0 +1,17 @@
+uuid: 78c19e02-32a0-4639-9543-ce6027b68300
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.nw_800
+  module:
+    - crop
+name: nw_800
+label: 'Narrow wide (x800)'
+effects:
+  c007fb6e-a23b-4d3f-b88c-84ba0b25b6d1:
+    uuid: c007fb6e-a23b-4d3f-b88c-84ba0b25b6d1
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: nw_800

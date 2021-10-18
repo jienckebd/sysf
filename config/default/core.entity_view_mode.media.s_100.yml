@@ -1,0 +1,10 @@
+uuid: 0af67889-4a96-4e04-b167-b0c3a5821fad
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.s_100
+label: 'Standard (x100)'
+targetEntityType: media
+cache: true

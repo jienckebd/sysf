@@ -1,0 +1,11 @@
+uuid: 0577bb78-9e58-4809-aa01-2e2818635aa6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.screen
+id: node.screen
+target_entity_type_id: node
+target_bundle: screen
+default_langcode: site_default
+language_alterable: false

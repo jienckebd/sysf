@@ -1,0 +1,11 @@
+uuid: a92255ed-7d34-4ee6-9f0b-e42020340173
+langcode: en
+status: true
+dependencies: {  }
+label: Transform
+id: transform
+description: 'Define a CSS transform effect.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

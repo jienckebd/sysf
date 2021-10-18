@@ -1,0 +1,33 @@
+uuid: e536cbef-99b9-46c7-86a6-014757c758d2
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.position
+field_name: position
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: static
+      label: static
+    -
+      value: relative
+      label: relative
+    -
+      value: absolute
+      label: absolute
+    -
+      value: fixed
+      label: fixed
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,6 @@
+name: 'BD Documentation'
+core: 8.x
+type: module
+description: 'Better Drupal: documentation extension.'
+version: '8.x-1.0'
+package: BD

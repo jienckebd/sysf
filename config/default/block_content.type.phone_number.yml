@@ -1,0 +1,8 @@
+uuid: a335b66f-3d72-4e52-a1e3-45c32607d1cb
+langcode: en
+status: true
+dependencies: {  }
+id: phone_number
+label: 'Phone number'
+revision: 1
+description: "Phone number as an optional link.\r\n"

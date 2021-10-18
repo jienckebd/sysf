@@ -1,0 +1,8 @@
+uuid: 93d02e18-ea8b-4767-82ad-5f226198d1ef
+langcode: en
+status: true
+dependencies: {  }
+id: heading
+label: Heading
+revision: 1
+description: 'Provides a heading with a specific tag of h2, h3, etc.'

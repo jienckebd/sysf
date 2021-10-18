@@ -1,0 +1,11 @@
+uuid: 0a12cc2e-aa83-4dca-a573-745d537af6af
+langcode: en
+status: true
+dependencies: {  }
+label: 'Media Type'
+id: media_type
+description: 'Provide a library of media or device types used in media queries.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

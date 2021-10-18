@@ -1,0 +1,17 @@
+uuid: ccd21171-f7b3-4c58-9f1a-dfcd32e7c77c
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.q_1300
+  module:
+    - crop
+name: q_1300
+label: 'Square (x1300)'
+effects:
+  2d5d640a-a229-40d6-a309-72468cd23779:
+    uuid: 2d5d640a-a229-40d6-a309-72468cd23779
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: q_1300

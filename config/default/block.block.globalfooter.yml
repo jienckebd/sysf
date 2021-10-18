@@ -1,0 +1,25 @@
+uuid: ff7ccaa0-2ae1-46ae-ae5c-55b23dda9843
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:layout_builder:14c11eca-5d7f-4cdf-8000-11c2a2eaebd4'
+  module:
+    - block_content
+  theme:
+    - autotheme__14
+id: globalfooter
+theme: autotheme__14
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:14c11eca-5d7f-4cdf-8000-11c2a2eaebd4'
+settings:
+  id: 'block_content:14c11eca-5d7f-4cdf-8000-11c2a2eaebd4'
+  label: 'Global footer'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

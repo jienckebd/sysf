@@ -1,0 +1,466 @@
+<?php
+
+/**
+ * @file
+ * Module hooks and functions for module bd.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\bd\Component\Arrays\NestedArray;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Config\Entity\ConfigEntityInterface;
+use Drupal\field\FieldConfigInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\bd\Menu\Nav;
+use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
+use Drupal\bd\Plugin\Field\FieldType\EntityReferenceItem;
+use Drupal\bd\Plugin\Field\FieldWidget\EntityReferenceAutocompleteWidget;
+use Drupal\bd\Plugin\Field\FieldFormatter\EntityReferenceLabelFormatter;
+use Drupal\bd\Plugin\Field\FieldFormatter\EntityReferenceEntityFormatter;
+use Drupal\bd\Plugin\EntityReferenceSelection\DefaultSelection;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\bd\Handler\EntityCrud;
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function bd_entity_type_alter(array &$entity_types) {
+
+  /** @var \Drupal\bd\Entity\EntityHelper $entity_helper */
+  $entity_helper = \Drupal::service('entity.helper');
+  $entity_helper->entityTypeAlter($entity_types);
+
+}
+
+/**
+ * Implements hook_entity_base_field_info_alter().
+ */
+function bd_entity_base_field_info_alter(&$fields, EntityTypeInterface $entity_type) {
+
+  /** @var \Drupal\bd\Entity\EntityFieldHelper $entity_field_helper */
+  $entity_field_helper = \Drupal::service('entity.field.helper');
+  $entity_field_helper->buildBaseFieldDefinitions($fields, $entity_type);
+
+}
+
+/**
+ * Implements hook_entity_bundle_field_info_alter().
+ */
+function bd_entity_bundle_field_info_alter(&$fields, EntityTypeInterface $entity_type, $bundle) {
+
+  /** @var \Drupal\bd\Entity\EntityFieldHelper $entity_field_helper */
+  $entity_field_helper = \Drupal::service('entity.field.helper');
+  $entity_field_helper->buildBundleFieldDefinitions($fields, $entity_type, $bundle);
+
+}
+
+/**
+ * Implements hook_entity_extra_field_info_alter().
+ */
+function bd_entity_extra_field_info_alter(&$info) {
+
+  /** @var \Drupal\bd\Entity\EntityFieldHelper $entity_field_helper */
+  $entity_field_helper = \Drupal::service('entity.field.helper');
+  $entity_field_helper->buildExtraFields($info);
+
+}
+
+/**
+ * Implements hook_menu_links_discovered_alter().
+ */
+function bd_menu_links_discovered_alter(&$links) {
+  \Drupal::classResolver()
+    ->getInstanceFromDefinition(Nav::class)
+    ->processMenuPlugin('link', $links);
+}
+
+/**
+ * Implements hook_local_tasks_alter().
+ */
+function bd_local_tasks_alter(&$local_tasks) {
+  \Drupal::classResolver()
+    ->getInstanceFromDefinition(Nav::class)
+    ->processMenuPlugin('task', $local_tasks);
+}
+
+/**
+ * Implements hook_local_actions_alter().
+ */
+function bd_menu_local_actions_alter(&$local_actions) {
+  \Drupal::classResolver()
+    ->getInstanceFromDefinition(Nav::class)
+    ->processMenuPlugin('action', $local_actions);
+}
+
+/**
+ * Implements hook_config_schema_info_alter().
+ */
+function bd_config_schema_info_alter(&$definitions) {
+
+  /** @var \Drupal\bd\Discovery\ManagerInterface $discovery_manager */
+  $discovery_manager = \Drupal::service('discovery');
+  $config_schema_alter = $discovery_manager->getDiscoveryData('config_schema.alter');
+
+  if (!empty($config_schema_alter)) {
+    $definitions = NestedArray::mergeDeep($definitions, $config_schema_alter);
+  }
+
+}
+
+/**
+ * Implements hook_entity_operation_alter().
+ */
+function bd_entity_operation_alter(array &$operations, EntityInterface $entity) {
+
+  $entity_type = $entity->getEntityType();
+
+  if ($entity->getEntityTypeId() == 'config_entity_wrapper') {
+    /** @var \Drupal\bd\Config\Wrapper\Manager $config_entity_wrapper_manager */
+    $config_entity_wrapper_manager = \Drupal::service('config_entity_wrapper.manager');
+    if ($entity_subject = $config_entity_wrapper_manager->getEntityForWrapper($entity)) {
+
+      $entity_list_builder = \Drupal::service('entity.helper')->getListBuilder($entity_subject->getEntityTypeId());
+
+      // Replace entity operations for config entity wrapper with operations
+      // from its subject entity.
+      $operations = [];
+
+      if ($entity_subject_operations = $entity_list_builder->getOperations($entity_subject)) {
+        foreach ($entity_subject_operations as $operation_id => $operation) {
+          $operations[$operation_id] = $operation;
+        }
+      }
+
+    }
+  }
+
+  if (!$config = $entity_type->get('entity_operation')) {
+    return;
+  }
+
+  foreach ($config as $entity_operation_id => $entity_operation_config) {
+    $operations[$entity_operation_id] = [
+      'title' => $entity_operation_config['title'],
+      'url' => $entity->toUrl(),
+      'weight' => isset($entity_operation_config['weight']) ? $entity_operation_config['weight'] : NULL,
+    ];
+  }
+
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function bd_module_implements_alter(&$implementations, $hook) {
+
+  $map_remove_hook = [
+    'form_node_form_alter' => [
+      'redirect',
+    ],
+  ];
+
+  if (isset($map_remove_hook[$hook])) {
+    foreach ($map_remove_hook[$hook] as $module_name) {
+      if (isset($implementations[$module_name])) {
+        unset($implementations[$module_name]);
+      }
+    }
+  }
+
+}
+
+/**
+ * Default value callback.
+ *
+ * @param \Drupal\Core\Entity\FieldableEntityInterface $entity
+ *   The entity subject.
+ * @param \Drupal\field\FieldConfigInterface $field_config
+ *   The field.
+ *
+ * @return mixed
+ *   The cloned entity or null.
+ *
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ */
+function bd_default_value_callback(FieldableEntityInterface $entity, FieldConfigInterface $field_config) {
+
+  if (!$route_object = \Drupal::routeMatch()->getRouteObject()) {
+    return NULL;
+  }
+
+  if ($route_object->getDefault('_entity_form') == 'field_config.edit') {
+    return NULL;
+  }
+
+  $third_party_settings = $field_config->getThirdPartySettings('bd');
+  if (empty($third_party_settings['behavior']['default_value']['plugin']['plugin_id'])) {
+    return NULL;
+  }
+
+  /** @var \Drupal\bd\PluginManager\EntityPluginManager $plugin_manager_value_provider */
+  $plugin_manager_value_provider = \Drupal::service('plugin.manager.value_provider');
+  $plugin_id = $third_party_settings['behavior']['default_value']['plugin']['plugin_id'];
+  $plugin_config = $third_party_settings['behavior']['default_value']['plugin']['plugin_configuration'];
+
+  $plugin_instance = $plugin_manager_value_provider->createInstance($plugin_id, $plugin_config);
+  return $plugin_instance->getValue($entity, $field_config);
+}
+
+/**
+ * Implements hook_field_info_alter().
+ */
+function bd_field_info_alter(&$info) {
+  $info['entity_reference']['class'] = EntityReferenceItem::class;
+}
+
+/**
+ * Implements hook_field_widget_info_alter().
+ */
+function bd_field_widget_info_alter(array &$info) {
+  $info['entity_reference_autocomplete']['class'] = EntityReferenceAutocompleteWidget::class;
+  $info['text_textarea']['field_types'][] = 'entity_index';
+  $info['text_textarea']['field_types'][] = 'entity_serialized';
+}
+
+/**
+ * Implements hook_field_formatter_info_alter().
+ */
+function bd_field_formatter_info_alter(&$info) {
+  $info['entity_reference_entity_view']['class'] = EntityReferenceEntityFormatter::class;
+  $info['entity_reference_label']['class'] = EntityReferenceLabelFormatter::class;
+  $info['text_default']['field_types'][] = 'entity_index';
+  $info['text_default']['field_types'][] = 'entity_serialized';
+}
+
+/**
+ * Implements hook_entity_reference_selection_alter().
+ */
+function bd_entity_reference_selection_alter(&$info) {
+  foreach ($info as $plugin_id => &$plugin_definition) {
+    if (fnmatch('default:*', $plugin_id)) {
+      $plugin_definition['class'] = DefaultSelection::class;
+    }
+  }
+}
+
+/**
+ * Field options callback for entity type selection.
+ *
+ * @param \Drupal\Core\Field\FieldStorageDefinitionInterface $definition
+ *   The field storage definition.
+ * @param \Drupal\Core\Entity\FieldableEntityInterface|null $entity
+ *   The entity subject.
+ *
+ * @return array
+ *   The options.
+ *
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ */
+function bd_allowed_values_entity_type_bundle(FieldStorageDefinitionInterface $definition, FieldableEntityInterface $entity = NULL) {
+  $options = [];
+
+  /** @var \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entity_type_bundle_info */
+  $entity_type_bundle_info = \Drupal::service('entity_type.bundle.info');
+
+  $entity_helper = \Drupal::service('entity.helper');
+
+  foreach ($entity_type_bundle_info->getAllBundleInfo() as $entity_type_id => $bundle_info) {
+
+    $entity_type = $entity_helper->getDefinition($entity_type_id);
+
+    $entity_type_label = $entity_type->getLabel();
+    if (is_object($entity_type_label)) {
+      $entity_type_label = $entity_type_label->__toString();
+    }
+
+    $options[$entity_type_label]["{$entity_type_id}___all"] = t('All @entity_type_label_plural', [
+      '@entity_type_label_plural' => $entity_type->getPluralLabel(),
+    ]);
+
+    foreach ($bundle_info as $bundle_id => $bundle_config) {
+      $selection_id = "{$entity_type_id}__{$bundle_id}";
+      $options[$entity_type_label][$selection_id] = $bundle_config['label'];
+    }
+
+  }
+
+  return $options;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete().
+ */
+function bd_entity_predelete(EntityInterface $entity) {
+
+  /** @var \Drupal\bd\Handler\EntityCrud $entity_crud */
+  $entity_crud = \Drupal::classResolver()->getInstanceFromDefinition(EntityCrud::class);
+  $entity_crud->entityPreDelete($entity);
+
+}
+
+/**
+ *
+ */
+function bd_entity_presave(EntityInterface $entity) {
+
+  /** @var \Drupal\bd\Handler\EntityCrud $entity_crud */
+  $entity_crud = \Drupal::classResolver()->getInstanceFromDefinition(EntityCrud::class);
+  $entity_crud->entityPresave($entity);
+
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function bd_entity_update(EntityInterface $entity) {
+
+  /** @var \Drupal\bd\Handler\EntityCrud $entity_crud */
+  $entity_crud = \Drupal::classResolver()->getInstanceFromDefinition(EntityCrud::class);
+  $entity_crud->entityUpdate($entity);
+
+}
+
+/**
+ * Implements hook_entity_load().
+ */
+function bd_entity_load(array $entities, $entity_type_id) {
+
+  /** @var \Drupal\bd\Handler\EntityCrud $entity_crud */
+  $entity_crud = \Drupal::classResolver()->getInstanceFromDefinition(EntityCrud::class);
+  $entity_crud->entityLoad($entities, $entity_type_id);
+
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function bd_entity_insert(EntityInterface $entity) {
+
+  /** @var \Drupal\bd\Handler\EntityCrud $entity_crud */
+  $entity_crud = \Drupal::classResolver()->getInstanceFromDefinition(EntityCrud::class);
+  $entity_crud->entityInsert($entity);
+
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function bd_entity_delete(EntityInterface $entity) {
+
+  /** @var \Drupal\bd\Handler\EntityCrud $entity_crud */
+  $entity_crud = \Drupal::classResolver()->getInstanceFromDefinition(EntityCrud::class);
+  $entity_crud->entityDelete($entity);
+
+}
+
+/**
+ * Implements hook_entity_access().
+ */
+function bd_entity_access(EntityInterface $entity, $operation, AccountInterface $account) {
+
+  $access_result_neutral = AccessResult::neutral();
+
+  if ($entity->getEntityTypeId() == 'block_content') {
+    return AccessResult::allowed();
+  }
+
+  if ($operation != 'view') {
+    return $access_result_neutral;
+  }
+
+  if (!$entity instanceof FieldableEntityInterface) {
+    return $access_result_neutral;
+  }
+
+  if (!$entity->hasField('field_role')) {
+    return $access_result_neutral;
+  }
+
+  if ($entity->field_role->isEmpty()) {
+    return $access_result_neutral;
+  }
+
+  $role_field_values = $entity->field_role->getValue();
+
+  $field_roles = [];
+  foreach ($role_field_values as $delta => $field_value) {
+    $field_roles[] = $field_value['target_id'];
+  }
+
+  $account_roles = \Drupal::currentUser()->getRoles();
+
+  if (array_intersect($field_roles, $account_roles)) {
+    return AccessResult::allowed();
+  }
+  else {
+    return AccessResult::forbidden();
+  }
+
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function bd_field_widget_entity_reference_autocomplete_form_alter(&$element, FormStateInterface $form_state, $context) {
+  $element['#type'] = 'container';
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function bd_field_widget_inline_entity_form_complex_form_alter(&$element, FormStateInterface $form_state, $context) {
+  $element['#type'] = 'container';
+}
+
+/**
+ * OpenID Connect post authorize hook.
+ *
+ * This hook runs after a user has been authorized and claims have been mapped
+ * to the user's account.
+ *
+ * A popular use case for this hook is to saving token and additional identity
+ * provider related information to the user's Drupal session (private temp
+ * store).
+ *
+ * @param \Drupal\user\UserInterface $account
+ *   User account object of the authorized user.
+ * @param array $context
+ *   An associative array with context information:
+ *   - tokens:         An array of tokens.
+ *   - user_data:      An array of user and session data.
+ *   - userinfo:       An array of user information.
+ *   - plugin_id:      The plugin identifier.
+ *   - sub:            The remote user identifier.
+ *
+ * @ingroup openid_connect_api
+ */
+function bd_openid_connect_post_authorize(\Drupal\user\UserInterface $account, array $context) {
+
+  $saved = FALSE;
+
+  \Drupal::logger('default')->debug('test123');
+  \Drupal::logger('default')->debug(print_r($context['userinfo'], TRUE));
+
+  if (!empty($context['userinfo']['roles'])) {
+    foreach ($context['userinfo']['roles'] as $rid) {
+      \Drupal::logger('default')->debug($rid);
+      if (!$role = \Drupal\user\Entity\Role::load($rid)) {
+        continue;
+      }
+      if ($account->hasRole($rid)) {
+        continue;
+      }
+      $account->addRole($rid);
+      $saved = TRUE;
+    }
+  }
+
+  if ($saved) {
+    $account->save();
+  }
+
+}

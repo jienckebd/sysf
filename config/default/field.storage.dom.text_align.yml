@@ -1,0 +1,33 @@
+uuid: 144fc191-258b-4ba1-b45c-6036eea87b6e
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.text_align
+field_name: text_align
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: left
+      label: left
+    -
+      value: right
+      label: right
+    -
+      value: center
+      label: center
+    -
+      value: justify
+      label: justify
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

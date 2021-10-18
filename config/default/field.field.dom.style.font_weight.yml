@@ -1,0 +1,29 @@
+uuid: 550871d6-aa9e-493e-a8f7-95e1ac80b62f
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.font_weight
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: font-weight
+    behavior:
+      dom:
+        subattribute: font-weight
+id: dom.style.font_weight
+field_name: font_weight
+entity_type: dom
+bundle: style
+label: font-weight
+description: 'Sets the weight of a font'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

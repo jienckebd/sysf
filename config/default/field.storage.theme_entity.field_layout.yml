@@ -1,0 +1,23 @@
+uuid: 87cb8fba-ba25-43f3-8e38-48083efc9412
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - block_content
+id: theme_entity.field_layout
+field_name: field_layout
+entity_type: theme_entity
+type: entity_reference
+settings:
+  target_type: block_content
+  schema__derivative: 0
+  schema__base_target_id: 0
+  deriver: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

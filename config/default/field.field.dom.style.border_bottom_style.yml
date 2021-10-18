@@ -1,0 +1,29 @@
+uuid: 07f3d1d1-2b15-4dbe-b327-918035452fcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.border_bottom_style
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: border-bottom-style
+    behavior:
+      dom:
+        subattribute: border-bottom-style
+id: dom.style.border_bottom_style
+field_name: border_bottom_style
+entity_type: dom
+bundle: style
+label: border-bottom-style
+description: 'Sets the style of the bottom border border-style'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

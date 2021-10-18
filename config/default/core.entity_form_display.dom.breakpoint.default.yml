@@ -1,0 +1,122 @@
+uuid: a31c06a0-1f54-4c46-a6c5-cdda75e85e15
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.breakpoint
+    - field.field.dom.breakpoint.field_media_type
+    - field.field.dom.breakpoint.max_width
+    - field.field.dom.breakpoint.min_width
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_general_settings:
+      children:
+        - label
+        - field_media_type
+        - min_width
+        - max_width
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: 'General Settings'
+      region: content
+    group_advanced:
+      children:
+        - uid
+        - created
+        - revision_log_message
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+        open: false
+      label: Advanced
+      region: content
+id: dom.breakpoint.default
+targetEntityType: dom
+bundle: breakpoint
+mode: default
+content:
+  actions:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_media_type:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  max_width:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  min_width:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  revision_created:
+    type: datetime_timestamp
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  revision_log_message:
+    type: string_textarea
+    weight: 4
+    settings:
+      rows: 4
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+hidden:
+  description: true
+  label_display: true
+  langcode: true
+  simple_sitemap: true
+  status: true

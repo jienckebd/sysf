@@ -1,0 +1,8 @@
+uuid: a4945b80-12b3-447c-ba4b-2c4576d51fc0
+langcode: en
+status: true
+dependencies: {  }
+name: 'DOM Tag Group'
+vid: group_dom_tag
+description: null
+weight: 0

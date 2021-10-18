@@ -1,0 +1,17 @@
+uuid: 8d8d995b-47af-4e32-84c1-e6cca690a569
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.nw_1300
+  module:
+    - crop
+name: nw_1300
+label: 'Narrow wide (x1300)'
+effects:
+  76aada2a-03df-4761-9270-5772ede1152c:
+    uuid: 76aada2a-03df-4761-9270-5772ede1152c
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: nw_1300

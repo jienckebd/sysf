@@ -1,0 +1,21 @@
+uuid: 8b95ac74-97db-45a7-baf8-bff840a65868
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.media_type
+    - field.storage.dom.interactive_static
+  module:
+    - options
+id: dom.media_type.interactive_static
+field_name: interactive_static
+entity_type: dom
+bundle: media_type
+label: interactive/static
+description: 'Defines the interaction level.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

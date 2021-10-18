@@ -1,0 +1,7 @@
+uuid: 8e2db41d-9428-4614-ae51-41938e3944eb
+langcode: en
+status: true
+dependencies: {  }
+id: selector
+label: Selector
+description: ''

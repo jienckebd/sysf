@@ -1,0 +1,51 @@
+uuid: 8f63378b-0c01-491c-be3f-f94c7b50f981
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.border_style
+field_name: border_style
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: none
+      label: none
+    -
+      value: hidden
+      label: hidden
+    -
+      value: dotted
+      label: dotted
+    -
+      value: dashed
+      label: dashed
+    -
+      value: solid
+      label: solid
+    -
+      value: double
+      label: double
+    -
+      value: groove
+      label: groove
+    -
+      value: ridge
+      label: ridge
+    -
+      value: inset
+      label: inset
+    -
+      value: outset
+      label: outset
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

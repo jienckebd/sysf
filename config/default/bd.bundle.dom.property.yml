@@ -1,0 +1,11 @@
+uuid: 0042808d-ca7f-43a0-b5d9-2673041f7e93
+langcode: en
+status: true
+dependencies: {  }
+label: Property
+id: property
+description: 'Provide a library of DOM element HTML properties.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

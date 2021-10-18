@@ -1,0 +1,19 @@
+uuid: 9bb6ff7b-761a-4604-a6ae-b6c150de2369
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.behavior.animate_on_scroll
+    - field.storage.behavior.field_selector
+id: behavior.animate_on_scroll.field_selector
+field_name: field_selector
+entity_type: behavior
+bundle: animate_on_scroll
+label: Anchor
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

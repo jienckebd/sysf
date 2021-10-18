@@ -1,0 +1,27 @@
+uuid: 3ea1385a-b155-47d1-a1d1-df5c13cb08bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.font.field_tags
+  module:
+    - fontyourface
+id: font.font.field_tags
+field_name: field_tags
+entity_type: font
+bundle: font
+label: Tags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles: {  }
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: font_foundry
+field_type: entity_reference

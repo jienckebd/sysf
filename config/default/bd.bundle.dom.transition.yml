@@ -1,0 +1,11 @@
+uuid: 4d388310-4a44-4003-9236-d001ef9f33e3
+langcode: en
+status: true
+dependencies: {  }
+label: Transition
+id: transition
+description: 'Define a CSS transition effect.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

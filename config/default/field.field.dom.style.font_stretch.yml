@@ -1,0 +1,29 @@
+uuid: 82fb241f-9b43-4489-a7b2-2bad89dedd5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.font_stretch
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: font-stretch
+    behavior:
+      dom:
+        subattribute: font-stretch
+id: dom.style.font_stretch
+field_name: font_stretch
+entity_type: dom
+bundle: style
+label: font-stretch
+description: 'Condenses or expands the current font-family'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

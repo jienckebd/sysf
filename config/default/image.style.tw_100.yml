@@ -1,0 +1,17 @@
+uuid: aea478a6-d2ce-4c68-b677-ebeb62ac2cd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.tw_100
+  module:
+    - crop
+name: tw_100
+label: 'Tall wide (x100)'
+effects:
+  b8866bfc-9b67-433c-8aa4-bbfcaf3b7f37:
+    uuid: b8866bfc-9b67-433c-8aa4-bbfcaf3b7f37
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: tw_100

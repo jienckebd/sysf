@@ -1,0 +1,104 @@
+uuid: 55c4cba4-4cc5-4696-8ba6-1b2829554d15
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.heading
+    - block_content.type.icon_card
+    - field.storage.block_content.field_cmp_heading
+  module:
+    - bd
+    - design_system
+    - entity_reference_revisions
+third_party_settings:
+  bd:
+    overview:
+      entity_field_group: ''
+      default_field_widget:
+        plugin_id: ''
+      default_field_formatter:
+        plugin_id: ''
+      weight: ''
+      cardinality: ''
+    element:
+      field_items:
+        container: ''
+      field_item:
+        container: ''
+      field_value:
+        container: ''
+        override: ''
+        callback: ''
+      label:
+        container: ''
+        override: ''
+        display_position: before
+      description:
+        container: ''
+        override: ''
+        display_position: after
+    behavior:
+      access:
+        view:
+          0:
+            condition:
+              plugin_id: ''
+          1:
+            condition:
+              plugin_id: ''
+          condition_list:
+            actions: {  }
+        edit:
+          0:
+            condition:
+              plugin_id: ''
+          restrict_behavior: ''
+          1:
+            condition:
+              plugin_id: ''
+          condition_list:
+            actions: {  }
+      translation:
+        force_langcode: ''
+        disable: 0
+      default_value:
+        plugin:
+          plugin_id: ''
+      multi_value:
+        max: ''
+        delimiter: ''
+      empty_value:
+        plugin:
+          plugin_id: ''
+      dom:
+        attribute: ''
+        subattribute: ''
+        theme_hook: ''
+        theme_hook_selector: ''
+        theme_hook_match_key: ''
+        theme_hook_match_value: ''
+        build_css_field_name: ''
+        build_css: 0
+  design_system:
+    field_formatter_config_key_override: ''
+id: block_content.icon_card.field_cmp_heading
+field_name: field_cmp_heading
+entity_type: block_content
+bundle: icon_card
+label: Heading
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: '\Drupal\bd\Entity\EntityFieldDefaultValue::derivedDefaultValue'
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      heading: heading
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

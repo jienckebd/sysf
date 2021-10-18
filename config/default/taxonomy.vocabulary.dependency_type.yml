@@ -1,0 +1,8 @@
+uuid: a6d4e230-eb1d-4d39-9803-c9eda6d9eb55
+langcode: en
+status: true
+dependencies: {  }
+name: 'Dependency Type'
+vid: dependency_type
+description: ''
+weight: 0

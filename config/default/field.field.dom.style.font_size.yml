@@ -1,0 +1,28 @@
+uuid: 641076b1-b375-43dd-8314-761bec04f93f
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.font_size
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: font-size
+    behavior:
+      dom:
+        subattribute: font-size
+id: dom.style.font_size
+field_name: font_size
+entity_type: dom
+bundle: style
+label: font-size
+description: 'Sets the size of a font'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

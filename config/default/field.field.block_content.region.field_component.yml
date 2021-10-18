@@ -1,0 +1,143 @@
+uuid: e40581fa-a49a-4916-a759-43a605914185
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.button
+    - block_content.type.carousel
+    - block_content.type.component
+    - block_content.type.container
+    - block_content.type.drupal_block
+    - block_content.type.heading
+    - block_content.type.image
+    - block_content.type.image_banner
+    - block_content.type.image_card
+    - block_content.type.layout
+    - block_content.type.layout_builder
+    - block_content.type.region
+    - block_content.type.style
+    - block_content.type.text
+    - block_content.type.text_only_card
+    - block_content.type.video
+    - block_content.type.video_banner
+    - block_content.type.video_card
+    - field.storage.block_content.field_component
+  module:
+    - bd
+    - design_system
+third_party_settings:
+  bd:
+    overview:
+      entity_field_group:
+        widget:
+          value: {  }
+      weight:
+        widget:
+          value: ''
+      cardinality:
+        widget:
+          value: ''
+      default_field_widget: {  }
+      default_field_formatter: {  }
+    element:
+      field_value:
+        override:
+          widget:
+            value: ''
+        callback:
+          widget:
+            value: ''
+        container: {  }
+      label:
+        override:
+          widget:
+            value: ''
+        display_position:
+          widget:
+            value: before
+        container: {  }
+      description:
+        override:
+          widget:
+            value: ''
+        display_position:
+          widget:
+            value: after
+        container: {  }
+      field_items:
+        container: {  }
+      field_item:
+        container: {  }
+    behavior:
+      access:
+        edit:
+          restrict_behavior:
+            widget:
+              value: ''
+          condition_list:
+            actions: {  }
+          0:
+            condition: {  }
+        view:
+          condition_list:
+            actions: {  }
+          0:
+            condition: {  }
+      translation:
+        force_langcode:
+          widget:
+            value: ''
+        disable:
+          widget:
+            value: 0
+      multi_value:
+        max:
+          widget:
+            value: ''
+        delimiter:
+          widget:
+            value: ''
+      default_value:
+        plugin: {  }
+      empty_value:
+        plugin: {  }
+  design_system:
+    field_formatter_config_key_override: ''
+id: block_content.region.field_component
+field_name: field_component
+entity_type: block_content
+bundle: region
+label: Components
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: bd_default_value_callback
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      button: button
+      carousel: carousel
+      component: component
+      container: container
+      drupal_block: drupal_block
+      heading: heading
+      image: image
+      image_banner: image_banner
+      image_card: image_card
+      layout: layout
+      layout_builder: layout_builder
+      region: region
+      style: style
+      text: text
+      text_only_card: text_only_card
+      video: video
+      video_banner: video_banner
+      video_card: video_card
+    sort:
+      field: info
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: component
+field_type: entity_reference_revisions

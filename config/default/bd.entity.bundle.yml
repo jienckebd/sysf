@@ -1,0 +1,420 @@
+definition:
+  dom:
+    tag:
+      definition:
+        label: Tag
+        description: 'Provide a library of DOM element HTML tags.'
+      field:
+        definition:
+          machine_name:
+            type: string
+            field_config:
+              label: 'Machine Name'
+          group:
+            type: entity_reference
+            field_storage_config:
+              settings:
+                target_type: dom
+            field_config:
+              label: Group
+              description: 'The group of the tag.'
+              settings:
+                handler: 'default:dom'
+                handler_settings:
+                  auto_create: true
+                  target_bundles:
+                    tag_group: tag_group
+      entity_form_display:
+        definition:
+          default:
+            template: vertical_tabs
+    attribute:
+      definition:
+        label: Attribute
+        description: 'Provide a library of DOM element HTML attributes.'
+      field:
+        definition:
+          machine_name:
+            type: string
+            field_config:
+              label: 'Machine Name'
+          dom_tag:
+            type: entity_reference
+            field_storage_config:
+              cardinality: -1
+              settings:
+                target_type: dom
+            field_config:
+              label: 'DOM Tags'
+              description: 'The valid DOM tags of this attribute.'
+              settings:
+                handler: 'default:dom'
+                handler_settings:
+                  auto_create: true
+                  target_bundles:
+                    tag: tag
+      entity_form_display:
+        definition:
+          default:
+            template: vertical_tabs
+    property:
+      definition:
+        label: Property
+        description: 'Provide a library of DOM element HTML properties.'
+      field:
+        definition:
+          machine_name:
+            type: string
+            field_config:
+              label: 'Machine Name'
+          allowed_values:
+            type: string
+            field_storage_config:
+              cardinality: -1
+            field_config:
+              label: 'Allowed Values'
+              description: 'The allowed values of the property.'
+          validators:
+            type: string
+            field_storage_config:
+              cardinality: -1
+            field_config:
+              label: Validators
+              description: 'The validators of the property.'
+          components:
+            type: string
+            field_storage_config:
+              cardinality: -1
+            field_config:
+              label: Components
+              description: 'The components of the property.'
+          field_type:
+            type: string
+            field_config:
+              label: 'Field Type'
+              description: 'The type of field this entity will derive.'
+          target_entity_type:
+            type: string
+            field_config:
+              label: 'Target Entity Type'
+              description: 'The type of entity the derived field should target.'
+          group:
+            type: entity_reference
+            field_storage_config:
+              settings:
+                target_type: dom
+            field_config:
+              label: Group
+              description: 'The group of the CSS property.'
+              settings:
+                handler: 'default:dom'
+                handler_settings:
+                  auto_create: true
+                  target_bundles:
+                    property_group: property_group
+      entity_form_display:
+        definition:
+          default:
+            template: vertical_tabs
+    pseudo_class:
+      definition:
+        label: 'Pseudo Class'
+        description: 'Provides state classes on elements like hover, active, and focus.'
+      field:
+        definition:
+          machine_name:
+            type: string
+            field_config:
+              label: 'Machine Name'
+          field_type:
+            type: string
+            field_config:
+              label: 'Field Type'
+              description: 'The type of field this entity will derive.'
+      entity_form_display:
+        definition:
+          default:
+            template: vertical_tabs
+    pseudo_element:
+      definition:
+        label: 'Pseudo Element'
+        description: 'Provides elements that appear relative to a normal DOM element like before, after, and first-line.'
+      field:
+        definition:
+          machine_name:
+            type: string
+            field_config:
+              label: 'Machine Name'
+          field_type:
+            type: string
+            field_config:
+              label: 'Field Type'
+              description: 'The type of field this entity will derive.'
+      entity_form_display:
+        definition:
+          default:
+            template: vertical_tabs
+    media_type:
+      definition:
+        label: 'Media Type'
+        description: 'Provide a library of media or device types used in media queries.'
+      field:
+        definition:
+          machine_name:
+            type: string
+            field_config:
+              label: 'Machine Name'
+          derived:
+            deriver_plugin: entity_collection
+            definition:
+              entity_type: dom
+              bundle: media_group
+              mapping:
+                type:
+                  field_name: field_type
+                  property: value
+                label:
+                  field_name: label
+                  property: value
+                field_storage_config||settings||allowed_values:
+                  field_name: allowed_values
+                  flatten: true
+                  property: value
+                field_storage_config||settings||target_type:
+                  field_name: target_entity_type
+                  property: value
+      entity_form_display:
+        definition:
+          default:
+            template: vertical_tabs
+    media_group:
+      definition:
+        label: 'Media Group'
+        description: 'Provide a library of media groups.'
+      field:
+        definition:
+          machine_name:
+            type: string
+            field_config:
+              label: 'Machine Name'
+          allowed_values:
+            type: string
+            field_storage_config:
+              cardinality: -1
+            field_config:
+              label: 'Allowed Values'
+              description: 'The allowed values of the property.'
+          field_type:
+            type: string
+            field_config:
+              label: 'Field Type'
+              description: 'The type of field this entity will derive.'
+      entity_form_display:
+        definition:
+          default:
+            template: vertical_tabs
+    media_feature:
+      definition:
+        label: 'Media Features'
+        description: 'Provide a library of media features.'
+      field:
+        definition:
+          machine_name:
+            type: string
+            field_config:
+              label: 'Machine Name'
+      entity_form_display:
+        definition:
+          default:
+            template: vertical_tabs
+    utility:
+      definition:
+        label: Utility
+        description: 'Provide a library of generic utility classes and attributes.'
+      field:
+        definition:
+          machine_name:
+            type: string
+            field_config:
+              label: 'Machine Name'
+          class:
+            type: list_string
+            field_config:
+              label: Class
+              description: 'Enter DOM classes to be applied.'
+            field_storage_config:
+              cardinality: -1
+      entity_form_display:
+        definition:
+          default:
+            template: vertical_tabs
+    link_type:
+      definition:
+        label: 'Link type'
+        description: 'Provide types of links.'
+      field:
+        definition:
+          machine_name:
+            type: string
+            field_config:
+              label: 'Machine Name'
+      entity_form_display:
+        definition:
+          default:
+            template: vertical_tabs
+    color:
+      definition:
+        label: Color
+        description: 'Provide a library of colors.'
+      field:
+        definition:
+          machine_name:
+            type: string
+            field_config:
+              label: 'Machine Name'
+          color:
+            type: color_field_type
+            field_config:
+              label: Color
+              description: 'Select a color.'
+              required: true
+      entity_form_display:
+        definition:
+          default:
+            template: vertical_tabs
+    tag_group:
+      definition:
+        label: 'Tag group'
+        description: 'Provides group logic to DOM tags.'
+      field:
+        definition:
+          machine_name:
+            type: string
+            field_config:
+              label: 'Machine Name'
+    property_group:
+      definition:
+        label: 'CSS property group'
+        description: 'Provides group logic to DOM CSS properties.'
+      field:
+        definition:
+          machine_name:
+            type: string
+            field_config:
+              label: 'Machine Name'
+    collection_color:
+      definition:
+        label: 'Color Scheme'
+        description: 'Provide a set of colors.'
+      field:
+        definition:
+          machine_name:
+            type: string
+            field_config:
+              label: 'Machine Name'
+          background:
+            type: color_field_type
+            field_config:
+              label: 'Background Color'
+              description: 'Select a color.'
+          foreground:
+            type: color_field_type
+            field_config:
+              label: 'Foreground Color'
+              description: 'Select a color.'
+      entity_form_display:
+        definition:
+          default:
+            template: vertical_tabs
+    style:
+      definition:
+        label: Style
+        description: 'Build dynamic re-usable styles.'
+      field:
+        definition:
+          index:
+            type: entity_index
+            label: 'Entity Index'
+          derived:
+            deriver_plugin: entity_collection
+            definition:
+              entity_type: dom
+              bundle: property
+              mapping:
+                type:
+                  field_name: field_type
+                  property: value
+                label:
+                  field_name: label
+                  property: value
+                field_storage_config||settings||allowed_values:
+                  field_name: allowed_values
+                  flatten: true
+                  property: value
+                field_config||third_party_settings||bd||dom||attribute:
+                  static: style
+                field_config||third_party_settings||bd||dom||subattribute:
+                  field_name: label
+                  property: value
+                field_config||third_party_settings||bd||group:
+                  field_name: group
+                  property: target_id
+                field_config||third_party_settings||bd||index:
+                  static: true
+      entity_form_display:
+        definition:
+          default:
+            template: vertical_tabs
+    collection:
+      definition:
+        label: Collection
+        description: 'Provide a collection of DOM entities.'
+      form:
+        '*':
+          new:
+            inline:
+              save_require_field:
+                - dom
+          existing:
+            inline:
+              save_require_field:
+                - dom
+      field:
+        definition:
+          machine_name:
+            type: string
+            field_config:
+              label: 'Machine Name'
+          aid:
+            type: list_string
+            field_config:
+              label: Attachments
+              description: 'Defines where this collection will be attached.'
+            field_storage_config:
+              cardinality: -1
+          dom:
+            type: entity_reference
+            field_storage_config:
+              cardinality: -1
+              settings:
+                target_type: dom
+            field_config:
+              label: Styles
+              description: 'The valid DOM tags of this attribute.'
+              settings:
+                handler: 'default:dom'
+                handler_settings:
+                  auto_create: true
+                  target_bundles:
+                    tag: tag
+      entity_form_display:
+        definition:
+          default:
+            template: default
+  relation:
+    dependency:
+      definition:
+        label: Dependency
+        description: 'Define dependencies between entities.'
+_core:
+  default_config_hash: aNIexiwC0VDz7jKLLNcl-fM14SUo0YVrwsFDy0UHme0

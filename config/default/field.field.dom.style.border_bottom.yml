@@ -1,0 +1,28 @@
+uuid: 1a51fb29-3615-4bd1-adcd-a41f6e4077d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.border_bottom
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: border-bottom
+    behavior:
+      dom:
+        subattribute: border-bottom
+id: dom.style.border_bottom
+field_name: border_bottom
+entity_type: dom
+bundle: style
+label: border-bottom
+description: 'A shorthand property for setting all of the properties for the bottom border in one declaration'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

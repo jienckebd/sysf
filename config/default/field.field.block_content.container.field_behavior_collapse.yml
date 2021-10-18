@@ -1,0 +1,29 @@
+uuid: bda748a9-a885-4878-b61a-1fb50cb52ff9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.collapsible
+    - block_content.type.container
+    - field.storage.block_content.field_behavior_collapse
+id: block_content.container.field_behavior_collapse
+field_name: field_behavior_collapse
+entity_type: block_content
+bundle: container
+label: Collapsible
+description: 'Make this container collapsible.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      collapsible: collapsible
+    sort:
+      field: label
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

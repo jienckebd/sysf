@@ -1,0 +1,10 @@
+uuid: 78ae24e4-6568-40a0-8901-613154fe97ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.s_500
+label: 'Standard (x500)'
+targetEntityType: media
+cache: true

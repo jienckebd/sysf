@@ -1,0 +1,8 @@
+uuid: be69f2c6-3b18-420b-98ee-b94d91ac3d16
+langcode: en
+status: true
+dependencies: {  }
+id: video_banner
+label: 'Video banner'
+revision: 1
+description: 'Provides a large full width banner with a video and text overlay.'

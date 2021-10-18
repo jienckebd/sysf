@@ -1,0 +1,29 @@
+uuid: 925722d9-de08-4704-a754-c398008b6d24
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.text
+    - block_content.type.text_only_card
+    - field.storage.block_content.field_cmp_text
+id: block_content.text_only_card.field_cmp_text
+field_name: field_cmp_text
+entity_type: block_content
+bundle: text_only_card
+label: Text
+description: 'Provide a text component.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      text: text
+    sort:
+      field: info
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

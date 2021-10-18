@@ -1,0 +1,8 @@
+uuid: 73c73d45-28eb-46b3-97d7-cb2ff6ac8022
+langcode: en
+status: true
+dependencies: {  }
+id: social_profile_links
+label: 'Social profile links'
+revision: 1
+description: 'Specify links to external social media profiles.'

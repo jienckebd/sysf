@@ -1,0 +1,306 @@
+uuid: 1ed7a3bf-4c33-4b5f-b660-c2f2eee13cb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.field.dom.style.background
+    - field.field.dom.style.background_attachment
+    - field.field.dom.style.background_color_dom
+    - field.field.dom.style.background_image
+    - field.field.dom.style.background_position
+    - field.field.dom.style.background_repeat
+    - field.field.dom.style.border
+    - field.field.dom.style.border_bottom
+    - field.field.dom.style.border_bottom_color_dom
+    - field.field.dom.style.border_bottom_style
+    - field.field.dom.style.border_bottom_width
+    - field.field.dom.style.border_collapse
+    - field.field.dom.style.border_color_dom
+    - field.field.dom.style.border_left
+    - field.field.dom.style.border_left_color_dom
+    - field.field.dom.style.border_left_style
+    - field.field.dom.style.border_left_width
+    - field.field.dom.style.border_right
+    - field.field.dom.style.border_right_color_dom
+    - field.field.dom.style.border_right_style
+    - field.field.dom.style.border_right_width
+    - field.field.dom.style.border_spacing
+    - field.field.dom.style.border_style
+    - field.field.dom.style.border_top
+    - field.field.dom.style.border_top_color_dom
+    - field.field.dom.style.border_top_style
+    - field.field.dom.style.border_top_width
+    - field.field.dom.style.border_width
+    - field.field.dom.style.bottom
+    - field.field.dom.style.caption_side
+    - field.field.dom.style.clear
+    - field.field.dom.style.clip
+    - field.field.dom.style.color_dom
+    - field.field.dom.style.content
+    - field.field.dom.style.counter_increment
+    - field.field.dom.style.counter_reset
+    - field.field.dom.style.cursor
+    - field.field.dom.style.direction
+    - field.field.dom.style.display
+    - field.field.dom.style.dom
+    - field.field.dom.style.empty_cells
+    - field.field.dom.style.field_align_items
+    - field.field.dom.style.field_border_radius
+    - field.field.dom.style.field_box_shadow
+    - field.field.dom.style.field_device
+    - field.field.dom.style.field_flex
+    - field.field.dom.style.field_font_family
+    - field.field.dom.style.field_justify_content
+    - field.field.dom.style.field_modifier
+    - field.field.dom.style.field_opacity
+    - field.field.dom.style.field_style
+    - field.field.dom.style.field_transform
+    - field.field.dom.style.field_transition
+    - field.field.dom.style.float
+    - field.field.dom.style.font
+    - field.field.dom.style.font_size
+    - field.field.dom.style.font_size_adjust
+    - field.field.dom.style.font_stretch
+    - field.field.dom.style.font_style
+    - field.field.dom.style.font_variant
+    - field.field.dom.style.font_weight
+    - field.field.dom.style.height
+    - field.field.dom.style.index
+    - field.field.dom.style.left
+    - field.field.dom.style.letter_spacing
+    - field.field.dom.style.line_height
+    - field.field.dom.style.list_style
+    - field.field.dom.style.list_style_image
+    - field.field.dom.style.list_style_position
+    - field.field.dom.style.list_style_type
+    - field.field.dom.style.margin
+    - field.field.dom.style.margin_bottom
+    - field.field.dom.style.margin_left
+    - field.field.dom.style.margin_right
+    - field.field.dom.style.margin_top
+    - field.field.dom.style.marker_offset
+    - field.field.dom.style.max_height
+    - field.field.dom.style.max_width
+    - field.field.dom.style.min_height
+    - field.field.dom.style.min_width
+    - field.field.dom.style.outline
+    - field.field.dom.style.outline_color
+    - field.field.dom.style.outline_style
+    - field.field.dom.style.outline_width
+    - field.field.dom.style.overflow
+    - field.field.dom.style.padding
+    - field.field.dom.style.padding_bottom
+    - field.field.dom.style.padding_left
+    - field.field.dom.style.padding_right
+    - field.field.dom.style.padding_top
+    - field.field.dom.style.position
+    - field.field.dom.style.quotes
+    - field.field.dom.style.right
+    - field.field.dom.style.table_layout
+    - field.field.dom.style.text_align
+    - field.field.dom.style.text_decoration
+    - field.field.dom.style.text_indent
+    - field.field.dom.style.text_shadow
+    - field.field.dom.style.text_transform
+    - field.field.dom.style.top
+    - field.field.dom.style.unicode_bidi
+    - field.field.dom.style.vertical_align
+    - field.field.dom.style.visibility
+    - field.field.dom.style.white_space
+    - field.field.dom.style.width
+    - field.field.dom.style.word_spacing
+    - field.field.dom.style.z_index
+  module:
+    - options
+id: dom.style.default
+targetEntityType: dom
+bundle: style
+mode: default
+content:
+  field_align_items:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_box_shadow:
+    weight: 10
+    label: above
+    settings:
+      link_to_entity: false
+      filter_format: null
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_device:
+    weight: 6
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_flex:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+      filter_format: null
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_justify_content:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_modifier:
+    weight: 3
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_opacity:
+    weight: 11
+    label: above
+    settings:
+      link_to_entity: false
+      filter_format: null
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_style:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  background: true
+  background_attachment: true
+  background_color_dom: true
+  background_image: true
+  background_position: true
+  background_repeat: true
+  border: true
+  border_bottom: true
+  border_bottom_color_dom: true
+  border_bottom_style: true
+  border_bottom_width: true
+  border_collapse: true
+  border_color_dom: true
+  border_left: true
+  border_left_color_dom: true
+  border_left_style: true
+  border_left_width: true
+  border_right: true
+  border_right_color_dom: true
+  border_right_style: true
+  border_right_width: true
+  border_spacing: true
+  border_style: true
+  border_top: true
+  border_top_color_dom: true
+  border_top_style: true
+  border_top_width: true
+  border_width: true
+  bottom: true
+  bundle: true
+  caption_side: true
+  changed: true
+  clear: true
+  clip: true
+  color_dom: true
+  content: true
+  counter_increment: true
+  counter_reset: true
+  created: true
+  cursor: true
+  default_langcode: true
+  description: true
+  direction: true
+  display: true
+  dom: true
+  empty_cells: true
+  field_border_radius: true
+  field_font_family: true
+  field_transform: true
+  field_transition: true
+  float: true
+  font: true
+  font_size: true
+  font_size_adjust: true
+  font_stretch: true
+  font_style: true
+  font_variant: true
+  font_weight: true
+  height: true
+  id: true
+  index: true
+  label: true
+  langcode: true
+  left: true
+  letter_spacing: true
+  line_height: true
+  list_style: true
+  list_style_image: true
+  list_style_position: true
+  list_style_type: true
+  margin: true
+  margin_bottom: true
+  margin_left: true
+  margin_right: true
+  margin_top: true
+  marker_offset: true
+  max_height: true
+  max_width: true
+  metatag: true
+  min_height: true
+  min_width: true
+  outline: true
+  outline_color: true
+  outline_style: true
+  outline_width: true
+  overflow: true
+  padding: true
+  padding_bottom: true
+  padding_left: true
+  padding_right: true
+  padding_top: true
+  position: true
+  quotes: true
+  revision_created: true
+  revision_default: true
+  revision_id: true
+  revision_log_message: true
+  revision_translation_affected: true
+  revision_user: true
+  right: true
+  search_api_excerpt: true
+  status: true
+  table_layout: true
+  text_align: true
+  text_decoration: true
+  text_indent: true
+  text_shadow: true
+  text_transform: true
+  top: true
+  uid: true
+  unicode_bidi: true
+  uuid: true
+  vertical_align: true
+  visibility: true
+  white_space: true
+  width: true
+  word_spacing: true
+  z_index: true

@@ -1,0 +1,68 @@
+uuid: 126dc11a-1f71-438f-895a-fbe7cac94774
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment
+    - field.field.comment.comment.comment_body
+  module:
+    - text
+id: comment.comment.default
+targetEntityType: comment
+bundle: comment
+mode: default
+content:
+  actions:
+    weight: 900
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  author:
+    weight: -2
+    region: content
+  comment_body:
+    type: text_textarea
+    weight: 11
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 910
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  subject:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  changed: true
+  cid: true
+  comment_type: true
+  created: true
+  default_langcode: true
+  entity_id: true
+  entity_type: true
+  field_name: true
+  homepage: true
+  hostname: true
+  mail: true
+  name: true
+  pid: true
+  status: true
+  thread: true
+  uid: true
+  uuid: true

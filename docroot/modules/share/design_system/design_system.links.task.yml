@@ -1,0 +1,21 @@
+entity.block_content.edit_form:
+  route_name: entity.block_content.edit_form
+  base_route: entity.block_content.canonical
+  title: 'Edit'
+  weight: -90
+
+entity.block_content.canonical:
+  route_name: entity.block_content.canonical
+  base_route: entity.block_content.canonical
+  title: 'View'
+  weight: -100
+
+entity.taxonomy_term.collection:
+  title: 'Taxonomy'
+  route_name: entity.taxonomy_term.collection
+  base_route: entity.taxonomy_term.collection
+
+entity.taxonomy_vocabulary.collection:
+  title: 'Vocabularies'
+  route_name: entity.taxonomy_vocabulary.collection
+  base_route: entity.taxonomy_term.collection

@@ -1,0 +1,30 @@
+uuid: ccb65f13-b505-4a9a-842a-ccb521898875
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.unicode_bidi
+field_name: unicode_bidi
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: normal
+      label: normal
+    -
+      value: embed
+      label: embed
+    -
+      value: bidi-override
+      label: bidi-override
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

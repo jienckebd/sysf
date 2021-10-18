@@ -1,0 +1,20 @@
+uuid: 86813772-d83e-4f7c-bf36-c7cc93dce345
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - autotheme__17
+id: autotheme__17_messages
+theme: autotheme__17
+region: header
+weight: -1
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  provider: system
+  label_display: '0'
+visibility: {  }

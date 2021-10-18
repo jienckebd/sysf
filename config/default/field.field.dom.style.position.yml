@@ -1,0 +1,29 @@
+uuid: 5f41bb5b-f0e7-4bda-a2a4-06fbdb41ea4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.position
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: position
+    behavior:
+      dom:
+        subattribute: position
+id: dom.style.position
+field_name: position
+entity_type: dom
+bundle: style
+label: position
+description: 'Places an element in a static, relative, absolute, or fixed position'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

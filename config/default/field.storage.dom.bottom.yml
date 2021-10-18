@@ -1,0 +1,21 @@
+uuid: f3fb2763-7fc8-4f50-933a-de840471ae39
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.bottom
+field_name: bottom
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

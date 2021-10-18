@@ -1,0 +1,21 @@
+uuid: 11e80720-fdda-4131-ad04-cbe969002b2a
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.field_transition
+field_name: field_transition
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

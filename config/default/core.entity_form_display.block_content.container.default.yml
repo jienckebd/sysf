@@ -1,0 +1,99 @@
+uuid: e32fc5d3-bccc-4617-ad6b-35b3415c470b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.container
+    - field.field.block_content.container.field_behavior_collapse
+    - field.field.block_content.container.field_class
+    - field.field.block_content.container.field_cmp_button_group
+    - field.field.block_content.container.field_cmp_heading
+    - field.field.block_content.container.field_cmp_image_bg
+    - field.field.block_content.container.field_color_bg
+    - field.field.block_content.container.field_color_fg
+    - field.field.block_content.container.field_component
+    - field.field.block_content.container.field_dom_style
+    - field.field.block_content.container.field_dom_tag
+    - field.field.block_content.container.field_height
+    - field.field.block_content.container.field_link
+    - field.field.block_content.container.field_max_height
+    - field.field.block_content.container.field_max_width
+    - field.field.block_content.container.field_min_height
+    - field.field.block_content.container.field_min_width
+    - field.field.block_content.container.field_width
+    - field.field.block_content.container.layout_builder__layout
+  module:
+    - inline_entity_form
+id: block_content.container.default
+targetEntityType: block_content
+bundle: container
+mode: default
+content:
+  actions:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_dom_style:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      allow_duplicate: true
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+    region: content
+  field_dom_tag:
+    weight: 1
+    settings:
+      autocomplete: true
+      match_operator: CONTAINS
+      match_limit: 10
+      width: 100%
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  base_entity: true
+  container: true
+  field_behavior_collapse: true
+  field_class: true
+  field_cmp_button_group: true
+  field_cmp_heading: true
+  field_cmp_image_bg: true
+  field_color_bg: true
+  field_color_fg: true
+  field_component: true
+  field_height: true
+  field_link: true
+  field_max_height: true
+  field_max_width: true
+  field_min_height: true
+  field_min_width: true
+  field_width: true
+  langcode: true
+  layout_builder__layout: true
+  reusable: true
+  reuse: true
+  revision_log: true
+  simple_sitemap: true
+  status: true
+  tags: true
+  variant: true
+  view_mode: true

@@ -1,0 +1,10 @@
+uuid: 5c46a66f-c813-4bba-b7d3-abf7e4596aa7
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.style
+label: Style
+targetEntityType: dom
+cache: true

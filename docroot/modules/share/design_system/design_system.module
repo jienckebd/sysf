@@ -1,0 +1,815 @@
+<?php
+
+/**
+ * @file
+ * Module hooks and functions for design_system.
+ */
+
+use Drupal\design_system\Plugin\views\display\Block;
+use Drupal\design_system\Plugin\SectionStorage\OverridesSectionStorage;
+use Drupal\design_system\Plugin\SectionStorage\DefaultsSectionStorage;
+use Drupal\Core\Entity\EntityFormInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Field\WidgetInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Field\FormatterInterface;
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Extension\Extension;
+use Drupal\design_system\DesignSystem;
+use Drupal\design_system\Plugin\Field\FieldFormatter\StringFormatter;
+use Drupal\Component\Utility\NestedArray;
+use Drupal\design_system\Element\Normalizer;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\design_system\Element\Toolbar;
+use Drupal\design_system\Preprocess;
+use Drupal\design_system\FormAlter;
+use Drupal\design_system\Plugin\Field\FieldWidget\TextareaWidget;
+use Drupal\design_system\Plugin\Field\FieldFormatter\FontAwesomeIconFormatter;
+use Drupal\design_system\Plugin\views\row\EntityRow;
+use Drupal\design_system\Plugin\Field\FieldType\ColorFieldType;
+use Drupal\design_system\Plugin\Field\FieldWidget\MetatagFirehose;
+use Drupal\design_system\Plugin\views\display_extender\DesignSystemDisplayExtender;
+use Drupal\design_system\Plugin\Field\FieldWidget\InlineEntityFormSimple;
+use Drupal\design_system\Plugin\Field\FieldWidget\InlineEntityFormComplex;
+use Drupal\Core\Breadcrumb\Breadcrumb;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\design_system\Plugin\Field\FieldFormatter\LinkFormatter;
+use Drupal\design_system\Plugin\Field\FieldFormatter\FileVideoFormatter;
+use Drupal\design_system\Plugin\views\field\SearchApiStandard;
+use Drupal\design_system\Plugin\Field\FieldWidget\DateTimeDefaultWidget;
+use Drupal\design_system\Plugin\Field\FieldWidget\AddressDefaultWidget;
+use Drupal\design_system\EntityOperations;
+use Drupal\design_system\Plugin\Field\FieldFormatter\SocialMediaLinksFieldDefaultFormatter;
+use Drupal\design_system\Plugin\Field\FieldWidget\DateRangeDefaultWidget;
+use Drupal\design_system\EntityDisplay;
+
+/**
+ * Implements hook_field_formatter_third_party_settings_form().
+ */
+function design_system_field_formatter_third_party_settings_form(FormatterInterface $plugin, FieldDefinitionInterface $field_definition, $view_mode, $form, FormStateInterface $form_state) {
+  /** @var \Drupal\design_system\EntityDisplay $entity_display */
+  $entity_display = \Drupal::classResolver(EntityDisplay::class);
+  return $entity_display->buildFormConfigElementFieldFormatter($plugin, $field_definition, $view_mode, $form, $form_state);
+}
+
+/**
+ * Implements hook_field_widget_third_party_settings_form().
+ */
+function design_system_field_widget_third_party_settings_form(WidgetInterface $plugin, FieldDefinitionInterface $field_definition, $form_mode, $form, FormStateInterface $form_state) {
+  /** @var \Drupal\design_system\EntityDisplay $entity_display */
+  $entity_display = \Drupal::classResolver(EntityDisplay::class);
+  return $entity_display->buildFormConfigElementFieldWidget($plugin, $field_definition, $form_mode, $form, $form_state);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function design_system_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  /** @var \Drupal\design_system\EntityDisplay $entity_display */
+  $entity_display = \Drupal::classResolver(EntityDisplay::class);
+  $entity_display->entityViewAlter($build, $entity, $display);
+}
+
+/**
+ * Implements hook_entity_view_mode_alter().
+ */
+function design_system_entity_view_mode_alter(&$view_mode, EntityInterface $entity) {
+  /** @var \Drupal\design_system\EntityDisplay $entity_display */
+  $entity_display = \Drupal::classResolver(EntityDisplay::class);
+  $entity_display->entityViewModeAlter($view_mode, $entity);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function design_system_preprocess(&$variables) {
+  $static_cache = &drupal_static(__FUNCTION__, []);
+  if (empty($static_cache['preprocess'])) {
+    $static_cache['preprocess'] = \Drupal::classResolver(Preprocess::class);
+  }
+  /** @var \Drupal\design_system\Preprocess $preprocess */
+  $preprocess = $static_cache['preprocess'];
+  $preprocess->preprocess($variables);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function design_system_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  /** @var \Drupal\design_system\FormAlter $form_alter */
+  $form_alter = \Drupal::classResolver(FormAlter::class);
+  $form_alter->formAlter($form, $form_state, $form_id);
+
+  $form_object = $form_state->getFormObject();
+  if ($form_object instanceof EntityFormInterface) {
+    /** @var \Drupal\design_system\EntityDisplay $entity_display */
+    $entity_display = \Drupal::classResolver(EntityDisplay::class);
+    $entity_display->entityFormAlter($form, $form_state);
+  }
+}
+
+/**
+ * Implements hook_inline_entity_form_entity_form_alter().
+ */
+function design_system_inline_entity_form_entity_form_alter(&$entity_form, FormStateInterface $form_state) {
+  /** @var \Drupal\design_system\EntityDisplay $entity_display */
+  $entity_display = \Drupal::classResolver(EntityDisplay::class);
+  $entity_display->iefEntityFormAlter($entity_form, $form_state);
+}
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function design_system_element_info_alter(&$info) {
+  Normalizer::alterElementInfo($info);
+}
+
+/**
+ * Implements hook_toolbar_alter().
+ */
+function design_system_toolbar_alter(&$items) {
+  Toolbar::alterToolbar($items);
+}
+
+/**
+ * Implements hook_layout_builder_section_storage_alter().
+ */
+function design_system_layout_builder_section_storage_alter(array &$definitions) {
+  $definitions['defaults']->setClass(DefaultsSectionStorage::class);
+  $definitions['overrides']->setClass(OverridesSectionStorage::class);
+}
+
+/**
+ * Implements hook_library_info_build().
+ */
+function design_system_library_info_build() {
+
+  /** @var \Drupal\design_system\Dom $dom */
+  $dom = \Drupal::service('dom');
+
+  return $dom->libraryInfoBuild();
+}
+
+/**
+ * Implements hook_layout_alter().
+ */
+function design_system_layout_alter(&$definitions) {
+
+  /** @var \Drupal\design_system\DesignSystem $design_system */
+  $design_system = \Drupal::service('design.system');
+  $entity_layout_definitions = $design_system->buildPluginDefinition('layout', DesignSystem::ENTITY_TYPE_ID_COMPONENT, 'layout');
+  if (!empty($entity_layout_definitions)) {
+    $definitions = NestedArray::mergeDeep($definitions, $entity_layout_definitions);
+  }
+
+}
+
+/**
+ * Implements plugin_filter_layout__layout_builder_alter().
+ *
+ * Hide all layouts from layout_builder except those from standard layout.
+ */
+function design_system_plugin_filter_layout__layout_builder_alter(&$definitions, array $extra, $consumer) {
+  foreach ($definitions as $key => $layout_definition) {
+    /** @var \Drupal\Core\Layout\LayoutDefinition $layout_definition */
+    if (!in_array($layout_definition->getProvider(), ['design_system'])) {
+      unset($definitions[$key]);
+    }
+  }
+}
+
+/**
+ * Implements plugin_filter_layout__layout_builder_alter().
+ */
+function design_system_plugin_filter_condition_alter(&$definitions, array $extra, $consumer) {
+
+  $map_consumer_hide_provider = [
+    'block_ui' => [
+      'rules',
+    ],
+  ];
+
+  if (!empty($map_consumer_hide_provider[$consumer])) {
+    foreach ($definitions as $key => &$definition) {
+      if (!empty($definition['provider']) && in_array($definition['provider'], $map_consumer_hide_provider[$consumer])) {
+        unset($definitions[$key]);
+      }
+    }
+  }
+
+}
+
+/**
+ * Implements plugin_filter_layout__layout_builder_alter().
+ *
+ * Hide blocks from layout_builder except components and entity field blocks.
+ */
+function design_system_plugin_filter_block__layout_builder_alter(&$definitions, array $extra, $consumer) {
+}
+
+/**
+ * Implements hook_theme().
+ */
+function design_system_theme($existing, $type, $theme, $path) {
+  return [
+    'entity_form' => [
+      'render element' => 'form',
+    ],
+    'entity' => [
+      'render element' => 'elements',
+    ],
+    'element' => [
+      'render element' => 'elements',
+    ],
+    'field__min' => [
+      'render element' => 'element',
+      'base hook' => 'field',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function design_system_theme_registry_alter(&$theme_registry) {
+
+  $path_module = drupal_get_path('module', 'design_system');
+  $path_templates = "{$path_module}/templates";
+
+  // All entities use a single twig template with 1 line derived from render
+  // arrays.
+  $entity_theme_hook = [
+    'render elements' => 'elements',
+    'type' => 'module',
+    'theme_path' => $path_module,
+    'template' => 'entity',
+    'path' => $path_templates,
+    'preprocess functions' => [],
+  ];
+
+  $remove_preprocess_hook = [
+    'template_preprocess_node',
+    'content_moderation_preprocess_node',
+    'rdf_preprocess_node',
+    'locale_preprocess_node',
+  ];
+
+  $entity_theme_hook = $theme_registry['node'];
+  $entity_theme_hook['template'] = 'entity';
+  $entity_theme_hook['path'] = $path_templates;
+
+  foreach ($entity_theme_hook['preprocess functions'] as $key => $function) {
+    if (in_array($function, $remove_preprocess_hook)) {
+      unset($entity_theme_hook['preprocess functions'][$key]);
+    }
+  }
+
+  /** @var \Drupal\bd\Entity\EntityHelper $entity_helper */
+  $entity_helper = \Drupal::service('entity.helper');
+
+  /** @var \Drupal\design_system\DesignSystem $design_system */
+  $design_system = \Drupal::service('design.system');
+
+  $entity_type_id_skip = $design_system->getConfigKey('entity.no_theme');
+
+  foreach ($entity_helper->getDefinitionsByTag('content') as $entity_type_id => $entity_type) {
+    if (in_array($entity_type_id, $entity_type_id_skip)) {
+      continue;
+    }
+    $theme_registry[$entity_type_id] = $entity_theme_hook;
+  }
+
+  if (!empty($theme_registry['status_messages'])) {
+    $theme_registry['status_messages']['variables']['more_link_text'] = NULL;
+    $theme_registry['status_messages']['variables']['more_link_url'] = NULL;
+  }
+
+}
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function design_system_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  if (empty($variables['elements']['#entity_type_id'])) {
+    return;
+  }
+  if ($hook == 'entity') {
+
+    $entity_type_id = $variables['elements']['#entity_type_id'];
+    $view_mode_id = $variables['elements']['#view_mode'];
+
+    /** @var \Drupal\Core\Entity\EntityInterface $entity */
+    $entity = $variables['elements']["#{$entity_type_id}"];
+    $entity_id = $entity->id();
+
+    $suggestions[] = "entity__{$entity_type_id}";
+    $suggestions[] = "entity__{$view_mode_id}";
+    $suggestions[] = "entity__{$entity_type_id}__{$view_mode_id}";
+
+    if ($bundle_id = $entity->bundle()) {
+      $suggestions[] = "entity__{$entity_type_id}__{$bundle_id}";
+      $suggestions[] = "entity__{$entity_type_id}__{$view_mode_id}__{$bundle_id}";
+    }
+
+    $suggestions[] = "entity__{$entity_type_id}__{$entity_id}";
+    $suggestions[] = "entity__{$entity_type_id}__{$view_mode_id}__{$entity_id}";
+  }
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function design_system_field_widget_fontawesome_icon_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
+  _design_system_form_fontawesome_element_alter($element, $form_state);
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function design_system_form_fontawesome_icon_dialog_alter(&$form, FormStateInterface $form_state) {
+  _design_system_form_fontawesome_element_alter($form, $form_state);
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function _design_system_form_fontawesome_element_alter(&$element, FormStateInterface $form_state) {
+
+  // Remove description text.
+  if (!empty($element['icon_name']['#description'])) {
+    unset($element['icon_name']['#description']);
+  }
+
+  // Default to solid style.
+  if (!isset($element['settings']['style']['#default_value'])) {
+    $element['settings']['style']['#default_value'] = 'fas';
+  }
+
+  // Default to large size.
+  if (!isset($element['settings']['size']['#default_value'])) {
+    $element['settings']['size']['#default_value'] = 'fa-lg';
+  }
+
+  if (!empty($element['icon_name']['#field_prefix'])) {
+    unset($element['icon_name']['#field_prefix']);
+  }
+
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function design_system_field_widget_entity_browser_entity_reference_form_alter(&$element, FormStateInterface $form_state, $context) {
+  $element['#type'] = 'container';
+  if (!empty($element['#title'])) {
+    $element['label'] = [
+      '#type' => 'label',
+      '#title' => $element['#title'],
+      '#weight' => -1000,
+    ];
+  }
+
+  if (!empty($element['current']['items'])) {
+
+    $element['current']['#wrapper_attributes']['class'][] = 'mt-4';
+    $element['current']['#wrapper_attributes']['class'][] = 'container-fluid';
+    $element['current']['#wrapper_attributes']['class'][] = 'container--gutter--md';
+    $element['current']['#wrapper_attributes']['class'][] = 'pt-3';
+    $element['current']['#wrapper_attributes']['class'][] = 'mt-3';
+    $element['current']['#wrapper_attributes']['class'][] = 'border-top';
+    $element['current']['#attributes']['class'][] = 'row';
+
+    foreach ($element['current']['items'] as $key => &$child) {
+
+      $child['#attributes']['class'][] = 'col-lg-6 col-xs-24';
+
+      foreach ($child as $key_inner => &$child_inner) {
+        if (!is_array($child_inner) || empty($child_inner['#type']) || !in_array($child_inner['#type'], ['submit'])) {
+          continue;
+        }
+        $child_inner['#button_size'] = 'sm';
+        $child_inner['#attributes']['class'][] = 'mt-2';
+      }
+
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_operation_alter().
+ */
+function design_system_entity_operation_alter(array &$operations, EntityInterface $entity) {
+
+  $static_cache = &drupal_static(__FUNCTION__, []);
+  if (empty($static_cache['entity_type_info'])) {
+    $static_cache['entity_type_info'] = \Drupal::classResolver(EntityOperations::class);
+  }
+
+  /** @var \Drupal\design_system\EntityOperations $entity_operations */
+  $entity_operations = $static_cache['entity_type_info'];
+  $entity_operations->entityOperationAlter($operations, $entity);
+
+}
+
+/**
+ * Implements hook_field_info_alter().
+ */
+function design_system_field_info_alter(&$info) {
+
+  $override = [
+    'color_field_type' => [
+      'class' => ColorFieldType::class,
+      'default_widget' => 'color_field_widget_box',
+    ],
+    'entity_reference' => [
+      'default_widget' => 'options_select',
+    ],
+  ];
+
+  foreach ($override as $field_type_id => $field_type_override) {
+    if (empty($info[$field_type_id])) {
+      continue;
+    }
+
+    $field_type = &$info[$field_type_id];
+
+    foreach ($field_type_override as $property => $value) {
+      $field_type[$property] = $value;
+    }
+
+  }
+
+}
+
+/**
+ * Implements hook_field_widget_info_alter().
+ */
+function design_system_field_widget_info_alter(array &$info) {
+  $info['text_textarea']['class'] = TextareaWidget::class;
+
+  // Warning thrown on entity form display edit if field_types not set.
+  $info['metatag_firehose']['class'] = MetatagFirehose::class;
+  $info['metatag_firehose']['field_types'] = ['metatag'];
+
+  $info['inline_entity_form_simple']['class'] = InlineEntityFormSimple::class;
+  $info['inline_entity_form_complex']['class'] = InlineEntityFormComplex::class;
+
+  $info['inline_entity_form_simple']['field types'][] = 'entity_reference_revisions';
+  $info['inline_entity_form_complex']['field types'][] = 'entity_reference_revisions';
+
+  if (!empty($info['datetime_default'])) {
+    $info['datetime_default']['class'] = DateTimeDefaultWidget::class;
+  }
+
+  if (!empty($info['daterange_default'])) {
+    $info['daterange_default']['class'] = DateRangeDefaultWidget::class;
+  }
+
+  if (!empty($info['address_default'])) {
+    $info['address_default']['class'] = AddressDefaultWidget::class;
+  }
+}
+
+/**
+ * Implements hook_field_formatter_info_alter().
+ */
+function design_system_field_formatter_info_alter(&$info) {
+  $info['string']['class'] = StringFormatter::class;
+  $info['basic_string']['class'] = StringFormatter::class;
+  $info['file_video']['class'] = FileVideoFormatter::class;
+
+  if (!empty($info['fontawesome_icon_formatter'])) {
+    $info['fontawesome_icon_formatter']['class'] = FontAwesomeIconFormatter::class;
+  }
+
+  if (!empty($info['link'])) {
+    $info['link']['class'] = LinkFormatter::class;
+  }
+
+  if (!empty($info['social_media_links_field_default'])) {
+    $info['social_media_links_field_default']['class'] = SocialMediaLinksFieldDefaultFormatter::class;
+  }
+
+}
+
+/**
+ * Implements hook_config_schema_info_alter().
+ */
+function design_system_config_schema_info_alter(&$definitions) {
+
+  // Required to support percentage dimensions on video html5 tag.
+  $definitions['field.formatter.settings.file_video']['mapping']['width']['type'] = 'string';
+  $definitions['field.formatter.settings.file_video']['mapping']['height']['type'] = 'string';
+
+}
+
+/**
+ * Implements hook_views_plugins_row_alter().
+ */
+function design_system_views_plugins_row_alter(array &$plugins) {
+  foreach ($plugins as $plugin_id => &$plugin) {
+    if (!fnmatch('entity:*', $plugin_id)) {
+      continue;
+    }
+    $plugin['class'] = EntityRow::class;
+  }
+}
+
+/**
+ * Implements hook_views_plugins_field_alter().
+ */
+function design_system_views_plugins_field_alter(array &$plugins) {
+  if (!empty($plugins['search_api'])) {
+    $plugins['search_api']['class'] = SearchApiStandard::class;
+  }
+}
+
+/**
+ * Implements hook_views_plugins_display_alter().
+ */
+function design_system_views_plugins_display_alter(array &$plugins) {
+  // Force the block display plugin to use our block display plugin.
+  $plugins['block']['class'] = Block::class;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for 'field_config_edit_form'.
+ */
+function design_system_form_field_config_edit_form_alter(array &$form, FormStateInterface $form_state) {
+
+  /** @var \Drupal\field\Entity\FieldConfig $field */
+  $field = $form_state->getFormObject()->getEntity();
+  if ($field->getTargetEntityTypeId() !== DesignSystem::ENTITY_TYPE_ID_COMPONENT) {
+    return;
+  }
+
+  $form['third_party_settings']['design_system'] = [
+    '#type' => 'details',
+    '#title' => t('Design System'),
+    '#open' => TRUE,
+    '#tree' => TRUE,
+    '#weight' => 1000,
+  ];
+
+  $form['third_party_settings']['design_system']['field_formatter_config_key_override'] = [
+    '#type' => 'textfield',
+    '#title' => t('Field formatter config key override'),
+    '#default_value' => $field->getThirdPartySetting('design_system', 'field_formatter_config_key_override'),
+  ];
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function design_system_preprocess_views_view(array &$variables) {
+  DesignSystemDisplayExtender::preprocessViewsView($variables);
+}
+
+/**
+ * Implements hook_editor_js_settings_alter().
+ */
+function design_system_editor_js_settings_alter(array &$settings) {
+  if (isset($settings['editor']['formats']['rich_text'])) {
+    // @todo not working.
+    $settings['editor']['formats']['rich_text']['editorSettings']['height'] = '400px';
+  }
+}
+
+/**
+ * Implements hook_system_breadcrumb_alter().
+ */
+function design_system_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInterface $route_match, array $context) {
+
+  // If text is empty, remove from breadcrumb.
+  if (!$links = $breadcrumb->getLinks()) {
+    return;
+  }
+
+  $changed = FALSE;
+
+  /**
+   * @var string $key
+   * @var \Drupal\Core\Link $link
+   */
+  foreach ($links as $key => $link) {
+    if (empty($link->getText())) {
+    }
+  }
+
+}
+
+/**
+ * Implements hook_block_alter().
+ */
+function design_system_block_alter(array &$definitions) {
+
+  // @todo blocks from overridden block plugins.
+  $map = [
+  ];
+
+  foreach ($map as $block_plugin_id => $class) {
+    if (empty($definitions[$block_plugin_id])) {
+      continue;
+    }
+    $definitions[$block_plugin_id]['class'] = $class;
+  }
+
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function design_system_entity_presave(EntityInterface $entity) {
+  /** @var \Drupal\design_system\EntityOperations $entity_type_info */
+  $entity_type_info = \Drupal::classResolver(EntityOperations::class);
+  $entity_type_info->entityPresave($entity);
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function design_system_entity_insert(EntityInterface $entity) {
+  /** @var \Drupal\design_system\EntityOperations $entity_type_info */
+  $entity_type_info = \Drupal::classResolver(EntityOperations::class);
+  $entity_type_info->entityInsert($entity);
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function design_system_entity_update(EntityInterface $entity) {
+  /** @var \Drupal\design_system\EntityOperations $entity_type_info */
+  $entity_type_info = \Drupal::classResolver(EntityOperations::class);
+  $entity_type_info->entityUpdate($entity);
+}
+
+/**
+ * Implements hook_system_info_alter().
+ */
+function design_system_system_info_alter(array &$info, Extension $file, $type) {
+  // Remove dependencies on media_library because we don't use it and it adds
+  // a lot of overhead.
+  if (!empty($info['dependencies']) && in_array('drupal:media_library', $info['dependencies'])) {
+    $key = array_search('drupal:media_library', $info['dependencies']);
+    unset($info['dependencies'][$key]);
+  }
+}
+
+/**
+ * @param \Drupal\Core\Field\FieldItemListInterface $field_items
+ * @param array $config
+ *
+ * @return string
+ */
+function design_system_value_callback_current_language_flag(FieldItemListInterface $field_items, array $config) {
+
+  $current_langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  $flag_code = design_system_langcode_to_flagcode($current_langcode);
+
+  return '<img src="/themes/custom/alpha/node_modules/flag-icon-css/flags/4x3/' . $flag_code . '.svg" class="d-block flag flag--sm"/>';
+}
+
+/**
+ * @param $langcode
+ *
+ * @return mixed
+ */
+function design_system_langcode_to_flagcode($langcode) {
+  $map_lang_country = [
+    'en' => 'us',
+    'zh-hans' => 'cn',
+  ];
+
+  $flag_code = $langcode;
+  if (in_array($langcode, array_keys($map_lang_country))) {
+    $flag_code = $map_lang_country[$langcode];
+  }
+
+  return $flag_code;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function design_system_path_alias_presave(EntityInterface $entity) {
+  // Set lang to undefined to use same alias for all languages with prefix.
+  $entity->set('langcode', 'und');
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function design_system_form_facets_facet_edit_form_alter(array &$form, FormStateInterface $form_state) {
+
+  $design_system = \Drupal::service('design.system');
+
+  $entity = $form_state->getFormObject()->getEntity();
+
+  $config = $entity->getThirdPartySettings('design_system');
+
+  $form['design_system'] = [
+    '#type' => 'details',
+    '#title' => t('Design system'),
+    '#open' => TRUE,
+    '#tree' => TRUE,
+    '#weight' => 1000,
+  ];
+
+  $form['design_system']['wrapper_class'] = [
+    '#type' => 'select',
+    '#title' => t('Facet wrapper classes'),
+    '#default_value' => $config['wrapper_class'],
+    '#options' => $design_system->getOption('class.wrapper'),
+    '#multiple' => TRUE,
+    '#normalize' => TRUE,
+  ];
+
+  $form['design_system']['title_tag'] = [
+    '#type' => 'select',
+    '#title' => t('Title tag'),
+    '#default_value' => $config['title_tag'],
+    '#options' => $design_system->getOption('tag.wrapper'),
+    '#normalize' => TRUE,
+  ];
+
+  $form['design_system']['title_class'] = [
+    '#type' => 'select',
+    '#title' => t('Title classes'),
+    '#default_value' => $config['title_class'],
+    '#options' => $design_system->getOption('class.wrapper'),
+    '#multiple' => TRUE,
+    '#normalize' => TRUE,
+  ];
+
+  $form['actions']['submit']['#validate'][] = 'design_system_form_validate_facets_facet_edit_form';
+  $form['actions']['#weight'] = 1010;
+}
+
+/**
+ * Handler for facet entity form.
+ *
+ * @param array $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function design_system_form_validate_facets_facet_edit_form(array &$form, FormStateInterface $form_state) {
+
+  $entity = $form_state->getFormObject()->getEntity();
+
+  $design_system_config = $form_state->getValue('design_system');
+  foreach ($design_system_config as $key => $value) {
+    $entity->setThirdPartySetting('design_system', $key, $value);
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function design_system_preprocess_facets_item_list(array &$variables) {
+
+  /** @var \Drupal\facets\FacetInterface $facet */
+  $facet = $variables['facet'];
+
+  $widget_instance = $facet->getWidgetInstance();
+  $widget_type = $widget_instance->getPluginId();
+
+  $design_system_config = $facet->getThirdPartySettings('design_system');
+
+  $variables['wrapper_attributes']['class'] = [];
+  $variables['wrapper_attributes']['class'][] = "facets-widget-{$widget_type}";
+
+  if (!empty($design_system_config['wrapper_class'])) {
+    foreach ($design_system_config['wrapper_class'] as $class) {
+      $variables['wrapper_attributes']['class'][] = $class;
+    }
+  }
+
+  $variables['title_tag'] = !empty($design_system_config['title_tag']) ? $design_system_config['title_tag'] : 'h3';
+
+  $variables['title'] = [
+    '#type' => 'html_tag',
+    '#tag' => !empty($design_system_config['title_tag']) ? $design_system_config['title_tag'] : 'h3',
+    '#value' => $variables['title'],
+    '#attributes' => [
+      'class' => [
+        'heading--facets',
+      ],
+    ],
+  ];
+
+  if (!empty($design_system_config['title_class'])) {
+    foreach ($design_system_config['title_class'] as $class) {
+      $variables['title']['#attributes']['class'][] = $class;
+    }
+  }
+
+  if (!empty($variables['items'])) {
+    foreach ($variables['items'] as $key => &$child) {
+      $child['value']['#attributes']['data-ajax-throbber'] = 'slider';
+    }
+  }
+
+}

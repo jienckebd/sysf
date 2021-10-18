@@ -1,0 +1,28 @@
+uuid: 2fc8e4ab-179f-4b6c-bd95-f492aec04794
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.width
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: width
+    behavior:
+      dom:
+        subattribute: width
+id: dom.style.width
+field_name: width
+entity_type: dom
+bundle: style
+label: width
+description: 'Sets the width of an element'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

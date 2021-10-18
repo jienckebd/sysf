@@ -1,0 +1,79 @@
+uuid: 5ba08695-f998-43f1-8e89-98b98f2e9329
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.font
+    - core.entity_form_mode.dom.inline
+    - entity_browser.browser.font_modal
+    - field.field.dom.font.field_font_family
+    - field.field.dom.font.field_font_size
+    - field.field.dom.font.field_font_weight
+  module:
+    - entity_browser
+id: dom.font.inline
+targetEntityType: dom
+bundle: font
+mode: inline
+content:
+  actions:
+    weight: 900
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_font_family:
+    weight: 1
+    settings:
+      entity_browser: font_modal
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      field_widget_replace: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: teaser
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_font_size:
+    weight: 2
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_font_weight:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 4
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 910
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  description: true
+  label_display: true
+  revision_created: true
+  revision_log_message: true
+  status: true
+  uid: true

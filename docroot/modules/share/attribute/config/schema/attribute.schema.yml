@@ -1,0 +1,40 @@
+# Schema for the configuration files of the System module.
+
+attribute.settings:
+  type: config_object
+  label: 'Attribute API Settings'
+  mapping:
+    uuid:
+      type: uuid
+      label: 'Site UUID'
+      constraints:
+        Uuid: []
+        NotNull: []
+    status:
+      type: boolean
+      label: 'Compact mode'
+    entity_type:
+      type: sequence
+      label: 'Entity Types'
+      sequence:
+        type: string
+
+attribute.type.*:
+  type: config_entity
+  label: 'Attribute Type'
+  mapping:
+    label:
+      type: label
+      label: 'Label'
+    id:
+      type: string
+      label: 'Machine-readable name'
+    description:
+      type: text
+      label: 'Description'
+    help:
+      type: text
+      label: 'Explanation or submission guidelines'
+    new_revision:
+      type: boolean
+      label: 'Whether a new revision should be created by default'

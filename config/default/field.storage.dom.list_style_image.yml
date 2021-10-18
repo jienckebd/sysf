@@ -1,0 +1,21 @@
+uuid: 014ce35e-a858-46d5-b766-bb5317c72a93
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.list_style_image
+field_name: list_style_image
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

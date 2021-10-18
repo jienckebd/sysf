@@ -1,0 +1,12 @@
+uuid: 4f88deac-d7bc-450f-a1d8-08b25d18f5ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - domain_access
+id: domain_access_edit_all_action
+label: 'Assign editors to all affiliates'
+type: user
+plugin: domain_access_edit_all_action
+configuration:
+  domain_id: ''

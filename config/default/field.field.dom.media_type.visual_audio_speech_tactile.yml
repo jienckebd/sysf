@@ -1,0 +1,21 @@
+uuid: a29bb0e4-9725-4771-b5a3-8b84ed0dcb95
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.media_type
+    - field.storage.dom.visual_audio_speech_tactile
+  module:
+    - options
+id: dom.media_type.visual_audio_speech_tactile
+field_name: visual_audio_speech_tactile
+entity_type: dom
+bundle: media_type
+label: visual/audio/speech/tactile
+description: 'Defines the senses used.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

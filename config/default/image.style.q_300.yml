@@ -1,0 +1,17 @@
+uuid: 00f233ba-f2fe-4764-8f7e-261bd083657c
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.q_300
+  module:
+    - crop
+name: q_300
+label: 'Square (x300)'
+effects:
+  95e2244c-6e8a-4e12-b290-621c7d557360:
+    uuid: 95e2244c-6e8a-4e12-b290-621c7d557360
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: q_300

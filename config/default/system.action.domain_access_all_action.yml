@@ -1,0 +1,12 @@
+uuid: 7fd37c94-ddec-4550-8e76-6e99c49ad43e
+langcode: en
+status: true
+dependencies:
+  module:
+    - domain_access
+id: domain_access_all_action
+label: 'Assign content to all affiliates'
+type: node
+plugin: domain_access_all_action
+configuration:
+  domain_id: ''

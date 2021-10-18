@@ -1,0 +1,10 @@
+uuid: 503f23ee-a37c-4feb-aded-ecad2c230881
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: location.embed
+label: Embed
+targetEntityType: location
+cache: true

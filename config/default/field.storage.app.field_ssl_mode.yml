@@ -1,0 +1,23 @@
+uuid: f7792f2b-b9b2-4cfc-9883-7209bd464b2c
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - taxonomy
+id: app.field_ssl_mode
+field_name: field_ssl_mode
+entity_type: app
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+  schema__derivative: 0
+  schema__base_target_id: 0
+  deriver: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

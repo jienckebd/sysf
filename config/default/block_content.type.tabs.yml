@@ -1,0 +1,8 @@
+uuid: fc362f43-adba-498c-a1d8-e2436c14756b
+langcode: en
+status: true
+dependencies: {  }
+id: tabs
+label: Tabs
+revision: 1
+description: "Vertical or horizontal tabs of content containing media and text.\r\n"

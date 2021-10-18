@@ -1,0 +1,30 @@
+uuid: 48370e29-a26b-497f-b8f3-357df3b7fac4
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.white_space
+field_name: white_space
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: normal
+      label: normal
+    -
+      value: pre
+      label: pre
+    -
+      value: nowrap
+      label: nowrap
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

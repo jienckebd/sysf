@@ -1,0 +1,44 @@
+uuid: 913ed59f-62a0-425a-8438-d6229fd8a401
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.drupal_block
+    - field.field.block_content.drupal_block.field_plugin_block
+  module:
+    - plugin
+id: block_content.drupal_block.default
+targetEntityType: block_content
+bundle: drupal_block
+mode: default
+content:
+  field_plugin_block:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: plugin_block_built
+    region: content
+hidden:
+  base_entity: true
+  changed: true
+  container: true
+  default_langcode: true
+  id: true
+  info: true
+  langcode: true
+  metatag: true
+  reusable: true
+  reuse: true
+  revision_created: true
+  revision_default: true
+  revision_id: true
+  revision_log: true
+  revision_translation_affected: true
+  revision_user: true
+  search_api_excerpt: true
+  status: true
+  tags: true
+  type: true
+  uuid: true
+  variant: true

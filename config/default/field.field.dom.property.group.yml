@@ -1,0 +1,25 @@
+uuid: 27efe03d-73cd-4e8a-a19d-522701e59eb2
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.property
+    - field.storage.dom.group
+    - taxonomy.vocabulary.group_dom_css_property
+id: dom.property.group
+field_name: group
+entity_type: dom
+bundle: property
+label: Group
+description: 'The group of the CSS property.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    auto_create: true
+    target_bundles:
+      group_dom_css_property: group_dom_css_property
+field_type: entity_reference

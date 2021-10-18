@@ -1,0 +1,28 @@
+uuid: 775291da-56fa-4796-b675-ce5df3cac1d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.padding_bottom
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: padding-bottom
+    behavior:
+      dom:
+        subattribute: padding-bottom
+id: dom.style.padding_bottom
+field_name: padding_bottom
+entity_type: dom
+bundle: style
+label: padding-bottom
+description: 'Sets the bottom padding of an element'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

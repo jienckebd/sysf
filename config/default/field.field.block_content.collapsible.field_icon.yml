@@ -1,0 +1,25 @@
+uuid: 3137215f-87e0-441d-98dd-405c64c6d273
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.collapsible
+    - field.storage.block_content.field_icon
+  module:
+    - fontawesome
+id: block_content.collapsible.field_icon
+field_name: field_icon
+entity_type: block_content
+bundle: collapsible
+label: Icon
+description: 'Select an icon to use to indicate a toggle.'
+required: true
+translatable: true
+default_value:
+  -
+    icon_name: chevron-down
+    settings: 'a:3:{s:7:"duotone";a:3:{s:12:"swap-opacity";i:0;s:7:"opacity";a:2:{s:7:"primary";s:0:"";s:9:"secondary";s:0:"";}s:5:"color";a:2:{s:7:"primary";s:7:"#000000";s:9:"secondary";s:7:"#000000";}}s:7:"masking";a:2:{s:4:"mask";s:0:"";s:5:"style";s:0:"";}s:16:"power_transforms";a:3:{s:5:"scale";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}s:10:"position_y";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}s:10:"position_x";a:2:{s:4:"type";s:0:"";s:5:"value";s:0:"";}}}'
+    style: ''
+default_value_callback: ''
+settings: {  }
+field_type: fontawesome_icon

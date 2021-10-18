@@ -1,0 +1,22 @@
+uuid: c2411e16-09fb-44d4-b9bd-c8172cfbcfc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.container
+    - field.storage.block_content.field_color_bg
+  module:
+    - color_field
+id: block_content.container.field_color_bg
+field_name: field_color_bg
+entity_type: block_content
+bundle: container
+label: 'Background color'
+description: 'Set the background color of this component.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

@@ -1,0 +1,41 @@
+uuid: 35e3bf77-0d96-4669-ab37-9634834ccd08
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.effect
+    - field.field.dom.effect.field_level
+id: dom.effect.default
+targetEntityType: dom
+bundle: effect
+mode: default
+content:
+  actions:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_level:
+    weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  base_entity: true
+  created: true
+  description: true
+  langcode: true
+  revision_log_message: true
+  simple_sitemap: true
+  status: true
+  uid: true

@@ -1,0 +1,2246 @@
+diff --git a/.travis.yml b/.travis.yml
+index baa74d9f..11067411 100644
+--- a/.travis.yml
++++ b/.travis.yml
+@@ -65,6 +65,9 @@ before_script:
+   - DRUPAL_ROOT=$(pwd)
+   - echo $DRUPAL_ROOT
+
++  # Apply core patch for OptionsProvider on issue https://www.drupal.org/project/drupal/issues/2329937
++  - cd $DRUPAL_ROOT && wget -q -O - https://www.drupal.org/files/issues/2020-07-24/2329937-61-options-provider.patch | patch -p1 --verbose
++
+   # Reference $MODULE in build site.
+   - ln -s $TESTDIR modules/$MODULE
+   # Install dependencies.
+diff --git a/src/Context/ContextDefinition.php b/src/Context/ContextDefinition.php
+index 91432bbf..e9255b64 100644
+--- a/src/Context/ContextDefinition.php
++++ b/src/Context/ContextDefinition.php
+@@ -88,6 +88,7 @@ class ContextDefinition extends ContextDefinitionCore implements ContextDefiniti
+     'required' => 'isRequired',
+     'default_value' => 'defaultValue',
+     'constraints' => 'constraints',
++    'options_provider' => 'optionsProviderDefinition',
+     'allow_null' => 'allowNull',
+     'assignment_restriction' => 'assignmentRestriction',
+   ];
+diff --git a/src/Context/Form/ContextFormTrait.php b/src/Context/Form/ContextFormTrait.php
+index d85c7dec..d7c30513 100644
+--- a/src/Context/Form/ContextFormTrait.php
++++ b/src/Context/Form/ContextFormTrait.php
+@@ -53,15 +53,18 @@ trait ContextFormTrait {
+     else {
+       $default_value = $context_definition->getDefaultValue();
+     }
++    // Set initial values for the input field.
+     $form['context_definitions'][$context_name]['setting'] = [
+       '#type' => 'textfield',
+       '#title' => $title,
+       '#required' => $context_definition->isRequired(),
+       '#default_value' => $default_value,
++      '#multiple' => $context_definition->isMultiple(),
+     ];
+
+     $element = &$form['context_definitions'][$context_name]['setting'];
+
++    // Modify the element if doing data selection.
+     if ($mode == ContextDefinitionInterface::ASSIGNMENT_RESTRICTION_SELECTOR) {
+       $element['#description'] = $this->t("The data selector helps you drill down into the available data. <em>To make entity fields appear in the data selector, you may have to use the condition 'entity has field' (or 'content is of type').</em> More useful tips about data selection is available in <a href=':url'>the online documentation</a>.", [
+         ':url' => 'https://www.drupal.org/node/1300042',
+@@ -72,16 +75,25 @@ trait ContextFormTrait {
+       $element['#attributes']['data-autocomplete-path'] = $url->toString();
+       $element['#attached']['library'][] = 'rules/rules.autocomplete';
+     }
++    // Modify the element if it is a selection list.
++    elseif (!empty($configuration['list_options'])) {
++      $element['#type'] = 'select';
++      $element['#options'] = $configuration['list_options'];
++      $element['#description'] = $element['#multiple'] ? $this->t('Select any number of values.') : $this->t('Select a value from the list.');
++    }
++    // Modify the element to allow multiple text entries using textarea.
+     elseif ($context_definition->isMultiple()) {
+       $element['#type'] = 'textarea';
+-      // @todo Get a description for possible values that can be filled in.
+       $element['#description'] = $this->t('Enter one value per line for this multi-valued context.');
+-
+       // Glue the list of values together as one item per line in the text area.
+       if (is_array($default_value)) {
+         $element['#default_value'] = implode("\n", $default_value);
+       }
+     }
++    // The element is a simple single entry text field.
++    else {
++      $element['#description'] = $this->t('Enter the value directly.');
++    }
+
+     // If the context is not restricted to one mode or the other then provide a
+     // button to switch between the two modes.
+@@ -148,15 +160,21 @@ trait ContextFormTrait {
+           $context_config->map($context_name, $value['setting']);
+         }
+         else {
+-          // Each line of the textarea is one value for 'multiple' contexts.
+           if ($context_definitions[$context_name]->isMultiple()) {
+-            // Textareas should always have \r\n line breaks, but for more
+-            // robust parsing we should also accommodate just \n or just \r.
+-            //
+-            // Additionally, we want to remove leading and trailing whitespace
+-            // from each line, and discard any empty lines.
+-            $values = preg_split('/\s*\R\s*/', $value['setting'], NULL, PREG_SPLIT_NO_EMPTY);
+-            $context_config->setValue($context_name, $values);
++            if (!empty($context_definitions[$context_name]->getOptionsProvider())) {
++              // This is a select list with multiple values allowed.
++              $context_config->setValue($context_name, array_keys($value['setting']));
++            }
++            else {
++              // Each line of the textarea is one value for 'multiple' contexts.
++              // Textareas should always have \r\n line breaks, but for more
++              // robust parsing we should also accommodate just \n or just \r.
++              //
++              // Additionally, we want to remove leading and trailing whitespace
++              // from each line, and discard any empty lines.
++              $values = preg_split('/\s*\R\s*/', $value['setting'], NULL, PREG_SPLIT_NO_EMPTY);
++              $context_config->setValue($context_name, $values);
++            }
+           }
+           else {
+             $context_config->setValue($context_name, $value['setting']);
+diff --git a/src/Form/Expression/ActionForm.php b/src/Form/Expression/ActionForm.php
+index 93b50e24..fcde76d7 100644
+--- a/src/Form/Expression/ActionForm.php
++++ b/src/Form/Expression/ActionForm.php
+@@ -100,6 +100,9 @@ class ActionForm implements ExpressionFormInterface {
+         '#tree' => TRUE,
+       ];
+       foreach ($context_definitions as $context_name => $context_definition) {
++        // Get the context's options provider, if any.
++        $options_provider = $context_definition->getOptionsProvider();
++        $configuration['list_options'] = empty($options_provider) ? NULL : $options_provider->getPossibleOptions();
+         $form = $this->buildContextForm($form, $form_state, $context_name, $context_definition, $configuration);
+       }
+     }
+diff --git a/src/Form/Expression/ConditionForm.php b/src/Form/Expression/ConditionForm.php
+index 18108ff2..87128fd6 100644
+--- a/src/Form/Expression/ConditionForm.php
++++ b/src/Form/Expression/ConditionForm.php
+@@ -111,6 +111,9 @@ class ConditionForm implements ExpressionFormInterface {
+         '#tree' => TRUE,
+       ];
+       foreach ($context_definitions as $context_name => $context_definition) {
++        // Get the context's options provider, if any.
++        $options_provider = $context_definition->getOptionsProvider();
++        $configuration['list_options'] = empty($options_provider) ? NULL : $options_provider->getPossibleOptions();
+         $form = $this->buildContextForm($form, $form_state, $context_name, $context_definition, $configuration);
+       }
+     }
+diff --git a/src/Plugin/Condition/DataComparison.php b/src/Plugin/Condition/DataComparison.php
+index a67b0386..0e57174a 100644
+--- a/src/Plugin/Condition/DataComparison.php
++++ b/src/Plugin/Condition/DataComparison.php
+@@ -19,9 +19,10 @@ use Drupal\rules\Core\RulesConditionBase;
+  *     ),
+  *     "operation" = @ContextDefinition("string",
+  *       label = @Translation("Operator"),
+- *       description = @Translation("The comparison operator. Valid values are == (default), <, >, CONTAINS (for strings or arrays) and IN (for arrays or lists)."),
++ *       description = @Translation("The comparison operator."),
+  *       assignment_restriction = "input",
+  *       default_value = "==",
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\ComparisonOperatorOptions",
+  *       required = FALSE
+  *     ),
+  *     "value" = @ContextDefinition("any",
+diff --git a/src/Plugin/Condition/DataListCountIs.php b/src/Plugin/Condition/DataListCountIs.php
+index 261cda58..3722b971 100644
+--- a/src/Plugin/Condition/DataListCountIs.php
++++ b/src/Plugin/Condition/DataListCountIs.php
+@@ -20,6 +20,7 @@ use Drupal\rules\Core\RulesConditionBase;
+  *     "operator" = @ContextDefinition("string",
+  *       label = @Translation("Operator"),
+  *       description = @Translation("The comparison operator."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\ComparisonOperatorNumericOptions",
+  *       assignment_restriction = "input",
+  *       default_value = "==",
+  *       required = FALSE
+@@ -32,7 +33,6 @@ use Drupal\rules\Core\RulesConditionBase;
+  * )
+  *
+  * @todo Add access callback information from Drupal 7?
+- * @todo Set ContextDefinition options list
+  */
+ class DataListCountIs extends RulesConditionBase {
+
+@@ -42,7 +42,7 @@ class DataListCountIs extends RulesConditionBase {
+    * @param array $list
+    *   The list to compare the value to.
+    * @param string $operator
+-   *   The type of comparison to do, may be one of '==', '<', or '>'.
++   *   The type of comparison to do.
+    * @param int $value
+    *   The value of that the count is to compare to.
+    *
+@@ -57,9 +57,15 @@ class DataListCountIs extends RulesConditionBase {
+       case '<':
+         return count($list) < $value;
+
++      case '<=':
++        return count($list) <= $value;
++
+       case '>':
+         return count($list) > $value;
+
++      case '>=':
++        return count($list) >= $value;
++
+     }
+   }
+
+diff --git a/src/Plugin/Condition/EntityHasField.php b/src/Plugin/Condition/EntityHasField.php
+index e9aba7f8..534d89c4 100644
+--- a/src/Plugin/Condition/EntityHasField.php
++++ b/src/Plugin/Condition/EntityHasField.php
+@@ -2,8 +2,11 @@
+
+ namespace Drupal\rules\Plugin\Condition;
+
++use Drupal\Core\Entity\EntityFieldManagerInterface;
+ use Drupal\Core\Entity\FieldableEntityInterface;
++use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+ use Drupal\rules\Core\RulesConditionBase;
++use Symfony\Component\DependencyInjection\ContainerInterface;
+
+ /**
+  * Provides a 'Entity has field' condition.
+@@ -21,6 +24,7 @@ use Drupal\rules\Core\RulesConditionBase;
+  *     "field" = @ContextDefinition("string",
+  *       label = @Translation("Field"),
+  *       description = @Translation("The name of the field to check for."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\FieldListOptions",
+  *       assignment_restriction = "input"
+  *     ),
+  *   }
+@@ -28,7 +32,43 @@ use Drupal\rules\Core\RulesConditionBase;
+  *
+  * @todo Add access callback information from Drupal 7.
+  */
+-class EntityHasField extends RulesConditionBase {
++class EntityHasField extends RulesConditionBase implements ContainerFactoryPluginInterface {
++
++  /**
++   * The entity_field.manager service.
++   *
++   * @var \Drupal\Core\Entity\EntityFieldManagerInterface
++   */
++  protected $entityFieldManager;
++
++  /**
++   * Constructs an EntityHasField object.
++   *
++   * @param array $configuration
++   *   A configuration array containing information about the plugin instance.
++   * @param string $plugin_id
++   *   The plugin ID for the plugin instance.
++   * @param mixed $plugin_definition
++   *   The plugin implementation definition.
++   * @param \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager
++   *   The entity_field.manager service.
++   */
++  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityFieldManagerInterface $entity_field_manager) {
++    parent::__construct($configuration, $plugin_id, $plugin_definition);
++    $this->entityFieldManager = $entity_field_manager;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
++    return new static(
++      $configuration,
++      $plugin_id,
++      $plugin_definition,
++      $container->get('entity_field.manager')
++    );
++  }
+
+   /**
+    * Checks if a given entity has a given field.
+diff --git a/src/Plugin/Condition/EntityIsOfBundle.php b/src/Plugin/Condition/EntityIsOfBundle.php
+index 32f89a1f..f911a3cf 100644
+--- a/src/Plugin/Condition/EntityIsOfBundle.php
++++ b/src/Plugin/Condition/EntityIsOfBundle.php
+@@ -3,7 +3,11 @@
+ namespace Drupal\rules\Plugin\Condition;
+
+ use Drupal\Core\Entity\EntityInterface;
++use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
++use Drupal\Core\Entity\EntityTypeManagerInterface;
++use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+ use Drupal\rules\Core\RulesConditionBase;
++use Symfony\Component\DependencyInjection\ContainerInterface;
+
+ /**
+  * Provides an 'Entity is of bundle' condition.
+@@ -21,11 +25,13 @@ use Drupal\rules\Core\RulesConditionBase;
+  *     "type" = @ContextDefinition("string",
+  *       label = @Translation("Type"),
+  *       description = @Translation("The type of the evaluated entity."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\EntityTypeOptions",
+  *       assignment_restriction = "input"
+  *     ),
+  *     "bundle" = @ContextDefinition("string",
+  *       label = @Translation("Bundle"),
+  *       description = @Translation("The bundle of the evaluated entity."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\EntityBundleOptions",
+  *       assignment_restriction = "input"
+  *     ),
+  *   }
+@@ -33,7 +39,54 @@ use Drupal\rules\Core\RulesConditionBase;
+  *
+  * @todo Add access callback information from Drupal 7?
+  */
+-class EntityIsOfBundle extends RulesConditionBase {
++class EntityIsOfBundle extends RulesConditionBase implements ContainerFactoryPluginInterface {
++
++  /**
++   * The entity_type.manager service.
++   *
++   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
++   */
++  protected $entityTypeManager;
++
++  /**
++   * The entity type bundle information manager.
++   *
++   * @var \Drupal\Core\Entity\EntityTypeBundleInfoInterface
++   */
++  protected $entityBundleInfo;
++
++  /**
++   * Constructs an EntityIsOfBundle object.
++   *
++   * @param array $configuration
++   *   A configuration array containing information about the plugin instance.
++   * @param string $plugin_id
++   *   The plugin ID for the plugin instance.
++   * @param mixed $plugin_definition
++   *   The plugin implementation definition.
++   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
++   *   The entity_type.manager service.
++   * @param \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entity_bundle_info
++   *   The entity type bundle information manager.
++   */
++  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, EntityTypeBundleInfoInterface $entity_bundle_info) {
++    parent::__construct($configuration, $plugin_id, $plugin_definition);
++    $this->entityTypeManager = $entity_type_manager;
++    $this->entityBundleInfo = $entity_bundle_info;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
++    return new static(
++      $configuration,
++      $plugin_id,
++      $plugin_definition,
++      $container->get('entity_type.manager'),
++      $container->get('entity_type.bundle.info')
++    );
++  }
+
+   /**
+    * Check if a provided entity is of a specific type and bundle.
+diff --git a/src/Plugin/Condition/EntityIsOfType.php b/src/Plugin/Condition/EntityIsOfType.php
+index b3a999bd..a851a25c 100644
+--- a/src/Plugin/Condition/EntityIsOfType.php
++++ b/src/Plugin/Condition/EntityIsOfType.php
+@@ -3,7 +3,10 @@
+ namespace Drupal\rules\Plugin\Condition;
+
+ use Drupal\Core\Entity\EntityInterface;
++use Drupal\Core\Entity\EntityTypeManagerInterface;
++use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+ use Drupal\rules\Core\RulesConditionBase;
++use Symfony\Component\DependencyInjection\ContainerInterface;
+
+ /**
+  * Provides an 'Entity is of type' condition.
+@@ -21,6 +24,7 @@ use Drupal\rules\Core\RulesConditionBase;
+  *     "type" = @ContextDefinition("string",
+  *       label = @Translation("Type"),
+  *       description = @Translation("The entity type specified by the condition."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\EntityTypeOptions",
+  *       assignment_restriction = "input"
+  *     ),
+  *   }
+@@ -28,7 +32,43 @@ use Drupal\rules\Core\RulesConditionBase;
+  *
+  * @todo Add access callback information from Drupal 7?
+  */
+-class EntityIsOfType extends RulesConditionBase {
++class EntityIsOfType extends RulesConditionBase implements ContainerFactoryPluginInterface {
++
++  /**
++   * The entity_type.manager service.
++   *
++   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
++   */
++  protected $entityTypeManager;
++
++  /**
++   * Constructs an EntityIsOfType object.
++   *
++   * @param array $configuration
++   *   A configuration array containing information about the plugin instance.
++   * @param string $plugin_id
++   *   The plugin ID for the plugin instance.
++   * @param mixed $plugin_definition
++   *   The plugin implementation definition.
++   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
++   *   The entity_type.manager service.
++   */
++  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager) {
++    parent::__construct($configuration, $plugin_id, $plugin_definition);
++    $this->entityTypeManager = $entity_type_manager;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
++    return new static(
++      $configuration,
++      $plugin_id,
++      $plugin_definition,
++      $container->get('entity_type.manager')
++    );
++  }
+
+   /**
+    * Check if the provided entity is of a specific type.
+diff --git a/src/Plugin/Condition/NodeIsOfType.php b/src/Plugin/Condition/NodeIsOfType.php
+index cc861ace..7a73b2da 100644
+--- a/src/Plugin/Condition/NodeIsOfType.php
++++ b/src/Plugin/Condition/NodeIsOfType.php
+@@ -2,8 +2,11 @@
+
+ namespace Drupal\rules\Plugin\Condition;
+
++use Drupal\Core\Entity\EntityTypeManagerInterface;
++use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+ use Drupal\node\NodeInterface;
+ use Drupal\rules\Core\RulesConditionBase;
++use Symfony\Component\DependencyInjection\ContainerInterface;
+
+ /**
+  * Provides a 'Node is of type' condition.
+@@ -21,12 +24,49 @@ use Drupal\rules\Core\RulesConditionBase;
+  *     "types" = @ContextDefinition("string",
+  *       label = @Translation("Content types"),
+  *       description = @Translation("The content type(s) to check for."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\NodeTypeOptions",
+  *       multiple = TRUE
+  *     ),
+  *   }
+  * )
+  */
+-class NodeIsOfType extends RulesConditionBase {
++class NodeIsOfType extends RulesConditionBase implements ContainerFactoryPluginInterface {
++
++  /**
++   * The entity_type.manager service.
++   *
++   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
++   */
++  protected $entityTypeManager;
++
++  /**
++   * Constructs a NodeIsOfType object.
++   *
++   * @param array $configuration
++   *   A configuration array containing information about the plugin instance.
++   * @param string $plugin_id
++   *   The plugin ID for the plugin instance.
++   * @param mixed $plugin_definition
++   *   The plugin implementation definition.
++   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
++   *   The entity_type.manager service.
++   */
++  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager) {
++    parent::__construct($configuration, $plugin_id, $plugin_definition);
++    $this->entityTypeManager = $entity_type_manager;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
++    return new static(
++      $configuration,
++      $plugin_id,
++      $plugin_definition,
++      $container->get('entity_type.manager')
++    );
++  }
+
+   /**
+    * Check if a node is of a specific set of types.
+diff --git a/src/Plugin/Condition/PathAliasExists.php b/src/Plugin/Condition/PathAliasExists.php
+index 0b50b4c2..1fe18470 100644
+--- a/src/Plugin/Condition/PathAliasExists.php
++++ b/src/Plugin/Condition/PathAliasExists.php
+@@ -24,6 +24,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
+  *     "language" = @ContextDefinition("language",
+  *       label = @Translation("Language"),
+  *       description = @Translation("If specified, the language for which the URL alias applies."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\LanguageOptions",
+  *       default_value = NULL,
+  *       required = FALSE
+  *     ),
+diff --git a/src/Plugin/Condition/PathHasAlias.php b/src/Plugin/Condition/PathHasAlias.php
+index 54530099..6a4ff87e 100644
+--- a/src/Plugin/Condition/PathHasAlias.php
++++ b/src/Plugin/Condition/PathHasAlias.php
+@@ -24,6 +24,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
+  *     "language" = @ContextDefinition("language",
+  *       label = @Translation("Language"),
+  *       description = @Translation("If specified, the language for which the URL alias applies."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\LanguageOptions",
+  *       default_value = NULL,
+  *       required = FALSE
+  *     ),
+diff --git a/src/Plugin/Condition/TextComparison.php b/src/Plugin/Condition/TextComparison.php
+index dedb892b..9a481453 100644
+--- a/src/Plugin/Condition/TextComparison.php
++++ b/src/Plugin/Condition/TextComparison.php
+@@ -19,14 +19,15 @@ use Drupal\rules\Core\RulesConditionBase;
+  *     ),
+  *     "operator" = @ContextDefinition("string",
+  *       label = @Translation("Operator"),
+- *       description = @Translation("The comparison operator. One of 'contains', 'starts', 'ends', or 'regex'. Defaults to 'contains'."),
++ *       description = @Translation("The text comparison operator."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\ComparisonOperatorTextOptions",
+  *       assignment_restriction = "input",
+  *       default_value = "contains",
+  *       required = FALSE
+  *     ),
+  *     "match" = @ContextDefinition("string",
+  *       label = @Translation("Matching text"),
+- *       description = @Translation("A string or pattern (in the case of regex) to search for in the given text data.")
++ *       description = @Translation("A string (or pattern in the case of regex) to search for in the given text data.")
+  *     ),
+  *   }
+  * )
+diff --git a/src/Plugin/Condition/UserHasEntityFieldAccess.php b/src/Plugin/Condition/UserHasEntityFieldAccess.php
+index 5ce297d6..6385aee1 100644
+--- a/src/Plugin/Condition/UserHasEntityFieldAccess.php
++++ b/src/Plugin/Condition/UserHasEntityFieldAccess.php
+@@ -2,11 +2,12 @@
+
+ namespace Drupal\rules\Plugin\Condition;
+
+-use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+-use Drupal\rules\Core\RulesConditionBase;
++use Drupal\Core\Entity\EntityFieldManagerInterface;
+ use Drupal\Core\Entity\EntityTypeManagerInterface;
+-use Drupal\Core\Session\AccountInterface;
+ use Drupal\Core\Entity\ContentEntityInterface;
++use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
++use Drupal\Core\Session\AccountInterface;
++use Drupal\rules\Core\RulesConditionBase;
+ use Symfony\Component\DependencyInjection\ContainerInterface;
+
+ /**
+@@ -17,6 +18,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
+  *   label = @Translation("User has entity field access"),
+  *   category = @Translation("User"),
+  *   context_definitions = {
++ *     "user" = @ContextDefinition("entity:user",
++ *       label = @Translation("User"),
++ *       description = @Translation("Specifies the user account for which to check access. If left empty, the currently logged in user will be used."),
++ *       assignment_restriction = "selector",
++ *       required = FALSE
++ *     ),
+  *     "entity" = @ContextDefinition("entity",
+  *       label = @Translation("Entity"),
+  *       description = @Translation("Specifies the entity for which to evaluate the condition."),
+@@ -25,20 +32,16 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
+  *     "field" = @ContextDefinition("string",
+  *       label = @Translation("Field"),
+  *       description = @Translation("The name of the field to check for."),
+- *       assignment_restriction = "input"
++ *       assignment_restriction = "input",
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\FieldListOptions"
+  *     ),
+  *     "operation" = @ContextDefinition("string",
+  *       label = @Translation("Access operation"),
+  *       description = @Translation("The access type to check."),
+  *       assignment_restriction = "input",
+  *       default_value = "view",
+- *       required = FALSE
+- *     ),
+- *     "user" = @ContextDefinition("entity:user",
+- *       label = @Translation("User"),
+- *       description = @Translation("Specifies the user account for which to check access. If left empty, the currently logged in user will be used."),
+- *       assignment_restriction = "selector",
+- *       required = FALSE
++ *       required = FALSE,
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\ViewEditOptions"
+  *     ),
+  *   }
+  * )
+@@ -54,6 +57,13 @@ class UserHasEntityFieldAccess extends RulesConditionBase implements ContainerFa
+    */
+   protected $entityTypeManager;
+
++  /**
++   * The entity_field.manager service.
++   *
++   * @var \Drupal\Core\Entity\EntityFieldManagerInterface
++   */
++  protected $entityFieldManager;
++
+   /**
+    * Constructs a UserHasEntityFieldAccess object.
+    *
+@@ -64,11 +74,14 @@ class UserHasEntityFieldAccess extends RulesConditionBase implements ContainerFa
+    * @param mixed $plugin_definition
+    *   The plugin implementation definition.
+    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+-   *   The entity type manager.
++   *   The entity_type.manager service.
++   * @param \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager
++   *   The entity_field.manager service.
+    */
+-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager) {
++  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, EntityFieldManagerInterface $entity_field_manager) {
+     parent::__construct($configuration, $plugin_id, $plugin_definition);
+     $this->entityTypeManager = $entity_type_manager;
++    $this->entityFieldManager = $entity_field_manager;
+   }
+
+   /**
+@@ -79,13 +92,16 @@ class UserHasEntityFieldAccess extends RulesConditionBase implements ContainerFa
+       $configuration,
+       $plugin_id,
+       $plugin_definition,
+-      $container->get('entity_type.manager')
++      $container->get('entity_type.manager'),
++      $container->get('entity_field.manager')
+     );
+   }
+
+   /**
+    * Evaluate if the user has access to the field of an entity.
+    *
++   * @param \Drupal\Core\Session\AccountInterface $user
++   *   The user account to test access against.
+    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
+    *   The entity to check access on.
+    * @param string $field
+@@ -93,13 +109,11 @@ class UserHasEntityFieldAccess extends RulesConditionBase implements ContainerFa
+    * @param string $operation
+    *   The operation access should be checked for. Usually one of "view" or
+    *   "edit".
+-   * @param \Drupal\Core\Session\AccountInterface $user
+-   *   The user account to test access against.
+    *
+    * @return bool
+    *   TRUE if the user has access to the field on the entity, FALSE otherwise.
+    */
+-  protected function doEvaluate(ContentEntityInterface $entity, $field, $operation, AccountInterface $user) {
++  protected function doEvaluate(AccountInterface $user, ContentEntityInterface $entity, $field, $operation) {
+     if (!$entity->hasField($field)) {
+       return FALSE;
+     }
+diff --git a/src/Plugin/Condition/UserHasRole.php b/src/Plugin/Condition/UserHasRole.php
+index ed006fff..6750a56d 100644
+--- a/src/Plugin/Condition/UserHasRole.php
++++ b/src/Plugin/Condition/UserHasRole.php
+@@ -21,13 +21,15 @@ use Drupal\user\UserInterface;
+  *     "roles" = @ContextDefinition("entity:user_role",
+  *       label = @Translation("Roles"),
+  *       description = @Translation("Specifies the roles to check for."),
+- *       multiple = TRUE
++ *       multiple = TRUE,
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\RolesOptions"
+  *     ),
+  *     "operation" = @ContextDefinition("string",
+- *       label = @Translation("Match roles"),
+- *       description = @Translation("If matching against all selected roles, the user must have <em>all</em> the roles selected."),
++ *       label = @Translation("Matching multiple roles"),
++ *       description = @Translation("Specify if the user must have <em>all</em> the roles selected or <em>any</em> of the roles selected."),
+  *       assignment_restriction = "input",
+  *       default_value = "AND",
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\AndOrOptions",
+  *       required = FALSE
+  *     ),
+  *   }
+diff --git a/src/Plugin/OptionsProvider/AndOrOptions.php b/src/Plugin/OptionsProvider/AndOrOptions.php
+new file mode 100644
+index 00000000..e835cdd0
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/AndOrOptions.php
+@@ -0,0 +1,22 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider to return a choice of 'AND' or 'OR'.
++ */
++class AndOrOptions extends OptionsProviderBase {
++
++  /**
++   * @inheritdoc
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    return [
++      'AND' => $this->t('All selected (and)'),
++      'OR' => $this->t('Any selected (or)'),
++    ];
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/CalculationOperatorOptions.php b/src/Plugin/OptionsProvider/CalculationOperatorOptions.php
+new file mode 100644
+index 00000000..ee5d7f9b
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/CalculationOperatorOptions.php
+@@ -0,0 +1,26 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider to return a choice of numeric calculation operators.
++ */
++class CalculationOperatorOptions extends OptionsProviderBase {
++
++  /**
++   * @inheritdoc
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    return [
++      '+' => $this->t('+ (plus)'),
++      '-' => $this->t('- (minus)'),
++      '*'  => $this->t('* (multiply)'),
++      '/' => $this->t('/ (divide)'),
++      'min'  => $this->t('minimum of the two values'),
++      'max'  => $this->t('maximum of the two values'),
++    ];
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/ComparisonOperatorNumericOptions.php b/src/Plugin/OptionsProvider/ComparisonOperatorNumericOptions.php
+new file mode 100644
+index 00000000..e0ad49f1
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/ComparisonOperatorNumericOptions.php
+@@ -0,0 +1,25 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider to return a choice of numeric comparison operators.
++ */
++class ComparisonOperatorNumericOptions extends OptionsProviderBase {
++
++  /**
++   * @inheritdoc
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    return [
++      '==' => '==',
++      '<'  => '< (less than)',
++      '<=' => '<= (less than or equal to)',
++      '>'  => '> (greather than)',
++      '>=' => '>= (greather than or equal to)',
++    ];
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/ComparisonOperatorOptions.php b/src/Plugin/OptionsProvider/ComparisonOperatorOptions.php
+new file mode 100644
+index 00000000..4170816a
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/ComparisonOperatorOptions.php
+@@ -0,0 +1,25 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider to return a choice of data comparison operators.
++ */
++class ComparisonOperatorOptions extends OptionsProviderBase {
++
++  /**
++   * @inheritdoc
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    return [
++      '==' => $this->t('== (equals)'),
++      '<' => $this->t('< (less than)'),
++      '>' => $this->t('> (greater than)'),
++      'contains' => $this->t('Contains (for strings or arrays)'),
++      'in' => $this->t('In (for arrays or lists)'),
++    ];
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/ComparisonOperatorTextOptions.php b/src/Plugin/OptionsProvider/ComparisonOperatorTextOptions.php
+new file mode 100644
+index 00000000..d106a6ab
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/ComparisonOperatorTextOptions.php
+@@ -0,0 +1,24 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider to return a choice of text comparison operators.
++ */
++class ComparisonOperatorTextOptions extends OptionsProviderBase {
++
++  /**
++   * @inheritdoc
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    return [
++      'contains' => 'contains',
++      'starts'  => 'starts with',
++      'ends' => 'ends with',
++      'regex'  => 'matches regex',
++    ];
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/ConvertTypeOptions.php b/src/Plugin/OptionsProvider/ConvertTypeOptions.php
+new file mode 100644
+index 00000000..3f057062
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/ConvertTypeOptions.php
+@@ -0,0 +1,23 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider for the types of field access to check for.
++ */
++class ConvertTypeOptions extends OptionsProviderBase {
++
++  /**
++   * @inheritdoc
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    return [
++      'float' => $this->t('Float'),
++      'integer' => $this->t('Integer'),
++      'string' => $this->t('String'),
++    ];
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/EmailTypeOptions.php b/src/Plugin/OptionsProvider/EmailTypeOptions.php
+new file mode 100644
+index 00000000..d99d56a6
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/EmailTypeOptions.php
+@@ -0,0 +1,28 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider for the types of user account email to send.
++ */
++class EmailTypeOptions extends OptionsProviderBase {
++
++  /**
++   * @inheritdoc
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    return [
++      'register_admin_created' => $this->t('Welcome message for user created by the admin'),
++      'register_no_approval_required' => $this->t('Welcome message when user self-registers'),
++      'register_pending_approval' => $this->t('Welcome message, user pending admin approval'),
++      'password_reset' => $this->t('Password recovery request'),
++      'status_activated' => $this->t('Account activated'),
++      'status_blocked' => $this->t('Account blocked'),
++      'cancel_confirm' => $this->t('Account cancellation request'),
++      'status_canceled' => $this->t('Account canceled'),
++    ];
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/EntityBundleOptions.php b/src/Plugin/OptionsProvider/EntityBundleOptions.php
+new file mode 100644
+index 00000000..cc549032
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/EntityBundleOptions.php
+@@ -0,0 +1,52 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Entity\ContentEntityTypeInterface;
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider for entity bundles.
++ *
++ * The returned top-level array is keyed on the bundle label, with nested arrays
++ * keyed on the bundle machine name.
++ */
++class EntityBundleOptions extends OptionsProviderBase {
++
++  /**
++   * @inheritdoc
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    $options = [];
++
++    // Load all the entity types.
++    $entity_types = \Drupal::service('entity_type.manager')->getDefinitions();
++
++    foreach ($entity_types as $entity_type) {
++      if (!$entity_type instanceof ContentEntityTypeInterface) {
++        continue;
++      }
++
++      // Get the bundles for this entity type.
++      $bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo($entity_type->id());
++
++      // Transform the $bundles array into a form suitable for select options.
++      array_walk($bundles, function (&$value, $key) {
++        // Flatten to just the label text.
++        $value = (string) $value['label'];
++        // If the key differs from the label add the key in brackets.
++        if (strtolower(str_replace('_', ' ', $key)) != strtolower($value)) {
++          $value .= ' (' . $key . ')';
++        }
++      });
++      $options[(string) $entity_type->getLabel()] = $bundles;
++
++    }
++
++    // Sort the result by key, which is the group name.
++    ksort($options);
++
++    return $options;
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/EntityTypeOptions.php b/src/Plugin/OptionsProvider/EntityTypeOptions.php
+new file mode 100644
+index 00000000..64a89a5c
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/EntityTypeOptions.php
+@@ -0,0 +1,38 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Entity\ContentEntityTypeInterface;
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider to list all entity types.
++ */
++class EntityTypeOptions extends OptionsProviderBase {
++
++  /**
++   * @inheritdoc
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    $options = [];
++
++    // Load all the entity types.
++    $entity_types = \Drupal::service('entity_type.manager')->getDefinitions();
++    foreach ($entity_types as $entity_type) {
++      if (!$entity_type instanceof ContentEntityTypeInterface) {
++        continue;
++      }
++      $options[$entity_type->id()] = $entity_type->getLabel()->__toString();
++      // If the id differs from the label add the id in brackets for clarity.
++      if (strtolower(str_replace('_', ' ', $entity_type->id())) != strtolower($entity_type->getLabel())) {
++        $options[$entity_type->id()] .= ' (' . $entity_type->id() . ')';
++      }
++    }
++
++    // Sort the result by value for ease of locating and selecting.
++    asort($options);
++
++    return $options;
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/FieldListOptions.php b/src/Plugin/OptionsProvider/FieldListOptions.php
+new file mode 100644
+index 00000000..e4891054
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/FieldListOptions.php
+@@ -0,0 +1,34 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider to return all fields in the system.
++ */
++class FieldListOptions extends OptionsProviderBase {
++
++  /**
++   * @inheritdoc
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    $options = [];
++
++    // Load all the fields in the system.
++    $fields = \Drupal::service('entity_field.manager')->getFieldMap();
++
++    // Add each field to our options array.
++    foreach ($fields as $entity_fields) {
++      foreach ($entity_fields as $field_name => $field) {
++        $options[$field_name] = $field_name . ' (' . $field['type'] . ')';
++      }
++    }
++
++    // Sort the result by value for ease of locating and selecting.
++    asort($options);
++
++    return $options;
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/LanguageOptions.php b/src/Plugin/OptionsProvider/LanguageOptions.php
+new file mode 100644
+index 00000000..d57c1ece
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/LanguageOptions.php
+@@ -0,0 +1,27 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Language\LanguageInterface;
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider to list all languages enabled on the site.
++ */
++class LanguageOptions extends OptionsProviderBase {
++
++  /**
++   * @inheritdoc
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    $languageManager = \Drupal::service('language_manager');
++    $languages = $languageManager->getLanguages(LanguageInterface::STATE_CONFIGURABLE);
++    $default = $languageManager->getDefaultLanguage()->getId();
++    $options = [LanguageInterface::LANGCODE_NOT_SPECIFIED => $this->t('Not specified')];
++    foreach ($languages as $langcode => $language) {
++      $options[$langcode] = $language->getName() . ($langcode == $default ? ' - default' : '') . ' (' . $langcode . ')';
++    }
++    return $options;
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/ListPositionOptions.php b/src/Plugin/OptionsProvider/ListPositionOptions.php
+new file mode 100644
+index 00000000..82bf9fe5
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/ListPositionOptions.php
+@@ -0,0 +1,22 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider for the types of field access to check for.
++ */
++class ListPositionOptions extends OptionsProviderBase {
++
++  /**
++   * @inheritdoc
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    return [
++      'start' => $this->t('At the start'),
++      'end' => $this->t('At the end'),
++    ];
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/MessageTypeOptions.php b/src/Plugin/OptionsProvider/MessageTypeOptions.php
+new file mode 100644
+index 00000000..3f554e18
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/MessageTypeOptions.php
+@@ -0,0 +1,24 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider to return the System Message types.
++ */
++class MessageTypeOptions extends OptionsProviderBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    return [
++      'info' => $this->t('Info'),
++      'status' => $this->t('Status'),
++      'warning' => $this->t('Warning'),
++      'error' => $this->t('Error'),
++    ];
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/NodeTypeOptions.php b/src/Plugin/OptionsProvider/NodeTypeOptions.php
+new file mode 100644
+index 00000000..11f2335d
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/NodeTypeOptions.php
+@@ -0,0 +1,35 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider to list all node types.
++ */
++class NodeTypeOptions extends OptionsProviderBase {
++
++  /**
++   * @inheritdoc
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    $options = [];
++
++    // Load all the node types.
++    $node_types = \Drupal::service('entity_type.manager')->getStorage('node_type')->loadMultiple();
++
++    foreach ($node_types as $node_type) {
++      $options[$node_type->id()] = $node_type->label();
++      // If the id differs from the label add the id in brackets for clarity.
++      if (strtolower(str_replace('_', ' ', $node_type->id())) != strtolower($node_type->label())) {
++        $options[$node_type->id()] .= ' (' . $node_type->id() . ')';
++      }
++    }
++
++    // Sort the result by value for ease of locating and selecting.
++    asort($options);
++
++    return $options;
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/OptionsProviderBase.php b/src/Plugin/OptionsProvider/OptionsProviderBase.php
+new file mode 100644
+index 00000000..c52d1228
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/OptionsProviderBase.php
+@@ -0,0 +1,44 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++use Drupal\Core\StringTranslation\StringTranslationTrait;
++use Drupal\Core\TypedData\OptionsProviderInterface;
++
++/**
++ * Base class for OptionsProvider for use in Rules actions and conditions.
++ */
++abstract class OptionsProviderBase implements OptionsProviderInterface {
++
++  use StringTranslationTrait;
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    return [];
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getSettableOptions(AccountInterface $account = NULL) {
++    // These three functions are not required, but need to exist as the child
++    // class is abstract.
++    // @todo Is there a better way to do this?
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getPossibleValues(AccountInterface $account = NULL) {
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getSettableValues(AccountInterface $account = NULL) {
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/RolesOptions.php b/src/Plugin/OptionsProvider/RolesOptions.php
+new file mode 100644
+index 00000000..f3c376f0
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/RolesOptions.php
+@@ -0,0 +1,25 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider to return a list of user roles.
++ */
++class RolesOptions extends OptionsProviderBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    // Use parameter FALSE to include 'Anonymous'.
++    $roles = user_role_names(FALSE);
++
++    // Sort by the role name.
++    asort($roles);
++
++    return $roles;
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/RoundingOptions.php b/src/Plugin/OptionsProvider/RoundingOptions.php
+new file mode 100644
+index 00000000..f527f473
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/RoundingOptions.php
+@@ -0,0 +1,24 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider for the types of field access to check for.
++ */
++class RoundingOptions extends OptionsProviderBase {
++
++  /**
++   * @inheritdoc
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    return [
++      '' => $this->t('None'),
++      'up' => $this->t('Up (ceiling)'),
++      'down' => $this->t('Down (floor)'),
++      'round' => $this->t('Round (nearest)'),
++    ];
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/ViewEditOptions.php b/src/Plugin/OptionsProvider/ViewEditOptions.php
+new file mode 100644
+index 00000000..63fe1f59
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/ViewEditOptions.php
+@@ -0,0 +1,22 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider for the types of field access to check for.
++ */
++class ViewEditOptions extends OptionsProviderBase {
++
++  /**
++   * @inheritdoc
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    return [
++      'view' => $this->t('View'),
++      'edit' => $this->t('Edit'),
++    ];
++  }
++
++}
+diff --git a/src/Plugin/OptionsProvider/YesNoOptions.php b/src/Plugin/OptionsProvider/YesNoOptions.php
+new file mode 100644
+index 00000000..850dc690
+--- /dev/null
++++ b/src/Plugin/OptionsProvider/YesNoOptions.php
+@@ -0,0 +1,22 @@
++<?php
++
++namespace Drupal\rules\Plugin\OptionsProvider;
++
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Options provider to return a Yes / No choice.
++ */
++class YesNoOptions extends OptionsProviderBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getPossibleOptions(AccountInterface $account = NULL) {
++    return [
++      0 => $this->t('No'),
++      1 => $this->t('Yes'),
++    ];
++  }
++
++}
+diff --git a/src/Plugin/RulesAction/DataCalculateValue.php b/src/Plugin/RulesAction/DataCalculateValue.php
+index 608236f6..60a70cfa 100644
+--- a/src/Plugin/RulesAction/DataCalculateValue.php
++++ b/src/Plugin/RulesAction/DataCalculateValue.php
+@@ -19,6 +19,7 @@ use Drupal\rules\Core\RulesActionBase;
+  *     "operator" = @ContextDefinition("string",
+  *       label = @Translation("Operator"),
+  *       description = @Translation("The calculation operator."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\CalculationOperatorOptions",
+  *       assignment_restriction = "input"
+  *     ),
+  *     "input_2" = @ContextDefinition("float",
+diff --git a/src/Plugin/RulesAction/DataConvert.php b/src/Plugin/RulesAction/DataConvert.php
+index aabd980d..190830f0 100644
+--- a/src/Plugin/RulesAction/DataConvert.php
++++ b/src/Plugin/RulesAction/DataConvert.php
+@@ -21,11 +21,13 @@ use Drupal\rules\Exception\InvalidArgumentException;
+  *     "target_type" = @ContextDefinition("string",
+  *       label = @Translation("Target type"),
+  *       description = @Translation("The data type to convert a value to."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\ConvertTypeOptions",
+  *       assignment_restriction = "input"
+  *     ),
+  *     "rounding_behavior" = @ContextDefinition("string",
+  *       label = @Translation("Rounding behavior"),
+  *       description = @Translation("For integer target types, specify how the conversion result should be rounded."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\RoundingOptions",
+  *       default_value = NULL,
+  *       required = FALSE
+  *     ),
+@@ -68,6 +70,8 @@ class DataConvert extends RulesActionBase {
+     }
+
+     // Ensure valid contexts have been provided.
++    // @todo check how this works. May need to use !empty to allow the selection
++    // list to be used and give an empty value?
+     if (isset($rounding_behavior) && $target_type != 'integer') {
+       throw new InvalidArgumentException('A rounding behavior only makes sense with an integer target type.');
+     }
+diff --git a/src/Plugin/RulesAction/DataListItemAdd.php b/src/Plugin/RulesAction/DataListItemAdd.php
+index 250588c5..e30462aa 100644
+--- a/src/Plugin/RulesAction/DataListItemAdd.php
++++ b/src/Plugin/RulesAction/DataListItemAdd.php
+@@ -24,12 +24,14 @@ use Drupal\rules\Core\RulesActionBase;
+  *     "unique" = @ContextDefinition("boolean",
+  *       label = @Translation("Enforce uniqueness"),
+  *       description = @Translation("Only add the item to the list if it is not yet contained."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\YesNoOptions",
+  *       default_value = FALSE,
+  *       required = FALSE
+  *     ),
+  *     "position" = @ContextDefinition("string",
+  *       label = @Translation("Insert position"),
+  *       description = @Translation("Position to insert the item."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\ListPositionOptions",
+  *       default_value = "end",
+  *       required = FALSE
+  *     ),
+diff --git a/src/Plugin/RulesAction/EntityFetchByField.php b/src/Plugin/RulesAction/EntityFetchByField.php
+index 9cd7611b..3f6c0c0e 100644
+--- a/src/Plugin/RulesAction/EntityFetchByField.php
++++ b/src/Plugin/RulesAction/EntityFetchByField.php
+@@ -17,11 +17,13 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
+  *   context_definitions = {
+  *     "type" = @ContextDefinition("string",
+  *       label = @Translation("Entity type"),
+- *       description = @Translation("Specifies the type of the entity that should be fetched.")
++ *       description = @Translation("Specify the type of the entity that should be fetched."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\EntityTypeOptions",
+  *     ),
+  *     "field_name" = @ContextDefinition("string",
+  *       label = @Translation("Field name"),
+- *       description = @Translation("Name of the field by which the entity is to be selected.")
++ *       description = @Translation("Name of the field by which the entity is to be selected."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\FieldListOptions",
+  *     ),
+  *     "field_value" = @ContextDefinition("any",
+  *       label = @Translation("Field value"),
+diff --git a/src/Plugin/RulesAction/EntityFetchById.php b/src/Plugin/RulesAction/EntityFetchById.php
+index c1265e91..db2817cd 100644
+--- a/src/Plugin/RulesAction/EntityFetchById.php
++++ b/src/Plugin/RulesAction/EntityFetchById.php
+@@ -17,7 +17,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
+  *   context_definitions = {
+  *     "type" = @ContextDefinition("string",
+  *       label = @Translation("Entity type"),
+- *       description = @Translation("Specifies the type of the entity that should be fetched."),
++ *       description = @Translation("Specify the type of the entity that should be fetched."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\EntityTypeOptions",
+  *       assignment_restriction = "input"
+  *     ),
+  *     "entity_id" = @ContextDefinition("integer",
+diff --git a/src/Plugin/RulesAction/EntitySave.php b/src/Plugin/RulesAction/EntitySave.php
+index be289482..01627ffa 100644
+--- a/src/Plugin/RulesAction/EntitySave.php
++++ b/src/Plugin/RulesAction/EntitySave.php
+@@ -22,6 +22,7 @@ use Drupal\rules\Core\RulesActionBase;
+  *       label = @Translation("Force saving immediately"),
+  *       description = @Translation("Usually saving is postponed till the end of the evaluation, so that multiple saves can be fold into one. If this set, saving is forced to happen immediately."),
+  *       assignment_restriction = "input",
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\YesNoOptions",
+  *       default_value = FALSE,
+  *       required = FALSE
+  *     ),
+diff --git a/src/Plugin/RulesAction/PathAliasCreate.php b/src/Plugin/RulesAction/PathAliasCreate.php
+index 62d2c10b..d01195d0 100644
+--- a/src/Plugin/RulesAction/PathAliasCreate.php
++++ b/src/Plugin/RulesAction/PathAliasCreate.php
+@@ -28,6 +28,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
+  *     "language" = @ContextDefinition("language",
+  *       label = @Translation("Language"),
+  *       description = @Translation("If specified, the language for which the path alias applies."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\LanguageOptions",
+  *       default_value = NULL,
+  *       required = FALSE
+  *     ),
+diff --git a/src/Plugin/RulesAction/SendAccountEmail.php b/src/Plugin/RulesAction/SendAccountEmail.php
+index 9f7bba94..04632b3d 100644
+--- a/src/Plugin/RulesAction/SendAccountEmail.php
++++ b/src/Plugin/RulesAction/SendAccountEmail.php
+@@ -22,7 +22,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
+  *     ),
+  *     "email_type" = @ContextDefinition("string",
+  *       label = @Translation("Email type"),
+- *       description = @Translation("The type of the email to send.")
++ *       description = @Translation("The type of the email to send."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\EmailTypeOptions",
+  *     ),
+  *   }
+  * )
+diff --git a/src/Plugin/RulesAction/SystemEmailToUsersOfRole.php b/src/Plugin/RulesAction/SystemEmailToUsersOfRole.php
+index d19fd3a3..c6ee4a21 100644
+--- a/src/Plugin/RulesAction/SystemEmailToUsersOfRole.php
++++ b/src/Plugin/RulesAction/SystemEmailToUsersOfRole.php
+@@ -21,6 +21,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
+  *     "roles" = @ContextDefinition("entity:user_role",
+  *       label = @Translation("Roles"),
+  *       description = @Translation("The roles to which to send the email."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\RolesOptions",
+  *       multiple = TRUE
+  *     ),
+  *     "subject" = @ContextDefinition("string",
+@@ -40,6 +41,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
+  *     "language" = @ContextDefinition("language",
+  *       label = @Translation("Language"),
+  *       description = @Translation("If specified, the language object (not language code) used for getting the email message and subject."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\LanguageOptions",
+  *       default_value = NULL,
+  *       required = FALSE
+  *     ),
+@@ -145,7 +147,10 @@ class SystemEmailToUsersOfRole extends RulesActionBase implements ContainerFacto
+     $number = 0;
+     foreach ($accounts as $account) {
+       // Language to use. Value passed in the context takes precedence.
++      // ORIG.
+       $langcode = isset($language) ? $language->getId() : $account->getPreferredLangcode();
++      // @todo Is this better?
++      $langcode = (isset($language) && $language->getId() != LanguageInterface::LANGCODE_NOT_SPECIFIED) ? $language->getId() : $account->getPreferredLangcode();
+
+       $message = $this->mailManager->mail('rules', $key, $account->getEmail(), $langcode, $params, NULL);
+       $number += $message['result'] ? 1 : 0;
+diff --git a/src/Plugin/RulesAction/SystemMessage.php b/src/Plugin/RulesAction/SystemMessage.php
+index f92d77d1..19b2576b 100644
+--- a/src/Plugin/RulesAction/SystemMessage.php
++++ b/src/Plugin/RulesAction/SystemMessage.php
+@@ -23,15 +23,17 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
+  *     ),
+  *     "type" = @ContextDefinition("string",
+  *       label = @Translation("Message type"),
+- *       description = @Translation("The message type: status, warning, or error."),
++ *       description = @Translation("The message type."),
+  *       default_value = "status",
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\MessageTypeOptions",
+  *       required = FALSE
+  *     ),
+  *     "repeat" = @ContextDefinition("boolean",
+  *       label = @Translation("Repeat message"),
+- *       description = @Translation("If disabled and the message has been already shown, then the message won't be repeated."),
++ *       description = @Translation("If set to No and the message has been already shown, then the message won't be repeated."),
+  *       assignment_restriction = "input",
+  *       default_value = TRUE,
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\YesNoOptions",
+  *       required = FALSE
+  *     ),
+  *   }
+diff --git a/src/Plugin/RulesAction/SystemSendEmail.php b/src/Plugin/RulesAction/SystemSendEmail.php
+index 5fff718b..2832556d 100644
+--- a/src/Plugin/RulesAction/SystemSendEmail.php
++++ b/src/Plugin/RulesAction/SystemSendEmail.php
+@@ -39,6 +39,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
+  *     "language" = @ContextDefinition("language",
+  *       label = @Translation("Language"),
+  *       description = @Translation("If specified, the language used for getting the email message and subject."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\LanguageOptions",
+  *       default_value = NULL,
+  *       required = FALSE
+  *     ),
+@@ -110,7 +111,10 @@ class SystemSendEmail extends RulesActionBase implements ContainerFactoryPluginI
+    *   (optional) Language code.
+    */
+   protected function doExecute(array $to, $subject, $message, $reply = NULL, LanguageInterface $language = NULL) {
++    // ORIG.
+     $langcode = isset($language) ? $language->getId() : LanguageInterface::LANGCODE_SITE_DEFAULT;
++    // @todo Is this better?
++    $langcode = (isset($language) && $language->getId() != LanguageInterface::LANGCODE_NOT_SPECIFIED) ? $language->getId() : LanguageInterface::LANGCODE_SITE_DEFAULT;
+     $params = [
+       'subject' => $subject,
+       'message' => $message,
+diff --git a/src/Plugin/RulesAction/UserRoleAdd.php b/src/Plugin/RulesAction/UserRoleAdd.php
+index 5eda6205..df11d3f6 100644
+--- a/src/Plugin/RulesAction/UserRoleAdd.php
++++ b/src/Plugin/RulesAction/UserRoleAdd.php
+@@ -20,7 +20,8 @@ use Drupal\user\UserInterface;
+  *     ),
+  *     "roles" = @ContextDefinition("entity:user_role",
+  *       label = @Translation("Roles"),
+- *       description = @Translation("One or more role ids to add."),
++ *       description = @Translation("The user role(s) to add."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\RolesOptions",
+  *       multiple = TRUE
+  *     ),
+  *   }
+diff --git a/src/Plugin/RulesAction/UserRoleRemove.php b/src/Plugin/RulesAction/UserRoleRemove.php
+index 57c72f62..cbdfa247 100644
+--- a/src/Plugin/RulesAction/UserRoleRemove.php
++++ b/src/Plugin/RulesAction/UserRoleRemove.php
+@@ -20,7 +20,8 @@ use Drupal\rules\Exception\InvalidArgumentException;
+  *     ),
+  *     "roles" = @ContextDefinition("entity:user_role",
+  *       label = @Translation("Roles"),
+- *       description = @Translation("One or more role ids to remove."),
++ *       description = @Translation("The user role(s) to remove."),
++ *       options_provider = "\Drupal\rules\Plugin\OptionsProvider\RolesOptions",
+  *       multiple = TRUE
+  *     ),
+  *   }
+diff --git a/src/Plugin/RulesAction/VariableAdd.php b/src/Plugin/RulesAction/VariableAdd.php
+index a426facd..5c5284fc 100644
+--- a/src/Plugin/RulesAction/VariableAdd.php
++++ b/src/Plugin/RulesAction/VariableAdd.php
+@@ -13,7 +13,7 @@ use Drupal\rules\Core\RulesActionBase;
+  *   category = @Translation("Data"),
+  *   context_definitions = {
+  *     "type" = @ContextDefinition("string",
+- *       label = @Translation("Type"),
++ *       label = @Translation("Data Type"),
+  *       description = @Translation("Specifies the type of the variable that should be added."),
+  *       assignment_restriction = "input"
+  *     ),
+diff --git a/tests/src/Functional/ActionsFormTest.php b/tests/src/Functional/ActionsFormTest.php
+index f0536e92..9beb252e 100644
+--- a/tests/src/Functional/ActionsFormTest.php
++++ b/tests/src/Functional/ActionsFormTest.php
+@@ -53,6 +53,9 @@ class ActionsFormTest extends RulesBrowserTestBase {
+       'administer site configuration',
+     ]);
+     $this->drupalLogin($this->account);
++
++    // Create a named role for use in conditions and actions.
++    $this->createRole(['administer nodes'], 'test-editor', 'Test Editor');
+   }
+
+   /**
+@@ -64,7 +67,7 @@ class ActionsFormTest extends RulesBrowserTestBase {
+    *
+    * @dataProvider dataActionsFormWidgets
+    */
+-  public function testActionsFormWidgets($id, $values = [], $widgets = [], $selectors = []) {
++  public function testActionsFormWidgets($id, $required = [], $defaulted = [], $widgets = [], $selectors = [], $provides = []) {
+     $expressionManager = $this->container->get('plugin.manager.rules_expression');
+     $storage = $this->container->get('entity_type.manager')->getStorage('rules_reaction_rule');
+
+@@ -77,7 +80,7 @@ class ActionsFormTest extends RulesBrowserTestBase {
+     $action = $expressionManager->createAction($id);
+     $rule->addExpressionObject($action);
+     // Save the configuration.
+-    $expr_id = 'test_action_' . str_replace(':', '_', $id);
++    $expr_id = 'action_' . str_replace(':', '_', $id);
+     $config_entity = $storage->create([
+       'id' => $expr_id,
+       'expression' => $rule->getConfiguration(),
+@@ -91,7 +94,7 @@ class ActionsFormTest extends RulesBrowserTestBase {
+     $assert->pageTextContains('Edit ' . $action->getLabel());
+
+     // If any field values have been specified then fill in the form and save.
+-    if (!empty($values)) {
++    if (!empty($required) || !empty($defaulted)) {
+
+       // Switch to data selector if required by the test settings.
+       if (!empty($selectors)) {
+@@ -102,9 +105,16 @@ class ActionsFormTest extends RulesBrowserTestBase {
+         }
+       }
+
+-      // Fill each given field with the value provided.
+-      foreach ($values as $name => $value) {
+-        $this->fillField('edit-context-definitions-' . $name . '-setting', $value);
++      // Try to save the form before entering the required values.
++      if (!empty($required)) {
++        $this->pressButton('Save');
++        // Check that the form has not been saved.
++        $assert->pageTextContains('Error message');
++        $assert->pageTextContains('field is required');
++        // Fill each required field with the value provided.
++        foreach ($required as $name => $value) {
++          $this->fillField('edit-context-definitions-' . $name . '-setting', $value);
++        }
+       }
+
+       // Check that the action can be saved.
+@@ -118,6 +128,16 @@ class ActionsFormTest extends RulesBrowserTestBase {
+
+       // Check that re-edit and re-save works OK.
+       $this->clickLink('Edit');
++      if (!empty($defaulted) || !empty($provides)) {
++        // Fill each previously defaulted field with the value provided.
++        foreach ($defaulted as $name => $value) {
++          $this->fillField('edit-context-definitions-' . $name . '-setting', $value);
++        }
++        foreach ($provides as $name => $value) {
++          $this->fillField('edit-provides-' . $name . '-name', $value);
++        }
++      }
++
+       $this->pressButton('Save');
+       $assert->pageTextNotContains('Error message');
+       $assert->addressMatches('#admin/config/workflow/rules/reactions/edit/' . $expr_id . '(\?uuid=' . $action->getUuid() . '|)$#');
+@@ -136,45 +156,61 @@ class ActionsFormTest extends RulesBrowserTestBase {
+    *   The test data array. The top level keys are free text but should be short
+    *   and relate to the test case. The values are ordered arrays of test case
+    *   data with elements that must appear in the following order:
+-   *   - Machine name of the condition being tested.
+-   *   - (optional) Values to enter on the Context form. This is an associative
++   *   - Machine name of the action being tested.
++   *   - (optional) Required values to enter on the Context form. This is an
++   *     associative array with keys equal to the field names and values equal
++   *     to the required field values.
++   *   - (optional) Values for fields that have defaults. This is an associative
+    *     array with keys equal to the field names and values equal to the field
+-   *     values.
++   *     values. These are used on the second edit, to alter the fields that
++   *     have been saved with their default value.
+    *   - (optional) Widget types we expect to see on the Context form. This is
+    *     an associative array with keys equal to the field names as above, and
+    *     values equal to expected widget type.
+    *   - (optional) Names of fields for which the selector/direct input button
+    *     needs pressing to 'data selection' before the field value is entered.
++   *   - (optional) Provides values. This is an associative array with keys
++   *     equal to the field names and values equal to values to set.
+    */
+   public function dataActionsFormWidgets() {
+     // Instead of directly returning the full set of test data, create variable
+     // $data to hold it. This allows for manipulation before the final return.
+     $data = [
++      // Data.
+       'Data calculate value' => [
+         // Machine name.
+         'rules_data_calculate_value',
+-        // Values.
++        // Required values.
+         [
+           'input-1' => '3',
+           'operator' => '*',
+           'input-2' => '4',
+         ],
++        // Defaulted values.
++        [],
+         // Widgets.
+         [
+           'input-1' => 'text-input',
+           'operator' => 'text-input',
+           'input-2' => 'text-input',
+         ],
++        // Selectors.
++        [],
++        // Provides.
++        ['result' => 'new_named_variable'],
+       ],
+       'Data convert' => [
+         'rules_data_convert',
+         ['value' => 'node.uid', 'target-type' => 'string'],
++        ['rounding-behavior' => 'up'],
+       ],
+       'List item add' => [
+         'rules_list_item_add',
+         [
+           'list' => 'node.uid.entity.roles',
+           'item' => '1',
++        ],
++        [
+           'unique' => TRUE,
+           'position' => 'start',
+         ],
+@@ -185,47 +221,61 @@ class ActionsFormTest extends RulesBrowserTestBase {
+       ],
+       'Data set - direct' => [
+         'rules_data_set',
+-        ['data' => 'node.title', 'value' => 'abc'],
++        ['data' => 'node.title'],
++        ['value' => 'abc'],
+       ],
+       'Data set - selector' => [
+-        // Machine name.
+         'rules_data_set',
+-        // Values.
+-        ['data' => 'node.title', 'value' => '@user.current_user_context:current_user.name.value'],
+-        // Widgets.
++        [
++          'data' => 'node.title',
++          'value' => '@user.current_user_context:current_user.name.value',
++        ],
++        [],
+         [],
+-        // Selectors.
+         ['value'],
+       ],
+-      'Entity create node' => [
+-        'rules_entity_create:node',
+-        ['type' => 'article', 'title' => 'abc'],
+-      ],
+-      'Entity create user' => [
+-        'rules_entity_create:user',
+-        ['name' => 'fred'],
++      'Variable add' => [
++        'rules_variable_add',
++        ['type' => 'integer', 'value' => 'node.nid'],
+       ],
++
++      // Entity.
+       'Entity delete' => [
+         'rules_entity_delete',
+         ['entity' => 'node'],
+       ],
+       'Entity fetch by field - selector' => [
++        // Machine name.
+         'rules_entity_fetch_by_field',
+-        ['type' => 'node', 'field-name' => 'abc', 'field-value' => 'node.uid'],
++        // Required values.
++        ['type' => 'node', 'field-name' => 'nid', 'field-value' => 'node.uid'],
++        // Defaulted values.
++        ['limit' => 5],
++        // Widgets.
+         [],
++        // Selectors.
+         ['field-value'],
++        // Provides.
++        ['entity-fetched' => 'new_named_variable'],
+       ],
+       'Entity fetch by field - direct' => [
++        'rules_entity_fetch_by_field',
++        ['type' => 'node', 'field-name' => 'sticky', 'field-value' => 1],
++      ],
++      'Entity fetch by id' => [
+         'rules_entity_fetch_by_id',
+         ['type' => 'node', 'entity-id' => 123],
+       ],
+-      'Entity path alias create' => [
+-        'rules_entity_path_alias_create:entity:node',
+-        ['entity' => 'node', 'alias' => 'abc'],
+-      ],
+       'Entity save' => [
+         'rules_entity_save',
+-        ['entity' => 'node', 'immediate' => TRUE],
++        ['entity' => 'node'],
++        ['immediate' => TRUE],
++      ],
++
++      // Content.
++      'Entity create node' => [
++        'rules_entity_create:node',
++        ['type' => 'article', 'title' => 'abc'],
+       ],
+       'Node make sticky' => [
+         'rules_node_make_sticky',
+@@ -251,9 +301,16 @@ class ActionsFormTest extends RulesBrowserTestBase {
+         'rules_node_unpromote',
+         ['node' => 'node'],
+       ],
++
++      // Path.
+       'Path alias create' => [
+         'rules_path_alias_create',
+         ['source' => '/node/1', 'alias' => 'abc'],
++        ['language' => 'en'],
++      ],
++      'Entity path alias create' => [
++        'rules_entity_path_alias_create:entity:node',
++        ['entity' => 'node', 'alias' => 'abc'],
+       ],
+       'Path alias delete by alias' => [
+         'rules_path_alias_delete_by_alias',
+@@ -263,22 +320,26 @@ class ActionsFormTest extends RulesBrowserTestBase {
+         'rules_path_alias_delete_by_path',
+         ['path' => '/node/1'],
+       ],
++
++      // System.
+       'Page redirect' => [
+         'rules_page_redirect',
+         ['url' => '/node/1'],
+       ],
+-      'Send account email' => [
+-        'rules_send_account_email',
+-        ['user' => 'node.uid', 'email-type' => 'abc'],
+-      ],
+-      'Email to all users of role' => [
++      'Email to users of role' => [
+         'rules_email_to_users_of_role',
+-        ['roles' => 'editor', 'subject' => 'Hello', 'message' => 'Some text'],
++        [
++          'roles' => 'test-editor',
++          'subject' => 'Hello',
++          'message' => "Some text\nLine two",
++        ],
++        ['reply' => 'test@example.com', 'language' => 'und'],
+         ['message' => 'textarea'],
+       ],
+       'System message' => [
+         'rules_system_message',
+         ['message' => 'Some text'],
++        ['type' => 'warning', 'repeat' => 0],
+       ],
+       'Send email - direct input' => [
+         'rules_send_email',
+@@ -287,6 +348,7 @@ class ActionsFormTest extends RulesBrowserTestBase {
+           'subject' => 'Some testing subject',
+           'message' => 'Test with direct input of recipients',
+         ],
++        ['reply' => 'test@example.com', 'language' => 'en'],
+         ['message' => 'textarea'],
+       ],
+       'Send email - data selector for address' => [
+@@ -296,53 +358,81 @@ class ActionsFormTest extends RulesBrowserTestBase {
+           'subject' => 'Some testing subject',
+           'message' => 'Test with selector input of node author',
+         ],
++        ['reply' => 'test@example.com'],
+         ['message' => 'textarea'],
+         ['to'],
+       ],
++
++      // User.
++      'Entity create user' => [
++        'rules_entity_create:user',
++        // The name should be required, but can save with blank name.
++        // @todo fix this. Then move 'name' into the required array.
++        [],
++        ['name' => 'fred'],
++      ],
++      'Send account email' => [
++        'rules_send_account_email',
++        ['user' => 'node.uid', 'email-type' => 'password_reset'],
++      ],
+       'User block' => [
+         'rules_user_block',
+         ['user' => '@user.current_user_context:current_user'],
+         [],
++        [],
+         ['user'],
+       ],
+       'User role add' => [
+         'rules_user_role_add',
+-        ['user' => '@user', 'roles' => 'Editor'],
++        [
++          'user' => '@user.current_user_context:current_user',
++          'roles' => 'test-editor',
++        ],
++        [],
++        [],
++        ['user'],
+       ],
+       'User role remove' => [
+         'rules_user_role_remove',
+-        ['user' => '@user', 'roles' => 'Editor'],
++        [
++          'user' => '@user.current_user_context:current_user',
++          'roles' => 'test-editor',
++        ],
++        [],
++        [],
++        ['user'],
+       ],
+       'Unblock user' => [
+         'rules_user_unblock',
+-        ['user' => '@user'],
+-      ],
+-      'Variable add' => [
+-        'rules_variable_add',
+-        ['type' => 'integer', 'value' => 'node.nid'],
+-      ],
+-      'Ban IP - empty' => [
+-        'rules_ban_ip',
+-        ['ip' => ''],
++        ['user' => '@user.current_user_context:current_user'],
++        [],
++        [],
++        ['user'],
+       ],
+-      'Ban IP - value' => [
++
++      // Ban.
++      'Ban IP' => [
+         'rules_ban_ip',
++        [],
+         ['ip' => '192.0.2.1'],
+       ],
+       'Unban IP' => [
+         'rules_unban_ip',
++        [],
+         ['ip' => '192.0.2.1'],
+       ],
+     ];
++
+     // Selecting the 'to' email address using data selector will not work until
+     // single data selector values with multiple = True are converted to arrays.
++    // Error "Expected a list data type ... but got a email data type instead".
+     // @see https://www.drupal.org/project/rules/issues/2723259
+     // @todo Delete this unset() when the above issue is fixed.
+     unset($data['Send email - data selector for address']);
+
+     // Use unset $data['The key to remove']; to remove a temporarily unwanted
+-    // item, use return [$data['The key to test']]; to selectively test just one
+-    // item, or have return $data; to test everything.
++    // item, use return [$data['Key to test'], $data['Another']]; to selectively
++    // test some items, or use return $data; to test everything.
+     return $data;
+   }
+
+diff --git a/tests/src/Functional/ConditionsFormTest.php b/tests/src/Functional/ConditionsFormTest.php
+index 1fee608a..51a980a3 100644
+--- a/tests/src/Functional/ConditionsFormTest.php
++++ b/tests/src/Functional/ConditionsFormTest.php
+@@ -53,6 +53,9 @@ class ConditionsFormTest extends RulesBrowserTestBase {
+       'administer site configuration',
+     ]);
+     $this->drupalLogin($this->account);
++
++    // Create a named role for use in conditions and actions.
++    $this->createRole(['administer nodes'], 'test-editor', 'Test Editor');
+   }
+
+   /**
+@@ -64,7 +67,7 @@ class ConditionsFormTest extends RulesBrowserTestBase {
+    *
+    * @dataProvider dataConditionsFormWidgets
+    */
+-  public function testConditionsFormWidgets($id, $values = [], $widgets = [], $selectors = []) {
++  public function testConditionsFormWidgets($id, $required = [], $defaulted = [], $widgets = [], $selectors = []) {
+     $expressionManager = $this->container->get('plugin.manager.rules_expression');
+     $storage = $this->container->get('entity_type.manager')->getStorage('rules_reaction_rule');
+
+@@ -77,7 +80,7 @@ class ConditionsFormTest extends RulesBrowserTestBase {
+     $condition = $expressionManager->createCondition($id);
+     $rule->addExpressionObject($condition);
+     // Save the configuration.
+-    $expr_id = 'test_condition_' . $id;
++    $expr_id = 'condition_' . str_replace(':', '_', $id);
+     $config_entity = $storage->create([
+       'id' => $expr_id,
+       'expression' => $rule->getConfiguration(),
+@@ -91,7 +94,7 @@ class ConditionsFormTest extends RulesBrowserTestBase {
+     $assert->pageTextContains('Edit ' . $condition->getLabel());
+
+     // If any field values have been specified then fill in the form and save.
+-    if (!empty($values)) {
++    if (!empty($required) || !empty($defaulted)) {
+
+       // Switch to data selector where required.
+       if (!empty($selectors)) {
+@@ -102,9 +105,16 @@ class ConditionsFormTest extends RulesBrowserTestBase {
+         }
+       }
+
+-      // Fill each given field with the value provided.
+-      foreach ($values as $name => $value) {
+-        $this->fillField('edit-context-definitions-' . $name . '-setting', $value);
++      // Try to save the form before entering the required values.
++      if (!empty($required)) {
++        $this->pressButton('Save');
++        // Check that the form has not been saved.
++        $assert->pageTextContains('Error message');
++        $assert->pageTextContains('field is required');
++        // Fill each required field with the value provided.
++        foreach ($required as $name => $value) {
++          $this->fillField('edit-context-definitions-' . $name . '-setting', $value);
++        }
+       }
+
+       // Check that the condition can be saved.
+@@ -118,6 +128,13 @@ class ConditionsFormTest extends RulesBrowserTestBase {
+
+       // Check that re-edit and re-save works OK.
+       $this->clickLink('Edit');
++      if (!empty($defaulted)) {
++        // Fill each previously defaulted field with the value provided.
++        foreach ($defaulted as $name => $value) {
++          $this->fillField('edit-context-definitions-' . $name . '-setting', $value);
++        }
++      }
++
+       $this->pressButton('Save');
+       $assert->pageTextNotContains('Error message');
+       $assert->addressMatches('#admin/config/workflow/rules/reactions/edit/' . $expr_id . '(\?uuid=' . $condition->getUuid() . '|)$#');
+@@ -136,9 +153,13 @@ class ConditionsFormTest extends RulesBrowserTestBase {
+    *   and relate to the test case. The values are ordered arrays of test case
+    *   data with elements that must appear in the following order:
+    *   - Machine name of the condition being tested.
+-   *   - (optional) Values to enter on the Context form. This is an associative
++   *   - (optional) Required values to enter on the Context form. This is an
++   *     associative array with keys equal to the field names and values equal
++   *     to the required field values.
++   *   - (optional) Values for fields that have defaults. This is an associative
+    *     array with keys equal to the field names and values equal to the field
+-   *     values.
++   *     values. These are used on the second edit, to alter the fields that
++   *     have been saved with their default value.
+    *   - (optional) Widget types we expect to see on the Context form. This is
+    *     an associative array with keys equal to the field names as above, and
+    *     values equal to expected widget type.
+@@ -149,15 +170,18 @@ class ConditionsFormTest extends RulesBrowserTestBase {
+     // Instead of directly returning the full set of test data, create variable
+     // $data to hold it. This allows for manipulation before the final return.
+     $data = [
++
++      // Data.
+       'Data comparison' => [
+         // Machine name.
+         'rules_data_comparison',
+-        // Values.
++        // Required values.
+         [
+           'data' => 'node.title.value',
+-          'operation' => '=this=is-not-validated=yet=',
+           'value' => 'node_unchanged.title.value',
+         ],
++        // Defaulted values.
++        ['operation' => 'contains'],
+         // Widgets.
+         [
+           'data' => 'text-input',
+@@ -174,33 +198,52 @@ class ConditionsFormTest extends RulesBrowserTestBase {
+       'List contains' => [
+         'rules_list_contains',
+         ['list' => 'node.uid.entity.roles', 'item' => 'abc'],
++        [],
+         ['list' => 'textarea'],
+       ],
+-      'List Count' => [
++      'List count is' => [
+         'rules_list_count_is',
+         [
+           'list' => 'node.uid.entity.roles',
+-          'operator' => 'not * validated * yet',
+           'value' => 2,
+         ],
++        ['operator' => '<='],
++      ],
++      'Text comparison - direct' => [
++        'rules_text_comparison',
++        ['text' => 'node.title.value', 'match' => 'abc'],
++      ],
++      'Text comparison - selector' => [
++        'rules_text_comparison',
++        [
++          'text' => 'node.title.value',
++          'match' => 'node.uid.entity.name.value',
++        ],
++        ['operator' => 'ends'],
++        [],
++        ['match'],
+       ],
++
++      // Entity.
+       'Entity has field' => [
+         'rules_entity_has_field',
+-        ['entity' => 'node', 'field' => 'abc'],
++        ['entity' => 'node', 'field' => 'login'],
+       ],
+       'Entity is new' => [
+         'rules_entity_is_new',
+         ['entity' => 'node'],
+       ],
+-      'Entity is bundle' => [
++      'Entity is of bundle' => [
+         'rules_entity_is_of_bundle',
+         ['entity' => 'node', 'type' => 'node', 'bundle' => 'article'],
+       ],
+-      'Entity is type' => [
++      'Entity is of type' => [
+         'rules_entity_is_of_type',
+-        ['entity' => 'node', 'type' => 'article'],
++        ['entity' => 'node', 'type' => 'path_alias'],
+       ],
+-      'Node is type' => [
++
++      // Content.
++      'Node is of type' => [
+         'rules_node_is_of_type',
+         ['node' => 'node', 'types' => 'article'],
+       ],
+@@ -216,52 +259,58 @@ class ConditionsFormTest extends RulesBrowserTestBase {
+         'rules_node_is_sticky',
+         ['node' => 'node'],
+       ],
++
++      // Path.
+       'Path alias exists' => [
+         'rules_path_alias_exists',
+         ['alias' => '/abc'],
++        ['language' => 'und'],
+       ],
+       'Path has alias' => [
+         'rules_path_has_alias',
+         ['path' => '/node/1'],
++        ['language' => 'en'],
+       ],
+-      'Text comparison - direct' => [
+-        'rules_text_comparison',
+-        ['text' => 'node.title.value', 'match' => 'abc'],
+-      ],
+-      'Text comparison - selector' => [
+-        'rules_text_comparison',
+-        ['text' => 'node.title.value', 'match' => 'node.uid.entity.name.value'],
+-        [],
+-        ['match'],
+-      ],
++
++      // User.
+       'Entity field access' => [
+         'rules_entity_field_access',
+         [
+           'entity' => 'node',
+-          'field' => 'abc',
++          'field' => 'timezone',
+           'user' => '@user.current_user_context:current_user',
+         ],
++        ['operation' => 'edit'],
+       ],
+-      'Uer has role' => [
++      'User has role' => [
+         'rules_user_has_role',
+         [
+           'user' => '@user.current_user_context:current_user',
+-          'roles' => 'Developer',
++          'roles' => 'test-editor',
+         ],
++        ['operation' => 'OR'],
++        [],
++        ['user'],
+       ],
+       'User is blocked' => [
+         'rules_user_is_blocked',
+         ['user' => '@user.current_user_context:current_user'],
++        [],
++        [],
++        ['user'],
+       ],
++
++      // Ban.
+       'Ip is banned' => [
+         'rules_ip_is_banned',
++        [],
+         ['ip' => '192.0.2.1'],
+       ],
+     ];
+
+     // Use unset $data['The key to remove']; to remove a temporarily unwanted
+-    // item, use return [$data['The key to test']]; to selectively test just one
+-    // item, or use return $data; to test everything.
++    // item, use return [$data['Key to test'], $data['Another']]; to selectively
++    // test some items, or use return $data; to test everything.
+     return $data;
+   }
+
+diff --git a/tests/src/Unit/Integration/RulesEntityIntegrationTestBase.php b/tests/src/Unit/Integration/RulesEntityIntegrationTestBase.php
+index 44706125..f11a15a2 100644
+--- a/tests/src/Unit/Integration/RulesEntityIntegrationTestBase.php
++++ b/tests/src/Unit/Integration/RulesEntityIntegrationTestBase.php
+@@ -151,8 +151,8 @@ abstract class RulesEntityIntegrationTestBase extends RulesIntegrationTestBase {
+     $data_definition->setLabel(Argument::any())->willReturn($data_definition->reveal());
+     $data_definition->setDescription(Argument::any())->willReturn($data_definition->reveal());
+     $data_definition->setRequired(Argument::any())->willReturn($data_definition->reveal());
+-    $data_definition->setLabel(Argument::any())->willReturn($data_definition->reveal());
+     $data_definition->setConstraints(Argument::any())->willReturn($data_definition->reveal());
++    $data_definition->setOptionsProviderDefinition(Argument::any())->willReturn($data_definition->reveal());
+
+     $data_definition->getConstraints()->willReturn([]);
+     $data_definition->getDataType()->willReturn($data_type);
+diff --git a/drupalci.yml b/drupalci.yml
+new file mode 100644
+index 00000000..738a4eb6
+--- /dev/null
++++ b/drupalci.yml
+@@ -0,0 +1,19 @@
++# See docs at https://www.drupal.org/drupalorg/docs/drupal-ci/customizing-drupalci-testing-for-projects
++build:
++  assessment:
++    validate_codebase:
++      host_command:
++        commands:
++          - "cd ${SOURCE_DIR} && sudo -u www-data curl https://www.drupal.org/files/issues/2020-07-24/2329937-61-options-provider.patch | sudo -u www-data patch -p1 --verbose"
++      container_command:
++      phplint:
++      container_composer:
++      csslint:
++      eslint:
++      phpcs:
++    testing:
++      container_command:
++        commands:
++      run_tests.standard:
++        types: 'Simpletest,PHPUnit-Unit,PHPUnit-Kernel,PHPUnit-Functional'
++        suppress-deprecations: true

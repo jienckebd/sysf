@@ -1,0 +1,10 @@
+uuid: 7322a1b4-8854-40a3-aa9c-41f9ffb4a255
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.s_500
+label: 'Standard (x500)'
+targetEntityType: block_content
+cache: true

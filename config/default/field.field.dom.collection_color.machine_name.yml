@@ -1,0 +1,19 @@
+uuid: 2c05a73e-6dfa-4d16-9e5e-57393a0e3421
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.collection_color
+    - field.storage.dom.machine_name
+id: dom.collection_color.machine_name
+field_name: machine_name
+entity_type: dom
+bundle: collection_color
+label: 'Machine Name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

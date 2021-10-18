@@ -1,0 +1,21 @@
+uuid: 35f9e10c-4971-49c9-b440-b184adfa679f
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.field_flex
+field_name: field_flex
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

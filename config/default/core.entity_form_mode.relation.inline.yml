@@ -1,0 +1,10 @@
+uuid: 23a6beb8-d694-4d64-9f17-6624e79307f3
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: relation.inline
+label: Inline
+targetEntityType: relation
+cache: true

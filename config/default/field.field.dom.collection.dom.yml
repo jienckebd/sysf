@@ -1,0 +1,43 @@
+uuid: bdd00296-475e-4e05-922e-87a714556ecd
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.collection
+    - bd.bundle.dom.style
+    - field.storage.dom.dom
+  module:
+    - bd
+third_party_settings:
+  bd:
+    data_deriver:
+      plugin: ''
+    dom:
+      attribute: ''
+      subattribute: ''
+      theme_hook: ''
+      theme_hook_selector: ''
+      theme_hook_match_key: ''
+      theme_hook_match_value: ''
+      build_css: 0
+      build_css_field_name: ''
+    dependency:
+      type: ef354209-cb30-4cbe-abab-de5b8bda6a68
+id: dom.collection.dom
+field_name: dom
+entity_type: dom
+bundle: collection
+label: Styles
+description: 'The valid DOM tags of this attribute.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: null
+settings:
+  handler: 'default:dom'
+  handler_settings:
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

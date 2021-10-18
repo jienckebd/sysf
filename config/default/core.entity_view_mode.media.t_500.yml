@@ -1,0 +1,10 @@
+uuid: 1f1b3f81-ee99-4c96-a58f-0e8cc545611b
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.t_500
+label: 'Tall (x500)'
+targetEntityType: media
+cache: true

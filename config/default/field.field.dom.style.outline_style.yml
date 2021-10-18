@@ -1,0 +1,29 @@
+uuid: bb51aff4-b1df-468b-b150-de486153b399
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.outline_style
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: outline-style
+    behavior:
+      dom:
+        subattribute: outline-style
+id: dom.style.outline_style
+field_name: outline_style
+entity_type: dom
+bundle: style
+label: outline-style
+description: 'Sets the style of the outline around an element'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

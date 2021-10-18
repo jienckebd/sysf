@@ -1,0 +1,29 @@
+uuid: a71b4797-69a7-4808-8cc5-6b6e42996759
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.unicode_bidi
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: unicode-bidi
+    behavior:
+      dom:
+        subattribute: unicode-bidi
+id: dom.style.unicode_bidi
+field_name: unicode_bidi
+entity_type: dom
+bundle: style
+label: unicode-bidi
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

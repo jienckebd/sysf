@@ -1,0 +1,10 @@
+uuid: b15338bc-03d3-477d-8b3b-32eec00f38a2
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: relation.embed
+label: Embed
+targetEntityType: relation
+cache: true

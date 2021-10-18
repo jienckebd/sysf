@@ -1,0 +1,27 @@
+uuid: a650ec84-36cc-4277-b5f4-6a9fd437729f
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.grid_bitmap
+field_name: grid_bitmap
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: grid
+      label: grid
+    -
+      value: bitmap
+      label: bitmap
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

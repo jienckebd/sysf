@@ -1,0 +1,23 @@
+uuid: 38beb78e-4cae-4b70-af3e-843369ccfec6
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - media
+id: theme_entity.field_logo
+field_name: field_logo
+entity_type: theme_entity
+type: entity_reference
+settings:
+  target_type: media
+  schema__derivative: null
+  schema__base_target_id: null
+  deriver: null
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

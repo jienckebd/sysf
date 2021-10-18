@@ -1,0 +1,84 @@
+uuid: bb53591b-14c2-492b-9af4-2dd99e7c8e3c
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.list_style_type
+field_name: list_style_type
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: none
+      label: none
+    -
+      value: disc
+      label: disc
+    -
+      value: circle
+      label: circle
+    -
+      value: square
+      label: square
+    -
+      value: decimal
+      label: decimal
+    -
+      value: decimal-leading-zero
+      label: decimal-leading-zero
+    -
+      value: lower-roman
+      label: lower-roman
+    -
+      value: upper-roman
+      label: upper-roman
+    -
+      value: lower-alpha
+      label: lower-alpha
+    -
+      value: upper-alpha
+      label: upper-alpha
+    -
+      value: lower-greek
+      label: lower-greek
+    -
+      value: lower-latin
+      label: lower-latin
+    -
+      value: upper-latin
+      label: upper-latin
+    -
+      value: hebrew
+      label: hebrew
+    -
+      value: armenian
+      label: armenian
+    -
+      value: georgian
+      label: georgian
+    -
+      value: cjk-ideographic
+      label: cjk-ideographic
+    -
+      value: hiragana
+      label: hiragana
+    -
+      value: katakana
+      label: katakana
+    -
+      value: hiragana-iroha
+      label: hiragana-iroha
+    -
+      value: katakana-iroha
+      label: katakana-iroha
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

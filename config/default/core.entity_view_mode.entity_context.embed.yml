@@ -1,0 +1,10 @@
+uuid: ccec7990-25b3-437f-aac6-f71fb2b89f41
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: entity_context.embed
+label: Embed
+targetEntityType: entity_context
+cache: true

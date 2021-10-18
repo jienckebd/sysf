@@ -1,0 +1,26 @@
+uuid: 0f101d74-e87e-4d26-b178-268a8aa48365
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - domain_source
+  module:
+    - domain
+    - node
+id: node.field_domain_source
+field_name: field_domain_source
+entity_type: node
+type: entity_reference
+settings:
+  target_type: domain
+  schema__derivative: null
+  schema__base_target_id: null
+  deriver: null
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,43 @@
+uuid: 6f118303-cb14-4f6e-b7ca-97bf2b79e6b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.network_entity_browser
+  module:
+    - entity_browser_entity_form
+    - views
+name: network_modal
+label: 'Config: modal'
+display: modal
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select networks'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  f7c524c4-af83-43fa-8e5f-e4c228676494:
+    settings:
+      view: network_entity_browser
+      view_display: entity_browser_1
+      submit_text: 'Select existing config_entity_wrnetworker'
+      auto_select: false
+    uuid: f7c524c4-af83-43fa-8e5f-e4c228676494
+    weight: 1
+    label: 'Existing networks'
+    id: view
+  bfeef8bf-8703-4f89-92a6-a643f53b244a:
+    settings:
+      entity_type: config_entity_wrnetworker
+      bundle: __editor_bundle
+      form_mode: inline
+      submit_text: 'Save config_entity_wrnetworker'
+      allowed_bundles: {  }
+    uuid: bfeef8bf-8703-4f89-92a6-a643f53b244a
+    weight: 2
+    label: 'Create a new config_entity_wrnetworker'
+    id: entity_form

@@ -1,0 +1,27 @@
+uuid: 09ca3780-e71c-417e-80f3-21e03d2c647f
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.direction
+field_name: direction
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: ltr
+      label: ltr
+    -
+      value: rtl
+      label: rtl
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

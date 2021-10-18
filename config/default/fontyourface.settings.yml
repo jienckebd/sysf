@@ -1,0 +1,9 @@
+enabled_fonts:
+  - 'https://www.google.com/webfonts/family?family=Roboto&subset=cyrillic#100'
+  - 'https://www.google.com/webfonts/family?family=Montserrat&subset=latin#100'
+  - 'https://www.google.com/webfonts/family?family=Roboto&subset=cyrillic#300'
+  - 'https://www.google.com/webfonts/family?family=Montserrat&subset=cyrillic#300'
+  - 'https://www.google.com/webfonts/family?family=Roboto&subset=cyrillic#700'
+  - 'https://www.google.com/webfonts/family?family=Montserrat&subset=cyrillic#500'
+load_all_enabled_fonts: 1
+load_on_themes: {  }

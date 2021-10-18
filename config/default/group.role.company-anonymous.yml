@@ -1,0 +1,14 @@
+uuid: 087c515e-c476-4164-a98d-bab81b6d9c1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.company
+id: company-anonymous
+label: Anonymous
+weight: -102
+internal: true
+audience: anonymous
+group_type: company
+permissions_ui: true
+permissions: {  }

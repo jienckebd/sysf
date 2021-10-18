@@ -1,0 +1,8 @@
+uuid: c6da9325-478d-4f25-9bc5-010d8d7f09a4
+langcode: en
+status: true
+dependencies: {  }
+id: grid
+label: Grid
+revision: 1
+description: 'Specify a set of entities to display in a grid.'

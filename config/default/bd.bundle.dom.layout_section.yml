@@ -1,0 +1,11 @@
+uuid: 7818d0a6-8cd6-4822-8a82-93224b9f1f68
+langcode: en
+status: true
+dependencies: {  }
+label: 'Layout Section'
+id: layout_section
+description: ''
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

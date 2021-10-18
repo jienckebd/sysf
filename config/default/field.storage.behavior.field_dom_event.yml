@@ -1,0 +1,22 @@
+uuid: b1fe64ae-b68f-492b-a1fa-b10bf0026275
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: behavior.field_dom_event
+field_name: field_dom_event
+entity_type: behavior
+type: entity_reference
+settings:
+  target_type: dom
+  schema__derivative: 0
+  schema__base_target_id: 0
+  deriver: ''
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

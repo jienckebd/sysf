@@ -1,0 +1,10 @@
+uuid: e6f00b14-69d4-4c0a-8209-aaf1c578e090
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: config_entity_wrapper.inline
+label: Inline
+targetEntityType: config_entity_wrapper
+cache: true

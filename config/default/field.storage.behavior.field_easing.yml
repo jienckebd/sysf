@@ -1,0 +1,81 @@
+uuid: efdaaa8c-828a-49f6-a9f8-665a5521c0a4
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: behavior.field_easing
+field_name: field_easing
+entity_type: behavior
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: linear
+      label: linear
+    -
+      value: ease
+      label: ease
+    -
+      value: ease-in
+      label: ease-in
+    -
+      value: ease-out
+      label: ease-out
+    -
+      value: ease-in-out
+      label: ease-in-out
+    -
+      value: ease-in-back
+      label: ease-in-back
+    -
+      value: ease-out-back
+      label: ease-out-back
+    -
+      value: ease-in-out-back
+      label: ease-in-out-back
+    -
+      value: ease-in-sine
+      label: ease-in-sine
+    -
+      value: ease-out-sine
+      label: ease-out-sine
+    -
+      value: ease-in-out-sine
+      label: ease-in-out-sine
+    -
+      value: ease-in-quad
+      label: ease-in-quad
+    -
+      value: ease-out-quad
+      label: ease-out-quad
+    -
+      value: ease-in-out-quad
+      label: ease-in-out-quad
+    -
+      value: ease-in-cubic
+      label: ease-in-cubic
+    -
+      value: ease-out-cubic
+      label: ease-out-cubic
+    -
+      value: ease-in-out-cubic
+      label: ease-in-out-cubic
+    -
+      value: ease-in-quart
+      label: ease-in-quart
+    -
+      value: ease-out-quart
+      label: ease-out-quart
+    -
+      value: ease-in-out-quart
+      label: ease-in-out-quart
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,41 @@
+field_config_base:
+  form:
+    group:
+      base_field_override:
+        label: "Base field bundle override"
+        type: details
+        weight: -1000
+        open: true
+  mapping:
+    entity_type:
+      hidden: true
+    bundle:
+      hidden: true
+    id:
+      hidden: true
+    default_value_callback:
+      hidden: true
+    field_type:
+      hidden: true
+    settings:
+      hidden: true
+    field_name:
+      required: true
+      group: base_field_override
+      weight: 0
+    label:
+      required: true
+      group: base_field_override
+      weight: 10
+    description:
+      group: base_field_override
+      weight: 20
+    required:
+      group: base_field_override
+      weight: 30
+    translatable:
+      group: base_field_override
+      weight: 40
+    default_value:
+      group: base_field_override
+      weight: 100

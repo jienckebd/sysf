@@ -1,0 +1,134 @@
+uuid: 8d64bdbc-6f25-4d64-b526-9393f2ce4329
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_banner
+    - field.field.block_content.image_banner.field_cmp_heading
+    - field.field.block_content.image_banner.field_cmp_image
+    - field.field.block_content.image_banner.field_cmp_text
+  module:
+    - inline_entity_form
+id: block_content.image_banner.default
+targetEntityType: block_content
+bundle: image_banner
+mode: default
+content:
+  actions:
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  container:
+    type: inline_entity_form_complex
+    region: content
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      allow_duplicate: true
+    third_party_settings: {  }
+    weight: 4
+  field_cmp_heading:
+    type: inline_entity_form_complex
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      allow_duplicate: true
+    third_party_settings: {  }
+  field_cmp_image:
+    type: inline_entity_form_complex
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      allow_duplicate: true
+    third_party_settings: {  }
+  field_cmp_text:
+    type: inline_entity_form_complex
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      allow_duplicate: true
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 7
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  reusable:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  revision_log:
+    type: string_textarea
+    weight: 6
+    settings:
+      rows: 4
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  view_mode:
+    type: options_select
+    weight: 5
+    region: content
+    settings:
+      autocomplete: true
+      match_operator: CONTAINS
+      match_limit: 10
+      width: 100%
+    third_party_settings: {  }
+hidden:
+  base_entity: true
+  simple_sitemap: true
+  status: true
+  tags: true

@@ -1,0 +1,19 @@
+uuid: fb2cd9a7-fcfc-4fff-924c-e1fc72c1b521
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.app.workspace
+    - field.storage.app.field_path_403
+id: app.workspace.field_path_403
+field_name: field_path_403
+entity_type: app
+bundle: workspace
+label: '403 path'
+description: 'Set the path for a page to be used for error 403 when the user does not have access.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

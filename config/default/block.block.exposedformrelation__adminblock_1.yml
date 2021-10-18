@@ -1,0 +1,28 @@
+uuid: c7e2c555-d5fa-4b94-beb5-1a51f0248d55
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.relation__admin
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: exposedformrelation__adminblock_1
+theme: seven
+region: content
+weight: 3
+provider: null
+plugin: 'views_exposed_filter_block:relation__admin-block_1'
+settings:
+  id: 'views_exposed_filter_block:relation__admin-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/structure/relation
+    negate: false

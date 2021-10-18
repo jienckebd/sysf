@@ -1,0 +1,29 @@
+uuid: d3c98b02-b149-4d9b-abfc-4c25e074d5a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.font_style
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: font-style
+    behavior:
+      dom:
+        subattribute: font-style
+id: dom.style.font_style
+field_name: font_style
+entity_type: dom
+bundle: style
+label: font-style
+description: 'Sets the style of the font'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

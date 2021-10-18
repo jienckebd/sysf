@@ -1,0 +1,158 @@
+uuid: dc228fd1-fbf8-4245-b91f-78593c921e48
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.collection_color
+    - field.field.dom.collection_color.field_color
+    - field.field.dom.collection_color.field_effect
+    - field.field.dom.collection_color.machine_name
+  module:
+    - inline_entity_form
+id: dom.collection_color.default
+targetEntityType: dom
+bundle: collection_color
+mode: default
+content:
+  actions:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_color:
+    weight: 2
+    settings:
+      form_mode: inline
+      override_labels: true
+      label_singular: Color
+      label_plural: Colors
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: true
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: _none
+      design_system:
+        overview:
+          entity_field_group:
+            widget:
+              value: {  }
+          weight:
+            widget:
+              value: Array
+          cardinality:
+            widget:
+              value: Array
+          default_field_widget: {  }
+          default_field_formatter: {  }
+        element:
+          field_value:
+            override:
+              widget:
+                value: ''
+            callback:
+              widget:
+                value: ''
+            container: {  }
+          label:
+            override:
+              widget:
+                value: ''
+            display_position:
+              widget:
+                value: ''
+            container: {  }
+          description:
+            override:
+              widget:
+                value: ''
+            display_position:
+              widget:
+                value: ''
+            container: {  }
+          field_items:
+            container: {  }
+          field_item:
+            container: {  }
+        behavior:
+          access:
+            edit:
+              restrict_behavior:
+                widget:
+                  value: ''
+              condition_list:
+                actions:
+                  add: ''
+              0:
+                condition: {  }
+              1:
+                condition: {  }
+            view:
+              condition_list:
+                actions:
+                  add: ''
+              0:
+                condition: {  }
+              1:
+                condition: {  }
+          translation:
+            force_langcode:
+              widget:
+                value: ''
+            disable:
+              widget:
+                value: 0
+          multi_value:
+            max:
+              widget:
+                value: Array
+            delimiter:
+              widget:
+                value: ''
+          default_value:
+            plugin: {  }
+          empty_value:
+            plugin: {  }
+    type: inline_entity_form_complex
+    region: content
+  field_effect:
+    weight: 1
+    settings:
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: true
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+    region: content
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  base_entity: true
+  created: true
+  description: true
+  label_display: true
+  langcode: true
+  machine_name: true
+  revision_created: true
+  revision_log_message: true
+  simple_sitemap: true
+  status: true
+  uid: true

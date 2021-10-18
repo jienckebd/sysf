@@ -1,0 +1,21 @@
+uuid: 6d02bbf4-6678-4974-a1ec-3f1151f3b221
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.z_index
+field_name: z_index
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

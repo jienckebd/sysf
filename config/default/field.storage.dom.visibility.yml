@@ -1,0 +1,30 @@
+uuid: b86ba63e-9b0f-474e-aa49-1348a57b1cae
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.visibility
+field_name: visibility
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: visible
+      label: visible
+    -
+      value: hidden
+      label: hidden
+    -
+      value: collapse
+      label: collapse
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

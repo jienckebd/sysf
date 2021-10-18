@@ -1,0 +1,110 @@
+uuid: 8df0b898-de13-4d83-8022-3a2bb97e47ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.element
+    - bd.bundle.dom.pseudo_class
+    - bd.bundle.dom.pseudo_element
+    - bd.bundle.dom.selector
+    - bd.bundle.dom.style
+    - bd.bundle.dom.tag
+    - bd.bundle.dom.tag_group
+    - field.storage.dom.dom
+  module:
+    - bd
+third_party_settings:
+  bd:
+    overview:
+      entity_field_group: ''
+      default_field_widget:
+        plugin_id: ''
+      default_field_formatter:
+        plugin_id: ''
+      weight: ''
+      cardinality: ''
+    element:
+      field_items:
+        container: ''
+      field_item:
+        container: ''
+      field_value:
+        container: ''
+        override: Array
+        callback: Array
+      label:
+        container: ''
+        override: Array
+        display_position: ''
+      description:
+        container: ''
+        override: Array
+        display_position: ''
+    behavior:
+      access:
+        view:
+          0:
+            condition:
+              plugin_id: ''
+          1:
+            condition:
+              plugin_id: ''
+          condition_list:
+            actions: {  }
+        edit:
+          0:
+            condition:
+              plugin_id: ''
+          1:
+            condition:
+              plugin_id: ''
+          restrict_behavior: ''
+          condition_list:
+            actions: {  }
+      translation:
+        force_langcode: ''
+        disable: 0
+      default_value:
+        plugin:
+          plugin_id: ''
+      multi_value:
+        max: ''
+        delimiter: ''
+      empty_value:
+        plugin:
+          plugin_id: ''
+      dom:
+        attribute: ''
+        subattribute: ''
+        theme_hook: ''
+        theme_hook_selector: ''
+        theme_hook_match_key: ''
+        theme_hook_match_value: ''
+        build_css_field_name: ''
+        build_css: 0
+id: dom.style.dom
+field_name: dom
+entity_type: dom
+bundle: style
+label: 'DOM Subject'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: '\Drupal\bd\Entity\EntityFieldDefaultValue::derivedDefaultValue'
+settings:
+  handler: 'default:dom'
+  handler_settings:
+    target_bundles:
+      element: element
+      pseudo_class: pseudo_class
+      pseudo_element: pseudo_element
+      selector: selector
+      tag: tag
+      tag_group: tag_group
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: selector
+field_type: entity_reference

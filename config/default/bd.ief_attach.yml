@@ -1,0 +1,148 @@
+dom_collection_theme:
+  form_id:
+    - system_theme_settings
+  entity_type_id: dom
+  bundle: collection
+  context:
+    body:
+      label: Body
+      theme_hook:
+        - html
+      selector: attributes
+    derived:
+      deriver: theme_region
+      definition:
+        mapping:
+          label:
+            existing: id
+          theme_hook:
+            - page
+          selector: 'page.{{ derivative_id }}.#attributes'
+entity_view_display:
+  form_id:
+    - system_theme_settings_todo
+  entity_type_id: dom
+  bundle: collection
+  context:
+    body:
+      label: Body
+      theme_hook:
+        - html
+    derived:
+      deriver: theme_region
+      definition:
+        mapping:
+          label:
+            existing: id
+          theme_hook:
+            - html
+entity_form_display:
+  form_id:
+    - system_theme_settings_todo
+  entity_type_id: dom
+  bundle: collection
+  context:
+    body:
+      label: Body
+      theme_hook:
+        - html
+    derived:
+      deriver: theme_region
+      definition:
+        mapping:
+          label:
+            existing: id
+          theme_hook:
+            - html
+block:
+  form_id:
+    - system_theme_settings_todo
+  entity_type_id: dom
+  bundle: collection
+  context:
+    body:
+      label: Body
+      theme_hook:
+        - html
+    derived:
+      deriver: theme_region
+      definition:
+        mapping:
+          label:
+            existing: id
+          theme_hook:
+            - html
+menu_link:
+  form_id:
+    - system_theme_settings_todo
+  entity_type_id: dom
+  bundle: collection
+  context:
+    body:
+      label: Body
+      theme_hook:
+        - html
+    derived:
+      deriver: theme_region
+      definition:
+        mapping:
+          label:
+            existing: id
+          theme_hook:
+            - html
+views_element:
+  form_id:
+    - system_theme_settings_todo
+  entity_type_id: dom
+  bundle: collection
+  context:
+    body:
+      label: Body
+      theme_hook:
+        - html
+    derived:
+      deriver: theme_region
+      definition:
+        mapping:
+          label:
+            existing: id
+          theme_hook:
+            - html
+views_exposed_form:
+  form_id:
+    - system_theme_settings_todo
+  entity_type_id: dom
+  bundle: collection
+  context:
+    body:
+      label: Body
+      theme_hook:
+        - html
+    derived:
+      deriver: theme_region
+      definition:
+        mapping:
+          label:
+            existing: id
+          theme_hook:
+            - html
+form:
+  form_id:
+    - system_theme_settings_all
+  entity_type_id: dom
+  bundle: collection
+  context:
+    body:
+      label: Body
+      theme_hook:
+        - html
+    derived:
+      deriver: theme_region
+      definition:
+        mapping:
+          label:
+            existing: id
+          theme_hook:
+            - html
+_core:
+  default_config_hash: RP2lEFA6u369WY57OlV5ToiRdZwQX82Gxl_mpaIsMHU

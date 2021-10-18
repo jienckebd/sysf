@@ -1,0 +1,30 @@
+uuid: de3ec108-cce1-40f6-9db7-a3d90bd294b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.float
+field_name: float
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: left
+      label: left
+    -
+      value: right
+      label: right
+    -
+      value: none
+      label: none
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,29 @@
+uuid: 16fe99e3-c0f7-4d48-9f10-6b40858fd5c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image
+    - block_content.type.image_bg
+    - field.storage.block_content.field_cmp_image
+id: block_content.image_bg.field_cmp_image
+field_name: field_cmp_image
+entity_type: block_content
+bundle: image_bg
+label: Image
+description: 'Provide an image component.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: info
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

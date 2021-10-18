@@ -1,0 +1,34 @@
+uuid: 35793695-13c9-4df6-a07f-4accc4da55a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - blazy
+    - media
+name: Raw
+format: raw
+weight: 0
+filters:
+  blazy_filter:
+    id: blazy_filter
+    provider: blazy
+    status: false
+    weight: 3
+    settings:
+      filter_tags:
+        img: img
+        iframe: iframe
+      media_switch: ''
+      hybrid_style: ''
+      box_style: ''
+      box_caption: ''
+      use_data_uri: '0'
+  media_embed:
+    id: media_embed
+    provider: media
+    status: false
+    weight: 100
+    settings:
+      default_view_mode: default
+      allowed_media_types: {  }
+      allowed_view_modes: {  }

@@ -1,0 +1,105 @@
+entity.taxonomy_term.collection:
+  title: Taxonomy
+  parent: system.admin_content
+  description: 'Manage individual taxonomy terms.'
+  route_name: entity.taxonomy_term.collection
+
+entity.taxonomy_vocabulary.collection:
+  title: Vocabularies
+  parent: entity.taxonomy_term.collection
+  description: 'Manage tagging, categorization, and classification of your content.'
+  route_name: entity.taxonomy_vocabulary.collection
+
+design_system.settings:
+  title: 'Global settings'
+  parent: system.themes_page
+  description: 'Configure the design system.'
+  route_name: entity.block_content.collection
+  weight: -100
+
+design_system.settings.color_palette:
+  title: 'Color palette'
+  parent: 'design_system.settings'
+  description: 'Configure the design system.'
+  route_name: entity.block_content.collection
+
+design_system.settings.font:
+  title: 'Fonts'
+  parent: 'design_system.settings'
+  description: 'Configure the design system.'
+  route_name: entity.block_content.collection
+
+design_system.settings.icon:
+  title: 'Icons'
+  parent: 'design_system.settings'
+  description: 'Configure the design system.'
+  route_name: entity.block_content.collection
+
+design_system.settings.form:
+  title: 'Form elements'
+  parent: 'design_system.settings'
+  description: 'Configure the design system.'
+  route_name: entity.block_content.collection
+
+design_system.settings.button:
+  title: 'Buttons'
+  parent: 'design_system.settings'
+  description: 'Configure the design system.'
+  route_name: entity.block_content.collection
+
+design_system.template:
+  title: 'Templates'
+  parent: system.themes_page
+  description: 'Configure the design system.'
+  route_name: entity.block_content.collection
+  weight: 120
+
+design_system.template.entity:
+  title: 'Entities'
+  parent: 'design_system.template'
+  description: 'Configure the design system.'
+  route_name: entity.block_content.collection
+
+design_system.template.entity.display:
+  title: 'Entity displays'
+  parent: 'design_system.template.entity'
+  description: 'Configure the design system.'
+  route_name: entity.block_content.collection
+
+design_system.template.entity.form:
+  title: 'Entity forms'
+  parent: 'design_system.template.entity'
+  description: 'Configure the design system.'
+  route_name: entity.block_content.collection
+
+design_system.template.views:
+  title: 'Views'
+  parent: 'design_system.template'
+  description: 'Configure the design system.'
+  route_name: entity.block_content.collection
+
+design_system.template.menu:
+  title: 'Menus'
+  parent: 'design_system.template'
+  description: 'Configure the design system.'
+  route_name: entity.block_content.collection
+
+design_system.template.facet:
+  title: 'Facets'
+  parent: 'design_system.template'
+  description: 'Configure the design system.'
+  route_name: entity.block_content.collection
+
+design_system.style:
+  title: 'Styles'
+  parent: system.themes_page
+  description: 'Configure the design system.'
+  route_name: entity.block_content.collection
+  weight: 150
+
+entity.component.category:
+  title: 'Component categories'
+  parent: 'entity.block_content.collection'
+  description: 'Configure the design system.'
+  route_name: entity.block_content.collection
+  weight: 150

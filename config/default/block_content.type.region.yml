@@ -1,0 +1,8 @@
+uuid: 5e43465f-4e3b-4977-b608-933c513a9fa6
+langcode: en
+status: true
+dependencies: {  }
+id: region
+label: Region
+revision: 1
+description: 'Provides a section within a layout row in which components or sublayouts are built.'

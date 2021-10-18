@@ -1,0 +1,17 @@
+uuid: 57e6ab79-805d-45a7-83dc-1a977ed4f665
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.w_300
+  module:
+    - crop
+name: w_300
+label: 'Wide (x300)'
+effects:
+  94f9f85e-80aa-4fd9-bd96-c472ac756f10:
+    uuid: 94f9f85e-80aa-4fd9-bd96-c472ac756f10
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: w_300

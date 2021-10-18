@@ -1,0 +1,8 @@
+uuid: 51126712-b299-403a-b4aa-e9f09c5a69ea
+langcode: en
+status: true
+dependencies: {  }
+id: drupal_block
+label: 'Drupal block'
+revision: 1
+description: 'Expose a Drupal block through a component.'

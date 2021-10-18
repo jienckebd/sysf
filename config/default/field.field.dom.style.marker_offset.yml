@@ -1,0 +1,29 @@
+uuid: 083e0c47-a4c7-4220-b5ee-65bf4a277a32
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.marker_offset
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: marker-offset
+    behavior:
+      dom:
+        subattribute: marker-offset
+id: dom.style.marker_offset
+field_name: marker_offset
+entity_type: dom
+bundle: style
+label: marker-offset
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,5 @@
+type: theme_engine
+name: Better Drupal Theme Engine
+core: 8.x
+version: VERSION
+package: Core

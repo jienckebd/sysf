@@ -1,0 +1,4 @@
+services:
+  cmsu.utility:
+    class: Drupal\content_moderation_scheduled_updates\CmsuUtility
+    arguments: ['@entity.helper', '@entity_field.manager']

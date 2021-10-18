@@ -1,0 +1,29 @@
+uuid: be6c6dfc-4a27-4a5e-832e-1e5886169189
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.clear
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: clear
+    behavior:
+      dom:
+        subattribute: clear
+id: dom.style.clear
+field_name: clear
+entity_type: dom
+bundle: style
+label: clear
+description: 'Sets the sides of an element where other floating elements are not allowed'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,23 @@
+uuid: 8106fda3-83f9-440b-92ba-cbe8f1640384
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - fontyourface
+id: theme_entity.field_font
+field_name: field_font
+entity_type: theme_entity
+type: entity_reference
+settings:
+  target_type: font
+  schema__derivative: 0
+  schema__base_target_id: 0
+  deriver: null
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

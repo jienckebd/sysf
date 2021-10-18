@@ -1,0 +1,8 @@
+uuid: 6048a6bf-7d53-4c26-a603-04412dd3dc9e
+langcode: en
+status: true
+dependencies: {  }
+id: screen_search
+label: 'Screen search'
+revision: 1
+description: "Textfield to search and jump on the active screen.\r\n"

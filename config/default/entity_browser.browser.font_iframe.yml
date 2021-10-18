@@ -1,0 +1,31 @@
+uuid: 730176be-0b41-474e-b92d-41c3a03a8f90
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.font_entity_browser
+  module:
+    - views
+name: font_iframe
+label: 'Font: Iframe'
+display: iframe
+display_configuration:
+  width: 100%
+  height: '500'
+  link_text: 'Select font'
+  auto_open: true
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: single
+widget_selector_configuration: {  }
+widgets:
+  c122070e-4863-46d1-b786-64bd7169b081:
+    settings:
+      view: font_entity_browser
+      view_display: entity_browser_1
+      submit_text: 'Select font'
+      auto_select: false
+    uuid: c122070e-4863-46d1-b786-64bd7169b081
+    weight: 1
+    label: 'Font Library'
+    id: view

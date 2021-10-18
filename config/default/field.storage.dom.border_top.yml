@@ -1,0 +1,21 @@
+uuid: ecad37f5-cce9-4f9a-80a7-37b8a76c40b6
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.border_top
+field_name: border_top
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

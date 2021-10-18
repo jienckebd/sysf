@@ -1,0 +1,22 @@
+uuid: ca9722c1-74f3-40c3-8b7b-f310f230a42b
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.dom
+field_name: dom
+entity_type: dom
+type: entity_reference
+settings:
+  target_type: dom
+  schema__derivative: 1
+  schema__base_target_id: 1
+  deriver: null
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

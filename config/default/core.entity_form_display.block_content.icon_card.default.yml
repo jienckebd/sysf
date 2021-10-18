@@ -1,0 +1,97 @@
+uuid: 909edfa5-6e07-46b4-a70a-04bf16ccbfa4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.icon_card
+    - field.field.block_content.icon_card.field_cmp_heading
+    - field.field.block_content.icon_card.field_cmp_icon
+  module:
+    - inline_entity_form
+id: block_content.icon_card.default
+targetEntityType: block_content
+bundle: icon_card
+mode: default
+content:
+  actions:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  container:
+    type: inline_entity_form_complex
+    region: content
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      allow_duplicate: true
+    third_party_settings: {  }
+    weight: 4
+  field_cmp_heading:
+    weight: 5
+    settings:
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+    third_party_settings: {  }
+    type: inline_entity_form_simple
+    region: content
+  field_cmp_icon:
+    weight: 6
+    settings:
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+    third_party_settings: {  }
+    type: inline_entity_form_simple
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  revision_log:
+    type: string_textarea
+    weight: 2
+    settings:
+      rows: 4
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  base_entity: true
+  reusable: true
+  status: true
+  tags: true
+  view_mode: true

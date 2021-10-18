@@ -1,0 +1,28 @@
+uuid: b0b91a16-bfa2-42b7-a7c4-6050ad1529a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.entity_type__admin
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: exposedformentity_type__adminblock_1
+theme: seven
+region: content
+weight: -3
+provider: null
+plugin: 'views_exposed_filter_block:entity_type__admin-block_1'
+settings:
+  id: 'views_exposed_filter_block:entity_type__admin-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/structure/entity_type
+    negate: false

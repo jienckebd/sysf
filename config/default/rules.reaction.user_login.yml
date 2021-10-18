@@ -1,0 +1,14 @@
+uuid: 519bc21e-1991-42a6-a578-5acd2d4f6173
+langcode: en
+status: true
+dependencies: {  }
+id: user_login
+label: 'User: Login'
+events:
+  -
+    event_name: 'rules_entity_delete:app'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule

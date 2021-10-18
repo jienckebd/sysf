@@ -1,0 +1,28 @@
+uuid: a069b22d-91c0-4373-86cb-b77fb30a4837
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.entity_context__admin
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: exposedformentity_context__adminblock_1
+theme: seven
+region: content
+weight: -6
+provider: null
+plugin: 'views_exposed_filter_block:entity_context__admin-block_1'
+settings:
+  id: 'views_exposed_filter_block:entity_context__admin-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/structure/entity_context
+    negate: false

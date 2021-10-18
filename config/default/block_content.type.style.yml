@@ -1,0 +1,8 @@
+uuid: 0bc9fc40-fe55-4a85-89f1-5cd39d3e9dea
+langcode: en
+status: true
+dependencies: {  }
+id: style
+label: Style
+revision: 1
+description: 'Provide a re-usable style of classes and colors.'

@@ -1,0 +1,8 @@
+uuid: dd845bfc-7a56-4ebc-93c5-58cc13e9d267
+langcode: en
+status: true
+dependencies: {  }
+id: entity_field_formatter
+label: 'Entity field formatter'
+revision: 0
+description: 'Wraps an entity field.'

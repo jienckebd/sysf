@@ -1,0 +1,21 @@
+uuid: eb1760a2-cb79-48bf-8551-351bedf48bdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.text
+    - field.storage.block_content.field_text
+  module:
+    - text
+id: block_content.text.field_text
+field_name: field_text
+entity_type: block_content
+bundle: text
+label: Text
+description: 'Provide formatted text using a WYSIWYG editor.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

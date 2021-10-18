@@ -1,0 +1,15 @@
+uuid: f34f128a-c7c9-44ee-840f-96e228cfe591
+langcode: en
+status: true
+dependencies: {  }
+third_party_settings:
+  bd:
+    config_schema_type: 'block_content.type.*'
+    entity_type_id: block_content_type
+label: null
+id: block_content_type
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

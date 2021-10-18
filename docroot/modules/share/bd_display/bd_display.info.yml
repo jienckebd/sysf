@@ -1,0 +1,9 @@
+name: 'BD Display'
+core: 8.x
+type: module
+description: 'Better Drupal: display extension.'
+version: '8.x-1.0'
+package: BD
+
+dependencies:
+  - page_manager

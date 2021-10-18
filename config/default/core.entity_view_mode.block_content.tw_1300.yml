@@ -1,0 +1,10 @@
+uuid: b76f6f03-8ccd-4c33-a697-fd17ac09d9b0
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.tw_1300
+label: 'Tall wide (x1300)'
+targetEntityType: block_content
+cache: true

@@ -1,0 +1,28 @@
+uuid: e02658d5-7d94-44c2-b336-67444a9c5294
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.padding_left
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: padding-left
+    behavior:
+      dom:
+        subattribute: padding-left
+id: dom.style.padding_left
+field_name: padding_left
+entity_type: dom
+bundle: style
+label: padding-left
+description: 'Sets the left padding of an element'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

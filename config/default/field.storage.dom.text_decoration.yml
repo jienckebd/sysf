@@ -1,0 +1,36 @@
+uuid: bc3bfa70-12ae-4b39-8b9e-b0cfeb1154c9
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.text_decoration
+field_name: text_decoration
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: none
+      label: none
+    -
+      value: underline
+      label: underline
+    -
+      value: overline
+      label: overline
+    -
+      value: line-through
+      label: line-through
+    -
+      value: blink
+      label: blink
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

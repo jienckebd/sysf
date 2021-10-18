@@ -1,0 +1,743 @@
+uuid: 5cf8d7c3-ea38-4510-accf-f1516f725cc7
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.media_image_modal
+    - field.field.node.screen.field_domain_access
+    - field.field.node.screen.field_domain_all_affiliates
+    - field.field.node.screen.field_domain_source
+    - field.field.node.screen.field_image
+    - field.field.node.screen.field_meta_tags
+    - field.field.node.screen.field_qr_code
+    - field.field.node.screen.field_tags
+    - field.field.node.screen.field_yoast_seo
+    - field.field.node.screen.layout_builder__layout
+    - field.field.node.screen.schedule_status_change
+    - node.type.screen
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - design_system
+    - entity_browser
+    - field_group
+    - inline_entity_form
+    - length_indicator
+    - maxlength
+    - metatag
+    - path
+    - qrfield
+    - yoast_seo
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_screen
+        - group_meta_tags
+        - group_advanced
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        direction: horizontal
+        width_breakpoint: 640
+      label: Tabs
+    group_screen:
+      children:
+        - group_overview
+        - field_yoast_seo
+        - group_status
+      parent_name: group_tabs
+      weight: 20
+      format_type: tab
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Screen
+    group_meta_tags:
+      children:
+        - field_meta_tags
+      parent_name: group_tabs
+      weight: 21
+      format_type: tab
+      region: content
+      format_settings:
+        description: ''
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+        show_empty_fields: false
+      label: 'Meta data'
+    group_advanced:
+      children:
+        - menu_link
+        - path
+        - redirect
+        - group_publishing
+        - schedule_status_change
+        - simple_sitemap
+        - menu
+        - field_qr_code
+        - label_browser
+        - label_ia
+        - label_display
+        - field_override
+      parent_name: group_tabs
+      weight: 22
+      format_type: tab
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Advanced
+    group_publishing:
+      children:
+        - promote
+        - sticky
+        - langcode
+        - created
+        - uid
+      parent_name: group_advanced
+      weight: 19
+      format_type: details
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: Publishing
+    group_status:
+      children:
+        - moderation_state
+        - revision_log
+      parent_name: group_screen
+      weight: 26
+      format_type: details
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: Status
+    group_overview:
+      children:
+        - title
+        - description
+        - field_tags
+        - field_image
+      parent_name: group_screen
+      weight: 20
+      format_type: details
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: Overview
+id: node.screen.default
+targetEntityType: node
+bundle: screen
+mode: default
+content:
+  actions:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  description:
+    type: string_textarea
+    weight: 22
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      length_indicator:
+        indicator_opt:
+          optimin: 10
+          optimax: 15
+          tolerance: 5
+        indicator: false
+      maxlength:
+        maxlength_js: 500
+        maxlength_js_label: '@remaining / @limit characters'
+        maxlength_js_enforce: false
+        maxlength_js_truncate_html: false
+      design_system:
+        overview:
+          entity_field_group: ''
+          default_field_widget:
+            plugin_id: ''
+          default_field_formatter:
+            plugin_id: ''
+          weight: ''
+          cardinality: ''
+        element:
+          field_items:
+            container: ''
+          field_item:
+            container: ''
+          field_value:
+            container: ''
+            override: ''
+            callback: ''
+          label:
+            container: ''
+            override: ''
+            display_position: before
+          description:
+            container: ''
+            override: ''
+            display_position: after
+        behavior:
+          access:
+            view:
+              0:
+                condition:
+                  plugin_id: ''
+              condition_list:
+                actions:
+                  add: ''
+            edit:
+              0:
+                condition:
+                  plugin_id: ''
+              restrict_behavior: ''
+              condition_list:
+                actions:
+                  add: ''
+          translation:
+            force_langcode: ''
+            disable: 0
+          default_value:
+            plugin:
+              plugin_id: ''
+          multi_value:
+            max: ''
+            delimiter: ''
+          empty_value:
+            plugin:
+              plugin_id: ''
+          dom:
+            attribute: ''
+            subattribute: ''
+            theme_hook: ''
+            theme_hook_selector: ''
+            theme_hook_match_key: ''
+            theme_hook_match_value: ''
+            build_css_field_name: ''
+            build_css: 0
+  field_domain_access:
+    type: options_buttons
+    weight: 40
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 41
+    third_party_settings: {  }
+    region: content
+  field_domain_source:
+    type: options_select
+    weight: 42
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 24
+    settings:
+      entity_browser: media_image_modal
+      field_widget_display: rendered_entity
+      field_widget_display_settings:
+        view_mode: embed
+      field_widget_edit: true
+      field_widget_remove: true
+      field_widget_replace: true
+      open: true
+      selection_mode: selection_append
+    third_party_settings:
+      design_system:
+        overview:
+          entity_field_group: ''
+          default_field_widget:
+            plugin_id: ''
+          default_field_formatter:
+            plugin_id: ''
+          weight: ''
+          cardinality: ''
+        element:
+          field_items:
+            container: ''
+          field_item:
+            container: ''
+          field_value:
+            container: ''
+            override: ''
+            callback: ''
+          label:
+            container: ''
+            override: ''
+            display_position: before
+          description:
+            container: ''
+            override: ''
+            display_position: after
+        behavior:
+          access:
+            view:
+              0:
+                condition:
+                  plugin_id: ''
+              condition_list:
+                actions:
+                  add: ''
+            edit:
+              0:
+                condition:
+                  plugin_id: ''
+              restrict_behavior: ''
+              condition_list:
+                actions:
+                  add: ''
+          translation:
+            force_langcode: ''
+            disable: 0
+          default_value:
+            plugin:
+              plugin_id: ''
+          multi_value:
+            max: ''
+            delimiter: ''
+          empty_value:
+            plugin:
+              plugin_id: ''
+          dom:
+            attribute: ''
+            subattribute: ''
+            theme_hook: ''
+            theme_hook_selector: ''
+            theme_hook_match_key: ''
+            theme_hook_match_value: ''
+            build_css_field_name: ''
+            build_css: 0
+    type: entity_browser_entity_reference
+    region: content
+  field_meta_tags:
+    weight: 24
+    settings:
+      sidebar: true
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
+  field_qr_code:
+    weight: 23
+    settings:
+      text: 'Enter you QR text here (e.g.: Welcome to [site:name] [site:url])'
+      image:
+        width: 100
+        height: 100
+    third_party_settings: {  }
+    type: qrfield_widget
+    region: content
+  field_tags:
+    weight: 23
+    settings:
+      autocomplete: true
+      match_operator: CONTAINS
+      match_limit: 10
+      width: 100%
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_yoast_seo:
+    weight: 25
+    settings:
+      body: body
+    third_party_settings: {  }
+    type: yoast_seo_widget
+    region: content
+  label_browser:
+    type: string_textfield
+    weight: 24
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  label_display:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  label_ia:
+    type: string_textfield
+    weight: 25
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 3
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  menu:
+    weight: 22
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  menu_link:
+    type: options_select
+    weight: 16
+    region: content
+    settings:
+      autocomplete: true
+      match_operator: CONTAINS
+      match_limit: 10
+      width: 100%
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 3
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 17
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 1
+    region: content
+    third_party_settings: {  }
+  redirect:
+    type: options_select
+    weight: 18
+    region: content
+    settings:
+      autocomplete: true
+      match_operator: CONTAINS
+      match_limit: 10
+      width: 100%
+    third_party_settings: {  }
+  revision_log:
+    type: string_textarea
+    weight: 4
+    settings:
+      rows: 4
+      placeholder: ''
+    region: content
+    third_party_settings:
+      length_indicator:
+        indicator_opt:
+          optimin: 10
+          optimax: 15
+          tolerance: 5
+        indicator: false
+      maxlength:
+        maxlength_js: 1000
+        maxlength_js_label: '@remaining / @limit characters'
+        maxlength_js_enforce: false
+        maxlength_js_truncate_html: false
+      design_system:
+        overview:
+          entity_field_group: ''
+          default_field_widget:
+            plugin_id: ''
+          default_field_formatter:
+            plugin_id: ''
+          weight: ''
+          cardinality: ''
+        element:
+          field_items:
+            container: ''
+          field_item:
+            container: ''
+          field_value:
+            container: ''
+            override: ''
+            callback: ''
+          label:
+            container: ''
+            override: ''
+            display_position: before
+          description:
+            container: ''
+            override: ''
+            display_position: after
+        behavior:
+          access:
+            view:
+              0:
+                condition:
+                  plugin_id: ''
+              condition_list:
+                actions:
+                  add: ''
+            edit:
+              0:
+                condition:
+                  plugin_id: ''
+              restrict_behavior: ''
+              condition_list:
+                actions:
+                  add: ''
+          translation:
+            force_langcode: ''
+            disable: 0
+          default_value:
+            plugin:
+              plugin_id: ''
+          multi_value:
+            max: ''
+            delimiter: ''
+          empty_value:
+            plugin:
+              plugin_id: ''
+          dom:
+            attribute: ''
+            subattribute: ''
+            theme_hook: ''
+            theme_hook_selector: ''
+            theme_hook_match_key: ''
+            theme_hook_match_value: ''
+            build_css_field_name: ''
+            build_css: 0
+  schedule_status_change:
+    type: inline_entity_form_complex
+    weight: 20
+    settings:
+      override_labels: true
+      label_singular: 'Schedule status change'
+      label_plural: 'Schedule status changes'
+      allow_new: true
+      match_operator: CONTAINS
+      allow_existing: false
+      form_mode: default
+      revision: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: true
+    third_party_settings: {  }
+    region: content
+  simple_sitemap:
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 2
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      length_indicator:
+        indicator: true
+        indicator_opt:
+          optimin: 10
+          optimax: 15
+          tolerance: 5
+      maxlength:
+        maxlength_js: 200
+        maxlength_js_label: '@remaining / @limit characters'
+      design_system:
+        overview:
+          entity_field_group: ''
+          default_field_widget:
+            plugin_id: ''
+          default_field_formatter:
+            plugin_id: ''
+          weight: ''
+          cardinality: ''
+        element:
+          field_items:
+            container: ''
+          field_item:
+            container: ''
+          field_value:
+            container: ''
+            override: ''
+            callback: ''
+          label:
+            container: ''
+            override: ''
+            display_position: before
+          description:
+            container: ''
+            override: ''
+            display_position: after
+        behavior:
+          access:
+            view:
+              0:
+                condition:
+                  plugin_id: ''
+              1:
+                condition:
+                  plugin_id: ''
+              condition_list:
+                actions:
+                  add: ''
+            edit:
+              0:
+                condition:
+                  plugin_id: ''
+              1:
+                condition:
+                  plugin_id: ''
+              restrict_behavior: ''
+              condition_list:
+                actions:
+                  add: ''
+          translation:
+            force_langcode: ''
+            disable: 0
+          default_value:
+            plugin:
+              plugin_id: ''
+          multi_value:
+            max: ''
+            delimiter: ''
+          empty_value:
+            plugin:
+              plugin_id: ''
+          dom:
+            attribute: ''
+            subattribute: ''
+            theme_hook: ''
+            theme_hook_selector: ''
+            theme_hook_match_key: ''
+            theme_hook_match_value: ''
+            build_css_field_name: ''
+            build_css: 0
+  uid:
+    type: options_select
+    weight: 5
+    settings:
+      width: 100%
+      autocomplete: true
+      match_operator: CONTAINS
+      match_limit: 10
+    region: content
+    third_party_settings:
+      design_system:
+        overview:
+          entity_field_group: ''
+          default_field_widget:
+            plugin_id: ''
+          default_field_formatter:
+            plugin_id: ''
+          weight: ''
+          cardinality: ''
+        element:
+          field_items:
+            container: ''
+          field_item:
+            container: ''
+          field_value:
+            container: ''
+            override: ''
+            callback: ''
+          label:
+            container: ''
+            override: ''
+            display_position: before
+          description:
+            container: ''
+            override: ''
+            display_position: after
+        behavior:
+          access:
+            view:
+              0:
+                condition:
+                  plugin_id: ''
+              condition_list:
+                actions:
+                  add: ''
+            edit:
+              0:
+                condition:
+                  plugin_id: ''
+              restrict_behavior: ''
+              condition_list:
+                actions:
+                  add: ''
+          translation:
+            force_langcode: ''
+            disable: 0
+          default_value:
+            plugin:
+              plugin_id: ''
+          multi_value:
+            max: ''
+            delimiter: ''
+          empty_value:
+            plugin:
+              plugin_id: ''
+          dom:
+            attribute: ''
+            subattribute: ''
+            theme_hook: ''
+            theme_hook_selector: ''
+            theme_hook_match_key: ''
+            theme_hook_match_value: ''
+            build_css_field_name: ''
+            build_css: 0
+hidden:
+  layout_builder__layout: true
+  status: true
+  title: true
+  url_redirects: true

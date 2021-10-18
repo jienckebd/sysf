@@ -1,0 +1,89 @@
+uuid: 0a06ffd5-b11c-4d1e-ad5b-bd64f3f8af1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_domain_access
+    - field.field.user.user.field_domain_admin
+    - field.field.user.user.field_domain_all_affiliates
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_last_name
+  module:
+    - path
+    - user
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  actions:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  contact:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_first_name:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_last_name:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  language:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  timezone:
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+hidden:
+  access: true
+  created: true
+  field_domain_access: true
+  field_domain_admin: true
+  field_domain_all_affiliates: true
+  init: true
+  langcode: true
+  login: true
+  mail: true
+  name: true
+  pass: true
+  preferred_admin_langcode: true
+  preferred_langcode: true
+  roles: true
+  status: true

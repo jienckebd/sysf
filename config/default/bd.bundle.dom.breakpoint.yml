@@ -1,0 +1,11 @@
+uuid: 10516f03-09be-4589-bf7b-38d605c214fe
+langcode: en
+status: true
+dependencies: {  }
+label: Device
+id: breakpoint
+description: ''
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

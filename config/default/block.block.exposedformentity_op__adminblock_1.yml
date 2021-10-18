@@ -1,0 +1,28 @@
+uuid: dc156c4d-c7fd-4956-aeea-c8d908ad6673
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.entity_op__admin
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: exposedformentity_op__adminblock_1
+theme: seven
+region: content
+weight: -5
+provider: null
+plugin: 'views_exposed_filter_block:entity_op__admin-block_1'
+settings:
+  id: 'views_exposed_filter_block:entity_op__admin-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/structure/entity_op
+    negate: false

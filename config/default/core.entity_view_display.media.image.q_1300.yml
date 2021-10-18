@@ -1,0 +1,47 @@
+uuid: cae65fe5-05dd-4f79-9d61-561c291e1946
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.q_1300
+    - field.field.media.image.field_media_image
+    - image.style.q_1300
+    - media.type.image
+  module:
+    - image
+id: media.image.q_1300
+targetEntityType: media
+bundle: image
+mode: q_1300
+content:
+  field_media_image:
+    label: visually_hidden
+    settings:
+      image_style: q_1300
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    weight: 1
+    region: content
+hidden:
+  bundle: true
+  changed: true
+  created: true
+  default_langcode: true
+  directory: true
+  langcode: true
+  metatag: true
+  mid: true
+  name: true
+  path: true
+  revision_created: true
+  revision_default: true
+  revision_log_message: true
+  revision_translation_affected: true
+  revision_user: true
+  search_api_excerpt: true
+  status: true
+  thumbnail: true
+  uid: true
+  uuid: true
+  vid: true

@@ -1,0 +1,43 @@
+uuid: 97cfc921-df72-4538-ad42-c98327b53ee0
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.relation.dependency
+    - field.storage.relation.field_type
+    - taxonomy.vocabulary.dependency_type
+  module:
+    - bd
+third_party_settings:
+  bd:
+    data_deriver:
+      plugin: ''
+    dom:
+      attribute: ''
+      subattribute: ''
+      theme_hook: ''
+      theme_hook_selector: ''
+      theme_hook_match_key: ''
+      theme_hook_match_value: ''
+    dependency:
+      type: ''
+id: relation.dependency.field_type
+field_name: field_type
+entity_type: relation
+bundle: dependency
+label: 'Dependency Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: null
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      dependency_type: dependency_type
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

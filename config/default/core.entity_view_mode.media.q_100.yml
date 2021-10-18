@@ -1,0 +1,10 @@
+uuid: d701b6f9-de14-429b-a1c4-d74b40037383
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.q_100
+label: 'Square (x100)'
+targetEntityType: media
+cache: true

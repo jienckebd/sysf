@@ -1,0 +1,21 @@
+uuid: 65b691bc-90fe-4d8d-8d19-e0bf40be0f5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.media_type
+    - field.storage.dom.continuous_paged
+  module:
+    - options
+id: dom.media_type.continuous_paged
+field_name: continuous_paged
+entity_type: dom
+bundle: media_type
+label: continuous/paged
+description: 'Defines whether or not the media type is paged.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

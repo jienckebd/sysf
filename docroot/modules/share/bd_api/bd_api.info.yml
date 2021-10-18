@@ -1,0 +1,6 @@
+name: 'BD API'
+core: 8.x
+type: module
+description: 'Better Drupal: API.'
+version: '8.x-1.0'
+package: BD

@@ -1,0 +1,20 @@
+uuid: e9256a4e-da86-4d11-babd-b14f32afbef0
+langcode: en
+status: true
+dependencies:
+  theme:
+    - alpha
+id: tabs
+theme: alpha
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

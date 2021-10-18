@@ -1,0 +1,94 @@
+uuid: baa48123-a9c0-4116-8d42-38d8c7b18e76
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.video.body
+    - field.field.node.video.field_domain_access
+    - field.field.node.video.field_domain_all_affiliates
+    - field.field.node.video.field_domain_source
+    - field.field.node.video.schedule_status_change
+    - node.type.video
+  module:
+    - text
+    - user
+id: node.video.teaser
+targetEntityType: node
+bundle: video
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  created:
+    label: hidden
+    type: timestamp
+    weight: 0
+    region: content
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+      filter_format: null
+    third_party_settings: {  }
+  uid:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  changed: true
+  default_langcode: true
+  description: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  label_browser: true
+  label_display: true
+  label_ia: true
+  langcode: true
+  menu_link: true
+  metatag: true
+  moderation_state: true
+  nid: true
+  path: true
+  promote: true
+  redirect: true
+  revision_default: true
+  revision_log: true
+  revision_timestamp: true
+  revision_translation_affected: true
+  revision_uid: true
+  schedule_status_change: true
+  search_api_excerpt: true
+  status: true
+  sticky: true
+  type: true
+  uuid: true
+  vid: true

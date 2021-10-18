@@ -1,0 +1,63 @@
+uuid: 4054da9c-78bc-4a7e-bc1c-ef404eda4da0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.main.field_attr_target
+    - field.field.menu_link_content.main.field_icon
+    - field.field.menu_link_content.main.field_icon_only
+    - system.menu.main
+  module:
+    - fontawesome
+id: menu_link_content.main.default
+targetEntityType: menu_link_content
+bundle: main
+mode: default
+content:
+  field_icon:
+    type: fontawesome_icon_formatter
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      size: ''
+      layers: false
+      color: ''
+    third_party_settings: {  }
+  title:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+      filter_format: null
+    third_party_settings: {  }
+hidden:
+  bundle: true
+  changed: true
+  children: true
+  default_langcode: true
+  description: true
+  enabled: true
+  expanded: true
+  external: true
+  field_attr_target: true
+  field_icon_only: true
+  id: true
+  langcode: true
+  link: true
+  menu_name: true
+  metatag: true
+  parent: true
+  rediscover: true
+  revision_created: true
+  revision_default: true
+  revision_id: true
+  revision_log_message: true
+  revision_translation_affected: true
+  revision_user: true
+  search_api_excerpt: true
+  uuid: true
+  view_mode: true
+  weight: true

@@ -1,0 +1,8 @@
+uuid: 6ff92524-0d2d-4523-8ada-c4d339e5ba8c
+langcode: en
+status: true
+dependencies: {  }
+id: button
+label: Button
+revision: 1
+description: 'Provide a button or CTA with configuration around link target, button size, button type, etc.'

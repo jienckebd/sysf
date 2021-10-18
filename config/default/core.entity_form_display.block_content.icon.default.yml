@@ -1,0 +1,66 @@
+uuid: 116e8c22-8823-4c05-8dee-c9a1b0b20d5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.icon
+    - field.field.block_content.icon.field_icon
+  module:
+    - fontawesome
+    - inline_entity_form
+id: block_content.icon.default
+targetEntityType: block_content
+bundle: icon
+mode: default
+content:
+  actions:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  container:
+    type: inline_entity_form_complex
+    region: content
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      allow_duplicate: true
+    third_party_settings: {  }
+    weight: 3
+  field_icon:
+    type: fontawesome_icon_widget
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden:
+  base_entity: true
+  reusable: true
+  revision_log: true
+  simple_sitemap: true
+  status: true
+  tags: true
+  view_mode: true

@@ -1,0 +1,19 @@
+uuid: abf1a04c-eefd-49e7-b7cb-b7c7f4c7689d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.heading
+    - field.storage.block_content.field_label
+id: block_content.heading.field_label
+field_name: field_label
+entity_type: block_content
+bundle: heading
+label: 'Heading text'
+description: 'Specify the heading text.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

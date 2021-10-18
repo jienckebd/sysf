@@ -1,0 +1,21 @@
+uuid: e289a8ef-4363-48f9-b890-3b30279bb7b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: behavior.field_modifier
+field_name: field_modifier
+entity_type: behavior
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: fa4bbaf6-8560-41cf-95f0-b98cb55896ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+id: contact_message.field_saia_comment
+field_name: field_saia_comment
+entity_type: contact_message
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

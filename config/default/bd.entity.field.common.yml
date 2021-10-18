@@ -1,0 +1,182 @@
+template:
+  label:
+    type: string
+    label: '@entity_type_label_singular name'
+    description: ''
+    required: false
+    revisionable: true
+    translatable: true
+    settings:
+      max_length: 255
+    display_options:
+      form:
+        type: string_textfield
+        weight: -5
+  description:
+    type: string_long
+    label: Description
+    required: false
+    revisionable: true
+    translatable: true
+  machine_name:
+    type: string_long
+    label: 'Machine name'
+    required: true
+    revisionable: true
+    translatable: true
+  data:
+    type: map
+    label: Data
+    required: true
+    revisionable: true
+    translatable: true
+  uid:
+    type: entity_reference
+    label: Creator
+    description: 'The user who created this.'
+    revisionable: false
+    translatable: false
+    settings:
+      target_type: user
+    default_value_callback: 'Drupal\bd\Entity\Entity\Content::getCurrentUserId'
+  created:
+    type: created
+    label: Created
+    description: 'The time when this was created.'
+    revisionable: true
+    translatable: true
+  changed:
+    type: changed
+    label: Updated
+    description: 'The last time this was updated.'
+    revisionable: true
+    translatable: true
+  promote:
+    type: boolean
+    label: Promoted
+    description: 'Promote this to the front screen.'
+    revisionable: true
+    translatable: true
+    default_value: 0
+  sticky:
+    type: boolean
+    label: Sticky
+    description: 'Push this item to the top of lists.'
+    revisionable: true
+    translatable: true
+    default_value: 0
+  weight:
+    type: integer
+    label: Weight
+    description: 'The weight of this in relation to others.'
+    default_value: 0
+  parent:
+    type: entity_reference
+    label: Parent
+    description: 'The parent of this.'
+    revisionable: true
+    translatable: true
+    settings:
+      target_type: user
+    cardinality: -1
+  index:
+    type: entity_index
+    label: 'Entity Index'
+    description: 'The fields to index.'
+    revisionable: true
+    translatable: true
+    display_configurable:
+      view: false
+      form: false
+  label_ia:
+    type: string
+    label: 'Information architecture label'
+    description: 'Override the title when this is used within breadcrumbs, URLs, etc.'
+    default_value: false
+    required: false
+    translatable: true
+    revisionable: true
+  label_browser:
+    type: string
+    label: 'Browser title'
+    description: 'Override the title used in the browser tab and history.'
+    default_value: false
+    required: false
+    translatable: true
+    revisionable: true
+  label_display:
+    type: string
+    label: 'Display label'
+    description: 'Override the title when this is displayed on the front end.'
+    default_value: false
+    required: false
+    translatable: true
+    revisionable: true
+  base_entity:
+    type: entity_reference
+    label: 'Base entity'
+    required: false
+    revisionable: false
+    translatable: false
+  source:
+    type: dynamic_entity_reference
+    label: 'Source entity'
+    required: true
+    revisionable: false
+    translatable: false
+    settings:
+      exclude_entity_types: true
+  target:
+    type: dynamic_entity_reference
+    label: 'Target entity'
+    required: true
+    revisionable: false
+    translatable: false
+    settings:
+      exclude_entity_types: true
+  computed_address:
+    type: address
+    label: Address
+    computed: true
+    class: \Drupal\bd\Field\ComputedFieldValueGenericFieldItemList
+  computed_geo:
+    type: geofield
+    label: Geo
+    computed: true
+    class: \Drupal\bd\Field\ComputedFieldValueGenericFieldItemList
+  computed_children:
+    type: entity_reference
+    label: Children
+    computed: true
+    class: \Drupal\bd\Field\ComputedEntityReferenceFieldItemList
+  computed_children_revision:
+    type: entity_reference_revisions
+    label: Children
+    computed: true
+    class: \Drupal\bd\Field\ComputedEntityReferenceRevisionsFieldItemList
+display_configurable_disable:
+  view:
+    entity_key: {  }
+    revision_metadata_key: {  }
+    field_name: {  }
+  form:
+    entity_key:
+      - id
+      - uuid
+      - bundle
+      - revision
+      - default_langcode
+    revision_metadata_key:
+      - revision_user
+      - revision_created
+      - revision_default
+    field_name:
+      - layout_builder__layout
+      - field_layout_builder__component
+      - revision_translation_affected
+      - changed
+      - metatag
+      - workspace
+      - workspace_whitelist
+_core:
+  default_config_hash: jUXBqWDJRNaMuor5AbM_SmEBnqox3QNSPDZC3LcFYYs

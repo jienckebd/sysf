@@ -1,0 +1,43 @@
+uuid: 08e3b1de-2410-425a-b358-c15644e2f357
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.config_entity_wrapper_entity_browser
+  module:
+    - entity_browser_entity_form
+    - views
+name: config_entity_wrapper_modal
+label: 'Config: modal'
+display: modal
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select config_entity_wrappers'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  f7c524c4-af83-43fa-8e5f-e4c228676494:
+    settings:
+      view: config_entity_wrapper_entity_browser
+      view_display: entity_browser_1
+      submit_text: 'Select existing config_entity_wrconfig_entity_wrapperer'
+      auto_select: false
+    uuid: f7c524c4-af83-43fa-8e5f-e4c228676494
+    weight: 1
+    label: 'Existing config_entity_wrappers'
+    id: view
+  bfeef8bf-8703-4f89-92a6-a643f53b244a:
+    settings:
+      entity_type: config_entity_wrconfig_entity_wrapperer
+      bundle: __editor_bundle
+      form_mode: inline
+      submit_text: 'Save config_entity_wrconfig_entity_wrapperer'
+      allowed_bundles: {  }
+    uuid: bfeef8bf-8703-4f89-92a6-a643f53b244a
+    weight: 2
+    label: 'Create a new config_entity_wrconfig_entity_wrapperer'
+    id: entity_form

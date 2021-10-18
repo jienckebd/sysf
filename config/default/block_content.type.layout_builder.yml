@@ -1,0 +1,8 @@
+uuid: 0e3af0e6-8301-4481-8c12-f8ef067c93a9
+langcode: en
+status: true
+dependencies: {  }
+id: layout_builder
+label: 'Layout builder'
+revision: 1
+description: 'Build a component of other components using layout builder.'

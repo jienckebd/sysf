@@ -1,0 +1,33 @@
+uuid: 3917e9dd-1e31-4b77-a18c-1f3bf2847d11
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.text_transform
+field_name: text_transform
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: none
+      label: none
+    -
+      value: capitalize
+      label: capitalize
+    -
+      value: uppercase
+      label: uppercase
+    -
+      value: lowercase
+      label: lowercase
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

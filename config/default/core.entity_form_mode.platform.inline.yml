@@ -1,0 +1,10 @@
+uuid: d9d7bec5-1585-4cdb-8cf3-c505f7da2002
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: platform.inline
+label: Inline
+targetEntityType: platform
+cache: true

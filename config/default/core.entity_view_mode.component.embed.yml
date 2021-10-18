@@ -1,0 +1,10 @@
+uuid: ce9d1db5-24ef-413e-8997-bbc173cd3f59
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: component.embed
+label: Embed
+targetEntityType: component
+cache: true

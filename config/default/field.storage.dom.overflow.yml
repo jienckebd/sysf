@@ -1,0 +1,33 @@
+uuid: 33310a64-92f5-4724-9f20-0a7cce1e9b82
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.overflow
+field_name: overflow
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: visible
+      label: visible
+    -
+      value: hidden
+      label: hidden
+    -
+      value: scroll
+      label: scroll
+    -
+      value: auto
+      label: auto
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

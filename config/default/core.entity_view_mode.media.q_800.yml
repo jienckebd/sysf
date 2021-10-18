@@ -1,0 +1,10 @@
+uuid: ecebfab5-04e1-4c4e-b5ae-a652576b9f8a
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.q_800
+label: 'Square (x800)'
+targetEntityType: media
+cache: true

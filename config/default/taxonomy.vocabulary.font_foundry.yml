@@ -1,0 +1,8 @@
+uuid: abbfeb62-15cd-4ec3-805f-3d07dfedc146
+langcode: en
+status: true
+dependencies: {  }
+name: 'Font Foundry'
+vid: font_foundry
+description: 'Font Foundry'
+weight: 0

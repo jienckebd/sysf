@@ -1,0 +1,7 @@
+autoref.settings:
+  path: '/admin/config/system/autoref'
+  defaults:
+    _form: 'Drupal\autoref\Form\AutorefSettings'
+    _title: 'Auto Reference Settings'
+  requirements:
+    _permission: 'administer autoref'

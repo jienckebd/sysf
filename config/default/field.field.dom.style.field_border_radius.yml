@@ -1,0 +1,39 @@
+uuid: caa6d5c8-4818-41cb-b9da-d68aac9153b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.field_border_radius
+  module:
+    - bd
+third_party_settings:
+  bd:
+    data_deriver:
+      plugin: ''
+    dom:
+      attribute: ''
+      subattribute: border-radius
+      theme_hook: ''
+      theme_hook_selector: ''
+      theme_hook_match_key: ''
+      theme_hook_match_value: ''
+      build_css: 0
+      build_css_field_name: ''
+    dependency:
+      type: ''
+    behavior:
+      dom:
+        subattribute: border-radius
+id: dom.style.field_border_radius
+field_name: field_border_radius
+entity_type: dom
+bundle: style
+label: border-radius
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: null
+settings: {  }
+field_type: string

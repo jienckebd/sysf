@@ -1,0 +1,29 @@
+uuid: d8eb1f3a-302c-4105-9dd3-2362d5b35f98
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.button
+    - block_content.type.image_card
+    - field.storage.block_content.field_cmp_button
+id: block_content.image_card.field_cmp_button
+field_name: field_cmp_button
+entity_type: block_content
+bundle: image_card
+label: Buttons
+description: 'Provide button components.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      button: button
+    sort:
+      field: info
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

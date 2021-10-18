@@ -1,0 +1,10 @@
+uuid: fb92217b-cefe-4048-a092-4f6ebf398a67
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.nw_500
+label: 'Narrow wide (x500)'
+targetEntityType: media
+cache: true

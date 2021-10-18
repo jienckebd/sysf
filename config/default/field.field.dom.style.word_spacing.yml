@@ -1,0 +1,28 @@
+uuid: ce53d374-c5ea-4acc-b362-a1574a54160c
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.word_spacing
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: word-spacing
+    behavior:
+      dom:
+        subattribute: word-spacing
+id: dom.style.word_spacing
+field_name: word_spacing
+entity_type: dom
+bundle: style
+label: word-spacing
+description: 'Increases or decreases the space between words'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

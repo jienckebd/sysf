@@ -1,0 +1,54 @@
+uuid: d656be49-d8e7-401f-8468-f75eacb67c52
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.font_stretch
+field_name: font_stretch
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: normal
+      label: normal
+    -
+      value: wider
+      label: wider
+    -
+      value: narrower
+      label: narrower
+    -
+      value: ultra-condensed
+      label: ultra-condensed
+    -
+      value: extra-condensed
+      label: extra-condensed
+    -
+      value: condensed
+      label: condensed
+    -
+      value: semi-condensed
+      label: semi-condensed
+    -
+      value: semi-expanded
+      label: semi-expanded
+    -
+      value: expanded
+      label: expanded
+    -
+      value: extra-expanded
+      label: extra-expanded
+    -
+      value: ultra-expanded
+      label: ultra-expanded
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

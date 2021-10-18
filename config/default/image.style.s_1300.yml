@@ -1,0 +1,17 @@
+uuid: 35ab2fcc-4b91-4f32-ad05-3343022ccdc0
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.s_1300
+  module:
+    - crop
+name: s_1300
+label: 'Standard (x1300)'
+effects:
+  55b1c0c6-7510-4ee9-b2c3-47f012f1cce1:
+    uuid: 55b1c0c6-7510-4ee9-b2c3-47f012f1cce1
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: s_1300

@@ -1,0 +1,21 @@
+uuid: 84de7a9d-0541-4fb4-8602-4ddd2f3ae048
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.max_width
+field_name: max_width
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

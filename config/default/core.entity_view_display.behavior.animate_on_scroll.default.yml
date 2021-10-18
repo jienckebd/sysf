@@ -1,0 +1,119 @@
+uuid: 5b9b4565-af87-42bf-8d6f-0ce333306aca
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.behavior.animate_on_scroll
+    - field.field.behavior.animate_on_scroll.field_anchor_placement
+    - field.field.behavior.animate_on_scroll.field_aos_effect
+    - field.field.behavior.animate_on_scroll.field_delay
+    - field.field.behavior.animate_on_scroll.field_duration
+    - field.field.behavior.animate_on_scroll.field_easing
+    - field.field.behavior.animate_on_scroll.field_mirror
+    - field.field.behavior.animate_on_scroll.field_offset
+    - field.field.behavior.animate_on_scroll.field_once
+    - field.field.behavior.animate_on_scroll.field_selector
+  module:
+    - options
+id: behavior.animate_on_scroll.default
+targetEntityType: behavior
+bundle: animate_on_scroll
+mode: default
+content:
+  field_anchor_placement:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_aos_effect:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_delay:
+    weight: 4
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_duration:
+    weight: 5
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_easing:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_mirror:
+    weight: 6
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_offset:
+    weight: 3
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_once:
+    weight: 7
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_selector:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+      filter_format: null
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  bundle: true
+  changed: true
+  created: true
+  default_langcode: true
+  description: true
+  id: true
+  label: true
+  langcode: true
+  metatag: true
+  revision_created: true
+  revision_default: true
+  revision_id: true
+  revision_log_message: true
+  revision_translation_affected: true
+  revision_user: true
+  search_api_excerpt: true
+  status: true
+  uid: true
+  uuid: true

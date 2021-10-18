@@ -1,0 +1,18 @@
+uuid: d74e0adf-4e5b-4566-8e54-f32f4b21b513
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Video
+type: video
+description: 'Share a video from Youtube, Vimeo, Brightcove, or uploaded directly.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

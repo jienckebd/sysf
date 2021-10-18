@@ -1,0 +1,46 @@
+uuid: 20495da1-d670-402a-b7df-1b46e9fa9531
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.icon
+    - field.field.block_content.icon.field_icon
+  module:
+    - fontawesome
+id: block_content.icon.default
+targetEntityType: block_content
+bundle: icon
+mode: default
+content:
+  field_icon:
+    type: fontawesome_icon_formatter
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      size: ''
+      color: ''
+      layers: false
+    third_party_settings: {  }
+hidden:
+  base_entity: true
+  changed: true
+  container: true
+  default_langcode: true
+  id: true
+  info: true
+  langcode: true
+  metatag: true
+  reusable: true
+  revision_created: true
+  revision_default: true
+  revision_id: true
+  revision_log: true
+  revision_translation_affected: true
+  revision_user: true
+  search_api_excerpt: true
+  status: true
+  tags: true
+  type: true
+  uuid: true
+  view_mode: true

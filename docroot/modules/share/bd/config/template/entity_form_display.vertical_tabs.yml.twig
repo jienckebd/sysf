@@ -1,0 +1,1250 @@
+uuid: 55948dc2-4078-418a-9800-24b504f1f9cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom_type.style
+    - field.field.dom.style.active
+    - field.field.dom.style.after
+    - field.field.dom.style.background
+    - field.field.dom.style.background_attachment
+    - field.field.dom.style.background_color
+    - field.field.dom.style.background_image
+    - field.field.dom.style.background_position
+    - field.field.dom.style.background_repeat
+    - field.field.dom.style.before
+    - field.field.dom.style.border
+    - field.field.dom.style.border_bottom
+    - field.field.dom.style.border_bottom_color
+    - field.field.dom.style.border_bottom_style
+    - field.field.dom.style.border_bottom_width
+    - field.field.dom.style.border_collapse
+    - field.field.dom.style.border_color
+    - field.field.dom.style.border_left
+    - field.field.dom.style.border_left_color
+    - field.field.dom.style.border_left_style
+    - field.field.dom.style.border_left_width
+    - field.field.dom.style.border_right
+    - field.field.dom.style.border_right_color
+    - field.field.dom.style.border_right_style
+    - field.field.dom.style.border_right_width
+    - field.field.dom.style.border_spacing
+    - field.field.dom.style.border_style
+    - field.field.dom.style.border_top
+    - field.field.dom.style.border_top_color
+    - field.field.dom.style.border_top_style
+    - field.field.dom.style.border_top_width
+    - field.field.dom.style.border_width
+    - field.field.dom.style.bottom
+    - field.field.dom.style.caption_side
+    - field.field.dom.style.clear
+    - field.field.dom.style.clip
+    - field.field.dom.style.color
+    - field.field.dom.style.content
+    - field.field.dom.style.counter_increment
+    - field.field.dom.style.counter_reset
+    - field.field.dom.style.cursor
+    - field.field.dom.style.direction
+    - field.field.dom.style.display
+    - field.field.dom.style.empty_cells
+    - field.field.dom.style.first_child
+    - field.field.dom.style.first_letter
+    - field.field.dom.style.first_line
+    - field.field.dom.style.float
+    - field.field.dom.style.focus
+    - field.field.dom.style.font
+    - field.field.dom.style.font_family
+    - field.field.dom.style.font_size
+    - field.field.dom.style.font_size_adjust
+    - field.field.dom.style.font_stretch
+    - field.field.dom.style.font_style
+    - field.field.dom.style.font_variant
+    - field.field.dom.style.font_weight
+    - field.field.dom.style.height
+    - field.field.dom.style.hover
+    - field.field.dom.style.index
+    - field.field.dom.style.lang
+    - field.field.dom.style.left
+    - field.field.dom.style.letter_spacing
+    - field.field.dom.style.line_height
+    - field.field.dom.style.link
+    - field.field.dom.style.list_style
+    - field.field.dom.style.list_style_image
+    - field.field.dom.style.list_style_position
+    - field.field.dom.style.list_style_type
+    - field.field.dom.style.margin
+    - field.field.dom.style.margin_bottom
+    - field.field.dom.style.margin_left
+    - field.field.dom.style.margin_right
+    - field.field.dom.style.margin_top
+    - field.field.dom.style.marker_offset
+    - field.field.dom.style.max_height
+    - field.field.dom.style.max_width
+    - field.field.dom.style.min_height
+    - field.field.dom.style.min_width
+    - field.field.dom.style.outline
+    - field.field.dom.style.outline_color
+    - field.field.dom.style.outline_style
+    - field.field.dom.style.outline_width
+    - field.field.dom.style.overflow
+    - field.field.dom.style.padding
+    - field.field.dom.style.padding_bottom
+    - field.field.dom.style.padding_left
+    - field.field.dom.style.padding_right
+    - field.field.dom.style.padding_top
+    - field.field.dom.style.position
+    - field.field.dom.style.quotes
+    - field.field.dom.style.right
+    - field.field.dom.style.table_layout
+    - field.field.dom.style.text_align
+    - field.field.dom.style.text_decoration
+    - field.field.dom.style.text_indent
+    - field.field.dom.style.text_shadow
+    - field.field.dom.style.text_transform
+    - field.field.dom.style.top
+    - field.field.dom.style.unicode_bidi
+    - field.field.dom.style.vertical_align
+    - field.field.dom.style.visibility
+    - field.field.dom.style.visited
+    - field.field.dom.style.white_space
+    - field.field.dom.style.width
+    - field.field.dom.style.word_spacing
+    - field.field.dom.style.z_index
+  module:
+    - color_field
+    - field_group
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+  field_group:
+    group_tabs:
+      children:
+        - group_general
+        - group_56
+        - group_57
+        - group_58
+        - group_60
+        - group_62
+        - group_63
+        - group_64
+        - group_65
+        - group_70
+        - group_66
+        - group_67
+        - group_59
+        - group_68
+        - group_69
+        - group_61
+        - group_54
+      parent_name: _none
+      label: Tabs
+      weight: 0
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        label: Tabs
+        region: content
+    group_general:
+      children:
+        - label
+        - label_display
+      parent_name: group_tabs
+      label: 'General Settings'
+      weight: 0
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: true
+        region: content
+        formatter: open
+    group_56:
+      children:
+        - background
+        - background_attachment
+        - background_color
+        - background_image
+        - background_position
+        - background_repeat
+      parent_name: group_tabs
+      label: Background
+      weight: 10
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+    group_57:
+      children:
+        - border
+        - border_bottom
+        - border_bottom_color
+        - border_bottom_style
+        - border_bottom_width
+        - border_color
+        - border_left
+        - border_left_color
+        - border_left_style
+        - border_left_width
+        - border_right
+        - border_right_color
+        - border_right_style
+        - border_right_width
+        - border_style
+        - border_top
+        - border_top_color
+        - border_top_style
+        - border_top_width
+        - border_width
+      parent_name: group_tabs
+      label: Border
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+    group_58:
+      children:
+        - clear
+        - cursor
+        - display
+        - float
+        - visibility
+      parent_name: group_tabs
+      label: Classification
+      weight: 30
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+    group_60:
+      children:
+        - height
+        - max_height
+        - max_width
+        - min_height
+        - min_width
+        - width
+      parent_name: group_tabs
+      label: Dimension
+      weight: 40
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+    group_62:
+      children:
+        - font
+        - font_family
+        - font_size
+        - font_size_adjust
+        - font_stretch
+        - font_style
+        - font_variant
+        - font_weight
+      parent_name: group_tabs
+      label: Font
+      weight: 50
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+    group_63:
+      children:
+        - content
+        - counter_increment
+        - counter_reset
+        - quotes
+      parent_name: group_tabs
+      label: 'Generated Content'
+      weight: 60
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+    group_64:
+      children:
+        - list_style
+        - list_style_image
+        - list_style_position
+        - list_style_type
+        - marker_offset
+      parent_name: group_tabs
+      label: 'List and Marker'
+      weight: 70
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+    group_65:
+      children:
+        - margin
+        - margin_bottom
+        - margin_left
+        - margin_right
+        - margin_top
+      parent_name: group_tabs
+      label: Margin
+      weight: 80
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+    group_70:
+      children: {  }
+      parent_name: group_tabs
+      label: Meta
+      weight: 90
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+    group_66:
+      children:
+        - outline
+        - outline_color
+        - outline_style
+        - outline_width
+      parent_name: group_tabs
+      label: Outline
+      weight: 100
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+    group_67:
+      children:
+        - padding
+        - padding_bottom
+        - padding_left
+        - padding_right
+        - padding_top
+      parent_name: group_tabs
+      label: Padding
+      weight: 110
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+    group_59:
+      children:
+        - bottom
+        - clip
+        - left
+        - overflow
+        - position
+        - right
+        - top
+        - vertical_align
+        - z_index
+      parent_name: group_tabs
+      label: Position
+      weight: 120
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+    group_68:
+      children:
+        - active
+        - first_child
+        - focus
+        - hover
+        - lang
+        - link
+        - visited
+      parent_name: group_tabs
+      label: Pseudo-Class
+      weight: 130
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+    group_69:
+      children:
+        - after
+        - before
+        - first_letter
+        - first_line
+      parent_name: group_tabs
+      label: Pseudo-Element
+      weight: 140
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+    group_61:
+      children:
+        - border_collapse
+        - border_spacing
+        - caption_side
+        - color
+        - direction
+        - empty_cells
+        - letter_spacing
+        - line_height
+        - table_layout
+        - text_align
+        - text_decoration
+        - text_indent
+        - text_shadow
+        - text_transform
+        - unicode_bidi
+        - white_space
+        - word_spacing
+      parent_name: group_tabs
+      label: Text
+      weight: 150
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+    group_54:
+      children: {  }
+      parent_name: group_tabs
+      label: 'Web components'
+      weight: 160
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        required_fields: false
+        region: content
+id: dom.style.default
+targetEntityType: dom
+bundle: style
+mode: default
+content:
+  active:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  after:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  background:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  background_attachment:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  background_color:
+    weight: 0
+    settings:
+      default_colors: "\n#AC725E,#D06B64,#F83A22,#FA573C,#FF7537,#FFAD46\n#42D692,#16A765,#7BD148,#B3DC6C,#FBE983\n#92E1C0,#9FE1E7,#9FC6E7,#4986E7,#9A9CFF\n#B99AFF,#C2C2C2,#CABDBF,#CCA6AC,#F691B2\n#CD74E6,#A47AE2"
+    third_party_settings: {  }
+    type: color_field_widget_box
+    region: content
+  background_image:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  background_position:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  background_repeat:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  before:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  border:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  border_bottom:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  border_bottom_color:
+    weight: 0
+    settings:
+      default_colors: "\n#AC725E,#D06B64,#F83A22,#FA573C,#FF7537,#FFAD46\n#42D692,#16A765,#7BD148,#B3DC6C,#FBE983\n#92E1C0,#9FE1E7,#9FC6E7,#4986E7,#9A9CFF\n#B99AFF,#C2C2C2,#CABDBF,#CCA6AC,#F691B2\n#CD74E6,#A47AE2"
+    third_party_settings: {  }
+    type: color_field_widget_box
+    region: content
+  border_bottom_style:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  border_bottom_width:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  border_collapse:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  border_color:
+    weight: 0
+    settings:
+      default_colors: "\n#AC725E,#D06B64,#F83A22,#FA573C,#FF7537,#FFAD46\n#42D692,#16A765,#7BD148,#B3DC6C,#FBE983\n#92E1C0,#9FE1E7,#9FC6E7,#4986E7,#9A9CFF\n#B99AFF,#C2C2C2,#CABDBF,#CCA6AC,#F691B2\n#CD74E6,#A47AE2"
+    third_party_settings: {  }
+    type: color_field_widget_box
+    region: content
+  border_left:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  border_left_color:
+    weight: 0
+    settings:
+      default_colors: "\n#AC725E,#D06B64,#F83A22,#FA573C,#FF7537,#FFAD46\n#42D692,#16A765,#7BD148,#B3DC6C,#FBE983\n#92E1C0,#9FE1E7,#9FC6E7,#4986E7,#9A9CFF\n#B99AFF,#C2C2C2,#CABDBF,#CCA6AC,#F691B2\n#CD74E6,#A47AE2"
+    third_party_settings: {  }
+    type: color_field_widget_box
+    region: content
+  border_left_style:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  border_left_width:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  border_right:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  border_right_color:
+    weight: 0
+    settings:
+      default_colors: "\n#AC725E,#D06B64,#F83A22,#FA573C,#FF7537,#FFAD46\n#42D692,#16A765,#7BD148,#B3DC6C,#FBE983\n#92E1C0,#9FE1E7,#9FC6E7,#4986E7,#9A9CFF\n#B99AFF,#C2C2C2,#CABDBF,#CCA6AC,#F691B2\n#CD74E6,#A47AE2"
+    third_party_settings: {  }
+    type: color_field_widget_box
+    region: content
+  border_right_style:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  border_right_width:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  border_spacing:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  border_style:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  border_top:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  border_top_color:
+    weight: 0
+    settings:
+      default_colors: "\n#AC725E,#D06B64,#F83A22,#FA573C,#FF7537,#FFAD46\n#42D692,#16A765,#7BD148,#B3DC6C,#FBE983\n#92E1C0,#9FE1E7,#9FC6E7,#4986E7,#9A9CFF\n#B99AFF,#C2C2C2,#CABDBF,#CCA6AC,#F691B2\n#CD74E6,#A47AE2"
+    third_party_settings: {  }
+    type: color_field_widget_box
+    region: content
+  border_top_style:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  border_top_width:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  border_width:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  bottom:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  caption_side:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  clear:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  clip:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  color:
+    weight: 0
+    settings:
+      default_colors: "\n#AC725E,#D06B64,#F83A22,#FA573C,#FF7537,#FFAD46\n#42D692,#16A765,#7BD148,#B3DC6C,#FBE983\n#92E1C0,#9FE1E7,#9FC6E7,#4986E7,#9A9CFF\n#B99AFF,#C2C2C2,#CABDBF,#CCA6AC,#F691B2\n#CD74E6,#A47AE2"
+    third_party_settings: {  }
+    type: color_field_widget_box
+    region: content
+  content:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  counter_increment:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  counter_reset:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  cursor:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  direction:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  display:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  empty_cells:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  first_child:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  first_letter:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  first_line:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  float:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  focus:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  font:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  font_family:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  font_size:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  font_size_adjust:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  font_stretch:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  font_style:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  font_variant:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  font_weight:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  height:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  hover:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  label:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  lang:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  left:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  letter_spacing:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  line_height:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  link:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  list_style:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  list_style_image:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  list_style_position:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  list_style_type:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  margin:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  margin_bottom:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  margin_left:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  margin_right:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  margin_top:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  marker_offset:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  max_height:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  max_width:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  min_height:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  min_width:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  outline:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  outline_color:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  outline_style:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  outline_width:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  overflow:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  padding:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  padding_bottom:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  padding_left:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  padding_right:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  padding_top:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  position:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  quotes:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  right:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  table_layout:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  text_align:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  text_decoration:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  text_indent:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  text_shadow:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  text_transform:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  top:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  unicode_bidi:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  vertical_align:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  visibility:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  visited:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  white_space:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  width:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  word_spacing:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  z_index:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  index: true
+  uid: true

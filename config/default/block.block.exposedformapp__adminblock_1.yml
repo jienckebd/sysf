@@ -1,0 +1,28 @@
+uuid: 621dd8ff-0418-41dc-9818-0a48449f2834
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.app__admin
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: exposedformapp__adminblock_1
+theme: seven
+region: content
+weight: -11
+provider: null
+plugin: 'views_exposed_filter_block:app__admin-block_1'
+settings:
+  id: 'views_exposed_filter_block:app__admin-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/structure/app
+    negate: false

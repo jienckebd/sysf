@@ -1,0 +1,21 @@
+uuid: 741dec61-3182-48c5-b548-4a9e6b8d02b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - key_value_field
+id: override.field_key_default
+field_name: field_key_default
+entity_type: override
+type: key_value_long
+settings:
+  key_max_length: 255
+  key_is_ascii: false
+module: key_value_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

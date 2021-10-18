@@ -1,0 +1,20 @@
+uuid: b5e350a7-1099-4b84-ae6a-b731d186d46d
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - block_content
+id: block_content.field_cmp_video
+field_name: field_cmp_video
+entity_type: block_content
+type: entity_reference_revisions
+settings:
+  target_type: block_content
+module: entity_reference_revisions
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

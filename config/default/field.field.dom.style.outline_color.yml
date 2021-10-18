@@ -1,0 +1,29 @@
+uuid: f05b8ee8-95b9-4cf4-8f01-39d3d4c400db
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.outline_color
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: outline-color
+    behavior:
+      dom:
+        subattribute: outline-color
+id: dom.style.outline_color
+field_name: outline_color
+entity_type: dom
+bundle: style
+label: outline-color
+description: 'Sets the color of the outline around an element'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

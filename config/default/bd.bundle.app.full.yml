@@ -1,0 +1,7 @@
+uuid: e6020a9e-68aa-4226-9268-5d2b0208d180
+langcode: en
+status: true
+dependencies: {  }
+id: full
+label: Full
+description: 'Provides a full app or site with dedicated branding, often served by a vanity domain.'

@@ -1,0 +1,28 @@
+uuid: d22c827e-7342-48be-8d58-30d5393c4d86
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.content
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: exposedformcontentpage_1
+theme: seven
+region: content
+weight: 5
+provider: null
+plugin: 'views_exposed_filter_block:content-page_1'
+settings:
+  id: 'views_exposed_filter_block:content-page_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/content
+    negate: false

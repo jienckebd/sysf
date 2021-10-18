@@ -1,0 +1,10 @@
+uuid: 8f4a96bd-5c73-4b8d-8218-331e53a23ce1
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.s_1300
+label: 'Standard (x1300)'
+targetEntityType: media
+cache: true

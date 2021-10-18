@@ -1,0 +1,27 @@
+uuid: 68d7480e-0b11-4e18-a214-a6ace66d2d76
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.font_variant
+field_name: font_variant
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: normal
+      label: normal
+    -
+      value: small-caps
+      label: small-caps
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,29 @@
+uuid: 07d0b70f-1f4f-4c39-ac30-dfeac070b23f
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.list_style_type
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: list-style-type
+    behavior:
+      dom:
+        subattribute: list-style-type
+id: dom.style.list_style_type
+field_name: list_style_type
+entity_type: dom
+bundle: style
+label: list-style-type
+description: 'Sets the type of the list-item marker'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

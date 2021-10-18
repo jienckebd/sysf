@@ -1,0 +1,10 @@
+uuid: fa5911e2-c5f2-4897-b162-17e00703b54f
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: behavior.embed
+label: Embed
+targetEntityType: behavior
+cache: true

@@ -1,0 +1,11 @@
+uuid: 27fbc531-f279-4dec-a876-609ca2f337e9
+langcode: en
+status: true
+dependencies: {  }
+label: Color
+id: color
+description: 'Provide a library of colors.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,8 @@
+services:
+  attribute.manager:
+    class: Drupal\attribute\AttributeManager
+    arguments: ['@entity.helper', '@cache.default', '@config.factory', '@module_handler', '@current_user', '@session_manager']
+    # arguments: ['@entity.helper', '@plugin.manager.attribute.matcher', '@cache.default', '@config.factory', '@module_handler', '@current_user', '@session_manager']
+  # plugin.manager.attribute.matcher:
+  #  class: Drupal\attribute\Plugin\attribute\PluginManager
+  #  arguments: [matcher, '@container.namespaces', '@cache.discovery', '@module_handler']

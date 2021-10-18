@@ -1,0 +1,30 @@
+uuid: c0de7ba5-870c-4998-b013-d96eaaea8c55
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - design_system
+  theme:
+    - autotheme__2
+id: autotheme__2_footer
+theme: autotheme__2
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: 'Footer menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+  design_system:
+    menu_link: {  }
+    nested_menu: hide
+    initial_parent: null
+    hide_toggle: false
+visibility: {  }

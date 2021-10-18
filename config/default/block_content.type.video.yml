@@ -1,0 +1,8 @@
+uuid: 2b0a8735-353f-453d-b1ea-7871355937e2
+langcode: en
+status: true
+dependencies: {  }
+id: video
+label: Video
+revision: 1
+description: 'Provides a standalone video sourced from Youtube or uploaded directly as mp4.'

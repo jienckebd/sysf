@@ -1,0 +1,19 @@
+uuid: 8680ec0d-4e31-496b-91ec-3078da0ce059
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.app.workspace
+    - field.storage.app.field_host
+id: app.workspace.field_host
+field_name: field_host
+entity_type: app
+bundle: workspace
+label: Hostnames
+description: 'Enter hostnames to determine if this is the active workspace. For example, type "research.childrenshospital.org" to make requests for http://research.childrenshospital.org/* to resolve to this workspace.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

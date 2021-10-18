@@ -1,0 +1,10 @@
+uuid: ec53cc40-c94a-438e-9801-775eeeeb372f
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: entity_template.embed
+label: Embed
+targetEntityType: entity_template
+cache: true

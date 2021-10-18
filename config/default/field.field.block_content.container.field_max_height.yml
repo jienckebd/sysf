@@ -1,0 +1,19 @@
+uuid: f7e65bf4-cedd-41cf-9383-a6626a1add3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.container
+    - field.storage.block_content.field_max_height
+id: block_content.container.field_max_height
+field_name: field_max_height
+entity_type: block_content
+bundle: container
+label: 'Max height'
+description: 'Set an explicit max height in pixels, em, rem, or percentage.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,27 @@
+uuid: c320da63-d2fc-4616-8274-4ec209292fbb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.font.field_supported_languages
+  module:
+    - fontyourface
+id: font.font.field_supported_languages
+field_name: field_supported_languages
+entity_type: font
+bundle: font
+label: 'Supported Languages'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles: {  }
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

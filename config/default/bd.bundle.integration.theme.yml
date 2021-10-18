@@ -1,0 +1,11 @@
+uuid: 3575e099-b14f-454e-8312-5611edf0734b
+langcode: en
+status: true
+dependencies: {  }
+label: Theme
+id: theme
+description: ''
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,111 @@
+uuid: aeca1469-b4c7-4a3c-8801-af355cc042b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.resource.body
+    - field.field.node.resource.field_domain_access
+    - field.field.node.resource.field_domain_all_affiliates
+    - field.field.node.resource.field_domain_source
+    - field.field.node.resource.field_meta_tags
+    - field.field.node.resource.field_yoast_seo
+    - field.field.node.resource.schedule_status_change
+    - node.type.resource
+  module:
+    - metatag
+    - text
+    - user
+id: node.resource.default
+targetEntityType: node
+bundle: resource
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  created:
+    label: hidden
+    type: timestamp
+    weight: 0
+    region: content
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+  field_meta_tags:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_yoast_seo:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+      filter_format: null
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+      filter_format: null
+    third_party_settings: {  }
+  uid:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  changed: true
+  default_langcode: true
+  description: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  label_browser: true
+  label_display: true
+  label_ia: true
+  langcode: true
+  menu_link: true
+  metatag: true
+  moderation_state: true
+  nid: true
+  path: true
+  promote: true
+  redirect: true
+  revision_default: true
+  revision_log: true
+  revision_timestamp: true
+  revision_translation_affected: true
+  revision_uid: true
+  schedule_status_change: true
+  search_api_excerpt: true
+  status: true
+  sticky: true
+  type: true
+  uuid: true
+  vid: true

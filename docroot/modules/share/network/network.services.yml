@@ -1,0 +1,5 @@
+services:
+  theme.negotiator.network:
+    class: Drupal\network\Theme\ThemeNegotiator
+    tags:
+      - { name: theme_negotiator }

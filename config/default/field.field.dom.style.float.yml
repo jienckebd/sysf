@@ -1,0 +1,29 @@
+uuid: 2028e077-765a-4a77-b28c-ac63c046ee10
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.float
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: float
+    behavior:
+      dom:
+        subattribute: float
+id: dom.style.float
+field_name: float
+entity_type: dom
+bundle: style
+label: float
+description: 'Sets where an image or a text will appear in another element'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,8 @@
+uuid: 2d855e04-3621-4a40-a78f-12e3785f1317
+langcode: en
+status: true
+dependencies: {  }
+id: map
+label: Map
+revision: 1
+description: "Geolocation map powered by Google Maps.\r\n"

@@ -1,0 +1,21 @@
+uuid: 468fda30-61ea-44d2-807e-77918f15fe4e
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.top
+field_name: top
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,12 @@
+uuid: dddf536e-6aa8-4857-9ffc-43d20eb5bfb4
+langcode: en
+status: true
+dependencies: {  }
+id: q_100
+label: 'Square (x100)'
+description: null
+aspect_ratio: '4:4'
+soft_limit_width: 400
+soft_limit_height: 400
+hard_limit_width: null
+hard_limit_height: null

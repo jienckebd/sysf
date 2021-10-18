@@ -1,0 +1,43 @@
+uuid: 924ce9f2-2e96-4adc-bf07-6685bb427188
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.integration.theme
+    - bd.bundle.theme_entity.default
+    - field.storage.theme_entity.field_integration
+  module:
+    - bd
+third_party_settings:
+  bd:
+    data_deriver:
+      plugin: ''
+    dom:
+      attribute: ''
+      subattribute: ''
+      theme_hook: ''
+      theme_hook_selector: ''
+      theme_hook_match_key: ''
+      theme_hook_match_value: ''
+    dependency:
+      type: ef354209-cb30-4cbe-abab-de5b8bda6a68
+id: theme_entity.default.field_integration
+field_name: field_integration
+entity_type: theme_entity
+bundle: default
+label: Integrations
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: null
+settings:
+  handler: 'default:integration'
+  handler_settings:
+    target_bundles:
+      theme: theme
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

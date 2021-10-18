@@ -1,0 +1,58 @@
+uuid: fde488c7-f38c-4cb7-afbe-7cf1ac8da633
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.button
+    - block_content.type.carousel
+    - block_content.type.component
+    - block_content.type.container
+    - block_content.type.drupal_block
+    - block_content.type.heading
+    - block_content.type.image
+    - block_content.type.image_banner
+    - block_content.type.image_card
+    - block_content.type.layout_builder
+    - block_content.type.style
+    - block_content.type.text
+    - block_content.type.text_only_card
+    - block_content.type.video
+    - block_content.type.video_banner
+    - block_content.type.video_card
+    - field.storage.block_content.field_component
+id: block_content.component.field_component
+field_name: field_component
+entity_type: block_content
+bundle: component
+label: Component
+description: 'Select an existing component.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      button: button
+      carousel: carousel
+      component: component
+      container: container
+      drupal_block: drupal_block
+      heading: heading
+      image: image
+      image_banner: image_banner
+      image_card: image_card
+      layout_builder: layout_builder
+      style: style
+      text: text
+      text_only_card: text_only_card
+      video: video
+      video_banner: video_banner
+      video_card: video_card
+    sort:
+      field: info
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

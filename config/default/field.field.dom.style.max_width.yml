@@ -1,0 +1,28 @@
+uuid: 166fdbda-0906-4a30-b7de-d2bc8c679126
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.max_width
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: max-width
+    behavior:
+      dom:
+        subattribute: max-width
+id: dom.style.max_width
+field_name: max_width
+entity_type: dom
+bundle: style
+label: max-width
+description: 'Sets the maximum width of an element'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

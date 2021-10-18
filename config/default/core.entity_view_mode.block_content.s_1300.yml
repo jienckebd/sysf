@@ -1,0 +1,10 @@
+uuid: f9be7b85-bc92-4ad3-848b-ba43811adb50
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.s_1300
+label: 'Standard (x1300)'
+targetEntityType: block_content
+cache: true

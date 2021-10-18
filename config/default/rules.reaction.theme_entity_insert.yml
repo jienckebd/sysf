@@ -1,0 +1,66 @@
+uuid: bf76dd77-de1e-4528-9f45-210a494047f8
+langcode: en
+status: true
+dependencies: {  }
+id: theme_entity_insert
+label: 'Theme entity: Insert'
+events:
+  -
+    event_name: 'rules_entity_insert:theme_entity'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 474501e5-37af-41eb-821b-6474bba97708
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: 9654eaa3-1cc4-4542-b9e7-31d6954a22e9
+    weight: 0
+    conditions: {  }
+  actions:
+    id: rules_action_set
+    uuid: b8234608-3173-4f6b-b949-677f7ec79c63
+    weight: 0
+    actions:
+      -
+        id: rules_action
+        uuid: 363eac53-8bda-4f01-a8bb-48058f2ea218
+        weight: 0
+        context_values:
+          callback: ''
+          service_id: theme_installer
+          service_method: install
+        context_mapping:
+          entity: theme_entity
+        context_processors:
+          callback:
+            rules_tokens: {  }
+          service_id:
+            rules_tokens: {  }
+          service_method:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: callback
+      -
+        id: rules_action
+        uuid: 4413e5c3-0964-484e-a13d-0e989a632496
+        weight: 0
+        context_values:
+          entity: ''
+          callback: drupal_flush_all_caches
+          service_id: ''
+          service_method: ''
+        context_mapping: {  }
+        context_processors:
+          entity:
+            rules_tokens: {  }
+          callback:
+            rules_tokens: {  }
+          service_id:
+            rules_tokens: {  }
+          service_method:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: callback

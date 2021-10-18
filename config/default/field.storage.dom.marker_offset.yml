@@ -1,0 +1,24 @@
+uuid: 707eb35c-2326-4961-8ab9-cf6c3e663f41
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.marker_offset
+field_name: marker_offset
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: autolength
+      label: autolength
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

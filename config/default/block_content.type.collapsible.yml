@@ -1,0 +1,8 @@
+uuid: cc930775-a3da-4320-8db7-550c3dd6c794
+langcode: en
+status: true
+dependencies: {  }
+id: collapsible
+label: Collapsible
+revision: 1
+description: 'Make this element collapsible.'

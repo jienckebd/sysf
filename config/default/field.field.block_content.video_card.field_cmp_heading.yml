@@ -1,0 +1,29 @@
+uuid: d4220689-6984-4578-a0a2-9654f705d2ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.heading
+    - block_content.type.video_card
+    - field.storage.block_content.field_cmp_heading
+id: block_content.video_card.field_cmp_heading
+field_name: field_cmp_heading
+entity_type: block_content
+bundle: video_card
+label: Heading
+description: 'Provide a heading component.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      heading: heading
+    sort:
+      field: info
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

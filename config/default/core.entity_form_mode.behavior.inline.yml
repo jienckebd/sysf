@@ -1,0 +1,10 @@
+uuid: 9381aeed-5bfa-4f4a-97df-443d41d02c38
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: behavior.inline
+label: Inline
+targetEntityType: behavior
+cache: true

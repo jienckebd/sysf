@@ -1,0 +1,10 @@
+uuid: 5efb3e86-b17e-4cf2-8bd1-a44fa5b53dc0
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+id: group.inline
+label: Inline
+targetEntityType: group
+cache: true

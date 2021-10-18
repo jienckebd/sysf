@@ -1,0 +1,48 @@
+uuid: ac31a30e-338c-49f4-b8e4-45cc9215e773
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: behavior.field_anchor_placement
+field_name: field_anchor_placement
+entity_type: behavior
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: top-bottom
+      label: top-bottom
+    -
+      value: top-center
+      label: top-center
+    -
+      value: top-top
+      label: top-top
+    -
+      value: center-bottom
+      label: center-bottom
+    -
+      value: center-center
+      label: center-center
+    -
+      value: center-top
+      label: center-top
+    -
+      value: bottom-bottom
+      label: bottom-bottom
+    -
+      value: bottom-center
+      label: bottom-center
+    -
+      value: bottom-top
+      label: bottom-top
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,13 @@
+uuid: afb013b9-1b4d-42e2-9fb3-dd927281a9e8
+name: 'Shore Acres Improvement Association'
+mail: help@shoreacresimprovementassociation.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+mail_notification: ''

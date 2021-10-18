@@ -1,0 +1,17 @@
+uuid: cb19e9cf-df0f-4bd8-b42e-86d995471489
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.tw_1300
+  module:
+    - crop
+name: tw_1300
+label: 'Tall wide (x1300)'
+effects:
+  f96ae42e-636e-45bc-83b1-ba6b17d2748f:
+    uuid: f96ae42e-636e-45bc-83b1-ba6b17d2748f
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: tw_1300

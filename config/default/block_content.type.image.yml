@@ -1,0 +1,8 @@
+uuid: 84987c12-c9f5-4f26-a7cb-06e9720fbf0a
+langcode: en
+status: true
+dependencies: {  }
+id: image
+label: Image
+revision: 1
+description: 'Provides a standalone image.'

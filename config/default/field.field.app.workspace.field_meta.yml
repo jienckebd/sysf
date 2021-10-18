@@ -1,0 +1,21 @@
+uuid: ad668a7f-042c-4558-9742-590de3d29397
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.app.workspace
+    - field.storage.app.field_meta
+  module:
+    - metatag
+id: app.workspace.field_meta
+field_name: field_meta
+entity_type: app
+bundle: workspace
+label: Meta
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

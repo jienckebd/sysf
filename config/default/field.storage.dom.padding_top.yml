@@ -1,0 +1,21 @@
+uuid: 4d8740e7-3a5f-48f9-9b28-753fdcad1e25
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.padding_top
+field_name: padding_top
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,41 @@
+uuid: da8d8126-9425-46f9-a39c-7ddf67fa6d88
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.effect
+    - field.field.dom.effect.field_level
+id: dom.effect.default
+targetEntityType: dom
+bundle: effect
+mode: default
+content:
+  field_level:
+    weight: 0
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+hidden:
+  bundle: true
+  changed: true
+  created: true
+  default_langcode: true
+  description: true
+  id: true
+  label: true
+  langcode: true
+  metatag: true
+  revision_created: true
+  revision_default: true
+  revision_id: true
+  revision_log_message: true
+  revision_translation_affected: true
+  revision_user: true
+  search_api_excerpt: true
+  status: true
+  uid: true
+  uuid: true

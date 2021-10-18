@@ -1,0 +1,36 @@
+uuid: 4d442996-00c8-46f6-a4f5-4732ad451b47
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.field_align_items
+field_name: field_align_items
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: flex-start
+      label: flex-start
+    -
+      value: flex-end
+      label: flex-end
+    -
+      value: center
+      label: center
+    -
+      value: baseline
+      label: baseline
+    -
+      value: stretch
+      label: stretch
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

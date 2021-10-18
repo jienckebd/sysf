@@ -1,0 +1,8 @@
+uuid: 7a45a3ee-957e-4c73-8fb7-addd44afa93e
+langcode: en
+status: true
+dependencies: {  }
+id: text
+label: Text
+revision: 1
+description: 'Provides text from a WYSIWYG (What You See Is What You get) editor.'

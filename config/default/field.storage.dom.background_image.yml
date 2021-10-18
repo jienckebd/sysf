@@ -1,0 +1,21 @@
+uuid: e35cb061-d150-48d0-becf-5c277836f2a4
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.background_image
+field_name: background_image
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

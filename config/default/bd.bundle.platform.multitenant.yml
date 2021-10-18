@@ -1,0 +1,7 @@
+uuid: 74c41844-db01-4f47-b935-aefe2a9ca665
+langcode: en
+status: true
+dependencies: {  }
+id: multitenant
+label: Multitenant
+description: ''

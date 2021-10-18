@@ -1,0 +1,8 @@
+uuid: ae4bff51-e96c-4e5d-a237-a000ddb842e6
+langcode: en
+status: true
+dependencies: {  }
+id: button_group
+label: 'Button group'
+revision: 1
+description: 'Provide a set of buttons.'

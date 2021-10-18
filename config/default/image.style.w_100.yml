@@ -1,0 +1,17 @@
+uuid: 1db701c8-37ce-4056-9a57-1885e0f72fe7
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.w_100
+  module:
+    - crop
+name: w_100
+label: 'Wide (x100)'
+effects:
+  09eebd73-e5c7-4d1d-9699-48af08b735c4:
+    uuid: 09eebd73-e5c7-4d1d-9699-48af08b735c4
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: w_100

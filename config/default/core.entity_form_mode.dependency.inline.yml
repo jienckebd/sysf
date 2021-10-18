@@ -1,0 +1,10 @@
+uuid: a19ba5b8-417d-4e18-8595-461e94f004ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dependency.inline
+label: Inline
+targetEntityType: dependency
+cache: true

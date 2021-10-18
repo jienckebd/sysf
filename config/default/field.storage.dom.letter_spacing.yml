@@ -1,0 +1,21 @@
+uuid: 3802e2b4-e392-4877-900e-bb50c2add087
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.letter_spacing
+field_name: letter_spacing
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

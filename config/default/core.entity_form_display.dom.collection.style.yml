@@ -1,0 +1,49 @@
+uuid: 965c9c33-130a-42e3-8ad5-1825172003ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.collection
+    - core.entity_form_mode.dom.style
+    - field.field.dom.collection.aid
+    - field.field.dom.collection.dom
+    - field.field.dom.collection.machine_name
+  module:
+    - inline_entity_form
+id: dom.collection.style
+targetEntityType: dom
+bundle: collection
+mode: style
+content:
+  actions:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  dom:
+    type: inline_entity_form_simple
+    weight: 0
+    region: content
+    settings:
+      form_mode: default
+      revision: true
+      label_singular: ''
+      label_plural: ''
+      default_bundle: '16'
+      override_labels: false
+      collapsible: false
+      collapsed: false
+    third_party_settings: {  }
+hidden:
+  aid: true
+  created: true
+  description: true
+  label: true
+  label_display: true
+  langcode: true
+  machine_name: true
+  revision_created: true
+  revision_log_message: true
+  simple_sitemap: true
+  status: true
+  uid: true

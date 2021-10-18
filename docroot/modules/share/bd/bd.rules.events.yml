@@ -1,0 +1,91 @@
+# Forms.
+
+bd.rules.form.build:
+  label: 'Form: Build'
+  category: 'Forms'
+  context_definitions:
+    form_id:
+      type: 'string'
+      label: 'Form ID'
+    form:
+      type: 'any'
+      label: 'Form'
+    form_state:
+      type: 'any'
+      label: 'Form'
+
+bd.rules.form.submit:
+  label: 'Form: Submit'
+  category: 'Forms'
+  context_definitions:
+    form_id:
+      type: 'string'
+      label: 'Form ID'
+    form:
+      type: 'any'
+      label: 'Form'
+    form_state:
+      type: 'any'
+      label: 'Form'
+
+bd.rules.form.validate:
+  label: 'Form: Validate'
+  category: 'Forms'
+  context_definitions:
+    form_id:
+      type: 'string'
+      label: 'Form ID'
+    form:
+      type: 'any'
+      label: 'Form'
+    form_state:
+      type: 'any'
+      label: 'Form'
+
+bd.rules.form.validate.pass:
+  label: 'Form: Validate: Pass'
+  category: 'Forms'
+  context_definitions:
+    form_id:
+      type: 'string'
+      label: 'Form ID'
+    form:
+      type: 'any'
+      label: 'Form'
+    form_state:
+      type: 'any'
+      label: 'Form'
+
+bd.rules.form.validate.fail:
+  label: 'Form: Validate: Fail'
+  category: 'Forms'
+  context_definitions:
+    form_id:
+      type: 'string'
+      label: 'Form ID'
+    form:
+      type: 'any'
+      label: 'Form'
+    form_state:
+      type: 'any'
+      label: 'Form'
+
+# Kernel.
+
+bd.rules.kernel.response:
+  label: 'Kernel: Response'
+  category: 'System'
+
+bd.rules.kernel.finish_request:
+  label: 'Kernel: Finish request'
+  category: 'System'
+
+# Config events.
+bd.rules.config.override:
+  label: 'Override config value'
+  category: 'Config'
+  class: '\Drupal\bd\EventHandler\ConfigOverride'
+  context_definitions:
+    config_data:
+      type: 'string'
+      label: 'Config name'

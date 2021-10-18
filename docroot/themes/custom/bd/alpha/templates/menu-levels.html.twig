@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Default theme implementation to each level of menu.
+ */
+#}
+{% import _self as menu %}
+
+{{ menu.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+  <ul{{ attributes }}>
+    {% for key, item in items if key|first != '#' %}
+      {% set menu_item_classes = [
+        'menu-item',
+        item.is_expanded ? 'menu-item--expanded',
+        item.is_collapsed ? 'menu-item--collapsed',
+        item.in_active_trail ? 'menu-item--active-trail',
+      ] %}
+
+      <li{{ item.attributes.addClass(menu_item_classes) }}>
+        {% set rendered_content = item.content|without('') %}
+        {% if rendered_content|render %}
+          {{ rendered_content }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}

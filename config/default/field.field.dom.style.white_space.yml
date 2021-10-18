@@ -1,0 +1,29 @@
+uuid: a55245b3-ad89-49df-ab14-4c923afdf0b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.white_space
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: white-space
+    behavior:
+      dom:
+        subattribute: white-space
+id: dom.style.white_space
+field_name: white_space
+entity_type: dom
+bundle: style
+label: white-space
+description: 'Sets how white space inside an element is handled'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

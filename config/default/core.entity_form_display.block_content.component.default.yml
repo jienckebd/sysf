@@ -1,0 +1,81 @@
+uuid: 372cc1fd-aeb4-479c-9dc7-438ce5ceac7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.component
+    - field.field.block_content.component.field_component
+  module:
+    - entity_reference_revisions
+    - inline_entity_form
+id: block_content.component.default
+targetEntityType: block_content
+bundle: component
+mode: default
+content:
+  actions:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  container:
+    type: inline_entity_form_complex
+    region: content
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: true
+      allow_duplicate: true
+    third_party_settings: {  }
+    weight: 6
+  field_component:
+    type: entity_reference_revisions_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  revision_log:
+    type: string_textarea
+    weight: 3
+    settings:
+      rows: 4
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  base_entity: true
+  reusable: true
+  status: true
+  tags: true
+  view_mode: true

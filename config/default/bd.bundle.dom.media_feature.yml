@@ -1,0 +1,11 @@
+uuid: 6759ce4f-2529-4461-8f64-47e493174c4b
+langcode: en
+status: true
+dependencies: {  }
+label: 'Media Features'
+id: media_feature
+description: 'Provide a library of media features.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,11 @@
+uuid: c22f782e-64c0-459a-ad35-8ce9d38a8e27
+langcode: en
+status: true
+dependencies: {  }
+label: Dependency
+id: dependency
+description: 'Defines a dependency between 1 entity and another with configuration of behavior.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

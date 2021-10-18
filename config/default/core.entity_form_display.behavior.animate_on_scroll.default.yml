@@ -1,0 +1,119 @@
+uuid: 2891ce3c-5a19-4a09-ae3b-2a5e2fb30a47
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.behavior.animate_on_scroll
+    - field.field.behavior.animate_on_scroll.field_anchor_placement
+    - field.field.behavior.animate_on_scroll.field_aos_effect
+    - field.field.behavior.animate_on_scroll.field_delay
+    - field.field.behavior.animate_on_scroll.field_duration
+    - field.field.behavior.animate_on_scroll.field_easing
+    - field.field.behavior.animate_on_scroll.field_mirror
+    - field.field.behavior.animate_on_scroll.field_offset
+    - field.field.behavior.animate_on_scroll.field_once
+    - field.field.behavior.animate_on_scroll.field_selector
+id: behavior.animate_on_scroll.default
+targetEntityType: behavior
+bundle: animate_on_scroll
+mode: default
+content:
+  actions:
+    weight: 900
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_anchor_placement:
+    weight: 912
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_aos_effect:
+    weight: 911
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_delay:
+    weight: 915
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_duration:
+    weight: 916
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_easing:
+    weight: 913
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_mirror:
+    weight: 917
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_offset:
+    weight: 914
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_once:
+    weight: 918
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_selector:
+    weight: 919
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  label:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  revision_log_message:
+    type: string_textarea
+    weight: 25
+    settings:
+      rows: 4
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 910
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  description: true
+  status: true
+  uid: true

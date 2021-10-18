@@ -1,0 +1,19 @@
+uuid: 3741ad3b-c120-47d8-b506-7bbb3055f568
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.breakpoint
+    - field.storage.dom.max_width
+id: dom.breakpoint.max_width
+field_name: max_width
+entity_type: dom
+bundle: breakpoint
+label: max-width
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

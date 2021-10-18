@@ -1,0 +1,10 @@
+uuid: 6be8afff-5015-4f04-b70c-2372b79297ca
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: theme_entity.embed
+label: Embed
+targetEntityType: theme_entity
+cache: true

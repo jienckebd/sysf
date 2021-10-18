@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Module file for autoref.
+ */
+
+/**
+ * Implements hook_field_info_alter().
+ */
+function autoref_field_widget_info_alter(&$info) {
+  foreach ($info as &$field_widget) {
+    if (in_array('entity_reference', $field_widget['field_types'])) {
+      // $field_widget['field_types'][] = 'autoref';
+    }
+  }
+}

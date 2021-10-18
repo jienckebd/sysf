@@ -1,0 +1,28 @@
+uuid: 0507dd28-2028-4a82-9f42-62efdea43074
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.button_group
+    - block_content.type.container
+    - field.storage.block_content.field_cmp_button_group
+id: block_content.container.field_cmp_button_group
+field_name: field_cmp_button_group
+entity_type: block_content
+bundle: container
+label: 'More buttons'
+description: 'Provide a button component or set of buttons.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      button_group: button_group
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

@@ -1,0 +1,20 @@
+{
+    "name": "drupal/bd",
+    "description": "The Better Drupal framework.",
+    "type": "drupal-module",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Bryan Jiencke",
+            "homepage": "https://www.drupal.org/u/jienckebd",
+            "role": "Maintainer"
+        }
+    ],
+    "require":{
+        "drupal/entity_browser": "^2.0",
+        "drupal/entity_clone": "^1.0@beta",
+        "drupal/entity_embed": "^1.0@beta",
+        "drupal/entity_usage": "^2.0@alpha",
+        "drupal/entityqueue": "^1.0@alpha"
+    }
+}

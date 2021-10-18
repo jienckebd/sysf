@@ -1,0 +1,19 @@
+uuid: 430f58ec-d9e1-4f74-8edb-c21c53a6e665
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.relation.dependency
+    - field.storage.relation.field_id
+id: relation.dependency.field_id
+field_name: field_id
+entity_type: relation
+bundle: dependency
+label: ID
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

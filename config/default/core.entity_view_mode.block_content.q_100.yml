@@ -1,0 +1,10 @@
+uuid: 5d768033-60b5-44ca-8a3f-f02623955fc0
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.q_100
+label: 'Square (x100)'
+targetEntityType: block_content
+cache: true

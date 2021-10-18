@@ -1,0 +1,12 @@
+uuid: 8a91d5ad-cc4f-47e8-b513-f646754b6a29
+langcode: en
+status: true
+dependencies: {  }
+id: tw_500
+label: 'Tall wide (x500)'
+description: null
+aspect_ratio: '3:4'
+soft_limit_width: 1500
+soft_limit_height: 2000
+hard_limit_width: null
+hard_limit_height: null

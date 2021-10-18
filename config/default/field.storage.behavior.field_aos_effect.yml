@@ -1,0 +1,102 @@
+uuid: 24f87e31-3829-4f78-86d3-4dabbb8e9d22
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: behavior.field_aos_effect
+field_name: field_aos_effect
+entity_type: behavior
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: fade
+      label: fade
+    -
+      value: fade-up
+      label: fade-up
+    -
+      value: fade-down
+      label: fade-down
+    -
+      value: fade-left
+      label: fade-left
+    -
+      value: fade-right
+      label: fade-right
+    -
+      value: fade-up-right
+      label: fade-up-right
+    -
+      value: fade-up-left
+      label: fade-up-left
+    -
+      value: fade-down-right
+      label: fade-down-right
+    -
+      value: fade-down-left
+      label: fade-down-left
+    -
+      value: flip-up
+      label: flip-up
+    -
+      value: flip-down
+      label: flip-down
+    -
+      value: flip-left
+      label: flip-left
+    -
+      value: flip-right
+      label: flip-right
+    -
+      value: slide-up
+      label: slide-up
+    -
+      value: slide-down
+      label: slide-down
+    -
+      value: slide-left
+      label: slide-left
+    -
+      value: slide-right
+      label: slide-right
+    -
+      value: zoom-in
+      label: zoom-in
+    -
+      value: zoom-in-up
+      label: zoom-in-up
+    -
+      value: zoom-in-down
+      label: zoom-in-down
+    -
+      value: zoom-in-left
+      label: zoom-in-left
+    -
+      value: zoom-in-right
+      label: zoom-in-right
+    -
+      value: zoom-out
+      label: zoom-out
+    -
+      value: zoom-out-up
+      label: zoom-out-up
+    -
+      value: zoom-out-down
+      label: zoom-out-down
+    -
+      value: zoom-out-left
+      label: zoom-out-left
+    -
+      value: zoom-out-right
+      label: zoom-out-right
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

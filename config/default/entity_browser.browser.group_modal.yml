@@ -1,0 +1,42 @@
+uuid: c2a85299-940a-476b-9d54-494fbc282084
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.group_browser
+  module:
+    - entity_browser_entity_form
+    - views
+name: group_modal
+label: 'Group: modal'
+display: modal
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: Select
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  ed6632f2-b017-496b-acdb-d89888a3cf14:
+    settings:
+      view: group_browser
+      view_display: entity_browser_1
+      submit_text: Select
+      auto_select: false
+    uuid: ed6632f2-b017-496b-acdb-d89888a3cf14
+    weight: 1
+    label: 'Group library'
+    id: view
+  48b92843-24a7-43f7-ada4-b64643621596:
+    settings:
+      entity_type: group
+      bundle: organization
+      form_mode: inline
+      submit_text: Create
+    uuid: 48b92843-24a7-43f7-ada4-b64643621596
+    weight: 2
+    label: 'Create organization'
+    id: entity_form

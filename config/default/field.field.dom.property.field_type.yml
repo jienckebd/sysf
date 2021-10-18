@@ -1,0 +1,19 @@
+uuid: 9d4063ba-c6f0-4f6b-87f6-9e9d84ff5a28
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.property
+    - field.storage.dom.field_type
+id: dom.property.field_type
+field_name: field_type
+entity_type: dom
+bundle: property
+label: 'Field Type'
+description: 'The type of field this entity will derive.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

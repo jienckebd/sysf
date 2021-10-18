@@ -1,0 +1,27 @@
+uuid: 97868e35-1303-4b6c-bbe4-4b590b6d1403
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.background_attachment
+field_name: background_attachment
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: scroll
+      label: scroll
+    -
+      value: fixed
+      label: fixed
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

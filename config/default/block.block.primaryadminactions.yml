@@ -1,0 +1,18 @@
+uuid: 64ef6ddf-394d-4561-9e65-63097cc5ecee
+langcode: en
+status: true
+dependencies:
+  theme:
+    - alpha
+id: primaryadminactions
+theme: alpha
+region: header
+weight: 1
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

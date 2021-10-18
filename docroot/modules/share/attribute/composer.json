@@ -1,0 +1,17 @@
+{
+    "name": "jienckebd/attribute",
+    "description": "Feeds crawler module.",
+    "type": "drupal-module",
+    "license": "GPL-2.0+",
+    "require": {
+        "fabpot/goutte": "^3.2"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ]
+}

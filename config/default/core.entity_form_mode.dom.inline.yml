@@ -1,0 +1,10 @@
+uuid: 9757ef98-0f94-484c-abfc-01348f58c36f
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.inline
+label: Inline
+targetEntityType: dom
+cache: true

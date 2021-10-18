@@ -1,0 +1,10 @@
+uuid: 8e13c25f-2300-4875-87f5-9ff1f8dbb619
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: integration.inline
+label: Inline
+targetEntityType: integration
+cache: true

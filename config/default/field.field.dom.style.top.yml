@@ -1,0 +1,28 @@
+uuid: eda82355-2f48-4da7-bcf9-e4627e9de1e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.top
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: top
+    behavior:
+      dom:
+        subattribute: top
+id: dom.style.top
+field_name: top
+entity_type: dom
+bundle: style
+label: top
+description: 'Sets how far the top edge of an element is above/below the top edge of the parent element'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,11 @@
+uuid: 54207d15-0b6f-4a6f-a1e1-68f033e47a02
+langcode: en
+status: true
+dependencies: {  }
+label: Keyframe
+id: keyframe
+description: 'Define a keyframe.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

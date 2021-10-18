@@ -1,0 +1,28 @@
+uuid: 20ca282a-1620-42d4-9712-a339db3b8a05
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.border_top_width
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: border-top-width
+    behavior:
+      dom:
+        subattribute: border-top-width
+id: dom.style.border_top_width
+field_name: border_top_width
+entity_type: dom
+bundle: style
+label: border-top-width
+description: 'Sets the width of the top border'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,43 @@
+uuid: 3c355d30-2602-467d-b81f-6958215a3b46
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.color_dom
+  module:
+    - bd
+third_party_settings:
+  bd:
+    data_deriver:
+      plugin: ''
+    dom:
+      attribute: ''
+      subattribute: color
+      theme_hook: ''
+      theme_hook_selector: ''
+      theme_hook_match_key: ''
+      theme_hook_match_value: ''
+    dependency:
+      type: ''
+    behavior:
+      dom:
+        subattribute: color
+id: dom.style.color_dom
+field_name: color_dom
+entity_type: dom
+bundle: style
+label: color
+description: 'Sets the color of a text'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: null
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: dom_entity_reference
+      display_name: entity_reference_2
+      arguments: {  }
+field_type: entity_reference

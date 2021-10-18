@@ -1,0 +1,28 @@
+uuid: d87bc7d8-1b16-4d2e-8924-a6462565840b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.env__admin
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: exposedformenv__adminblock_1
+theme: seven
+region: content
+weight: -2
+provider: null
+plugin: 'views_exposed_filter_block:env__admin-block_1'
+settings:
+  id: 'views_exposed_filter_block:env__admin-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/structure/env
+    negate: false

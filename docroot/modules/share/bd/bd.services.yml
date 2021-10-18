@@ -1,0 +1,198 @@
+services:
+
+  # Sys.
+  sys:
+    class: Drupal\bd\Sys\Manager
+    arguments: ['@entity.helper', '@config.factory', '@module_handler', '@module_installer', '@current_user', '@session_manager']
+
+  sys.internal:
+    class: Drupal\bd\Sys\Internal
+    arguments: ['@entity.helper', '@entity.bulk_update', '@database', '@config.factory', '@config.installer', '@state', '@keyvalue', '@module_handler', '@module_installer', '@current_user', '@session_manager']
+
+  sys.deploy:
+    class: Drupal\bd\Sys\Deploy
+    arguments: ['@entity.helper', '@config.factory', '@module_handler', '@module_installer', '@current_user', '@session_manager']
+
+  # Entity.
+  entity.helper:
+    class: Drupal\bd\Entity\EntityHelper
+    arguments: ['@entity_type.manager', '@entity_field.manager', '@entity_type.bundle.info', '@config.factory', '@config.processor', '@database', '@cache.default', '@logger.channel.entity', '@string_translation']
+
+  entity_type.builder:
+    class: Drupal\bd\Entity\EntityTypeBuilder
+    arguments: ['@entity.helper', '@entity_field.manager', '@entity.definition_update_manager', '@entity.last_installed_schema.repository', '@entity.builder', '@entity.bulk.builder', '@config.processor', '@cache.default', '@logger.channel.entity']
+
+  entity.builder:
+    class: Drupal\bd\Entity\EntityBuilder
+    arguments: ['@entity.helper', '@entity_field.manager', '@config.processor', '@serializer', '@cache.default', '@logger.channel.entity']
+
+  entity.bulk.builder:
+    class: Drupal\bd\Entity\EntityBulkBuilder
+    arguments: ['@entity.helper', '@entity_field.manager', '@entity.builder', '@config.processor', '@serializer', '@cache.default', '@logger.channel.entity']
+
+  entity.loader:
+    class: Drupal\bd\Entity\EntityLoader
+    arguments: ['@entity.helper', '@entity_field.manager', '@config.processor', '@cache.default', '@logger.channel.entity']
+
+  entity.parser:
+    class: Drupal\bd\Entity\EntityParser
+    arguments: ['@entity.helper', '@entity_field.manager', '@config.processor', '@cache.default', '@logger.channel.entity']
+
+  entity.field.helper:
+    class: Drupal\bd\Entity\EntityFieldHelper
+    arguments: [ '@entity.helper', '@entity_field.manager', '@entity_type.bundle.info', '@cache.default', '@logger.channel.entity', '@string_translation']
+
+  entity.translation:
+    class: Drupal\bd\Entity\EntityTranslation
+    arguments: ['@entity.helper', '@entity_field.manager']
+
+  entity.relation:
+    class: Drupal\bd\Entity\EntityRelation
+    arguments: ['@entity.helper', '@entity.builder', '@entity.analyzer']
+
+  entity.analyzer:
+    class: Drupal\bd\Entity\EntityAnalyzer
+    arguments: ['@entity.helper']
+
+  entity.bulk_update:
+    class: Drupal\bd\Entity\EntityBulkUpdate
+    arguments: ['@entity.helper']
+
+  entity.field.default_value:
+    class: Drupal\bd\Entity\EntityFieldDefaultValue
+    arguments: ['@entity.helper', '@config.factory', '@module_handler', '@cache.default', '@current_user', '@session_manager']
+
+  entity.querer:
+    class: Drupal\bd\Entity\EntityQueuer
+    arguments: ['@entity.helper', '@entity_field.manager', '@current_user']
+
+  entity.index:
+    class: Drupal\bd\Entity\EntityIndex
+    arguments: ['@entity.helper', '@database', '@config.factory', '@state', '@keyvalue', '@cache.default', '@logger.channel.entity']
+
+  # Entity: Routing.
+  bd.entity.route_subscriber:
+    class: Drupal\bd\Entity\Routing\RouteNormalizer
+    arguments: ['@entity.helper', '@discovery', '@logger.channel.discovery']
+    tags:
+    - { name: event_subscriber }
+
+  bd.entity.route_enhancer:
+    class: Drupal\bd\Entity\Routing\RouteNormalizerEnhancer
+    arguments: ['@entity.helper']
+    tags:
+    - { name: route_enhancer }
+
+  bd.context_provider.route_entity:
+    class: 'Drupal\bd\Context\RouteEntity'
+    arguments: [ '@entity_type.manager', '@current_route_match', '@logger.channel.design_system', '@string_translation' ]
+    tags:
+      - { name: 'context_provider' }
+
+  config.processor:
+    class: Drupal\bd\Config\Processor
+    arguments: ['@plugin.plugin_type_manager', '@discovery', '@cache.config', '@logger.channel.config']
+
+  config.deriver:
+    class: Drupal\bd\Config\Deriver
+    arguments: ['@entity.helper', '@entity_field.manager', '@entity.builder', '@config.processor', '@cache.default', '@logger.channel.entity']
+
+  bd.config.override:
+    class: Drupal\bd\Config\Override
+    arguments: [ '@event_dispatcher', '@cache.default', '@logger.channel.rules' ]
+    tags:
+      - { name: config.factory.override, priority: 250 }
+
+  # Discovery.
+  discovery:
+    class: Drupal\bd\Discovery\Manager
+    arguments: ['@module_handler', '@cache.discovery', '@logger.channel.discovery']
+
+  # Event.
+  bd.event_subscriber.generic:
+    class: Drupal\bd\EventSubscriber\Generic
+    arguments: [ '@entity.helper', '@config.factory', '@state' ]
+    tags:
+      - { name: event_subscriber }
+
+  bd.event_subscriber.sys:
+    class: Drupal\bd\EventSubscriber\Sys
+    tags:
+    - { name: 'event_subscriber' }
+
+  bd.event_subscriber.address:
+    class: Drupal\bd\EventSubscriber\Address
+    tags:
+      - { name: event_subscriber }
+
+  # Plugin.
+
+  bd.plugin_type.manager:
+    class: Drupal\bd\PluginType\Manager
+    arguments: ['@plugin.plugin_type_manager', '@plugin.manager.plugin.plugin_selector', '@logger.channel.plugin', '@cache.default']
+
+  plugin.manager.data_deriver:
+    class: Drupal\bd\PluginManager\EntityPluginManager
+    arguments: ['bd', 'data_deriver', 'DataDeriver', 'DataDeriver' , '@container.namespaces', '@cache.discovery', '@module_handler']
+
+  plugin.manager.entity_reference_deriver:
+    class: Drupal\bd\PluginManager\EntityPluginManager
+    arguments: ['bd', 'entity_reference_deriver', 'EntityReferenceDeriver', 'EntityReferenceDeriver', '@container.namespaces', '@cache.discovery', '@module_handler']
+
+  plugin.manager.computed_field_value:
+    class: Drupal\bd\PluginManager\EntityPluginManager
+    arguments: ['bd', 'computed_field_value', 'ComputedFieldValue', 'ComputedFieldValue' , '@container.namespaces', '@cache.discovery', '@module_handler']
+
+  plugin.manager.options_provider:
+    class: Drupal\bd\PluginManager\EntityPluginManager
+    arguments: ['bd', 'options_provider', 'OptionsProvider', 'OptionsProvider' , '@container.namespaces', '@cache.discovery', '@module_handler']
+
+  plugin.manager.value_provider:
+    class: Drupal\bd\PluginManager\EntityPluginManager
+    arguments: ['bd', 'value_provider', 'ValueProvider', 'ValueProvider' , '@container.namespaces', '@cache.discovery', '@module_handler']
+
+  plugin.manager.array_processor:
+    class: Drupal\bd\PluginManager\EntityPluginManager
+    arguments: ['bd', 'array_processor', 'ArrayProcessor', 'ArrayProcessor' , '@container.namespaces', '@cache.discovery', '@module_handler']
+
+  # Misc.
+  config_entity_wrapper.manager:
+    class: Drupal\bd\Config\Wrapper\Manager
+    arguments: ['@entity.helper', '@config.typed', '@database', '@config.factory', '@cache.default', '@logger.channel.config']
+
+  # Log channel.
+  logger.channel.entity:
+    parent: logger.channel_base
+    arguments: ['entity']
+
+  logger.channel.field:
+    parent: logger.channel_base
+    arguments: ['field']
+
+  logger.channel.views:
+    parent: logger.channel_base
+    arguments: ['views']
+
+  logger.channel.config:
+    parent: logger.channel_base
+    arguments: ['config']
+
+  logger.channel.discovery:
+    parent: logger.channel_base
+    arguments: ['discovery']
+
+  logger.channel.plugin:
+    parent: logger.channel_base
+    arguments: ['plugin']
+
+  logger.channel.sys:
+    parent: logger.channel_base
+    arguments: ['sys']
+
+  logger.channel.theme:
+    parent: logger.channel_base
+    arguments: ['theme']
+
+  logger.channel.routing:
+    parent: logger.channel_base
+    arguments: ['theme']

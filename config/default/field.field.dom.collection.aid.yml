@@ -1,0 +1,21 @@
+uuid: 3e796877-b0d0-4a5c-bc1d-9a741ee76605
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.collection
+    - field.storage.dom.aid
+  module:
+    - options
+id: dom.collection.aid
+field_name: aid
+entity_type: dom
+bundle: collection
+label: Attachments
+description: 'Defines where this collection will be attached.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

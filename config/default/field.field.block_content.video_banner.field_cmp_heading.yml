@@ -1,0 +1,29 @@
+uuid: 4da51a7c-6891-42cf-9cfa-c18e5d6c4385
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.heading
+    - block_content.type.video_banner
+    - field.storage.block_content.field_cmp_heading
+id: block_content.video_banner.field_cmp_heading
+field_name: field_cmp_heading
+entity_type: block_content
+bundle: video_banner
+label: Heading
+description: 'Provide a heading component.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      heading: heading
+    sort:
+      field: info
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

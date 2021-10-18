@@ -1,0 +1,28 @@
+uuid: 78178d54-033e-4f43-bffb-3cfd104f4518
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.bottom
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: bottom
+    behavior:
+      dom:
+        subattribute: bottom
+id: dom.style.bottom
+field_name: bottom
+entity_type: dom
+bundle: style
+label: bottom
+description: 'Sets how far the bottom edge of an element is above/below the bottom edge of the parent element'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

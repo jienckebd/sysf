@@ -1,0 +1,28 @@
+uuid: a480b478-0cd1-4375-a75b-0ee5fa9f8699
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.platform__admin
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: exposedformplatform__adminblock_1
+theme: seven
+region: content
+weight: 2
+provider: null
+plugin: 'views_exposed_filter_block:platform__admin-block_1'
+settings:
+  id: 'views_exposed_filter_block:platform__admin-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/structure/platform
+    negate: false

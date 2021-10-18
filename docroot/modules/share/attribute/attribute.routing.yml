@@ -1,0 +1,7 @@
+attribute.settings:
+  path: '/admin/structure/attribute'
+  defaults:
+    _form: 'Drupal\attribute\Form\Settings'
+    _title: 'Attribute API Settings'
+  requirements:
+    _permission: 'administer attribute'

@@ -1,0 +1,29 @@
+uuid: 94ad5e4c-1041-457f-a126-a5e4847bbd8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.visibility
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: visibility
+    behavior:
+      dom:
+        subattribute: visibility
+id: dom.style.visibility
+field_name: visibility
+entity_type: dom
+bundle: style
+label: visibility
+description: 'Sets if an element should be visible or invisible'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

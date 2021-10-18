@@ -1,0 +1,10 @@
+uuid: 95223bf4-a516-4135-a204-9d3cbc803df9
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: network.inline
+label: Inline
+targetEntityType: network
+cache: true

@@ -1,0 +1,20 @@
+uuid: 2d5c1d67-f281-49a7-ad02-f16fdf016dca
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - block_content
+id: block_content.field_cmp_button_group
+field_name: field_cmp_button_group
+entity_type: block_content
+type: entity_reference_revisions
+settings:
+  target_type: block_content
+module: entity_reference_revisions
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,28 @@
+uuid: 95c14d2f-ef74-4820-a2f2-29d5f95b8b60
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.counter_increment
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: counter-increment
+    behavior:
+      dom:
+        subattribute: counter-increment
+id: dom.style.counter_increment
+field_name: counter_increment
+entity_type: dom
+bundle: style
+label: counter-increment
+description: 'Sets how much the counter increments on each occurrence of a selector'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,21 @@
+design_system.settings:
+  path: '/admin/config/ui/design-system'
+  defaults:
+    _form: 'Drupal\design_system\Form\DesignSystemSettings'
+    _title: 'Design System Settings'
+  requirements:
+    _permission: 'administer design system'
+
+layout_builder.settings.form:
+  path: '/layout_builder/configure/layout-settings/{section_storage_type}/{section_storage}'
+  defaults:
+    _title: 'Layout settings'
+    _form: '\Drupal\design_system\Form\LayoutBuilder\LayoutSettings'
+    plugin_id: null
+  requirements:
+    _layout_builder_access: 'view'
+  options:
+    _admin_route: TRUE
+    parameters:
+      section_storage:
+        layout_builder_tempstore: TRUE

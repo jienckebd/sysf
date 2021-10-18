@@ -1,0 +1,59 @@
+static:
+  link_load:
+    label: 'Link Load'
+    description: 'Define the way links are loaded.'
+    list:
+      default:
+        label: 'Normal browser redirect'
+      modal__sm:
+        label: 'Small modal'
+      modal__md:
+        label: 'Medium modal'
+      modal__lg:
+        label: 'Large modal'
+      modal__full:
+        label: 'Full screen modal'
+      modal__iframe__sm:
+        label: 'Small modal iframe'
+      modal__iframe__md:
+        label: 'Medium modal iframe'
+      modal__iframe__lg:
+        label: 'Large modal iframe'
+      modal__iframe__full:
+        label: 'Full screen modal iframe'
+      off_canvas_right:
+        label: 'Off canvas right'
+      off_canvas_top:
+        label: 'Off canvas top'
+      off_canvas_bottom:
+        label: 'Off canvas bottom'
+      off_canvas_left:
+        label: 'Off canvas left'
+      dialog__inline__append:
+        label: 'Inline append dialog'
+      dialog__inline__prepend:
+        label: 'Inline prepend dialog'
+  link_target:
+    label: 'Link Target'
+    description: 'The link target.'
+    list:
+      _blank:
+        label: Blank
+      _parent:
+        label: Parent
+      _self:
+        label: Self
+      _top:
+        label: Top
+      framename:
+        label: 'Frame Name'
+  ajax_event:
+    label: 'Ajax Event'
+    description: 'The DOM event that triggers an ajax behavior.'
+    list:
+      click:
+        label: Click
+      mousedown:
+        label: 'Mouse Down'
+_core:
+  default_config_hash: gNpre1Rox_261jpr_1v1KD5B9ujXboum8Hzqb9050Lw

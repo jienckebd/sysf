@@ -1,0 +1,31 @@
+prd:
+  root: /app/docroot
+  uri: https://bostondrupal.com
+  host: bostondrupal.com
+  user: www-data
+  paths:
+    drush-script: /app/vendor/bin/drush
+
+stg:
+  root: /app/docroot
+  uri: https://stg.env.sys.bostondrupal.com
+  host: stg.env.sys.bostondrupal.com
+  user: www-data
+  paths:
+    drush-script: /app/vendor/bin/drush
+
+dev:
+  root: /app/docroot
+  uri: https://dev.env.sys.bostondrupal.com
+  host: dev.env.sys.bostondrupal.com
+  user: www-data
+  paths:
+    drush-script: /app/vendor/bin/drush
+
+ide1:
+  root: /app/docroot
+  uri: https://ide1.env.sys.bostondrupal.com
+  host: ide1.env.sys.bostondrupal.com
+  user: www-data
+  paths:
+    drush-script: /app/vendor/bin/drush

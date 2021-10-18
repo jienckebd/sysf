@@ -1,0 +1,99 @@
+name: 'Better Drupal'
+core_version_requirement: ^8.8 || ^9
+type: module
+description: 'The better drupal framework.'
+version: '8.x-1.0'
+package: BD
+
+default_entity:
+  dom:
+    # Layout.
+    - 424
+    # Breakpoint.
+    - 425
+    - 426
+    - 427
+#
+#dependencies:
+#
+#  # Admin.
+#  - admin_toolbar_tools
+#  - typed_data
+#
+#  # WYSIWYG.
+#  - linkit
+#  - url_embed
+#  - entity_embed
+#
+#  # Entity backend.
+#  - entity
+#  - entity_usage
+#  - entityqueue
+#  - field_tools
+#  - diff
+#
+#  # Field types.
+#  - dynamic_entity_reference
+#  - entity_reference_revisions
+#  - datetime_range
+#  - telephone
+#  - color_field
+#
+#  # Entity form.
+#  # - flexiform_wizard
+#  - field_validation
+#  - inline_entity_form
+#  - inline_form_errors
+#  - dropzonejs_eb_widget
+#  - entity_browser_entity_form
+#  - select2
+#
+#  # Entity view.
+#  - layout_builder
+#  - efs
+#  - field_layout
+#  - slick_views
+#  - blazy
+##  - block_place
+#
+#  # Media.
+#  - image_effects
+#  - image_widget_crop
+#
+#  # Core.
+#  - ultimate_cron
+#  - token
+#  - action
+#  - plugin
+#  - rules
+#
+#  # Views.
+#  - search_api_solr
+#  - views_ajax_history
+#  - views_infinite_scroll
+#
+#  # Geo.
+#  - address
+#  - geocoder_address
+#  - geofield
+#
+#  # Config Management.
+##  - config_filter
+##  - config_split
+#
+#  # Drupal backend APIs.
+#  - ctools_views
+#  - ctools_block
+#  - libraries
+#
+#  # Routing.
+#  - pathauto
+#  - redirect
+#
+#  # Multilingual.
+#  - config_translation
+#  - content_translation
+#  - locale
+#
+#  # API
+# # - jsonapi_extras

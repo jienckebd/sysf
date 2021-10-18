@@ -1,0 +1,22 @@
+uuid: f8007fc2-8a79-47d1-b416-970c113393d3
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.field_region
+field_name: field_region
+entity_type: dom
+type: entity_reference
+settings:
+  target_type: dom
+  schema__derivative: 1
+  schema__base_target_id: null
+  deriver: null
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

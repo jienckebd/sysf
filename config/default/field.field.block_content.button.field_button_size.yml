@@ -1,0 +1,21 @@
+uuid: a1169796-7503-426b-ae0b-c72fbd66a513
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.button
+    - field.storage.block_content.field_button_size
+  module:
+    - options
+id: block_content.button.field_button_size
+field_name: field_button_size
+entity_type: block_content
+bundle: button
+label: 'Button size'
+description: 'Override the default button size to be either small or large.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

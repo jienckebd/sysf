@@ -1,0 +1,113 @@
+uuid: a36c7746-04f1-4f8d-be02-57f9916617a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.footer.field_attr_target
+    - field.field.menu_link_content.footer.field_icon
+    - field.field.menu_link_content.footer.field_icon_only
+    - system.menu.footer
+  module:
+    - fontawesome
+    - link
+    - menu_item_extras
+id: menu_link_content.footer.default
+targetEntityType: menu_link_content
+bundle: footer
+mode: default
+content:
+  actions:
+    weight: 900
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  description:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  enabled:
+    settings:
+      display_label: true
+    weight: -1
+    region: content
+    third_party_settings: {  }
+    type: boolean_checkbox
+  expanded:
+    settings:
+      display_label: true
+    weight: 0
+    region: content
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_attr_target:
+    weight: 913
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_icon:
+    weight: 911
+    settings: {  }
+    third_party_settings: {  }
+    type: fontawesome_icon_widget
+    region: content
+  field_icon_only:
+    weight: 912
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  link:
+    type: link_default
+    weight: -2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 910
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  view_mode:
+    type: menu_item_extras_view_mode_selector_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  weight:
+    type: number
+    weight: 20
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  external: true
+  menu_name: true
+  parent: true
+  rediscover: true
+  revision_log_message: true

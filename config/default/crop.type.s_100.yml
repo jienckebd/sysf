@@ -1,0 +1,12 @@
+uuid: 864a2620-193b-421f-a95e-f7fb8d714ace
+langcode: en
+status: true
+dependencies: {  }
+id: s_100
+label: 'Standard (x100)'
+description: null
+aspect_ratio: '4:3'
+soft_limit_width: 400
+soft_limit_height: 300
+hard_limit_width: null
+hard_limit_height: null

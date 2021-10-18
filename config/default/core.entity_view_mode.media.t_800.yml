@@ -1,0 +1,10 @@
+uuid: ee4f9456-b70b-4d68-8aac-3f221176beed
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.t_800
+label: 'Tall (x800)'
+targetEntityType: media
+cache: true

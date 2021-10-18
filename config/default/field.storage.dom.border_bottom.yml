@@ -1,0 +1,21 @@
+uuid: 9339346c-b550-468f-9f31-68f1284115ae
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.border_bottom
+field_name: border_bottom
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

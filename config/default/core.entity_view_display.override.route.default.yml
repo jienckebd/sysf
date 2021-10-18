@@ -1,0 +1,61 @@
+uuid: cf14adfc-b27e-45c6-8d6b-c827cfb1539f
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.override.route
+    - field.field.override.route.field_id
+    - field.field.override.route.field_key_default
+    - field.field.override.route.field_key_option
+  module:
+    - key_value_field
+id: override.route.default
+targetEntityType: override
+bundle: route
+mode: default
+content:
+  field_id:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+      filter_format: null
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_key_default:
+    weight: 2
+    label: above
+    settings:
+      value_only: false
+    third_party_settings: {  }
+    type: key_value
+    region: content
+  field_key_option:
+    weight: 1
+    label: above
+    settings:
+      value_only: false
+    third_party_settings: {  }
+    type: key_value
+    region: content
+hidden:
+  bundle: true
+  changed: true
+  created: true
+  default_langcode: true
+  description: true
+  id: true
+  label: true
+  langcode: true
+  metatag: true
+  revision_created: true
+  revision_default: true
+  revision_id: true
+  revision_log_message: true
+  revision_translation_affected: true
+  revision_user: true
+  search_api_excerpt: true
+  status: true
+  uid: true
+  uuid: true

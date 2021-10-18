@@ -1,0 +1,22 @@
+uuid: 20e11f34-3c0b-41da-a0dc-bb559073fa0c
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+id: group_content.group_roles
+field_name: group_roles
+entity_type: group_content
+type: entity_reference
+settings:
+  target_type: group_role
+  schema__derivative: null
+  schema__base_target_id: null
+  deriver: null
+module: core
+locked: true
+cardinality: -1
+translatable: false
+indexes: {  }
+persist_with_no_fields: true
+custom_storage: false

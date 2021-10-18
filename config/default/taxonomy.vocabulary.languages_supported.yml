@@ -1,0 +1,8 @@
+uuid: ee08266e-8ee4-4997-afc2-3cb2ce910e66
+langcode: en
+status: true
+dependencies: {  }
+name: 'Languages Supported'
+vid: languages_supported
+description: 'The languages supported by the font.'
+weight: 0

@@ -1,0 +1,19 @@
+uuid: d4e7edb3-ca44-42cf-adb3-f1450ed05751
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.property
+    - field.storage.dom.type
+id: dom.property.type
+field_name: type
+entity_type: dom
+bundle: property
+label: 'Field Type'
+description: 'The field type.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

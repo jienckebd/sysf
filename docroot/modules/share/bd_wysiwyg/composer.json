@@ -1,0 +1,86 @@
+{
+    "name": "drupal/bd_wysiwyg",
+    "description": "The WYSIWYG component of the Better Drupal framework.",
+    "type": "drupal-module",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Bryan Jiencke",
+            "homepage": "https://www.drupal.org/u/jienckebd",
+            "role": "Maintainer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/templates",
+                "type": "drupal-library",
+                "version": "4.11.1",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://download.ckeditor.com/templates/releases/templates_4.11.1.zip",
+                    "reference": "master"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/colorbutton",
+                "type": "drupal-library",
+                "version": "4.11.4",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://download.ckeditor.com/colorbutton/releases/colorbutton_4.11.4.zip",
+                    "reference": "master"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/panelbutton",
+                "type": "drupal-library",
+                "version": "4.11.4",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://download.ckeditor.com/colorbutton/releases/panelbutton_4.11.4.zip",
+                    "reference": "master"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/font",
+                "type": "drupal-library",
+                "version": "4.11.4",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://download.ckeditor.com/font/releases/font_4.11.4.zip",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
+    "require":{
+        "drupal/ckeditor_font": "^1.0",
+        "drupal/ckeditor_templates": "^1.1",
+        "drupal/ckeditor_templates_ui": "^1.0",
+        "drupal/colorbutton": "^1.1",
+        "drupal/panelbutton": "^1.2",
+        "ckeditor/colorbutton": "^4.11",
+        "ckeditor/font": "^4.11",
+        "ckeditor/panelbutton": "^4.11",
+        "ckeditor/templates": "^4.11"
+    }
+}

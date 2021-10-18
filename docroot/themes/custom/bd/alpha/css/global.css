@@ -1,0 +1,27 @@
+#toggle--mobile {
+  position: absolute;
+  right: 22px;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.25s ease 0s;
+  z-index: 3;
+  display: none;
+  width: 44px;
+  height: 44px;
+  top: 56px;
+  justify-content: center;
+  align-items: center;
+  background: #dadada;
+}
+
+@media all and (max-width: 1023px) {
+  #toggle--mobile {
+    display: flex;
+  }
+}
+
+#toggle--mobile.active {
+  color: #fff;
+  background: #16586c;
+}

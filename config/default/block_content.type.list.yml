@@ -1,0 +1,8 @@
+uuid: 76d345b3-9214-41b9-8968-243ef7d3aa03
+langcode: en
+status: true
+dependencies: {  }
+id: list
+label: List
+revision: 1
+description: 'Provide a Drupal view in a component.'

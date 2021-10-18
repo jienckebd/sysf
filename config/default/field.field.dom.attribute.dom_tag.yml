@@ -1,0 +1,25 @@
+uuid: 3045c6c0-be7e-452f-8c5b-c7e838c98fc4
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.attribute
+    - bd.bundle.dom.tag
+    - field.storage.dom.dom_tag
+id: dom.attribute.dom_tag
+field_name: dom_tag
+entity_type: dom
+bundle: attribute
+label: 'DOM Tags'
+description: 'The valid DOM tags of this attribute.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:dom'
+  handler_settings:
+    auto_create: true
+    target_bundles:
+      tag: tag
+field_type: entity_reference

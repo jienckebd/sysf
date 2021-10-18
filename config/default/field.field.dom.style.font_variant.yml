@@ -1,0 +1,29 @@
+uuid: d15c7ecc-2146-48c0-8a82-84d193202197
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.font_variant
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: font-variant
+    behavior:
+      dom:
+        subattribute: font-variant
+id: dom.style.font_variant
+field_name: font_variant
+entity_type: dom
+bundle: style
+label: font-variant
+description: 'Displays text in a small-caps font or a normal font'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

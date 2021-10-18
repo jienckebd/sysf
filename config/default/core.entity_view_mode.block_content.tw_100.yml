@@ -1,0 +1,10 @@
+uuid: f2f2a520-a890-45da-a2fe-3503e8e119c5
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.tw_100
+label: 'Tall wide (x100)'
+targetEntityType: block_content
+cache: true

@@ -1,0 +1,20 @@
+uuid: afaf9b7e-82b9-4a5d-a30e-77a22fb1e740
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - alpha
+id: messages
+theme: alpha
+region: header
+weight: -1
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  provider: system
+  label_display: '0'
+visibility: {  }

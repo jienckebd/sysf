@@ -1,0 +1,17 @@
+{
+    "name": "drupal/bd_api",
+    "description": "The API component of the Better Drupal framework.",
+    "type": "drupal-module",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Bryan Jiencke",
+            "homepage": "https://www.drupal.org/u/jienckebd",
+            "role": "Maintainer"
+        }
+    ],
+    "require":{
+        "drupal/jsonapi": "^1.23",
+        "drupal/jsonapi_extras": "^2.10"
+    }
+}

@@ -1,0 +1,47 @@
+uuid: 018f25a4-cff2-40e4-b8e7-f31459e09333
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.s_800
+    - field.field.media.image.field_media_image
+    - image.style.s_800
+    - media.type.image
+  module:
+    - image
+id: media.image.s_800
+targetEntityType: media
+bundle: image
+mode: s_800
+content:
+  field_media_image:
+    label: visually_hidden
+    settings:
+      image_style: s_800
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    weight: 1
+    region: content
+hidden:
+  bundle: true
+  changed: true
+  created: true
+  default_langcode: true
+  directory: true
+  langcode: true
+  metatag: true
+  mid: true
+  name: true
+  path: true
+  revision_created: true
+  revision_default: true
+  revision_log_message: true
+  revision_translation_affected: true
+  revision_user: true
+  search_api_excerpt: true
+  status: true
+  thumbnail: true
+  uid: true
+  uuid: true
+  vid: true

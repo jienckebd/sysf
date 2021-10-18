@@ -1,0 +1,53 @@
+entity.helper:
+  label: entity type helper
+  provider: core
+  plugin_manager_service_id: entity.helper
+  plugin_definition_decorator_class: \Drupal\plugin\PluginDefinition\ArrayPluginDefinitionDecorator
+
+entity_field.manager:
+  label: Entity field manager
+  provider: core
+  plugin_manager_service_id: entity_field.manager
+  plugin_definition_decorator_class: \Drupal\plugin\PluginDefinition\ArrayPluginDefinitionDecorator
+
+layout:
+  label: Layout
+  provider: layout_discovery
+  plugin_manager_service_id: plugin.manager.core.layout
+  plugin_definition_decorator_class: \Drupal\bd\PluginDefinition\ObjectPluginDefinitionDecorator
+
+data_deriver:
+  label: Data deriver
+  provider: bd
+  plugin_manager_service_id: plugin.manager.data_deriver
+  plugin_definition_decorator_class: \Drupal\plugin\PluginDefinition\ArrayPluginDefinitionDecorator
+
+options_provider:
+  label: Option provider
+  provider: bd
+  plugin_manager_service_id: plugin.manager.options_provider
+  plugin_definition_decorator_class: \Drupal\plugin\PluginDefinition\ArrayPluginDefinitionDecorator
+
+value_provider:
+  label: Value provider
+  provider: bd
+  plugin_manager_service_id: plugin.manager.value_provider
+  plugin_definition_decorator_class: \Drupal\plugin\PluginDefinition\ArrayPluginDefinitionDecorator
+
+entity_reference_deriver:
+  label: Entity reference deriver
+  provider: bd
+  plugin_manager_service_id: plugin.manager.entity_reference_deriver
+  plugin_definition_decorator_class: \Drupal\plugin\PluginDefinition\ArrayPluginDefinitionDecorator
+
+computed_field_value:
+  label: Computed field value
+  provider: bd
+  plugin_manager_service_id: plugin.manager.computed_field_value
+  plugin_definition_decorator_class: \Drupal\plugin\PluginDefinition\ArrayPluginDefinitionDecorator
+
+array_processor:
+  label: Array processor
+  provider: bd
+  plugin_manager_service_id: plugin.manager.array_processor
+  plugin_definition_decorator_class: \Drupal\plugin\PluginDefinition\ArrayPluginDefinitionDecorator

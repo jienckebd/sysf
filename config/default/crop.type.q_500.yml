@@ -1,0 +1,12 @@
+uuid: 68143a1b-ae0e-43dc-a97d-98a32dc44211
+langcode: en
+status: true
+dependencies: {  }
+id: q_500
+label: 'Square (x500)'
+description: null
+aspect_ratio: '4:4'
+soft_limit_width: 2000
+soft_limit_height: 2000
+hard_limit_width: null
+hard_limit_height: null

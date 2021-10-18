@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Content Moderation & Scheduled Updates integration.
+ */
+
+use Drupal\content_moderation_scheduled_updates\CmsuHooks;
+use Drupal\Core\Entity\EntityTypeInterface;
+
+/**
+ * Implements hook_entity_bundle_field_info_alter().
+ *
+ * @see hook_entity_bundle_field_info_alter()
+ * @see \Drupal\content_moderation_scheduled_updates\CmsuHooks::entityBundleFieldInfoAlter
+ */
+function content_moderation_scheduled_updates_entity_bundle_field_info_alter(&$fields, EntityTypeInterface $entity_type, $bundle) {
+  \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(CmsuHooks::class)
+    ->entityBundleFieldInfoAlter($fields, $entity_type, $bundle);
+}

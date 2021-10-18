@@ -1,0 +1,29 @@
+uuid: 618c06ed-5b3f-4576-ad1a-98887d4f4c17
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.cursor
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: cursor
+    behavior:
+      dom:
+        subattribute: cursor
+id: dom.style.cursor
+field_name: cursor
+entity_type: dom
+bundle: style
+label: cursor
+description: 'Specifies the type of cursor to be displayed'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

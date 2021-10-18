@@ -1,0 +1,19 @@
+uuid: 1086d64c-992f-4cdb-a786-c0122bb67f99
+langcode: en
+status: true
+dependencies:
+  theme:
+    - autotheme__3
+id: autotheme__3_page_title
+theme: autotheme__3
+region: content
+weight: -50
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+  title_class: false
+visibility: {  }

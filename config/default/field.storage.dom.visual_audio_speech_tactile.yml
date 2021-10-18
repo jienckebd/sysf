@@ -1,0 +1,33 @@
+uuid: ab39f9b4-007c-4c49-99bf-3ee0292477da
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.visual_audio_speech_tactile
+field_name: visual_audio_speech_tactile
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: visual
+      label: visual
+    -
+      value: audio
+      label: audio
+    -
+      value: speed
+      label: speed
+    -
+      value: tactile
+      label: tactile
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

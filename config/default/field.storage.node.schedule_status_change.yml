@@ -1,0 +1,23 @@
+uuid: 2775672b-1d4c-4492-bf88-d8976a94b495
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - scheduled_updates
+id: node.schedule_status_change
+field_name: schedule_status_change
+entity_type: node
+type: entity_reference
+settings:
+  target_type: scheduled_update
+  schema__derivative: null
+  schema__base_target_id: null
+  deriver: null
+module: core
+locked: false
+cardinality: -1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

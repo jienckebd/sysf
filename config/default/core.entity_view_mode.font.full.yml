@@ -1,0 +1,10 @@
+uuid: 08e05cf3-405c-4eae-91d0-0208018eac09
+langcode: en
+status: false
+dependencies:
+  module:
+    - fontyourface
+id: font.full
+label: 'Full View Mode'
+targetEntityType: font
+cache: false

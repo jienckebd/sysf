@@ -1,0 +1,10 @@
+uuid: 382c17fb-1195-4435-baed-586c8b8b4c0c
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: app.preview
+label: Preview
+targetEntityType: app
+cache: true

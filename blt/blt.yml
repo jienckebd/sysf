@@ -1,0 +1,81 @@
+project:
+  machine_name: sysf
+  prefix: sysf
+  human_name: 'Better Drupal'
+  profile:
+    name: minimal
+  local:
+    protocol: https
+    hostname: dev.env.sys.bostondrupal.com
+git:
+  default_branch: develop
+  remotes:
+    artifact: git@gitlab.com:sysf19/drupal/sysf-artifact.git
+    dev: ssh://www-data@bostondrupal.com:/app
+  hooks:
+    pre-commit: ${blt.root}/script/git-hook
+    commit-msg: ${blt.root}/script/git-hook
+  commit-msg:
+    # Commit messages must conform to this pattern.
+#    pattern: "/(^${project.prefix}-[0-9]+(: )[^ ].{15,}\\.)|(Merge branch (.)+)/"
+#    # Human readable help description explaining the pattern/restrictions.
+#    help_description: "The commit message should include your project prefix,
+#                      followed by a hyphen and ticket number, followed by a colon and a space,
+#                      fifteen characters or more describing the commit, and end with a period."
+#    # Provide an example of a valid commit message.
+#    example: "${project.prefix}-123: Update module configuration."
+  user:
+    # Name and email to use for the purposes of Git commits if you don't want to
+    # use global Git configuration.
+    name: 'Bryan Jiencke'
+    email: 'bryan.jiencke@gmail.com'
+deploy:
+  tag_source: true
+  dir: /tmp/blt_artifact_deploy
+  exclude_additions_file: ${repo.root}/blt/deploy-exclude-additions.txt
+  gitignore_file: ${repo.root}/blt/deploy-gitignore.txt
+drush:
+  bin: ${composer.bin}/drush
+  dir: ${docroot}
+  aliases:
+    remote: '${project.machine_name}.prd'
+    local: self
+    ci: self
+  default_alias: '${drush.aliases.local}'
+  sanitize: false
+  ansi: true
+#modules:
+#  local:
+#    enable: [dblog, devel, seckit, views_ui]
+#    uninstall: [acquia_connector, shield]
+#  ci:
+#    enable: {  }
+#    uninstall: [acquia_connector, shield]
+#  dev:
+#    enable: [acquia_connector, shield]
+#    uninstall: {  }
+#  test:
+#    enable: [acquia_connector, shield]
+#    uninstall: [devel, views_ui]
+#  prod:
+#    enable: [acquia_connector, shield]
+#    uninstall: [devel, views_ui]
+#cm:
+#  strategy: config-split
+sync:
+  # By default, files are not synced during sync:refresh.
+  # Set this value to 'true' or pass -D sync.files=true
+  # to override this behavior.
+  files: true
+  private-files: true
+  # Paths to exclude during file syncing operations.
+  exclude-paths:
+    - styles
+    - css
+    - js
+  commands:
+    - source:build:composer
+    - blt:init:settings
+    - drupal:sync:db
+    - drupal:update
+    - source:build:frontend

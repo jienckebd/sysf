@@ -1,0 +1,19 @@
+uuid: c77fd4da-1af6-49cd-b6b5-14d749f145e4
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: app.field_path_home
+field_name: field_path_home
+entity_type: app
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

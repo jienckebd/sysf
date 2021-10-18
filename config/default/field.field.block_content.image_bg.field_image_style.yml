@@ -1,0 +1,23 @@
+uuid: 8c28ee19-34cb-490e-a36a-a7eabf6b835b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_bg
+    - field.storage.block_content.field_image_style
+id: block_content.image_bg.field_image_style
+field_name: field_image_style
+entity_type: block_content
+bundle: image_bg
+label: 'Image style'
+description: 'Apply an image style to scale/crop it.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:image_style'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

@@ -1,0 +1,12 @@
+uuid: 94c392bc-ff88-41f8-80b9-bf24aa6305d9
+langcode: en
+status: true
+dependencies: {  }
+id: tw_800
+label: 'Tall wide (x800)'
+description: null
+aspect_ratio: '3:4'
+soft_limit_width: 2400
+soft_limit_height: 3200
+hard_limit_width: null
+hard_limit_height: null

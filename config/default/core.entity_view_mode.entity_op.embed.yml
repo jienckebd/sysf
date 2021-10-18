@@ -1,0 +1,10 @@
+uuid: 0586fa0e-c7ce-41cc-85ad-668367145956
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: entity_op.embed
+label: Embed
+targetEntityType: entity_op
+cache: true

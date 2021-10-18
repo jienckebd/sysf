@@ -1,0 +1,17 @@
+uuid: 31ef62b1-9faa-4796-8768-31bc8b0c0023
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.s_500
+  module:
+    - crop
+name: s_500
+label: 'Standard (x500)'
+effects:
+  a20eb2c9-74a1-4ab2-96e5-f07d6393de4a:
+    uuid: a20eb2c9-74a1-4ab2-96e5-f07d6393de4a
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: s_500

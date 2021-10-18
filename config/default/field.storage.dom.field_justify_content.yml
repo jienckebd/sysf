@@ -1,0 +1,36 @@
+uuid: fb1f3466-86f0-4dab-b272-4ed4ae73abee
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.field_justify_content
+field_name: field_justify_content
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: flex-start
+      label: flex-start
+    -
+      value: flex-end
+      label: flex-end
+    -
+      value: center
+      label: center
+    -
+      value: space-between
+      label: space-between
+    -
+      value: space-around
+      label: space-around
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

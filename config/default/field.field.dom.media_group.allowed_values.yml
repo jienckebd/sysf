@@ -1,0 +1,19 @@
+uuid: 8cec8ae0-14a1-40e0-9029-0c7b482dce9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.media_group
+    - field.storage.dom.allowed_values
+id: dom.media_group.allowed_values
+field_name: allowed_values
+entity_type: dom
+bundle: media_group
+label: 'Allowed Values'
+description: 'The allowed values of the property.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

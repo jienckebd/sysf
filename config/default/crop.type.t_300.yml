@@ -1,0 +1,12 @@
+uuid: 9fd5869b-46a7-44e4-a21e-4c27b2830381
+langcode: en
+status: true
+dependencies: {  }
+id: t_300
+label: 'Tall (x300)'
+description: null
+aspect_ratio: '1:4'
+soft_limit_width: 300
+soft_limit_height: 1200
+hard_limit_width: null
+hard_limit_height: null

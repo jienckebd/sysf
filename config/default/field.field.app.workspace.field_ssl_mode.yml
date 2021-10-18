@@ -1,0 +1,35 @@
+uuid: 33d796bc-32a5-4304-b312-296df89983f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.app.workspace
+    - field.storage.app.field_ssl_mode
+    - taxonomy.vocabulary.ssl_mode
+  content:
+    - 'taxonomy_term:ssl_mode:3cbacade-120e-4bd3-b572-d3633374be44'
+id: app.workspace.field_ssl_mode
+field_name: field_ssl_mode
+entity_type: app
+bundle: workspace
+label: 'SSL mode'
+description: 'Enforce or disable SSL on requests to this app.'
+required: true
+translatable: false
+default_value:
+  -
+    derivative: null
+    base_target_id: null
+    target_uuid: 3cbacade-120e-4bd3-b572-d3633374be44
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ssl_mode: ssl_mode
+    sort:
+      field: name
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

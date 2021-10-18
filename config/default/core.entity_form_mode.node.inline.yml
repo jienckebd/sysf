@@ -1,0 +1,10 @@
+uuid: 1b1ee7a9-25e1-4eec-a138-e738e3c89674
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.inline
+label: Inline
+targetEntityType: node
+cache: true

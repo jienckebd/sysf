@@ -1,0 +1,8 @@
+uuid: 7aa24e74-6b27-4bcc-b4a0-fb21d3fff35d
+langcode: en
+status: true
+dependencies: {  }
+id: table
+label: Table
+revision: 1
+description: "Sequence of vertical rows and horizontal columns with optional heading and styling.\r\n"

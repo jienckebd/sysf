@@ -1,0 +1,28 @@
+uuid: 57a91046-7cc6-4584-806e-3ed546d00d11
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.text_shadow
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: text-shadow
+    behavior:
+      dom:
+        subattribute: text-shadow
+id: dom.style.text_shadow
+field_name: text_shadow
+entity_type: dom
+bundle: style
+label: text-shadow
+description: 'Adds a shadow to text'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

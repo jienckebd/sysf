@@ -1,0 +1,36 @@
+uuid: 2f1e06e6-d8c7-44ee-b91d-0ed166833d1c
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.background
+field_name: background
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: background-color
+      label: background-color
+    -
+      value: background-image
+      label: background-image
+    -
+      value: background-repeat
+      label: background-repeat
+    -
+      value: background-attachment
+      label: background-attachment
+    -
+      value: background-position
+      label: background-position
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,7 @@
+name: Network
+type: module
+description: 'Provides a network of entities.'
+core_version_requirement: ^8.8 || ^9
+
+dependencies:
+  - bd

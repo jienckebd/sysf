@@ -1,0 +1,29 @@
+uuid: be3ad492-56bf-452c-a7e1-299016f2b515
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.background_repeat
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: background-repeat
+    behavior:
+      dom:
+        subattribute: background-repeat
+id: dom.style.background_repeat
+field_name: background_repeat
+entity_type: dom
+bundle: style
+label: background-repeat
+description: 'Sets if/how a background image will be repeated'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

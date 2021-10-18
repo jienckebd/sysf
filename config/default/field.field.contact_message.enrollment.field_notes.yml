@@ -1,0 +1,80 @@
+uuid: 6f7bc571-0b59-4230-8937-70c16bc9eb78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.contact_message.field_notes
+  module:
+    - bd
+    - contact
+third_party_settings:
+  bd:
+    overview:
+      entity_field_group:
+        widget:
+          value: {  }
+      weight:
+        widget:
+          value: Array
+      cardinality:
+        widget:
+          value: Array
+    element:
+      field_value:
+        override:
+          widget:
+            value: ''
+        callback:
+          widget:
+            value: ''
+      label:
+        override:
+          widget:
+            value: ''
+        display_position:
+          widget:
+            value: ''
+      description:
+        override:
+          widget:
+            value: ''
+        display_position:
+          widget:
+            value: ''
+    behavior:
+      access:
+        edit:
+          restrict_behavior:
+            widget:
+              value: ''
+          condition_list:
+            actions: {  }
+        view:
+          condition_list:
+            actions: {  }
+      translation:
+        force_langcode:
+          widget:
+            value: ''
+        disable:
+          widget:
+            value: 0
+      multi_value:
+        max:
+          widget:
+            value: Array
+        delimiter:
+          widget:
+            value: ''
+id: contact_message.enrollment.field_notes
+field_name: field_notes
+entity_type: contact_message
+bundle: enrollment
+label: 'Anything else you''d like to share?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,72 @@
+uuid: 04d17e8c-beca-4d1f-a3b7-1df4642a9bd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.color
+    - core.entity_form_mode.dom.inline
+    - field.field.dom.color.color
+    - field.field.dom.color.field_effect
+    - field.field.dom.color.machine_name
+  module:
+    - color_field
+id: dom.color.inline
+targetEntityType: dom
+bundle: color
+mode: inline
+content:
+  actions:
+    weight: 900
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  color:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: color_field_widget_html5
+    region: content
+  description:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 3
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  revision_log_message:
+    type: string_textarea
+    weight: 4
+    settings:
+      rows: 4
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 910
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_effect: true
+  label_display: true
+  machine_name: true
+  revision_created: true
+  status: true
+  uid: true

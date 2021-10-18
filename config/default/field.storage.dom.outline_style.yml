@@ -1,0 +1,48 @@
+uuid: ed194598-0fb2-4a04-9e61-74b097b36de5
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.outline_style
+field_name: outline_style
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: none
+      label: none
+    -
+      value: dotted
+      label: dotted
+    -
+      value: dashed
+      label: dashed
+    -
+      value: solid
+      label: solid
+    -
+      value: double
+      label: double
+    -
+      value: groove
+      label: groove
+    -
+      value: ridge
+      label: ridge
+    -
+      value: inset
+      label: inset
+    -
+      value: outset
+      label: outset
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

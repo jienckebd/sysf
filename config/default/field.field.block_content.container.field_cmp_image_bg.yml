@@ -1,0 +1,29 @@
+uuid: 7b401113-eddd-41bc-83c2-53b876be247a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.container
+    - block_content.type.image_bg
+    - field.storage.block_content.field_cmp_image_bg
+id: block_content.container.field_cmp_image_bg
+field_name: field_cmp_image_bg
+entity_type: block_content
+bundle: container
+label: 'Background image'
+description: 'Apply a configurable background image.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      image_bg: image_bg
+    sort:
+      field: info
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

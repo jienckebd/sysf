@@ -1,0 +1,21 @@
+uuid: 5da9a84b-7d99-478b-a52f-db0de4884b35
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.padding_left
+field_name: padding_left
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

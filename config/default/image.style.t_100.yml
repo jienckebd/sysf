@@ -1,0 +1,17 @@
+uuid: e7badba7-cf1d-4e95-b262-41ee1734d23f
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.t_100
+  module:
+    - crop
+name: t_100
+label: 'Tall (x100)'
+effects:
+  fa41a56b-30fd-450c-b54c-f78aa1d81d2e:
+    uuid: fa41a56b-30fd-450c-b54c-f78aa1d81d2e
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: t_100

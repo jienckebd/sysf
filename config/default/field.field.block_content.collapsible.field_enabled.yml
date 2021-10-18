@@ -1,0 +1,23 @@
+uuid: 31484ea3-652d-4e58-b71e-ec172a21559f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.collapsible
+    - field.storage.block_content.field_enabled
+id: block_content.collapsible.field_enabled
+field_name: field_enabled
+entity_type: block_content
+bundle: collapsible
+label: Enabled
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

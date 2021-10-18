@@ -1,0 +1,8 @@
+uuid: 48d9158f-aed6-47b4-a5e9-47996adf0ee3
+langcode: en
+status: true
+dependencies: {  }
+id: chart
+label: Chart
+revision: 1
+description: "Animated and interactive visualizations powered by d3.js including bar, area, line, distribution, trees,&nbsp;and much more.\r\n"

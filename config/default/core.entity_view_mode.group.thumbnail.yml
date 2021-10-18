@@ -1,0 +1,10 @@
+uuid: 893c8db1-ba4c-4add-985a-11eeaf25833e
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+id: group.thumbnail
+label: Thumbnail
+targetEntityType: group
+cache: true

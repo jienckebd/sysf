@@ -1,0 +1,99 @@
+uuid: 3c8f096b-f2d6-4469-9e36-74f2e9777d3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment
+    - field.field.comment.comment.comment_body
+  module:
+    - design_system
+    - layout_builder
+    - layout_discovery
+third_party_settings:
+  layout_builder:
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          95ec41c4-0d7b-416b-b600-9c46ecfc33d1:
+            uuid: 95ec41c4-0d7b-416b-b600-9c46ecfc33d1
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:comment:comment:comment_body'
+              formatter:
+                label: hidden
+                type: text_default
+                settings: {  }
+                third_party_settings: {  }
+            additional: {  }
+            weight: 0
+          763713f8-539c-4655-971b-b221e9cadd07:
+            uuid: 763713f8-539c-4655-971b-b221e9cadd07
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:comment:comment:links'
+            additional: {  }
+            weight: 1
+          b21d7444-386f-407c-99c1-298c57b0032c:
+            uuid: b21d7444-386f-407c-99c1-298c57b0032c
+            region: content
+            configuration:
+              id: 'component:entity_field_formatter:component'
+              component: '1'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              field_override:
+                field_block:
+                  -
+                    plugin_id: 'extra_field_block:comment:comment:links'
+                    settings:
+                      id: 'extra_field_block:comment:comment:links'
+                      label_display: '0'
+                      context_mapping:
+                        entity: '@design_system.context_provider.entity_display:display.view.entity:parent:parent:parent'
+                        view_mode: '@design_system.context_provider.entity_display:display.view.mode:parent:parent:parent'
+                      formatter:
+                        settings: {  }
+                        third_party_settings: {  }
+                        label: hidden
+            additional: {  }
+            weight: 2
+        third_party_settings: {  }
+id: comment.comment.default
+targetEntityType: comment
+bundle: comment
+mode: default
+content: {  }
+hidden:
+  changed: true
+  cid: true
+  comment_body: true
+  comment_type: true
+  created: true
+  default_langcode: true
+  entity_id: true
+  entity_type: true
+  field_name: true
+  homepage: true
+  hostname: true
+  langcode: true
+  mail: true
+  name: true
+  pid: true
+  search_api_excerpt: true
+  status: true
+  subject: true
+  thread: true
+  uid: true
+  uuid: true

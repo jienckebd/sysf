@@ -1,0 +1,48 @@
+uuid: f165859e-c735-4b30-aa9d-fdbba3801d48
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.vertical_align
+field_name: vertical_align
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: baseline
+      label: baseline
+    -
+      value: sub
+      label: sub
+    -
+      value: super
+      label: super
+    -
+      value: top
+      label: top
+    -
+      value: text-top
+      label: text-top
+    -
+      value: middle
+      label: middle
+    -
+      value: bottom
+      label: bottom
+    -
+      value: text-bottom
+      label: text-bottom
+    -
+      value: length%
+      label: length%
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,8 @@
+uuid: d05f92ca-ba4d-4b2f-83c5-11c66d372822
+langcode: en
+status: true
+dependencies: {  }
+id: component
+label: Component
+revision: 1
+description: 'Reuse an existing component.'

@@ -1,0 +1,8 @@
+uuid: 06158387-ab86-44f7-bf1e-ff3f5f6d8ac2
+langcode: en
+status: true
+dependencies: {  }
+id: container
+label: Container
+revision: 1
+description: 'Provides a recursive and configurable wrapper around components.'

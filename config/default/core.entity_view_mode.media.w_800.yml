@@ -1,0 +1,10 @@
+uuid: 0a4f2542-127a-4cf0-a019-d5a75f965a4a
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.w_800
+label: 'Wide (x800)'
+targetEntityType: media
+cache: true

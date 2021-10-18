@@ -1,0 +1,8 @@
+uuid: 31e8f21e-f7be-4c55-85a1-46add547500b
+langcode: en
+status: true
+dependencies: {  }
+id: image_card
+label: 'Image card'
+revision: 1
+description: 'Provides a card with an image.'

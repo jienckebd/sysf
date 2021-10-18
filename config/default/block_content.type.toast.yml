@@ -1,0 +1,8 @@
+uuid: a897c043-9f79-4ee2-8f81-8d571b51ee24
+langcode: en
+status: true
+dependencies: {  }
+id: toast
+label: Toast
+revision: 1
+description: 'Provide standout text that can be collapsed.'

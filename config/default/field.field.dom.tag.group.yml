@@ -1,0 +1,34 @@
+uuid: 674a5762-9414-4e9d-9133-ffb68a6910a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.tag
+    - field.storage.dom.group
+    - taxonomy.vocabulary.group_dom_tag
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: group
+    behavior:
+      dom:
+        subattribute: group
+id: dom.tag.group
+field_name: group
+entity_type: dom
+bundle: tag
+label: Group
+description: 'The group of the tag.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    auto_create: true
+    target_bundles:
+      group_dom_css_property: group_dom_tag
+field_type: entity_reference

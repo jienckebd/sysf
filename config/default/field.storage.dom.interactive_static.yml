@@ -1,0 +1,27 @@
+uuid: dec64df4-7fc7-4253-abe2-b86c3463f4a7
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.interactive_static
+field_name: interactive_static
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: interactive
+      label: interactive
+    -
+      value: static
+      label: static
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

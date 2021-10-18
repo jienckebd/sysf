@@ -1,0 +1,19 @@
+uuid: bd15c108-56f5-4962-a202-571d655c56b5
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - fontawesome
+id: app.field_icon
+field_name: field_icon
+entity_type: app
+type: fontawesome_icon
+settings: {  }
+module: fontawesome
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

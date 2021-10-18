@@ -1,0 +1,17 @@
+uuid: e06009fb-e810-4b5f-9a3b-f1d6c62ff67a
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.nw_500
+  module:
+    - crop
+name: nw_500
+label: 'Narrow wide (x500)'
+effects:
+  c21e7f0b-fd75-4eaa-8347-e621c768f135:
+    uuid: c21e7f0b-fd75-4eaa-8347-e621c768f135
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: nw_500

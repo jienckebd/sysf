@@ -1,0 +1,17 @@
+uuid: f0586311-c5bc-48a4-905a-0c9813c3e32e
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.tw_300
+  module:
+    - crop
+name: tw_300
+label: 'Tall wide (x300)'
+effects:
+  440dc2d7-8064-4f83-875e-c60484634e0c:
+    uuid: 440dc2d7-8064-4f83-875e-c60484634e0c
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: tw_300

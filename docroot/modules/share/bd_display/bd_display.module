@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ */
+
+use Drupal\bd_display\Plugin\Field\FieldFormatter\FontFieldIconDefaultFormatter;
+use Drupal\bd_display\Plugin\Field\FieldWidget\FontFieldIconDefaultWidget;
+use Drupal\bd_display\Plugin\Field\FieldType\FontFieldIcon;
+
+/**
+ * Implements hook_field_info_alter().
+ */
+function bd_display_field_info_alter(&$info) {
+  if (!empty($info['FontFieldIcon'])) {
+    $info['FontFieldIcon']['class'] = FontFieldIcon::class;
+  }
+}
+
+/**
+ * Implements hook_field_widget_info_alter().
+ */
+function bd_display_field_widget_info_alter(array &$info) {
+  if (!empty($info['FontFieldIconDefaultWidget'])) {
+    $info['FontFieldIconDefaultWidget']['class'] = FontFieldIconDefaultWidget::class;
+  }
+}
+
+/**
+ * Implements hook_field_formatter_info_alter().
+ */
+function bd_display_field_formatter_info_alter(array &$info) {
+  if (!empty($info['FontFieldIconDefaultFormatter'])) {
+    $info['FontFieldIconDefaultFormatter']['class'] = FontFieldIconDefaultFormatter::class;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_load().
+ */
+function bd_display_node_load(array $entities) {
+  \Drupal::service('entity.field.default_value')->setDefaults($entities);
+}

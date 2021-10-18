@@ -1,0 +1,10 @@
+uuid: 3ba2f608-43ac-4c09-b076-d27d558c9a0b
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.nw_100
+label: 'Narrow wide (x100)'
+targetEntityType: media
+cache: true

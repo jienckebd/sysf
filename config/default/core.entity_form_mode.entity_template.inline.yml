@@ -1,0 +1,10 @@
+uuid: 4e1209fd-83c5-4857-a1f0-b80900f5b04d
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: entity_template.inline
+label: Inline
+targetEntityType: entity_template
+cache: true

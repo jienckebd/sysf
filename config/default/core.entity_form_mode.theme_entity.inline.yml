@@ -1,0 +1,10 @@
+uuid: 1899029a-c417-4a4a-bf61-b788f9daf9b9
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: theme_entity.inline
+label: Inline
+targetEntityType: theme_entity
+cache: true

@@ -1,0 +1,21 @@
+uuid: b49e5f93-bfda-494b-9991-a9c8eb8dcc7c
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.min_width
+field_name: min_width
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

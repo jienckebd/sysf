@@ -1,0 +1,31 @@
+uuid: 7b17fd09-a5fe-47da-a380-39e9839c8115
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.font_entity_browser
+  module:
+    - views
+name: font_modal
+label: 'Font: Modal'
+display: modal
+display_configuration:
+  width: ''
+  height: '500'
+  link_text: 'Select font'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: single
+widget_selector_configuration: {  }
+widgets:
+  c122070e-4863-46d1-b786-64bd7169b081:
+    settings:
+      view: font_entity_browser
+      view_display: entity_browser_1
+      submit_text: 'Select font'
+      auto_select: false
+    uuid: c122070e-4863-46d1-b786-64bd7169b081
+    weight: 1
+    label: 'Font Library'
+    id: view

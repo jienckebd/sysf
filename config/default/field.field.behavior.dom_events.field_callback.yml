@@ -1,0 +1,19 @@
+uuid: a056550e-4710-493a-86aa-752cdba76f50
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.behavior.dom_events
+    - field.storage.behavior.field_callback
+id: behavior.dom_events.field_callback
+field_name: field_callback
+entity_type: behavior
+bundle: dom_events
+label: Callback
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

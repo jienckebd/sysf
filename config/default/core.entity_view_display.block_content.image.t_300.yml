@@ -1,0 +1,47 @@
+uuid: 73046dfb-acfb-4dc0-ba14-3f4257bc20d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image
+    - core.entity_view_mode.block_content.t_300
+    - field.field.block_content.image.field_media
+  module:
+    - entity_reference_revisions
+id: block_content.image.t_300
+targetEntityType: block_content
+bundle: image
+mode: t_300
+content:
+  field_media:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      view_mode: t_300
+      link: ''
+    third_party_settings: {  }
+hidden:
+  base_entity: true
+  changed: true
+  container: true
+  default_langcode: true
+  id: true
+  info: true
+  langcode: true
+  metatag: true
+  reusable: true
+  revision_created: true
+  revision_default: true
+  revision_id: true
+  revision_log: true
+  revision_translation_affected: true
+  revision_user: true
+  search_api_excerpt: true
+  status: true
+  tags: true
+  type: true
+  uuid: true
+  variant: true
+  view_mode: true

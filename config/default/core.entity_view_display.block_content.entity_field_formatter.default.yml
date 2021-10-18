@@ -1,0 +1,45 @@
+uuid: 3d5eaf7a-6165-4d4a-826b-144b36bbe870
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.entity_field_formatter
+    - field.field.block_content.entity_field_formatter.field_plugin_block
+  module:
+    - plugin
+id: block_content.entity_field_formatter.default
+targetEntityType: block_content
+bundle: entity_field_formatter
+mode: default
+content:
+  field_plugin_block:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: plugin_block_built
+    region: content
+hidden:
+  base_entity: true
+  changed: true
+  container: true
+  default_langcode: true
+  id: true
+  info: true
+  label: true
+  langcode: true
+  metatag: true
+  reusable: true
+  reuse: true
+  revision_created: true
+  revision_default: true
+  revision_id: true
+  revision_log: true
+  revision_translation_affected: true
+  revision_user: true
+  search_api_excerpt: true
+  status: true
+  tags: true
+  type: true
+  uuid: true
+  variant: true

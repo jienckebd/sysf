@@ -1,0 +1,28 @@
+uuid: f32874f4-6922-48e1-adb0-a85a8daed965
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.border_left_width
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: border-left-width
+    behavior:
+      dom:
+        subattribute: border-left-width
+id: dom.style.border_left_width
+field_name: border_left_width
+entity_type: dom
+bundle: style
+label: border-left-width
+description: 'Sets the width of the left border'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

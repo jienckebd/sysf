@@ -1,0 +1,23 @@
+uuid: fdbc5f0b-1a58-4353-a7c7-6356c8e669b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - image
+id: block_content.field_image_style
+field_name: field_image_style
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: image_style
+  schema__derivative: null
+  schema__base_target_id: null
+  deriver: null
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

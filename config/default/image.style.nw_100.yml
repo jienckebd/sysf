@@ -1,0 +1,17 @@
+uuid: 47e5b4bd-c872-46d6-afe0-eff99b4ad5db
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.nw_100
+  module:
+    - crop
+name: nw_100
+label: 'Narrow wide (x100)'
+effects:
+  ecf9e831-8de8-470f-a15f-2c54b94be6ee:
+    uuid: ecf9e831-8de8-470f-a15f-2c54b94be6ee
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: nw_100

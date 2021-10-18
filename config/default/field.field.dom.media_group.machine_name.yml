@@ -1,0 +1,19 @@
+uuid: 1d873bad-e7d6-41fe-9f16-c1266682fbb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.media_group
+    - field.storage.dom.machine_name
+id: dom.media_group.machine_name
+field_name: machine_name
+entity_type: dom
+bundle: media_group
+label: 'Machine Name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

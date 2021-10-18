@@ -1,0 +1,10 @@
+uuid: f0f51271-e40d-4a85-b36b-1a7dc3ec093e
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.s_300
+label: 'Standard (x300)'
+targetEntityType: media
+cache: true

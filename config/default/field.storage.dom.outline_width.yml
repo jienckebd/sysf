@@ -1,0 +1,21 @@
+uuid: a7785e65-a068-4cfb-92f0-3161c2e8462d
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.outline_width
+field_name: outline_width
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

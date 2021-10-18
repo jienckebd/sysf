@@ -1,0 +1,46 @@
+uuid: cc8e550b-f289-43c9-bd5b-eff3cf40960b
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.layout_section
+    - field.storage.dom.field_region
+  module:
+    - bd
+third_party_settings:
+  bd:
+    data_deriver:
+      plugin: field_value
+      form:
+        field_name_selector: field_layout_plugin
+        propagate_field_name: ''
+    dom:
+      attribute: ''
+      subattribute: ''
+      theme_hook: ''
+      theme_hook_selector: ''
+      theme_hook_match_key: ''
+      theme_hook_match_value: ''
+      build_css: 0
+      build_css_field_name: ''
+    dependency:
+      type: ef354209-cb30-4cbe-abab-de5b8bda6a68
+id: dom.layout_section.field_region
+field_name: field_region
+entity_type: dom
+bundle: layout_section
+label: Regions
+description: 'Configure the regions of this row. Each region is a column of this row.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: '\Drupal\bd\Entity\EntityFieldDefaultValue::derivedDefaultValue'
+settings:
+  handler: 'default:dom'
+  handler_settings:
+    target_bundles: {  }
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

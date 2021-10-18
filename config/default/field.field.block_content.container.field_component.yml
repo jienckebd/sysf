@@ -1,0 +1,70 @@
+uuid: afef4a26-8977-4029-8aff-e1bdebf73cb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.alert
+    - block_content.type.button
+    - block_content.type.button_group
+    - block_content.type.carousel
+    - block_content.type.component
+    - block_content.type.container
+    - block_content.type.drupal_block
+    - block_content.type.heading
+    - block_content.type.image
+    - block_content.type.image_banner
+    - block_content.type.image_card
+    - block_content.type.layout
+    - block_content.type.layout_builder
+    - block_content.type.metric
+    - block_content.type.region
+    - block_content.type.style
+    - block_content.type.text
+    - block_content.type.text_only_card
+    - block_content.type.toast
+    - block_content.type.video
+    - block_content.type.video_banner
+    - block_content.type.video_card
+    - field.storage.block_content.field_component
+id: block_content.container.field_component
+field_name: field_component
+entity_type: block_content
+bundle: container
+label: Components
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      alert: alert
+      button: button
+      button_group: button_group
+      carousel: carousel
+      component: component
+      container: container
+      drupal_block: drupal_block
+      heading: heading
+      image: image
+      image_banner: image_banner
+      image_card: image_card
+      layout: layout
+      layout_builder: layout_builder
+      metric: metric
+      region: region
+      style: style
+      text: text
+      text_only_card: text_only_card
+      toast: toast
+      video: video
+      video_banner: video_banner
+      video_card: video_card
+    sort:
+      field: info
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: button
+field_type: entity_reference_revisions

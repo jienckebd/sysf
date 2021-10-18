@@ -1,0 +1,21 @@
+uuid: c8706a46-c97d-4ef3-b7b1-f0ef29546951
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: app.field_host
+field_name: field_host
+entity_type: app
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

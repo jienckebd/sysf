@@ -1,0 +1,17 @@
+uuid: 061b4ece-ffb4-4f86-8178-29e9ac892c0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.t_300
+  module:
+    - crop
+name: t_300
+label: 'Tall (x300)'
+effects:
+  49671ad8-b2f2-4fff-80ec-2d83a880d8d5:
+    uuid: 49671ad8-b2f2-4fff-80ec-2d83a880d8d5
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: t_300

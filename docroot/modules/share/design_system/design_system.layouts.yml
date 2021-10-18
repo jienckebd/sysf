@@ -1,0 +1,10 @@
+create_layout_entity:
+  label: 'Create new layout'
+  class: '\Drupal\design_system\Plugin\Layout\LayoutEntity'
+  category: 'Dynamic'
+  default_region: 0
+  icon_map:
+    - [col_1]
+  regions:
+    col_1:
+      label: Region 1

@@ -1,0 +1,22 @@
+uuid: c46df62a-a394-4537-9923-74909f18b4a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.border_top_color_dom
+field_name: border_top_color_dom
+entity_type: dom
+type: entity_reference
+settings:
+  target_type: dom
+  schema__derivative: null
+  schema__base_target_id: null
+  deriver: null
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,33 @@
+uuid: 47110a71-a9ad-4a62-939f-2998ccd1a2bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.background_repeat
+field_name: background_repeat
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: repeat
+      label: repeat
+    -
+      value: repeat-x
+      label: repeat-x
+    -
+      value: repeat-y
+      label: repeat-y
+    -
+      value: no-repeat
+      label: no-repeat
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

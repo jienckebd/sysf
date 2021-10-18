@@ -1,0 +1,28 @@
+uuid: ca7c33f0-7da5-4ea1-acc9-d09b65a1da96
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.margin_left
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: margin-left
+    behavior:
+      dom:
+        subattribute: margin-left
+id: dom.style.margin_left
+field_name: margin_left
+entity_type: dom
+bundle: style
+label: margin-left
+description: 'Sets the left margin of an element'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

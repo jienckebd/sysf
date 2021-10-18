@@ -1,0 +1,43 @@
+uuid: 8404a25e-2c05-42c6-b355-4a0979c62d43
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.element
+    - field.field.dom.element.field_selector
+id: dom.element.default
+targetEntityType: dom
+bundle: element
+mode: default
+content:
+  actions:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_selector:
+    weight: 1
+    settings:
+      autocomplete: true
+      match_operator: CONTAINS
+      match_limit: 10
+      width: 100%
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  description: true
+  langcode: true
+  revision_log_message: true
+  simple_sitemap: true
+  status: true
+  uid: true

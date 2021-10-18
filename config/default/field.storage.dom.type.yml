@@ -1,0 +1,21 @@
+uuid: d5c3a50d-8c85-4e35-a8ef-c9c6ad3005b7
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: dom.type
+field_name: type
+entity_type: dom
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

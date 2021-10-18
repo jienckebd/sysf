@@ -1,0 +1,19 @@
+uuid: 94d3e397-2f7f-44bc-9d76-c1e36b60e39a
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.property
+    - field.storage.dom.validators
+id: dom.property.validators
+field_name: validators
+entity_type: dom
+bundle: property
+label: Validators
+description: 'The validators of the property.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,8 @@
+uuid: 46824067-d332-4b73-ac67-81b9d6e2c244
+langcode: en
+status: true
+dependencies: {  }
+id: image_banner
+label: 'Image banner'
+revision: 1
+description: 'Provides a large full width banner with an image and text overlay.'

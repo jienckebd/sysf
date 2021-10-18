@@ -1,0 +1,19 @@
+uuid: e5c3b824-4bc2-429d-b7b3-7bcb1b672707
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.container
+    - field.storage.block_content.field_max_width
+id: block_content.container.field_max_width
+field_name: field_max_width
+entity_type: block_content
+bundle: container
+label: 'Max width'
+description: 'Set an explicit max width in pixels, em, rem, or percentage.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

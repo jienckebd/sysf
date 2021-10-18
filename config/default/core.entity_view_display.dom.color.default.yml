@@ -1,0 +1,44 @@
+uuid: 164d4a61-01a7-49d1-af60-dc20e70034ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.color
+    - field.field.dom.color.color
+    - field.field.dom.color.field_effect
+    - field.field.dom.color.machine_name
+id: dom.color.default
+targetEntityType: dom
+bundle: color
+mode: default
+content:
+  field_effect:
+    weight: 0
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  bundle: true
+  changed: true
+  color: true
+  created: true
+  default_langcode: true
+  description: true
+  id: true
+  label: true
+  langcode: true
+  machine_name: true
+  metatag: true
+  revision_created: true
+  revision_default: true
+  revision_id: true
+  revision_log_message: true
+  revision_translation_affected: true
+  revision_user: true
+  search_api_excerpt: true
+  status: true
+  uid: true
+  uuid: true

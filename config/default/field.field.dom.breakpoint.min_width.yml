@@ -1,0 +1,19 @@
+uuid: bb35acbb-6829-4560-bb1e-14a5d6a332f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.breakpoint
+    - field.storage.dom.min_width
+id: dom.breakpoint.min_width
+field_name: min_width
+entity_type: dom
+bundle: breakpoint
+label: min-width
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

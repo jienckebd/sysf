@@ -1,0 +1,19 @@
+uuid: 3b6dbeed-1651-4d21-a9bc-72f903ca1564
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.pseudo_class
+    - field.storage.dom.machine_name
+id: dom.pseudo_class.machine_name
+field_name: machine_name
+entity_type: dom
+bundle: pseudo_class
+label: 'Machine Name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

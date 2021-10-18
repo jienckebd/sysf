@@ -1,0 +1,29 @@
+uuid: 4a2c2112-3255-422e-aa89-8dfcfe64e552
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.border_top_style
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: border-top-style
+    behavior:
+      dom:
+        subattribute: border-top-style
+id: dom.style.border_top_style
+field_name: border_top_style
+entity_type: dom
+bundle: style
+label: border-top-style
+description: 'Sets the style of the top border'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

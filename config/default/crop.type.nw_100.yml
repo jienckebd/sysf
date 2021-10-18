@@ -1,0 +1,12 @@
+uuid: 059a9edb-8385-4f32-8e82-9d4870cc4de3
+langcode: en
+status: true
+dependencies: {  }
+id: nw_100
+label: 'Narrow wide (x100)'
+description: null
+aspect_ratio: '5:1'
+soft_limit_width: 500
+soft_limit_height: 100
+hard_limit_width: null
+hard_limit_height: null

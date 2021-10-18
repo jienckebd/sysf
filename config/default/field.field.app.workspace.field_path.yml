@@ -1,0 +1,19 @@
+uuid: 68a4e98c-4bf1-4c46-ac6b-67e3d39098f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.app.workspace
+    - field.storage.app.field_path
+id: app.workspace.field_path
+field_name: field_path
+entity_type: app
+bundle: workspace
+label: 'Path prefixes'
+description: 'Enter URL prefixes to determine if this is the active workspace. For example, type "/research" to make requests for /research/* to resolve to this workspace.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

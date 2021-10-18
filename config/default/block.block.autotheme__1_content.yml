@@ -1,0 +1,20 @@
+uuid: 375892f9-0d41-4b00-87be-9551a64f2939
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - autotheme__1
+id: autotheme__1_content
+theme: autotheme__1
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

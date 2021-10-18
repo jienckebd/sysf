@@ -1,0 +1,30 @@
+translation:
+  key:
+    singular:
+      - label
+      - label_singular
+      - label_plural
+      - label_collection
+    plural:
+      - label_count
+route:
+  pattern:
+    entity:
+      - 'entity.*'
+    rel:
+      collection:
+        - 'entity.*.collection'
+      edit-form:
+        - 'entity.*.edit_form'
+        - 'entity.*.edit'
+      add-form:
+        - 'entity.*.add_form'
+        - 'entity.*.add'
+      add-page:
+        - 'entity.*.add_page'
+      canonical:
+        - 'entity.*.canonical'
+      delete-form:
+        - 'entity.*.delete-form'
+_core:
+  default_config_hash: 8DjrOYNH4TRvRV1NwZ1GiaXUDea_hspPMvTBqtQ0ZjA

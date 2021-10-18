@@ -1,0 +1,23 @@
+uuid: d5607e88-b12b-42f8-9554-d9c3b507e591
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.font
+    - field.storage.dom.field_font_weight
+  module:
+    - options
+id: dom.font.field_font_weight
+field_name: field_font_weight
+entity_type: dom
+bundle: font
+label: 'Font Weight'
+description: 'Select a font weight, or the width of the text.'
+required: true
+translatable: false
+default_value:
+  -
+    value: '100'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

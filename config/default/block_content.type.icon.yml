@@ -1,0 +1,8 @@
+uuid: 03a643f8-d61f-44a8-8c23-9c4dad3ed13b
+langcode: en
+status: true
+dependencies: {  }
+id: icon
+label: Icon
+revision: 1
+description: 'Provide a standalone icon.'

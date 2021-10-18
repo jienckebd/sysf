@@ -1,0 +1,23 @@
+uuid: cab9676d-37e9-452e-b0a3-ffc444adc283
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - contact
+id: contact_message.field_interest
+field_name: field_interest
+entity_type: contact_message
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+  schema__derivative: 0
+  schema__base_target_id: 0
+  deriver: ''
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

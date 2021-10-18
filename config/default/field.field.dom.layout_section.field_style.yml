@@ -1,0 +1,45 @@
+uuid: 5f28bf5b-b86b-4ff4-9185-cf31d3fe0114
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.layout_section
+    - bd.bundle.dom.style
+    - field.storage.dom.field_style
+  module:
+    - bd
+third_party_settings:
+  bd:
+    data_deriver:
+      plugin: ''
+    dom:
+      attribute: ''
+      subattribute: ''
+      theme_hook: ''
+      theme_hook_selector: ''
+      theme_hook_match_key: ''
+      theme_hook_match_value: ''
+      build_css: 0
+      build_css_field_name: ''
+    dependency:
+      type: ef354209-cb30-4cbe-abab-de5b8bda6a68
+id: dom.layout_section.field_style
+field_name: field_style
+entity_type: dom
+bundle: layout_section
+label: 'Row Style'
+description: 'Configure style for this row of the layout.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: null
+settings:
+  handler: 'default:dom'
+  handler_settings:
+    target_bundles:
+      style: style
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

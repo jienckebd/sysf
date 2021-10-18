@@ -1,0 +1,20 @@
+uuid: 6e7ceec7-42f6-424e-9198-e2fff8f1bb1d
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: behavior.field_delay
+field_name: field_delay
+entity_type: behavior
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

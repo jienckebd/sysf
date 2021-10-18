@@ -1,0 +1,29 @@
+uuid: 0c245925-f80a-40b4-af98-27d6883e8451
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.vertical_align
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: vertical-align
+    behavior:
+      dom:
+        subattribute: vertical-align
+id: dom.style.vertical_align
+field_name: vertical_align
+entity_type: dom
+bundle: style
+label: vertical-align
+description: 'Sets the vertical alignment of an element'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

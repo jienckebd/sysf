@@ -1,0 +1,19 @@
+uuid: e859f61d-b792-4151-b628-4987616aab5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_bg
+    - field.storage.block_content.field_bg_size
+id: block_content.image_bg.field_bg_size
+field_name: field_bg_size
+entity_type: block_content
+bundle: image_bg
+label: 'Background size'
+description: 'Specify a CSS background size.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

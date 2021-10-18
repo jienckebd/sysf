@@ -1,0 +1,12 @@
+uuid: acf7bbe2-f970-4833-90f9-92d50c6cc507
+langcode: en
+status: true
+dependencies: {  }
+id: tw_1300
+label: 'Tall wide (x1300)'
+description: null
+aspect_ratio: '3:4'
+soft_limit_width: 3900
+soft_limit_height: 5200
+hard_limit_width: null
+hard_limit_height: null

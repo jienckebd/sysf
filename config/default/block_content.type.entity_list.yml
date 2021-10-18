@@ -1,0 +1,8 @@
+uuid: 69bcfb27-8b6f-442d-a957-882562a9110c
+langcode: en
+status: true
+dependencies: {  }
+id: entity_list
+label: 'Entity list'
+revision: 1
+description: 'Explicitly specify and reorder a list of any entities.'

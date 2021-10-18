@@ -1,0 +1,16 @@
+uuid: 0dbec0a2-4000-4878-a9d2-b5a3c8793222
+langcode: en
+status: true
+dependencies: {  }
+id: block_content.region.computed_components
+label: 'Computed components'
+description: ''
+entity_type: block_content
+bundle: region
+cardinality: -1
+plugin_field_type:
+  plugin_id: entity_reference
+plugin_computed_field_value:
+  plugin_id: entity_field_value
+  plugin_config:
+    value_selector: field_plugin_computed

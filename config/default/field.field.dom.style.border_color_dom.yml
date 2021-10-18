@@ -1,0 +1,34 @@
+uuid: b6053698-a1fc-4112-ae2f-005788839028
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.border_color_dom
+  module:
+    - bd
+third_party_settings:
+  bd:
+    dom:
+      subattribute: border-color
+    behavior:
+      dom:
+        subattribute: border-color
+id: dom.style.border_color_dom
+field_name: border_color_dom
+entity_type: dom
+bundle: style
+label: border-color
+description: 'Sets the color of the four borders, can have from one to four colors'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: dom_entity_reference
+      display_name: entity_reference_2
+      arguments: {  }
+field_type: entity_reference

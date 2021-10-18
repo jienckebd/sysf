@@ -1,0 +1,19 @@
+uuid: dc619e3c-6f69-4788-a255-aec214bb1c60
+langcode: en
+status: '1'
+dependencies: {  }
+cluster_id: sys
+name: sys
+url: elasticsearch-master-headless.elastic.svc.cluster.local
+options:
+  multiple_nodes_connection: true
+  use_authentication: 0
+  authentication_type: Basic
+  username: ''
+  password: ''
+  timeout: '3'
+  rewrite:
+    rewrite_index: 0
+    index:
+      prefix: ''
+      suffix: ''

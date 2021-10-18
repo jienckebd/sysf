@@ -1,0 +1,29 @@
+uuid: f88d4bf6-c80d-44e1-9ead-181c43aee75a
+langcode: en
+status: true
+dependencies:
+  module:
+    - scheduled_updates
+title: 'Default cron handler'
+id: scheduled_updates_cron
+weight: 0
+module: scheduled_updates
+callback: scheduled_updates_cron
+scheduler:
+  id: simple
+  configuration:
+    rules:
+      - '* * * * *'
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000

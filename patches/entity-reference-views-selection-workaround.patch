@@ -1,0 +1,40 @@
+diff --git a/core/modules/views/src/Plugin/EntityReferenceSelection/ViewsSelection.php b/core/modules/views/src/Plugin/EntityReferenceSelection/ViewsSelection.php
+index dff33a3e0d..221cbdddf6 100644
+--- a/core/modules/views/src/Plugin/EntityReferenceSelection/ViewsSelection.php
++++ b/core/modules/views/src/Plugin/EntityReferenceSelection/ViewsSelection.php
+@@ -256,8 +256,34 @@ class ViewsSelection extends SelectionPluginBase implements ContainerFactoryPlug
+     $display_name = $this->getConfiguration()['view']['display_name'];
+     $arguments = $this->getConfiguration()['view']['arguments'];
+     $results = [];
++
++    // Not a valid reference otherwise.
++    $ids = NULL;
++
+     if ($this->initializeView($match, $match_operator, $limit, $ids)) {
+-      $results = $this->view->executeDisplay($display_name, $arguments);
++      if ($result_from_display = $this->view->executeDisplay($display_name, $arguments)) {
++
++        $uses_related = FALSE;
++
++        foreach ($this->view->result as $key => $row) {
++
++          if (!empty($row->_relationship_entities) && count($row->_relationship_entities) >= 2) {
++            $uses_related = TRUE;
++
++            $base_row_render_array = reset($result_from_display);
++            $base_row_render_array['#row'] = $row;
++
++            /** @var \Drupal\Core\Entity\ContentEntityInterface $entity_from_relationship */
++            $entity_from_relationship = array_values($row->_relationship_entities)[0];
++            $results[$entity_from_relationship->id()] = $base_row_render_array;
++          }
++
++        }
++
++        if (!$uses_related) {
++          $results = $result_from_display;
++        }
++      }
+     }
+     return $results;
+   }

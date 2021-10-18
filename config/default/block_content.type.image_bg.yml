@@ -1,0 +1,8 @@
+uuid: bcbb80a1-9703-465f-bda5-d11de74d31c0
+langcode: en
+status: true
+dependencies: {  }
+id: image_bg
+label: 'Image bg'
+revision: 1
+description: 'Provide a background image to a container or elsewhere.'

@@ -1,0 +1,33 @@
+uuid: a7916c83-9dcb-43b6-8e11-16745528c212
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+    - options
+id: dom.caption_side
+field_name: caption_side
+entity_type: dom
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: top
+      label: top
+    -
+      value: bottom
+      label: bottom
+    -
+      value: left
+      label: left
+    -
+      value: right
+      label: right
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

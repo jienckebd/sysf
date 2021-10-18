@@ -1,0 +1,10 @@
+uuid: b38021c8-d3bc-4610-9925-a23b4e8469f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: platform.embed
+label: Embed
+targetEntityType: platform
+cache: true

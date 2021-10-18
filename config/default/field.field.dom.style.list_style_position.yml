@@ -1,0 +1,29 @@
+uuid: f60d3248-fcc1-4fcb-a483-8ad58563e010
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.list_style_position
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: list-style-position
+    behavior:
+      dom:
+        subattribute: list-style-position
+id: dom.style.list_style_position
+field_name: list_style_position
+entity_type: dom
+bundle: style
+label: list-style-position
+description: 'Sets where the list-item marker is placed in the list'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

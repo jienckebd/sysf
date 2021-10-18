@@ -1,0 +1,7 @@
+services:
+  autoref.manager:
+    class: Drupal\autoref\AutorefManager
+    arguments: ['@entity.helper', '@plugin.manager.autoref.matcher', '@config.factory', '@module_handler', '@current_user', '@session_manager']
+  plugin.manager.autoref.matcher:
+    class: Drupal\autoref\Plugin\autoref\AutorefPluginManager
+    arguments: [matcher, '@container.namespaces', '@cache.discovery', '@module_handler']

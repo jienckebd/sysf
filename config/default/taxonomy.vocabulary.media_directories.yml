@@ -1,0 +1,8 @@
+uuid: 98971358-ea8d-4a8e-bfba-c1104911eaad
+langcode: en
+status: true
+dependencies: {  }
+name: 'Media directories'
+vid: media_directories
+description: ''
+weight: 0

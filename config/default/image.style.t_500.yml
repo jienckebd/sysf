@@ -1,0 +1,17 @@
+uuid: 44b39459-40b6-4b50-8ff5-633399c0b564
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.t_500
+  module:
+    - crop
+name: t_500
+label: 'Tall (x500)'
+effects:
+  fc0cae18-7f04-49ed-9fe6-e314047bfa5c:
+    uuid: fc0cae18-7f04-49ed-9fe6-e314047bfa5c
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: t_500

@@ -1,0 +1,29 @@
+uuid: df53f394-ce2f-4a38-bb08-f1f9092901fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.style
+    - field.storage.dom.border_left_style
+  module:
+    - bd
+    - options
+third_party_settings:
+  bd:
+    dom:
+      subattribute: border-left-style
+    behavior:
+      dom:
+        subattribute: border-left-style
+id: dom.style.border_left_style
+field_name: border_left_style
+entity_type: dom
+bundle: style
+label: border-left-style
+description: 'Sets the style of the left border'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

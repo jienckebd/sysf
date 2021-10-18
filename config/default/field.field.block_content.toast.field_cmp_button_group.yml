@@ -1,0 +1,29 @@
+uuid: 130a6661-de64-4000-9127-478dd3a5ea0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.button_group
+    - block_content.type.toast
+    - field.storage.block_content.field_cmp_button_group
+id: block_content.toast.field_cmp_button_group
+field_name: field_cmp_button_group
+entity_type: block_content
+bundle: toast
+label: 'More buttons'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      button_group: button_group
+    sort:
+      field: info
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

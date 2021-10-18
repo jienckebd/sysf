@@ -1,0 +1,8 @@
+uuid: 1123e3d3-79b4-4112-b3e7-5b59f2e7426d
+langcode: en
+status: true
+dependencies: {  }
+id: metric
+label: Metric
+revision: 1
+description: 'Provide a calculated metric.'

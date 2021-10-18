@@ -1,0 +1,22 @@
+uuid: 0508668c-c878-4846-aff2-65c73909bc93
+langcode: en
+status: true
+dependencies:
+  module:
+    - bd
+id: app.field_env
+field_name: field_env
+entity_type: app
+type: entity_reference
+settings:
+  target_type: env
+  schema__derivative: 0
+  schema__base_target_id: 0
+  deriver: ''
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

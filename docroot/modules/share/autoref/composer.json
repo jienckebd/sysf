@@ -1,0 +1,12 @@
+{
+    "name": "drupal/autoref",
+    "type": "drupal-module",
+    "description": "Provides a framework to support automatic referencing of entities based on conditions and fields.",
+    "homepage": "http://drupal.org/project/autoref",
+    "license": "GPL-2.0+",
+    "require": {
+        "drupal/inline_entity_form": "~0.7",
+        "drupal/rules": "~1.0"
+    },
+    "minimum-stability": "dev"
+}

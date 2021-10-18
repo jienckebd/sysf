@@ -1,0 +1,11 @@
+uuid: b7d66e03-be61-42d8-b8d1-f8faa988ce84
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.entity_field_formatter
+id: block_content.entity_field_formatter
+target_entity_type_id: block_content
+target_bundle: entity_field_formatter
+default_langcode: site_default
+language_alterable: false

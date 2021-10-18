@@ -1,0 +1,22 @@
+uuid: b2892bc0-35bf-4f4a-9e52-1d929ab40179
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.container
+    - field.storage.block_content.field_color_fg
+  module:
+    - color_field
+id: block_content.container.field_color_fg
+field_name: field_color_fg
+entity_type: block_content
+bundle: container
+label: 'Foreground color'
+description: 'Set the foreground color of this component.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

@@ -1,0 +1,31 @@
+uuid: 846a8ebb-4bf1-4fb3-b033-3049d4914242
+langcode: en
+status: true
+dependencies:
+  config:
+    - bd.bundle.dom.font
+    - field.storage.dom.field_font_family
+  module:
+    - bd
+third_party_settings:
+  bd:
+    data_deriver:
+      plugin: ''
+id: dom.font.field_font_family
+field_name: field_font_family
+entity_type: dom
+bundle: font
+label: 'Font Family'
+description: 'Select a font family such as arial or verdana.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: null
+settings:
+  handler: 'default:font'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: true
+field_type: entity_reference
