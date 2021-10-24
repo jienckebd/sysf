@@ -127,6 +127,8 @@ build:
 cleanup:
   stage: cleanup
   environment: prd
+  dependencies: 
+    - build
   script:
     - 'echo "Cleanup..."'
     - export SYS_HELM_NAMESPACE_SUFFIX="cid-${CI_PIPELINE_ID}"
