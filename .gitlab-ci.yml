@@ -17,6 +17,8 @@ stages:
 build:
   stage: build
   environment: prd
+  artifacts:
+    untracked: true
   script:
     - 'echo "Building deployment artifact..."'
     - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git /tmp/sc
