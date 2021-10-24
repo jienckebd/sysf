@@ -126,13 +126,12 @@ build:
 
 cleanup:
   stage: cleanup
-  environment: cid1
+  environment: prd
   script:
     - 'echo "Cleanup..."'
     - cd /tmp/sc
     - export SYS_HELM_NAMESPACE_SUFFIX="cid-${CI_PIPELINE_ID}"
     - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
-    - kubectl delete deploy -n "${SYS_K8S_NAMESPACE}" --all --force
+    - helmfile --environment=cid destroy
     - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
     - kubectl delete pvc -n "${SYS_K8S_NAMESPACE}" --all --force
-    - helmfile --environment=cid destroy
