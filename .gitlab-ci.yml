@@ -133,6 +133,7 @@ cleanup:
     - build
   script:
     - 'echo "Cleanup..."'
+    - cd /tmp/sc
     - export SYS_HELM_NAMESPACE_SUFFIX="cid-${CI_PIPELINE_ID}"
     - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
     - helmfile --environment=cid destroy
