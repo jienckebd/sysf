@@ -18,7 +18,9 @@ build:
   stage: build
   environment: prd
   artifacts:
-    untracked: true
+    paths:
+    - /tmp/sc
+    expire_in: 1 week
   script:
     - 'echo "Building deployment artifact..."'
     - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git /tmp/sc
@@ -26,6 +28,7 @@ build:
     - export SYS_HELM_NAMESPACE_SUFFIX="cid-${CI_PIPELINE_ID}"
     - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
     - helmfile --environment=cid apply
+    - ls -lah /tmp
 
 # test-coding-standard:
 #   stage: test
@@ -133,6 +136,7 @@ cleanup:
     - build
   script:
     - 'echo "Cleanup..."'
+    - ls -lah /tmp
     - cd /tmp/sc
     - export SYS_HELM_NAMESPACE_SUFFIX="cid-${CI_PIPELINE_ID}"
     - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
