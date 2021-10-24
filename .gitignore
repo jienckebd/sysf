@@ -51,4 +51,3 @@ vendor/
 *.tar.gz
 
 files-private
-.gitlab-ci.yml
