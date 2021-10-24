@@ -6,6 +6,11 @@ before_script:
   - pwd
   - env
   - cat /etc/os-release
+  - 'echo "Building deployment artifact..."'
+  - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git /tmp/sc
+  - cd /tmp/sc
+  - export SYS_HELM_NAMESPACE_SUFFIX="cid-${CI_PIPELINE_ID}"
+  - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
 
 stages:
   - build
@@ -17,16 +22,7 @@ stages:
 build:
   stage: build
   environment: prd
-  artifacts:
-    paths:
-    - /tmp/sc
-    expire_in: 1 week
   script:
-    - 'echo "Building deployment artifact..."'
-    - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git /tmp/sc
-    - cd /tmp/sc
-    - export SYS_HELM_NAMESPACE_SUFFIX="cid-${CI_PIPELINE_ID}"
-    - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
     - helmfile --environment=cid apply
     - ls -lah /tmp
 
@@ -136,7 +132,7 @@ cleanup:
     - build
   script:
     - 'echo "Cleanup..."'
-    - ls -lah /tmp
+    - ls -lah
     - cd /tmp/sc
     - export SYS_HELM_NAMESPACE_SUFFIX="cid-${CI_PIPELINE_ID}"
     - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
