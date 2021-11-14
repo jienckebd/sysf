@@ -11,7 +11,7 @@ git:
   default_branch: develop
   remotes:
     artifact: git@gitlab.com:sysf/drupal/instance/sysf-build.git
-    dev: ssh://www-data@bostondrupal.com:/app
+#    dev: ssh://www-data@bostondrupal.com:/app
   hooks:
     pre-commit: ${blt.root}/script/git-hook
     commit-msg: ${blt.root}/script/git-hook
