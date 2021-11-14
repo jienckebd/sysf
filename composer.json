@@ -274,7 +274,6 @@
             "drupal/core": {
                 "entity-reference-views-selection-workaround-and-ids": "./patches/entity-reference-views-selection-workaround.patch",
                 "layout-builder-region-weight-workaround": "./patches/layout-builder-region-weight-workaround.patch",
-                "2329937-61-options-provider": "https://www.drupal.org/files/issues/2020-07-24/2329937-61-options-provider.patch",
                 "3080606-reorder-layout-sections-43": "https://www.drupal.org/files/issues/2020-06-18/3080606-reorder-layout-sections-43.patch",
                 "entity-create-duplicate-provide-source-entity-property": "https://git.drupalcode.org/project/drupal/-/merge_requests/204.diff"
             },
@@ -293,9 +292,6 @@
                 "rules-event-forms-3010055-16": "https://www.drupal.org/files/issues/2020-08-03/rules-event-forms-3010055-16.patch",
                 "https://www.drupal.org/files/issues/2021-04-23/rules-2664280-82.select-lists.patch": "./patches/rules-select-will-not-combine-with-multi-event-patch.patch"
             },
-            "drupal/admin_toolbar": {
-                "configurable-max-depth": "https://www.drupal.org/files/issues/2021-04-29/3200542-8.patch"
-            },
             "drupal/redis": {
                 "redis-cluster-support": "https://www.drupal.org/files/issues/2021-06-07/2900947-49.patch"
             },
@@ -304,9 +300,6 @@
             },
             "drupal/oauth2_server": {
                 "remove-entity-reference-dependency-d9": "https://git.drupalcode.org/project/oauth2_server/-/merge_requests/2.diff"
-            },
-            "drupal/keycloak": {
-                "2920952-12.keycloak.User-roles-synchronization": "https://www.drupal.org/files/issues/2020-04-30/2920952-12.keycloak.User-roles-synchronization.patch"
             }
         }
     },
