@@ -6,11 +6,6 @@ before_script:
   - pwd
   - env
   - cat /etc/os-release
-  - 'echo "Building deployment artifact..."'
-  - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git /tmp/sc
-  - cd /tmp/sc
-  - export SYS_HELM_NAMESPACE_SUFFIX="cid-${CI_PIPELINE_ID}"
-  - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
 
 stages:
   - build
@@ -23,7 +18,7 @@ build:
   stage: build
   environment: prd
   script:
-    - helmfile --environment=cid apply
+#    - helmfile --environment=cid apply
     - ls -lah /tmp
 
 # test-coding-standard:
@@ -125,18 +120,18 @@ build:
 # #  only:
 # #    - merge_requests
 
-cleanup:
-  stage: cleanup
-  environment: prd
-  dependencies: 
-    - build
-  script:
-    - 'echo "Cleanup..."'
-    - ls -lah
-    - cd /tmp/sc
-    - export SYS_HELM_NAMESPACE_SUFFIX="cid-${CI_PIPELINE_ID}"
-    - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
-    - helmfile --environment=cid destroy
-    - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
-    - kubectl delete pvc -n "${SYS_K8S_NAMESPACE}" --all --force
-    - kubectl delete ns "${SYS_K8S_NAMESPACE}" --force
+# cleanup:
+#   stage: cleanup
+#   environment: prd
+#   dependencies:
+#     - build
+#   script:
+#     - 'echo "Cleanup..."'
+#     - ls -lah
+#     - cd /tmp/sc
+#     - export SYS_HELM_NAMESPACE_SUFFIX="cid-${CI_PIPELINE_ID}"
+#     - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
+#     - helmfile --environment=cid destroy
+#     - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
+#     - kubectl delete pvc -n "${SYS_K8S_NAMESPACE}" --all --force
+#     - kubectl delete ns "${SYS_K8S_NAMESPACE}" --force
