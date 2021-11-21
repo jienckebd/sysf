@@ -503,7 +503,7 @@ class ThemeHandler extends Base implements ThemeHandlerInterface {
 
     // Last step is to uninstall theme.
     if ($this->themeExists($theme_name)) {
-      $this->uninstall([$theme_name]);
+      #$this->uninstall([$theme_name]);
     }
 
   }

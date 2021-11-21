@@ -273,7 +273,6 @@
         "patches": {
             "drupal/core": {
                 "entity-reference-views-selection-workaround-and-ids": "./patches/entity-reference-views-selection-workaround.patch",
-                "layout-builder-region-weight-workaround": "./patches/layout-builder-region-weight-workaround.patch",
                 "3080606-reorder-layout-sections-43": "https://www.drupal.org/files/issues/2020-06-18/3080606-reorder-layout-sections-43.patch",
                 "entity-create-duplicate-provide-source-entity-property": "https://git.drupalcode.org/project/drupal/-/merge_requests/204.diff"
             },
