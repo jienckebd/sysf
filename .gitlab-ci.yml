@@ -19,8 +19,10 @@ build:
   environment: prd
   script:
     - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
+    - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git /tmp/sysf
+    - cd /tmp/sysf
     - helmfile --environment=cid apply
-    - ls -lah /tmp
+    - ls -lah /tmp/sysf
 
 # test-coding-standard:
 #   stage: test
@@ -129,7 +131,7 @@ cleanup:
   script:
     - 'echo "Cleanup..."'
     - ls -lah
-    - cd /tmp/sc
+    - cd /tmp/sysf
     - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
     - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
     - helmfile --environment=cid destroy
