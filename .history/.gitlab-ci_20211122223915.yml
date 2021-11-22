@@ -18,7 +18,7 @@ build:
   stage: build
   environment: prd
   script:
-    - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
+    - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_BUILD_ID}"
     - helmfile --environment=cid apply
     - ls -lah /tmp
 

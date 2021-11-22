@@ -61,24 +61,18 @@ $settings['yaml_parser_class'] = CachedYamlParser::class;
  * Tuned cache config.
  */
 $redis_host = getenv('SYS_REDIS_HOST') ?: 'redis';
-if ($_ENV['SYS_CONTEXT'] == 'local') {
-  $settings['redis.connection']['interface'] = 'PhpRedis';
-  $settings['redis.connection']['host'] = getenv('SYS_REDIS_HOST') ?: 'redis';
-}
-else {
-  $settings['redis.connection']['interface'] = 'PhpRedisCluster';
-  $settings['redis.connection']['password'] = "drupal";
-  $settings['redis.connection']['seeds'] = [
-    "redis-cluster-0.{$redis_host}:6379",
-    "redis-cluster-1.{$redis_host}:6379",
-    "redis-cluster-2.{$redis_host}:6379",
-    "redis-cluster-3.{$redis_host}:6379",
-    "redis-cluster-4.{$redis_host}:6379",
-    "redis-cluster-5.{$redis_host}:6379"
-  ];
-  $settings['redis.connection']['read_timeout'] = 1.5;
-  $settings['redis.connection']['timeout'] = 2;
-}
+$settings['redis.connection']['interface'] = 'PhpRedisCluster';
+$settings['redis.connection']['password'] = "drupal";
+$settings['redis.connection']['seeds'] = [
+  "redis-cluster-0.{$redis_host}:6379",
+  "redis-cluster-1.{$redis_host}:6379",
+  "redis-cluster-2.{$redis_host}:6379",
+  "redis-cluster-3.{$redis_host}:6379",
+  "redis-cluster-4.{$redis_host}:6379",
+  "redis-cluster-5.{$redis_host}:6379"
+];
+$settings['redis.connection']['read_timeout'] = 1.5;
+$settings['redis.connection']['timeout'] = 2;
 
 $settings['cache']['default'] = 'cache.backend.redis';
 $cache_backend = 'cache.backend.redis';

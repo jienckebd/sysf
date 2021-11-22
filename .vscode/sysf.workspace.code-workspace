@@ -1,0 +1,8 @@
+{
+	"folders": [
+		{
+			"uri": "vscode-remote://k8s-container+context=gke_sysf-12_us-east4-a_sysf+podname=web-nginx-php-fpm-59f6455b8-x4rcs+namespace=env-ide1+name=php-fpm+image=registry.gitlab.com/sysf/docker/image/php-fpm:latest/app"
+		}
+  ],
+  "settings": {}
+}
