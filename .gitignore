@@ -51,3 +51,5 @@ vendor/
 *.tar.gz
 
 files-private
+
+.history
