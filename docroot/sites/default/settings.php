@@ -64,12 +64,12 @@ $redis_host = getenv('SYS_REDIS_HOST') ?: 'redis';
 $settings['redis.connection']['interface'] = 'PhpRedisCluster';
 $settings['redis.connection']['password'] = "drupal";
 $settings['redis.connection']['seeds'] = [
-  "redis-cluster-0.{$redis_host}:6379",
-  "redis-cluster-1.{$redis_host}:6379",
-  "redis-cluster-2.{$redis_host}:6379",
-  "redis-cluster-3.{$redis_host}:6379",
-  "redis-cluster-4.{$redis_host}:6379",
-  "redis-cluster-5.{$redis_host}:6379"
+  "redis-redis-cluster-0.{$redis_host}:6379",
+  "redis-redis-cluster-1.{$redis_host}:6379",
+  "redis-redis-cluster-2.{$redis_host}:6379",
+  "redis-redis-cluster-3.{$redis_host}:6379",
+  "redis-redis-cluster-4.{$redis_host}:6379",
+  "redis-redis-cluster-5.{$redis_host}:6379"
 ];
 $settings['redis.connection']['read_timeout'] = 1.5;
 $settings['redis.connection']['timeout'] = 2;
