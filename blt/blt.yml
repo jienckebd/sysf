@@ -1,14 +1,14 @@
 project:
   machine_name: sysf
   prefix: sysf
-  human_name: 'Better Drupal'
+  human_name: 'sysf'
   profile:
     name: minimal
   local:
     protocol: https
-    hostname: dev.env.sys.sysf.one
+    hostname: ide1.env.sys.sysf.one
 git:
-  default_branch: develop
+  default_branch: master
   remotes:
     artifact: git@gitlab.com:sysf/drupal/instance/sysf-build.git
 #    dev: ssh://www-data@sysf.one:/app
