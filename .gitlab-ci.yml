@@ -20,6 +20,7 @@ build:
   script:
     - pwd
     - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
+    - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
     - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git /tmp/sysf
     - cd /tmp/sysf
     - helmfile --environment=cid apply

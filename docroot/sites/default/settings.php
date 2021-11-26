@@ -67,8 +67,8 @@ $settings['redis.connection']['seeds'] = [];
 
 $redis_node_count = getenv('SYS_REDIS_NODE_COUNT') ?: 1;
 $redis_node_count = (int) $redis_node_count;
-for ($n = 1; $n <= $redis_node_count; $n++) {
-  $settings['redis_connection']['seeds'][] =  "redis-cluster-{$n}.{$redis_host}:6379";
+for ($n = 0; $n < $redis_node_count; $n++) {
+  $settings['redis.connection']['seeds'][] = "redis-cluster-{$n}.{$redis_host}:6379";
 }
 
 $settings['redis.connection']['read_timeout'] = 1.5;
