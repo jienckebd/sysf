@@ -63,14 +63,14 @@ $settings['yaml_parser_class'] = CachedYamlParser::class;
 $redis_host = getenv('SYS_REDIS_HOST') ?: 'redis';
 $settings['redis.connection']['interface'] = 'PhpRedisCluster';
 $settings['redis.connection']['password'] = "drupal";
-$settings['redis.connection']['seeds'] = [
-  "redis-cluster-0.{$redis_host}:6379",
-  "redis-cluster-1.{$redis_host}:6379",
-  "redis-cluster-2.{$redis_host}:6379",
-  "redis-cluster-3.{$redis_host}:6379",
-  "redis-cluster-4.{$redis_host}:6379",
-  "redis-cluster-5.{$redis_host}:6379"
-];
+$settings['redis.connection']['seeds'] = [];
+
+$redis_node_count = getenv('SYS_REDIS_NODE_COUNT') ?: 1;
+$redis_node_count = (int) $redis_node_count;
+for ($n = 1; $n <= $redis_node_count; $n++) {
+  $settings['redis_connection']['seeds'][] =  "redis-cluster-{$n}.{$redis_host}:6379";
+}
+
 $settings['redis.connection']['read_timeout'] = 1.5;
 $settings['redis.connection']['timeout'] = 2;
 
