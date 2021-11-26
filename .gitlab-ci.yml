@@ -24,7 +24,8 @@ build:
     - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git /tmp/sysf
     - cd /tmp/sysf
     - helmfile --environment=cid apply
-    - ls -lah /tmp/sysf
+    - kubectl config set-context --current --namespace="${SYS_K8S_NAMESPACE}"
+    - while [[ $(kubectl get pods -l app=web-nginx-php-fpm -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') != "True" ]]; do echo "waiting for pod" && sleep 1; done
     - helmfile --environment=cid destroy
     - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
     - kubectl delete pvc -n "${SYS_K8S_NAMESPACE}" --all --force
