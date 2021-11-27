@@ -48,53 +48,65 @@ build:
     - kubectl exec "${POD_EXEC}" -c php-fpm -- bash -c "composer install"
     - kubectl exec "${POD_EXEC}" -c php-fpm -- bash -c "cd /app && /app/vendor/bin/blt --no-interaction"
 
-# test-coding-standard:
-#   stage: test
-#   environment: prd
-#   script:
-#     - 'echo "Test: coding standard..."'
+test-coding-standard:
+  stage: test
+  environment: prd
+  dependencies:
+    - build
+  script:
+    - 'echo "Test: coding standard..."'
 
-# test-workflow-standard:
-#   stage: test
-#   environment: prd
-#   script:
-#     - 'echo "Test: workflow standard..."'
+test-workflow-standard:
+  stage: test
+  environment: prd
+  dependencies:
+    - build
+  script:
+    - 'echo "Test: workflow standard..."'
 
-# test-security:
-#   stage: test
-#   environment: prd
-#   script:
-#     - 'echo "Test: security..."'
+test-security:
+  stage: test
+  environment: prd
+  script:
+    - 'echo "Test: security..."'
 
-# test-licensing:
-#   stage: test
-#   environment: prd
-#   script:
-#     - 'echo "Test: licensing..."'
+test-licensing:
+  stage: test
+  environment: prd
+  dependencies:
+    - build
+  script:
+    - 'echo "Test: licensing..."'
 
-# test-visual-regression:
-#   stage: test
-#   environment: prd
-#   script:
-#     - 'echo "Test: visual regression..."'
+test-visual-regression:
+  stage: test
+  environment: prd
+  dependencies:
+    - build
+  script:
+    - 'echo "Test: visual regression..."'
 
-# test-behavioral:
-#   stage: test
-#   environment: prd
-#   script:
-#     - 'echo "Test: behavioral..."'
+test-behavioral:
+  stage: test
+  environment: prd
+  dependencies:
+    - build
+  script:
+    - 'echo "Test: behavioral..."'
 
-# test-performance:
-#   stage: test
-#   environment: prd
-#   script:
-#     - 'echo "Test: performance..."'
+test-performance:
+  stage: test
+  environment: prd
+  dependencies:
+    - build
+  script:
+    - 'echo "Test: performance..."'
 
 deploy:
   stage: deploy
   environment: prd
   dependencies:
-    - build
+    - test
   script:
     - 'echo "Deploying build artifact..."'
     - POD_EXEC=$(kubectl get pod -l app=web-nginx-php-fpm -o jsonpath="{.items[0].metadata.name}")
@@ -104,7 +116,6 @@ verify:
   stage: verify
   environment: prd
   dependencies:
-    - build
     - deploy
   script:
     - 'echo "Verifying deploy..."'
@@ -115,8 +126,6 @@ cleanup:
   cache:
     policy: pull
   dependencies:
-    - build
-    - deploy
     - verify
   script:
     - ls -lah /tmp
