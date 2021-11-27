@@ -32,13 +32,12 @@ build:
     - helmfile --environment=cid apply
     - while [[ $(kubectl get pods -l app=web-nginx-php-fpm -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') != "True" ]]; do echo "waiting for pod" && sleep 1; done
     - POD_EXEC=$(kubectl get pod -l app=web-nginx-php-fpm -o jsonpath="{.items[0].metadata.name}")
-
-    - kubectl exec -it "${POD_EXEC}" -c php-fpm -- bash -c "ls -lah"
     - kubectl cp "${CI_PROJECT_DIR}" "${POD_EXEC}:/app" -c php-fpm
-    - kubectl exec -it "${POD_EXEC}" -c php-fpm -- bash -c "mv /app/sysf/* /app"
-    - kubectl exec -it "${POD_EXEC}" -c php-fpm -- bash -c "ls -lah"
-    - kubectl exec -it "${POD_EXEC}" -c php-fpm -- bash -c "composer install"
-    - kubectl exec -it "${POD_EXEC}" -c php-fpm -- bash -c "/app/vendor/bin/blt artifact:deploy --branch=master-build --no-interaction"
+    - alias exec_cid="kubectl exec ${POD_EXEC} -c php-fpm -- bash -c"
+    - exec_cid "mv /app/sysf/* /app"
+
+    - exec_cid "composer install"
+    - exec_cid "/app/vendor/bin/blt artifact:deploy --branch=master-build --no-interaction"
 
     - helmfile --environment=cid destroy
     - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
