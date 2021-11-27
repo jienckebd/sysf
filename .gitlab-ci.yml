@@ -33,14 +33,13 @@ build:
     - while [[ $(kubectl get pods -l app=web-nginx-php-fpm -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') != "True" ]]; do echo "waiting for pod" && sleep 1; done
     - POD_EXEC=$(kubectl get pod -l app=web-nginx-php-fpm -o jsonpath="{.items[0].metadata.name}")
 
-    - cd -
     - kubectl exec -it "${POD_EXEC}" -c php-fpm -- bash -c "ls -lah"
-    - kubectl cp . "${POD_EXEC}:/app" -c php-fpm
+    - kubectl cp "${PWD}" "${POD_EXEC}:/app" -c php-fpm
+    - kubectl exec -it "${POD_EXEC}" -c php-fpm -- bash -c "mv /app/sysf/* /app"
     - kubectl exec -it "${POD_EXEC}" -c php-fpm -- bash -c "ls -lah"
     - kubectl exec -it "${POD_EXEC}" -c php-fpm -- bash -c "composer install"
     - kubectl exec -it "${POD_EXEC}" -c php-fpm -- bash -c "/app/vendor/bin/blt artifact:deploy --branch=master-build --no-interaction"
 
-    - cd /tmp/sysf
     - helmfile --environment=cid destroy
     - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
     - kubectl delete pvc -n "${SYS_K8S_NAMESPACE}" --all --force
