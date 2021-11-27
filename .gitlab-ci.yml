@@ -9,7 +9,7 @@ cache:
   key: "$CI_COMMIT_REF_SLUG"
   policy: pull-push
   paths:
-    - /files-private/cache
+    - /tmp/sysf/
 
 stages:
   - init
