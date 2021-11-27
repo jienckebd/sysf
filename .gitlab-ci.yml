@@ -67,6 +67,8 @@ test-workflow-standard:
 test-security:
   stage: test
   environment: prd
+  dependencies:
+    - build
   script:
     - 'echo "Test: security..."'
 
