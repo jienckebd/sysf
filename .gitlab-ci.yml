@@ -16,7 +16,7 @@ stages:
   - cleanup
 
 init:
-  stage: build
+  stage: init
   environment: prd
   script:
     - 'echo "Initializing kubernetes Drupal environment..."'
