@@ -122,4 +122,3 @@ cleanup:
     - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
     - kubectl delete pvc -n "${SYS_K8S_NAMESPACE}" --all --force
     - kubectl delete ns "${SYS_K8S_NAMESPACE}" --force
-
