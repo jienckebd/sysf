@@ -109,6 +109,7 @@ deploy:
   stage: deploy
   environment: prd
   dependencies:
+    - build
     - test-coding-standard
     - test-workflow-standard
     - test-coding-standard
