@@ -4,7 +4,12 @@ before_script:
   - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
   - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
   - kubectl config set-context --current --namespace="${SYS_K8S_NAMESPACE}"
-  - ls -lah
+  - ls -lah /tmp
+
+cache:
+  key: "$CI_COMMIT_REF_SLUG"
+  paths:
+    - /tmp/sysf/
 
 stages:
   - init
@@ -17,12 +22,8 @@ stages:
 init:
   stage: init
   environment: prd
-  cache:
-    key: "$CI_COMMIT_REF_SLUG"
-    paths:
-      - /tmp/sysf/
   script:
-    - 'echo "Initializing kubernetes Drupal environment..."'
+    - 'echo "Initializing kubernetes environment..."'
     - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git /tmp/sysf
     - cd /tmp/sysf
     - kubectl create namespace "${SYS_K8S_NAMESPACE}"
@@ -42,7 +43,6 @@ build:
     - init
   script:
     - 'echo "Building source repo..."'
-    - ls -lah /tmp/sysf
     - POD_EXEC=$(kubectl get pod -l app=web-nginx-php-fpm -o jsonpath="{.items[0].metadata.name}")
     - kubectl exec "${POD_EXEC}" -c php-fpm -- bash -c "composer install"
     - kubectl exec "${POD_EXEC}" -c php-fpm -- bash -c "cd /app && /app/vendor/bin/blt --no-interaction"
@@ -116,8 +116,10 @@ cleanup:
     - deploy
     - verify
   script:
+    - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git /tmp/sysf
     - cd /tmp/sysf
     - helmfile --environment=cid destroy
     - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
     - kubectl delete pvc -n "${SYS_K8S_NAMESPACE}" --all --force
     - kubectl delete ns "${SYS_K8S_NAMESPACE}" --force
+
