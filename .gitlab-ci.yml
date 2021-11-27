@@ -134,12 +134,12 @@ verify:
 cleanup:
   stage: cleanup
   environment: prd
-  cache:
-    policy: pull
   dependencies:
     - build
     - verify
   script:
+    - rm -rf files-private/cache/sysf
+    - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git files-private/cache/sysf
     - cd files-private/cache/sysf
     - helmfile --environment=cid destroy
     - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
