@@ -110,7 +110,6 @@ deploy:
   stage: deploy
   environment: prd
   dependencies:
-    - build
     - test-coding-standard
     - test-workflow-standard
     - test-coding-standard
@@ -138,6 +137,7 @@ cleanup:
   cache:
     policy: pull
   dependencies:
+    - build
     - verify
   script:
     - cd files-private/cache/sysf
