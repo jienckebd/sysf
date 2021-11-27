@@ -34,7 +34,7 @@ build:
     - POD_EXEC=$(kubectl get pod -l app=web-nginx-php-fpm -o jsonpath="{.items[0].metadata.name}")
 
     - kubectl exec -it "${POD_EXEC}" -c php-fpm -- bash -c "ls -lah"
-    - kubectl cp "${PWD}" "${POD_EXEC}:/app" -c php-fpm
+    - kubectl cp "${CI_PROJECT_DIR}" "${POD_EXEC}:/app" -c php-fpm
     - kubectl exec -it "${POD_EXEC}" -c php-fpm -- bash -c "mv /app/sysf/* /app"
     - kubectl exec -it "${POD_EXEC}" -c php-fpm -- bash -c "ls -lah"
     - kubectl exec -it "${POD_EXEC}" -c php-fpm -- bash -c "composer install"
