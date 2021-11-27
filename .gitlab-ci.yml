@@ -31,15 +31,18 @@ init:
     - "kubectl get secret mariadb --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - helmfile --environment=cid apply
     - while [[ $(kubectl get pods -l app=web-nginx-php-fpm -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') != "True" ]]; do echo "waiting for pod" && sleep 1; done
+    - POD_EXEC=$(kubectl get pod -l app=web-nginx-php-fpm -o jsonpath="{.items[0].metadata.name}")
+    - kubectl cp "${CI_PROJECT_DIR}" "${POD_EXEC}:/app" -c php-fpm
+    - kubectl exec "${POD_EXEC}" -c php-fpm -- bash -c "mv /app/sysf/* /app"
 
 build:
   stage: build
   environment: prd
+  dependencies:
+    - init
   script:
     - 'echo "Building source repo..."'
     - POD_EXEC=$(kubectl get pod -l app=web-nginx-php-fpm -o jsonpath="{.items[0].metadata.name}")
-    - kubectl cp "${CI_PROJECT_DIR}" "${POD_EXEC}:/app" -c php-fpm
-    - kubectl exec "${POD_EXEC}" -c php-fpm -- bash -c "mv /app/sysf/* /app"
     - kubectl exec "${POD_EXEC}" -c php-fpm -- bash -c "composer install"
     - kubectl exec "${POD_EXEC}" -c php-fpm -- bash -c "cd /app && /app/vendor/bin/blt --no-interaction"
 
@@ -88,6 +91,8 @@ build:
 deploy:
   stage: deploy
   environment: prd
+  dependencies:
+    - build
   script:
     - 'echo "Deploying build artifact..."'
     - POD_EXEC=$(kubectl get pod -l app=web-nginx-php-fpm -o jsonpath="{.items[0].metadata.name}")
@@ -96,6 +101,9 @@ deploy:
 verify:
   stage: verify
   environment: prd
+  dependencies:
+    - build
+    - deploy
   script:
     - 'echo "Verifying deploy..."'
 
@@ -104,6 +112,8 @@ cleanup:
   environment: prd
   dependencies:
     - build
+    - deploy
+    - verify
   script:
     - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git /tmp/sysf
     - cd /tmp/sysf
