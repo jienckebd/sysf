@@ -49,6 +49,7 @@ build:
 
 test-coding-standard:
   stage: test
+  environment: prd/1
   dependencies:
     - build
   script:
@@ -56,6 +57,7 @@ test-coding-standard:
 
 test-workflow-standard:
   stage: test
+  environment: prd/2
   dependencies:
     - build
   script:
@@ -63,6 +65,7 @@ test-workflow-standard:
 
 test-security:
   stage: test
+  environment: prd/3
   dependencies:
     - build
   script:
@@ -70,6 +73,7 @@ test-security:
 
 test-licensing:
   stage: test
+  environment: prd/4
   dependencies:
     - build
   script:
@@ -77,6 +81,7 @@ test-licensing:
 
 test-visual-regression:
   stage: test
+  environment: prd/5
   dependencies:
     - build
   script:
@@ -84,6 +89,7 @@ test-visual-regression:
 
 test-behavioral:
   stage: test
+  environment: prd/6
   dependencies:
     - build
   script:
@@ -91,6 +97,7 @@ test-behavioral:
 
 test-performance:
   stage: test
+  environment: prd/7
   dependencies:
     - build
   script:
