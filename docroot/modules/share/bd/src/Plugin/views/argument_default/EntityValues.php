@@ -91,7 +91,9 @@ class EntityValues extends ArgumentDefaultPluginBase {
     $context = reset($context_result);
 
     /** @var \Drupal\Core\Entity\EntityInterface $entity */
-    $entity = $context->getContextValue();
+    if (!$entity = $context->getContextValue()) {
+      return NULL;
+    }
 
     if ($entity->hasField($field_name)) {
       $field_values = $entity->get($field_name)->getValue();
