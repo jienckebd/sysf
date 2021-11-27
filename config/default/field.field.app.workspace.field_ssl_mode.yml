@@ -18,9 +18,9 @@ required: true
 translatable: false
 default_value:
   -
+    target_uuid: 3cbacade-120e-4bd3-b572-d3633374be44
     derivative: null
     base_target_id: null
-    target_uuid: 3cbacade-120e-4bd3-b572-d3633374be44
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

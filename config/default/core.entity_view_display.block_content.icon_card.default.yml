@@ -16,9 +16,9 @@ third_party_settings:
       -
         layout_id: design_system__a5c69163-9b7c-4f1f-babd-4a251800bb0f
         layout_settings:
-          layout_entity: '1284'
           label: 'Base: Row 1 / Column 1'
           context_mapping: {  }
+          layout_entity: '1284'
         components:
           a84ee197-b178-4fe8-abdf-113a4c55c767:
             uuid: a84ee197-b178-4fe8-abdf-113a4c55c767
@@ -26,38 +26,38 @@ third_party_settings:
             configuration:
               id: 'field_block:block_content:icon_card:field_cmp_icon'
               label: Icon
-              provider: design_system
               label_display: ''
-              formatter:
-                label: hidden
-                type: entity_reference_revisions_entity_view
-                settings:
-                  view_mode: default
-                third_party_settings: {  }
+              provider: design_system
               context_mapping:
                 entity: layout_builder.entity
                 view_mode: view_mode
-            additional: {  }
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
             weight: 0
+            additional: {  }
           0d62f1d1-4335-4907-9a73-73b36e50aa98:
             uuid: 0d62f1d1-4335-4907-9a73-73b36e50aa98
             region: layout_entity__1224__1223
             configuration:
               id: 'field_block:block_content:icon_card:field_cmp_heading'
               label: Heading
-              provider: design_system
               label_display: ''
-              formatter:
-                label: hidden
-                type: entity_reference_revisions_entity_view
-                settings:
-                  view_mode: default
-                third_party_settings: {  }
+              provider: design_system
               context_mapping:
                 entity: layout_builder.entity
                 view_mode: view_mode
-            additional: {  }
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
             weight: 1
+            additional: {  }
         third_party_settings: {  }
 id: block_content.icon_card.default
 targetEntityType: block_content

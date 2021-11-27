@@ -20,12 +20,12 @@ widget_selector: single
 widget_selector_configuration: {  }
 widgets:
   c122070e-4863-46d1-b786-64bd7169b081:
+    id: view
+    uuid: c122070e-4863-46d1-b786-64bd7169b081
+    label: 'Font Library'
+    weight: 1
     settings:
-      view: font_entity_browser
-      view_display: entity_browser_1
       submit_text: 'Select font'
       auto_select: false
-    uuid: c122070e-4863-46d1-b786-64bd7169b081
-    weight: 1
-    label: 'Font Library'
-    id: view
+      view: font_entity_browser
+      view_display: entity_browser_1

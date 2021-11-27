@@ -23,17 +23,17 @@ third_party_settings:
             uuid: d5d71ab1-41ec-4ef7-b617-a39d978b3685
             region: content
             configuration:
+              id: 'field_block:block_content:basic:body'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
-              id: 'field_block:block_content:basic:body'
               formatter:
-                label: hidden
                 type: text_default
+                label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            additional: {  }
             weight: 0
+            additional: {  }
         third_party_settings: {  }
 id: block_content.basic.default
 targetEntityType: block_content

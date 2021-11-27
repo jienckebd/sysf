@@ -11,8 +11,8 @@ field_map:
   field_moderation_state: moderation_state
 update_runner:
   id: default_independent
-  after_run: DELETE
   invalid_update_behavior: DELETE
+  after_run: DELETE
   create_revisions: BUNDLE_DEFAULT
   update_user: USER_UPDATE_RUNNER
   bundles:

@@ -30,6 +30,7 @@ expression:
         id: rules_action
         uuid: 2ab563c6-1a96-423c-b6c1-78177de8f8b1
         weight: -50
+        action_id: entity_dependency_build
         context_values:
           dependency_type: '113'
           entity_type: dom
@@ -44,11 +45,11 @@ expression:
           bundle:
             rules_tokens: {  }
         provides_mapping: {  }
-        action_id: entity_dependency_build
       -
         id: rules_action
         uuid: beb08039-b0bc-4467-b779-0acf241902c4
         weight: -49
+        action_id: entity_dependency_build
         context_values:
           dependency_type: '113'
           entity_type: dom
@@ -63,4 +64,3 @@ expression:
           bundle:
             rules_tokens: {  }
         provides_mapping: {  }
-        action_id: entity_dependency_build

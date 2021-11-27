@@ -4,8 +4,8 @@ status: true
 dependencies: {  }
 id: carousel
 name: carousel
-label: Carousel
 weight: 0
+label: Carousel
 group: ''
 skin: ''
 breakpoints: 0
@@ -18,10 +18,10 @@ options:
     accessibility: true
     adaptiveHeight: false
     autoplay: true
-    autoplaySpeed: 10000
     pauseOnHover: true
     pauseOnDotsHover: false
     pauseOnFocus: true
+    autoplaySpeed: 10000
     arrows: false
     prevArrow: Previous
     nextArrow: Next

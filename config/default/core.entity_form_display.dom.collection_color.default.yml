@@ -20,7 +20,9 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_color:
+    type: inline_entity_form_complex
     weight: 2
+    region: content
     settings:
       form_mode: inline
       override_labels: true
@@ -117,25 +119,23 @@ content:
             plugin: {  }
           empty_value:
             plugin: {  }
-    type: inline_entity_form_complex
-    region: content
   field_effect:
+    type: inline_entity_form_complex
     weight: 1
+    region: content
     settings:
       form_mode: default
-      revision: false
       override_labels: false
       label_singular: ''
       label_plural: ''
-      collapsible: false
-      collapsed: false
       allow_new: true
       allow_existing: true
       match_operator: CONTAINS
       allow_duplicate: true
+      collapsible: false
+      collapsed: false
+      revision: false
     third_party_settings: {  }
-    type: inline_entity_form_complex
-    region: content
   label:
     type: string_textfield
     weight: 0

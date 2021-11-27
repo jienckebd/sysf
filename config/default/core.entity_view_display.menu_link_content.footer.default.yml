@@ -15,24 +15,24 @@ bundle: footer
 mode: default
 content:
   field_icon:
-    weight: 0
+    type: fontawesome_icon_formatter
     label: hidden
     settings:
+      layers: false
       size: ''
       color: ''
-      layers: false
     third_party_settings: {  }
-    type: fontawesome_icon_formatter
+    weight: 0
     region: content
   title:
-    label: hidden
     type: string
-    weight: 1
-    region: content
+    label: hidden
     settings:
       link_to_entity: false
       filter_format: null
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   bundle: true
   changed: true

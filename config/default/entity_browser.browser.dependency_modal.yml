@@ -21,23 +21,23 @@ widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
   f7c524c4-af83-43fa-8e5f-e4c228676494:
+    id: view
+    uuid: f7c524c4-af83-43fa-8e5f-e4c228676494
+    label: 'Existing dependencys'
+    weight: 1
     settings:
-      view: dependency_entity_browser
-      view_display: entity_browser_1
       submit_text: 'Select existing config_entity_wrdependencyer'
       auto_select: false
-    uuid: f7c524c4-af83-43fa-8e5f-e4c228676494
-    weight: 1
-    label: 'Existing dependencys'
-    id: view
+      view: dependency_entity_browser
+      view_display: entity_browser_1
   bfeef8bf-8703-4f89-92a6-a643f53b244a:
+    id: entity_form
+    uuid: bfeef8bf-8703-4f89-92a6-a643f53b244a
+    label: 'Create a new config_entity_wrdependencyer'
+    weight: 2
     settings:
+      submit_text: 'Save config_entity_wrdependencyer'
       entity_type: config_entity_wrdependencyer
       bundle: __editor_bundle
       form_mode: inline
-      submit_text: 'Save config_entity_wrdependencyer'
       allowed_bundles: {  }
-    uuid: bfeef8bf-8703-4f89-92a6-a643f53b244a
-    weight: 2
-    label: 'Create a new config_entity_wrdependencyer'
-    id: entity_form

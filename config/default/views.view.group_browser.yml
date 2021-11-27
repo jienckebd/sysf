@@ -18,25 +18,100 @@ base_table: groups_field_data
 base_field: id
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: none
-        options: {  }
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
+      fields:
+        label:
+          id: label
+          table: groups_field_data
+          field: label
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: null
+          entity_field: label
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+      pager:
+        type: infinite_scroll
         options:
-          disable_sql_rewrite: false
-          distinct: false
-          replica: false
-          query_comment: ''
-          query_tags: {  }
+          offset: 0
+          items_per_page: 24
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          views_infinite_scroll:
+            button_text: 'Load More'
+            automatically_load_content: true
+            automatically_load_adv_settings:
+              scroll_threshold: 200
+              scroll_delay: 200
       exposed_form:
         type: basic
         options:
@@ -104,115 +179,55 @@ display:
                 wrapper_class: mr-3
                 class: w-100
                 weight: ''
-      pager:
-        type: infinite_scroll
-        options:
-          items_per_page: 24
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: ‹‹
-            next: ››
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          views_infinite_scroll:
-            button_text: 'Load More'
-            automatically_load_content: true
-            automatically_load_adv_settings:
-              scroll_threshold: 200
-              scroll_delay: 200
-      style:
-        type: views_bootstrap_grid
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          grid_columns: '24'
-          row_wrapper_class: 'row--gutter--sm row'
-          col_xs: col-1
-          col_sm: col-sm-1
-          col_md: col-md-2
-          col_lg: col-lg-6
-          col_xl: col-xl-6
-      row:
-        type: fields
-        options:
-          inline: {  }
-          separator: ''
-          hide_empty: false
-          default_field_elements: true
-      fields:
-        label:
-          table: groups_field_data
-          field: label
-          id: label
-          entity_type: null
-          entity_field: label
-          plugin_id: field
+      access:
+        type: none
+        options: {  }
+      cache:
+        type: tag
+        options: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
+          plugin_id: text_custom
+          empty: true
+          content: 'There are no groups that match your search criteria.'
+          tokenize: false
+      sorts:
+        created:
+          id: created
+          table: groups_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: group
+          entity_field: created
+          plugin_id: date
+          order: DESC
+          expose:
+            label: Created
+          exposed: true
+          granularity: second
+        label:
+          id: label
+          table: groups_field_data
+          field: label
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: group
+          entity_field: label
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: Title
+          exposed: true
+      arguments: {  }
       filters:
         status:
           id: status
@@ -221,6 +236,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: group
+          entity_field: status
+          plugin_id: boolean
           operator: '='
           value: '1'
           group: 1
@@ -251,9 +269,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: group
-          entity_field: status
-          plugin_id: boolean
         label:
           id: label
           table: groups_field_data
@@ -261,6 +276,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: group
+          entity_field: label
+          plugin_id: string
           operator: contains
           value: ''
           group: 1
@@ -303,9 +321,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: group
-          entity_field: label
-          plugin_id: string
         type:
           id: type
           table: groups_field_data
@@ -313,6 +328,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: group
+          entity_field: type
+          plugin_id: bundle
           operator: in
           value: {  }
           group: 1
@@ -355,61 +373,43 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: group
-          entity_field: type
-          plugin_id: bundle
-      sorts:
-        created:
-          id: created
-          table: groups_field_data
-          field: created
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: true
-          expose:
-            label: Created
-          granularity: second
-          entity_type: group
-          entity_field: created
-          plugin_id: date
-        label:
-          id: label
-          table: groups_field_data
-          field: label
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: true
-          expose:
-            label: Title
-          entity_type: group
-          entity_field: label
-          plugin_id: standard
-      header: {  }
-      footer: {  }
-      empty:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content: 'There are no groups that match your search criteria.'
-          plugin_id: text_custom
-      relationships: {  }
-      arguments: {  }
-      display_extenders: {  }
       filter_groups:
         operator: AND
         groups:
           1: AND
+      style:
+        type: views_bootstrap_grid
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          grid_columns: '24'
+          row_wrapper_class: 'row--gutter--sm row'
+          col_xs: col-1
+          col_sm: col-sm-1
+          col_md: col-md-2
+          col_lg: col-lg-6
+          col_xl: col-xl-6
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
+      relationships: {  }
       css_class: 'eb-media w--img--w-100 style--dark'
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -420,14 +420,11 @@ display:
         - 'url.query_args:sort_by'
       tags: {  }
   entity_browser_1:
-    display_plugin: entity_browser
     id: entity_browser_1
     display_title: 'Entity browser'
+    display_plugin: entity_browser
     position: 1
     display_options:
-      display_extenders:
-        design_system: {  }
-        ajax_history: {  }
       fields:
         entity_browser_select:
           id: entity_browser_select
@@ -436,6 +433,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: group
+          plugin_id: entity_browser_select
           label: ''
           exclude: false
           alter:
@@ -478,8 +477,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           use_field_cardinality: false
-          entity_type: group
-          plugin_id: entity_browser_select
         rendered_entity:
           id: rendered_entity
           table: groups
@@ -487,6 +484,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: group
+          plugin_id: rendered_entity
           label: ''
           exclude: false
           alter:
@@ -529,12 +528,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view_mode: thumbnail
-          entity_type: group
-          plugin_id: rendered_entity
-      defaults:
-        fields: false
-        filters: false
-        filter_groups: false
       filters:
         status:
           id: status
@@ -543,6 +536,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: group
+          entity_field: status
+          plugin_id: boolean
           operator: '='
           value: '1'
           group: 1
@@ -573,9 +569,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: group
-          entity_field: status
-          plugin_id: boolean
         label:
           id: label
           table: groups_field_data
@@ -583,6 +576,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: group
+          entity_field: label
+          plugin_id: string
           operator: contains
           value: ''
           group: 1
@@ -625,9 +621,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: group
-          entity_field: label
-          plugin_id: string
         type:
           id: type
           table: groups_field_data
@@ -635,6 +628,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: group
+          entity_field: type
+          plugin_id: bundle
           operator: in
           value: {  }
           group: 1
@@ -677,13 +673,17 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: group
-          entity_field: type
-          plugin_id: bundle
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        fields: false
+        filters: false
+        filter_groups: false
+      display_extenders:
+        design_system: {  }
+        ajax_history: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -706,14 +706,11 @@ display:
         - 'config:core.entity_view_display.group.school.default'
         - 'config:core.entity_view_display.group.school.thumbnail'
   entity_browser_2:
-    display_plugin: entity_browser
     id: entity_browser_2
     display_title: Company
+    display_plugin: entity_browser
     position: 1
     display_options:
-      display_extenders:
-        design_system: {  }
-        ajax_history: {  }
       fields:
         entity_browser_select:
           id: entity_browser_select
@@ -722,6 +719,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: group
+          plugin_id: entity_browser_select
           label: ''
           exclude: false
           alter:
@@ -764,8 +763,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           use_field_cardinality: false
-          entity_type: group
-          plugin_id: entity_browser_select
         rendered_entity:
           id: rendered_entity
           table: groups
@@ -773,6 +770,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: group
+          plugin_id: rendered_entity
           label: ''
           exclude: false
           alter:
@@ -815,13 +814,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view_mode: thumbnail
-          entity_type: group
-          plugin_id: rendered_entity
-      defaults:
-        fields: false
-        filters: false
-        filter_groups: false
-      display_description: ''
       filters:
         status:
           id: status
@@ -830,6 +822,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: group
+          entity_field: status
+          plugin_id: boolean
           operator: '='
           value: '1'
           group: 1
@@ -860,9 +855,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: group
-          entity_field: status
-          plugin_id: boolean
         label:
           id: label
           table: groups_field_data
@@ -870,6 +862,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: group
+          entity_field: label
+          plugin_id: string
           operator: contains
           value: ''
           group: 1
@@ -912,9 +907,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: group
-          entity_field: label
-          plugin_id: string
         type:
           id: type
           table: groups_field_data
@@ -922,6 +914,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: group
+          entity_field: type
+          plugin_id: bundle
           operator: in
           value:
             company: company
@@ -965,13 +960,18 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: group
-          entity_field: type
-          plugin_id: bundle
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        fields: false
+        filters: false
+        filter_groups: false
+      display_description: ''
+      display_extenders:
+        design_system: {  }
+        ajax_history: {  }
     cache_metadata:
       max-age: -1
       contexts:

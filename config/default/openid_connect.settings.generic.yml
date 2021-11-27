@@ -1,8 +1,0 @@
-enabled: true
-settings:
-  redirect_url: ''
-  client_id: drupal
-  client_secret: 9a12328e-0ad9-4648-8877-f3785d9c050f
-  authorization_endpoint: 'https://id.k8s.sys.sysf.one/auth/realms/master/protocol/openid-connect/auth'
-  token_endpoint: 'https://id.k8s.sys.sysf.one/auth/realms/master/protocol/openid-connect/token'
-  userinfo_endpoint: 'https://id.k8s.sys.sysf.one/auth/realms/master/protocol/openid-connect/userinfo'

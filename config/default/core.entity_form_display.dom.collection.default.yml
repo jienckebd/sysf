@@ -26,16 +26,16 @@ content:
     region: content
     settings:
       form_mode: default
-      revision: true
+      override_labels: false
       label_singular: ''
       label_plural: ''
       allow_new: true
       allow_existing: true
       match_operator: CONTAINS
       allow_duplicate: true
-      override_labels: false
       collapsible: false
       collapsed: false
+      revision: true
     third_party_settings:
       entity_browser_entity_form:
         entity_browser_id: _none

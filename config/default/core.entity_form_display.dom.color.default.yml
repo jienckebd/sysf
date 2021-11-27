@@ -17,33 +17,33 @@ third_party_settings:
         - revision_log_message
         - uid
         - created
+      label: Advanced
+      region: content
       parent_name: ''
       weight: 1
       format_type: details
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: false
+        description: ''
         required_fields: true
-      label: Advanced
-      region: content
     group_color:
       children:
         - label
         - description
         - color
+      label: Color
+      region: content
       parent_name: ''
       weight: 0
       format_type: details
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: true
+        description: ''
         required_fields: true
-      label: Color
-      region: content
 id: dom.color.default
 targetEntityType: dom
 bundle: color
@@ -55,11 +55,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   color:
+    type: color_field_widget_html5
     weight: 3
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: color_field_widget_html5
-    region: content
   created:
     type: datetime_timestamp
     weight: 6
@@ -67,13 +67,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   description:
+    type: string_textarea
     weight: 2
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   label:
     type: string_textfield
     weight: 1
@@ -85,10 +85,10 @@ content:
   revision_log_message:
     type: string_textarea
     weight: 4
+    region: content
     settings:
       rows: 4
       placeholder: ''
-    region: content
     third_party_settings: {  }
   uid:
     type: options_select

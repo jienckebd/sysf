@@ -2,6 +2,6 @@ uuid: 5b17df75-7af8-43c6-85d2-93c9876a18cb
 langcode: en
 status: true
 dependencies: {  }
-id: dom_events
 label: 'DOM Events'
+id: dom_events
 description: ''

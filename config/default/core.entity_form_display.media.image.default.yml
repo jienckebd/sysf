@@ -32,10 +32,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_media_image:
+    type: image_widget_crop
+    weight: 0
+    region: content
     settings:
-      show_crop_area: true
-      show_default_crop: true
-      warn_multiple_usages: true
+      progress_indicator: throbber
       preview_image_style: crop_thumbnail
       crop_preview_image_style: crop_thumbnail
       crop_list:
@@ -69,12 +70,11 @@ content:
         - w_300
         - w_500
         - w_800
-      progress_indicator: throbber
       crop_types_required: {  }
+      warn_multiple_usages: true
+      show_crop_area: true
+      show_default_crop: true
     third_party_settings: {  }
-    type: image_widget_crop
-    weight: 0
-    region: content
   langcode:
     type: language_select
     weight: 2
@@ -91,10 +91,10 @@ content:
   revision_log_message:
     type: string_textarea
     weight: 25
+    region: content
     settings:
       rows: 4
       placeholder: ''
-    region: content
     third_party_settings: {  }
   simple_sitemap:
     weight: 910
@@ -103,20 +103,20 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 100
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 5
+    region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
-    region: content
     third_party_settings: {  }
 hidden:
   bundle: true

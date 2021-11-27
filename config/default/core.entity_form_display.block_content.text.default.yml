@@ -22,10 +22,10 @@ content:
     weight: 0
     region: content
     settings:
-      hide_format: false
-      default_format: null
       rows: 5
       placeholder: ''
+      hide_format: false
+      default_format: null
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -37,10 +37,10 @@ content:
   revision_log:
     type: string_textarea
     weight: 2
+    region: content
     settings:
       rows: 4
       placeholder: ''
-    region: content
     third_party_settings: {  }
   simple_sitemap:
     weight: 4

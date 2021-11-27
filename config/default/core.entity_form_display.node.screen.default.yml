@@ -35,49 +35,49 @@ third_party_settings:
         - group_screen
         - group_meta_tags
         - group_advanced
+      label: Tabs
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
         direction: horizontal
         width_breakpoint: 640
-      label: Tabs
     group_screen:
       children:
         - group_overview
         - field_yoast_seo
         - group_status
+      label: Screen
+      region: content
       parent_name: group_tabs
       weight: 20
       format_type: tab
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
-        description: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Screen
     group_meta_tags:
       children:
         - field_meta_tags
+      label: 'Meta data'
+      region: content
       parent_name: group_tabs
       weight: 21
       format_type: tab
-      region: content
       format_settings:
-        description: ''
-        formatter: closed
-        required_fields: true
-        id: ''
         classes: ''
         show_empty_fields: false
-      label: 'Meta data'
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
     group_advanced:
       children:
         - menu_link
@@ -92,18 +92,18 @@ third_party_settings:
         - label_ia
         - label_display
         - field_override
+      label: Advanced
+      region: content
       parent_name: group_tabs
       weight: 22
       format_type: tab
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
-        description: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Advanced
     group_publishing:
       children:
         - promote
@@ -111,52 +111,52 @@ third_party_settings:
         - langcode
         - created
         - uid
+      label: Publishing
+      region: content
       parent_name: group_advanced
       weight: 19
       format_type: details
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
-        description: ''
         open: true
+        description: ''
         required_fields: true
-      label: Publishing
     group_status:
       children:
         - moderation_state
         - revision_log
+      label: Status
+      region: content
       parent_name: group_screen
       weight: 26
       format_type: details
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
-        description: ''
         open: true
+        description: ''
         required_fields: true
-      label: Status
     group_overview:
       children:
         - title
         - description
         - field_tags
         - field_image
+      label: Overview
+      region: content
       parent_name: group_screen
       weight: 20
       format_type: details
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
-        description: ''
         open: true
+        description: ''
         required_fields: true
-      label: Overview
 id: node.screen.default
 targetEntityType: node
 bundle: screen
@@ -182,11 +182,11 @@ content:
       placeholder: ''
     third_party_settings:
       length_indicator:
+        indicator: false
         indicator_opt:
           optimin: 10
           optimax: 15
           tolerance: 5
-        indicator: false
       maxlength:
         maxlength_js: 500
         maxlength_js_label: '@remaining / @limit characters'
@@ -259,33 +259,35 @@ content:
   field_domain_access:
     type: options_buttons
     weight: 40
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_domain_all_affiliates:
     type: boolean_checkbox
+    weight: 41
+    region: content
     settings:
       display_label: true
-    weight: 41
     third_party_settings: {  }
-    region: content
   field_domain_source:
     type: options_select
     weight: 42
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_image:
+    type: entity_browser_entity_reference
     weight: 24
+    region: content
     settings:
       entity_browser: media_image_modal
       field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: embed
       field_widget_edit: true
       field_widget_remove: true
       field_widget_replace: true
       open: true
+      field_widget_display_settings:
+        view_mode: embed
       selection_mode: selection_append
     third_party_settings:
       design_system:
@@ -352,42 +354,40 @@ content:
             theme_hook_match_value: ''
             build_css_field_name: ''
             build_css: 0
-    type: entity_browser_entity_reference
-    region: content
   field_meta_tags:
+    type: metatag_firehose
     weight: 24
+    region: content
     settings:
       sidebar: true
     third_party_settings: {  }
-    type: metatag_firehose
-    region: content
   field_qr_code:
+    type: qrfield_widget
     weight: 23
+    region: content
     settings:
       text: 'Enter you QR text here (e.g.: Welcome to [site:name] [site:url])'
       image:
         width: 100
         height: 100
     third_party_settings: {  }
-    type: qrfield_widget
-    region: content
   field_tags:
+    type: options_select
     weight: 23
+    region: content
     settings:
       autocomplete: true
       match_operator: CONTAINS
       match_limit: 10
       width: 100%
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_yoast_seo:
+    type: yoast_seo_widget
     weight: 25
+    region: content
     settings:
       body: body
     third_party_settings: {  }
-    type: yoast_seo_widget
-    region: content
   label_browser:
     type: string_textfield
     weight: 24
@@ -437,8 +437,8 @@ content:
   moderation_state:
     type: moderation_state_default
     weight: 3
-    settings: {  }
     region: content
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path
@@ -448,10 +448,10 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 1
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   redirect:
     type: options_select
@@ -466,17 +466,17 @@ content:
   revision_log:
     type: string_textarea
     weight: 4
+    region: content
     settings:
       rows: 4
       placeholder: ''
-    region: content
     third_party_settings:
       length_indicator:
+        indicator: false
         indicator_opt:
           optimin: 10
           optimax: 15
           tolerance: 5
-        indicator: false
       maxlength:
         maxlength_js: 1000
         maxlength_js_label: '@remaining / @limit characters'
@@ -549,20 +549,20 @@ content:
   schedule_status_change:
     type: inline_entity_form_complex
     weight: 20
+    region: content
     settings:
+      form_mode: default
       override_labels: true
       label_singular: 'Schedule status change'
       label_plural: 'Schedule status changes'
       allow_new: true
-      match_operator: CONTAINS
       allow_existing: false
-      form_mode: default
-      revision: false
+      match_operator: CONTAINS
+      allow_duplicate: true
       collapsible: false
       collapsed: false
-      allow_duplicate: true
+      revision: false
     third_party_settings: {  }
-    region: content
   simple_sitemap:
     weight: 21
     region: content
@@ -570,10 +570,10 @@ content:
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 2
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -665,12 +665,12 @@ content:
   uid:
     type: options_select
     weight: 5
+    region: content
     settings:
       width: 100%
       autocomplete: true
       match_operator: CONTAINS
       match_limit: 10
-    region: content
     third_party_settings:
       design_system:
         overview:

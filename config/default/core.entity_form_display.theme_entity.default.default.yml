@@ -37,132 +37,132 @@ third_party_settings:
         - group_devices
         - group_integrations
         - group_advanced
+      label: Tabs
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: horizontal
-      label: Tabs
     group_integrations:
       children:
         - field_integration
+      label: Integrations
+      region: content
       parent_name: group_tabs
       weight: 28
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Integrations
     group_styles:
       children:
         - field_tag_group
         - field_dom_tag
         - field_selector
+      label: Elements
+      region: content
       parent_name: group_tabs
       weight: 24
       format_type: tab
-      region: content
       format_settings:
-        description: ''
-        formatter: closed
-        required_fields: true
-        id: ''
         classes: ''
         show_empty_fields: false
-      label: Elements
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
     group_components:
       children:
         - field_component
+      label: Components
+      region: content
       parent_name: group_tabs
       weight: 23
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Components
     group_devices:
       children:
         - field_breakpoint
+      label: Devices
+      region: content
       parent_name: group_tabs
       weight: 27
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Devices
     group_fonts:
       children:
         - field_font
+      label: Fonts
+      region: content
       parent_name: group_tabs
       weight: 26
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Fonts
     group_overview:
       children:
         - group_overview_details
         - group_media
+      label: Theme
+      region: content
       parent_name: group_tabs
       weight: 20
       format_type: tab
-      region: content
       format_settings:
-        description: ''
-        formatter: open
-        required_fields: true
-        id: ''
         classes: ''
         show_empty_fields: false
-      label: Theme
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
     group_colors:
       children:
         - field_color_scheme
+      label: Colors
+      region: content
       parent_name: group_tabs
       weight: 25
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Colors
     group_layout:
       children:
         - field_layout
+      label: Layout
+      region: content
       parent_name: group_tabs
       weight: 22
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Layout
     group_advanced:
       children:
         - revision_log_message
@@ -170,51 +170,51 @@ third_party_settings:
         - status
         - uid
         - created
+      label: Advanced
+      region: content
       parent_name: group_tabs
       weight: 29
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Advanced
     group_media:
       children:
         - field_logo
         - field_icon
         - field_image
+      label: Media
+      region: content
       parent_name: group_overview
       weight: 24
       format_type: details
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
-        description: ''
         open: true
+        description: ''
         required_fields: true
-      label: Media
     group_overview_details:
       children:
         - label
         - description
         - base_entity
+      label: Overview
+      region: content
       parent_name: group_overview
       weight: 20
       format_type: details
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
-        description: ''
         open: true
+        description: ''
         required_fields: true
-      label: Overview
 id: theme_entity.default.default
 targetEntityType: theme_entity
 bundle: default
@@ -250,17 +250,17 @@ content:
     weight: 12
     region: content
     settings:
-      match_operator: CONTAINS
       form_mode: default
-      revision: false
       override_labels: false
       label_singular: ''
       label_plural: ''
-      collapsible: false
-      collapsed: false
       allow_new: true
       allow_existing: true
+      match_operator: CONTAINS
       allow_duplicate: true
+      collapsible: false
+      collapsed: false
+      revision: false
     third_party_settings: {  }
   field_color_scheme:
     type: inline_entity_form_simple
@@ -268,12 +268,12 @@ content:
     region: content
     settings:
       form_mode: default
-      revision: false
       override_labels: false
       label_singular: ''
       label_plural: ''
       collapsible: false
       collapsed: false
+      revision: false
       default_bundle: ''
     third_party_settings: {  }
   field_component:
@@ -282,12 +282,12 @@ content:
     region: content
     settings:
       form_mode: default
-      revision: false
       override_labels: false
       label_singular: ''
       label_plural: ''
       collapsible: false
       collapsed: false
+      revision: false
       default_bundle: ''
     third_party_settings: {  }
   field_dom_tag:
@@ -296,12 +296,12 @@ content:
     region: content
     settings:
       form_mode: inline
+      override_labels: false
       label_singular: ''
       label_plural: ''
-      revision: false
-      override_labels: false
       collapsible: false
       collapsed: false
+      revision: false
       default_bundle: ''
     third_party_settings:
       design_system:
@@ -375,13 +375,13 @@ content:
     settings:
       entity_browser: font_modal
       field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: teaser
       field_widget_edit: true
       field_widget_remove: true
-      open: true
-      selection_mode: selection_append
       field_widget_replace: false
+      open: true
+      field_widget_display_settings:
+        view_mode: teaser
+      selection_mode: selection_append
     third_party_settings:
       design_system:
         overview:
@@ -460,12 +460,12 @@ content:
     settings:
       entity_browser: media_image_modal
       field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: embed
       field_widget_edit: true
       field_widget_remove: true
       field_widget_replace: true
       open: true
+      field_widget_display_settings:
+        view_mode: embed
       selection_mode: selection_append
     third_party_settings:
       design_system:
@@ -545,12 +545,12 @@ content:
     settings:
       entity_browser: media_image_modal
       field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: embed
       field_widget_edit: true
       field_widget_remove: true
       field_widget_replace: true
       open: true
+      field_widget_display_settings:
+        view_mode: embed
       selection_mode: selection_append
     third_party_settings:
       design_system:
@@ -622,34 +622,34 @@ content:
     weight: 0
     region: content
     settings:
-      match_operator: CONTAINS
       form_mode: default
-      revision: false
       override_labels: false
       label_singular: ''
       label_plural: ''
-      collapsible: false
-      collapsed: false
       allow_new: true
       allow_existing: true
+      match_operator: CONTAINS
       allow_duplicate: true
+      collapsible: false
+      collapsed: false
+      revision: false
     third_party_settings: {  }
   field_layout:
     type: inline_entity_form_complex
     weight: 2
     region: content
     settings:
-      match_operator: CONTAINS
       form_mode: default
-      revision: false
       override_labels: false
       label_singular: ''
       label_plural: ''
-      collapsible: false
-      collapsed: false
       allow_new: true
       allow_existing: true
+      match_operator: CONTAINS
       allow_duplicate: true
+      collapsible: false
+      collapsed: false
+      revision: false
     third_party_settings: {  }
   field_logo:
     type: entity_browser_entity_reference
@@ -658,12 +658,12 @@ content:
     settings:
       entity_browser: media_image_modal
       field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: embed
       field_widget_edit: true
       field_widget_remove: true
       field_widget_replace: true
       open: true
+      field_widget_display_settings:
+        view_mode: embed
       selection_mode: selection_append
     third_party_settings:
       design_system:
@@ -737,19 +737,21 @@ content:
             build_css_field_name: ''
             build_css: 0
   field_selector:
+    type: inline_entity_form_complex
     weight: 2
+    region: content
     settings:
       form_mode: inline
-      revision: true
+      override_labels: false
       label_singular: ''
       label_plural: ''
       allow_new: true
       allow_existing: true
       match_operator: CONTAINS
       allow_duplicate: true
-      override_labels: false
       collapsible: false
       collapsed: false
+      revision: true
     third_party_settings:
       entity_browser_entity_form:
         entity_browser_id: app_modal
@@ -823,20 +825,18 @@ content:
             theme_hook_match_value: ''
             build_css_field_name: ''
             build_css: 0
-    type: inline_entity_form_complex
-    region: content
   field_tag_group:
     type: inline_entity_form_simple
     weight: 0
     region: content
     settings:
       form_mode: inline
+      override_labels: false
       label_singular: ''
       label_plural: ''
-      revision: false
-      override_labels: false
       collapsible: false
       collapsed: false
+      revision: false
       default_bundle: ''
     third_party_settings:
       design_system:
@@ -921,10 +921,10 @@ content:
   revision_log_message:
     type: string_textarea
     weight: 3
+    region: content
     settings:
       rows: 4
       placeholder: ''
-    region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox

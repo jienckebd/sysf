@@ -17,33 +17,33 @@ third_party_settings:
         - field_media_type
         - min_width
         - max_width
+      label: 'General Settings'
+      region: content
       parent_name: ''
       weight: 0
       format_type: details
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: true
+        description: ''
         required_fields: true
-      label: 'General Settings'
-      region: content
     group_advanced:
       children:
         - uid
         - created
         - revision_log_message
+      label: Advanced
+      region: content
       parent_name: ''
       weight: 1
       format_type: details
       format_settings:
+        classes: ''
+        id: ''
+        open: false
         description: ''
         required_fields: true
-        id: ''
-        classes: ''
-        open: false
-      label: Advanced
-      region: content
 id: dom.breakpoint.default
 targetEntityType: dom
 bundle: breakpoint
@@ -61,11 +61,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_media_type:
+    type: options_buttons
     weight: 1
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
-    region: content
   label:
     type: string_textfield
     weight: 0
@@ -75,21 +75,21 @@ content:
       placeholder: ''
     third_party_settings: {  }
   max_width:
+    type: string_textfield
     weight: 3
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   min_width:
+    type: string_textfield
     weight: 2
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   revision_created:
     type: datetime_timestamp
     weight: 6
@@ -99,10 +99,10 @@ content:
   revision_log_message:
     type: string_textarea
     weight: 4
+    region: content
     settings:
       rows: 4
       placeholder: ''
-    region: content
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
@@ -110,9 +110,9 @@ content:
     region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
 hidden:
   description: true

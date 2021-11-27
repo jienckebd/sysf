@@ -55,5 +55,3 @@ static:
         label: Click
       mousedown:
         label: 'Mouse Down'
-_core:
-  default_config_hash: gNpre1Rox_261jpr_1v1KD5B9ujXboum8Hzqb9050Lw

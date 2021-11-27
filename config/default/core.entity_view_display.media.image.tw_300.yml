@@ -15,12 +15,12 @@ bundle: image
 mode: tw_300
 content:
   field_media_image:
+    type: image
     label: visually_hidden
     settings:
-      image_style: tw_300
       image_link: ''
+      image_style: tw_300
     third_party_settings: {  }
-    type: image
     weight: 1
     region: content
 hidden:

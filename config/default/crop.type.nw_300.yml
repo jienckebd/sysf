@@ -2,8 +2,8 @@ uuid: 1975f742-d08f-4826-a59b-e649310d1628
 langcode: en
 status: true
 dependencies: {  }
-id: nw_300
 label: 'Narrow wide (x300)'
+id: nw_300
 description: null
 aspect_ratio: '5:1'
 soft_limit_width: 1500

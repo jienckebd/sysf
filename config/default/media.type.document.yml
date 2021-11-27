@@ -2,8 +2,6 @@ uuid: a2a911ef-55de-4aae-9d9e-e1eefde85007
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: _D9q3XSnP6ik9we9UuoTvZsQKPuYNp_G9PfwVtWzgnQ
 id: document
 label: Document
 description: 'An uploaded file or document, such as a PDF.'

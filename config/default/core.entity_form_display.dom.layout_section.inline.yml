@@ -29,23 +29,25 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_region:
+    type: inline_entity_form_complex
     weight: 2
+    region: content
     settings:
-      match_operator: CONTAINS
       form_mode: default
       override_labels: false
       label_singular: ''
       label_plural: ''
-      collapsible: false
-      collapsed: false
       allow_new: true
       allow_existing: false
+      match_operator: CONTAINS
       allow_duplicate: false
+      collapsible: false
+      collapsed: false
     third_party_settings: {  }
-    type: inline_entity_form_complex
-    region: content
   field_style:
+    type: inline_entity_form_simple
     weight: 3
+    region: content
     settings:
       form_mode: default
       override_labels: false
@@ -54,8 +56,6 @@ content:
       collapsible: false
       collapsed: false
     third_party_settings: {  }
-    type: inline_entity_form_simple
-    region: content
   label:
     type: string_textfield
     weight: 0
@@ -79,16 +79,16 @@ content:
   revision_log_message:
     type: string_textarea
     weight: 6
+    region: content
     settings:
       rows: 4
       placeholder: ''
-    region: content
     third_party_settings: {  }
   simple_sitemap:
     weight: 910
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   created: true
   description: true

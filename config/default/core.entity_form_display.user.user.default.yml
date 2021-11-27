@@ -16,24 +16,19 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  account:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   actions:
-    weight: 7
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   contact:
-    weight: 2
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   field_first_name:
     type: string_textfield
-    weight: 3
+    weight: 2
     region: content
     settings:
       size: 60
@@ -41,49 +36,93 @@ content:
     third_party_settings: {  }
   field_last_name:
     type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 6
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  language:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  mail:
+    type: email_default
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  name:
+    type: string_textfield
     weight: 4
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  language:
-    weight: 1
+  path:
+    type: path
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
-  path:
-    type: path
-    weight: 6
+  preferred_admin_langcode:
+    type: language_select
+    weight: 10
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  preferred_langcode:
+    type: language_select
+    weight: 8
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  roles:
+    type: options_select
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   simple_sitemap:
-    weight: 8
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
-  timezone:
+  status:
+    type: boolean_checkbox
     weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  timezone:
+    type: string_textfield
+    weight: 11
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
 hidden:
   access: true
+  account: true
   created: true
   field_domain_access: true
   field_domain_admin: true
   field_domain_all_affiliates: true
   init: true
-  langcode: true
   login: true
-  mail: true
-  name: true
   pass: true
-  preferred_admin_langcode: true
-  preferred_langcode: true
-  roles: true
-  status: true

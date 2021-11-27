@@ -2,11 +2,11 @@ uuid: 0ca1db63-b50a-4ad6-b13c-3374679e8a3e
 langcode: en
 status: true
 dependencies:
+  module:
+    - node
   enforced:
     module:
       - domain_access
-  module:
-    - node
 id: node.field_domain_all_affiliates
 field_name: field_domain_all_affiliates
 entity_type: node

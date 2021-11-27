@@ -36,5 +36,3 @@ message:
     status: true
     delay: 7000
     effect: fade
-_core:
-  default_config_hash: ox8nfh9C0zhflWQMvgKlI0HxdM9eGIt6rFRgJSuqET4

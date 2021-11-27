@@ -21,71 +21,71 @@ content:
     third_party_settings: {  }
   container:
     type: inline_entity_form_complex
+    weight: 4
     region: content
     settings:
-      match_operator: CONTAINS
       form_mode: default
-      revision: false
       override_labels: false
       label_singular: ''
       label_plural: ''
-      collapsible: false
-      collapsed: false
       allow_new: true
       allow_existing: true
+      match_operator: CONTAINS
       allow_duplicate: true
+      collapsible: false
+      collapsed: false
+      revision: false
     third_party_settings: {  }
-    weight: 4
   field_cmp_heading:
     type: inline_entity_form_complex
     weight: 1
     region: content
     settings:
-      match_operator: CONTAINS
       form_mode: default
-      revision: false
       override_labels: false
       label_singular: ''
       label_plural: ''
-      collapsible: false
-      collapsed: false
       allow_new: true
       allow_existing: true
+      match_operator: CONTAINS
       allow_duplicate: true
+      collapsible: false
+      collapsed: false
+      revision: false
     third_party_settings: {  }
   field_cmp_image:
     type: inline_entity_form_complex
     weight: 2
     region: content
     settings:
-      match_operator: CONTAINS
       form_mode: default
-      revision: false
       override_labels: false
       label_singular: ''
       label_plural: ''
-      collapsible: false
-      collapsed: false
       allow_new: true
       allow_existing: true
+      match_operator: CONTAINS
       allow_duplicate: true
+      collapsible: false
+      collapsed: false
+      revision: false
     third_party_settings: {  }
   field_cmp_text:
     type: inline_entity_form_complex
     weight: 3
     region: content
     settings:
-      match_operator: CONTAINS
       form_mode: default
-      revision: false
       override_labels: false
       label_singular: ''
       label_plural: ''
-      collapsible: false
-      collapsed: false
       allow_new: true
       allow_existing: true
+      match_operator: CONTAINS
       allow_duplicate: true
+      collapsible: false
+      collapsed: false
+      revision: false
     third_party_settings: {  }
   info:
     type: string_textfield
@@ -112,10 +112,10 @@ content:
   revision_log:
     type: string_textarea
     weight: 6
+    region: content
     settings:
       rows: 4
       placeholder: ''
-    region: content
     third_party_settings: {  }
   view_mode:
     type: options_select

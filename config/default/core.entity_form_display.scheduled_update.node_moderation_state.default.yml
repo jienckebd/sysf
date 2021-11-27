@@ -20,9 +20,9 @@ content:
   field_moderation_state:
     type: cmsu_moderation_state
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   simple_sitemap:
     weight: 910
     region: content

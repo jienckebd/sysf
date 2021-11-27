@@ -11,14 +11,14 @@ pattern: '/[node:content-type:name]/[node:title]'
 selection_criteria:
   72686bf2-e8b2-44d5-8f35-9a01d704d01f:
     id: node_type
+    negate: false
+    uuid: 72686bf2-e8b2-44d5-8f35-9a01d704d01f
+    context_mapping:
+      node: node
     bundles:
       event: event
       resource: resource
       video: video
-    negate: false
-    context_mapping:
-      node: node
-    uuid: 72686bf2-e8b2-44d5-8f35-9a01d704d01f
 selection_logic: and
 weight: -5
 relationships: {  }

@@ -23,36 +23,36 @@ third_party_settings:
             uuid: 95ec41c4-0d7b-416b-b600-9c46ecfc33d1
             region: content
             configuration:
+              id: 'field_block:comment:comment:comment_body'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
-              id: 'field_block:comment:comment:comment_body'
               formatter:
-                label: hidden
                 type: text_default
+                label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            additional: {  }
             weight: 0
+            additional: {  }
           763713f8-539c-4655-971b-b221e9cadd07:
             uuid: 763713f8-539c-4655-971b-b221e9cadd07
             region: content
             configuration:
+              id: 'extra_field_block:comment:comment:links'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
-              id: 'extra_field_block:comment:comment:links'
-            additional: {  }
             weight: 1
+            additional: {  }
           b21d7444-386f-407c-99c1-298c57b0032c:
             uuid: b21d7444-386f-407c-99c1-298c57b0032c
             region: content
             configuration:
               id: 'component:entity_field_formatter:component'
-              component: '1'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
+              component: '1'
               field_override:
                 field_block:
                   -
@@ -67,8 +67,8 @@ third_party_settings:
                         settings: {  }
                         third_party_settings: {  }
                         label: hidden
-            additional: {  }
             weight: 2
+            additional: {  }
         third_party_settings: {  }
 id: comment.comment.default
 targetEntityType: comment

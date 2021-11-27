@@ -2,8 +2,8 @@ uuid: 6a04407b-6ea2-4845-b0df-c829ce1a4797
 langcode: en
 status: true
 dependencies: {  }
-id: t_500
 label: 'Tall (x500)'
+id: t_500
 description: null
 aspect_ratio: '1:4'
 soft_limit_width: 500

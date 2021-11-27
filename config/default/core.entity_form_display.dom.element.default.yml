@@ -16,15 +16,15 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_selector:
+    type: options_select
     weight: 1
+    region: content
     settings:
       autocomplete: true
       match_operator: CONTAINS
       match_limit: 10
       width: 100%
     third_party_settings: {  }
-    type: options_select
-    region: content
   label:
     type: string_textfield
     weight: 0

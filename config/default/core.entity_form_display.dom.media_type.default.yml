@@ -17,17 +17,17 @@ third_party_settings:
     group_tabs:
       children:
         - group_general
-      parent_name: _none
       label: Tabs
+      region: content
+      parent_name: _none
       weight: 0
       format_type: tabs
       format_settings:
-        id: ''
-        classes: ''
-        direction: vertical
         label: Tabs
+        classes: ''
+        id: ''
+        direction: vertical
         region: content
-      region: content
     group_general:
       children:
         - label
@@ -39,18 +39,18 @@ third_party_settings:
         - interactive_static
         - machine_name
         - visual_audio_speech_tactile
-      parent_name: group_tabs
       label: 'General Settings'
+      region: content
+      parent_name: group_tabs
       weight: 0
       format_type: tab
       format_settings:
-        id: ''
         classes: ''
-        direction: vertical
-        required_fields: true
-        region: content
+        id: ''
         formatter: open
-      region: content
+        required_fields: true
+        direction: vertical
+        region: content
 id: dom.media_type.default
 targetEntityType: dom
 bundle: media_type
@@ -58,41 +58,41 @@ mode: default
 content:
   actions:
     weight: 900
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   continous_paged:
+    type: options_select
     weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   continuous_paged:
+    type: options_select
     weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   description:
+    type: string_textarea
     weight: 0
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   grid_bitmap:
+    type: options_select
     weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   interactive_static:
+    type: options_select
     weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   label:
     type: string_textfield
     weight: -5
@@ -117,32 +117,32 @@ content:
       include_locked: true
     third_party_settings: {  }
   machine_name:
+    type: string_textfield
     weight: 0
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   revision_log_message:
     type: string_textarea
     weight: 25
+    region: content
     settings:
       rows: 4
       placeholder: ''
-    region: content
     third_party_settings: {  }
   simple_sitemap:
     weight: 910
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   visual_audio_speech_tactile:
+    type: options_select
     weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
 hidden:
   created: true
   revision_created: true

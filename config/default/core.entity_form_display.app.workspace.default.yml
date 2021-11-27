@@ -33,52 +33,52 @@ third_party_settings:
     group_overview:
       children:
         - label
+      label: Overview
+      region: content
       parent_name: group_app_overview
       weight: 1
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: 'mb-5 w--flex--2'
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
         content_classes: 'bg-white p-4'
-      label: Overview
     group_workspace_negotiation:
       children:
         - field_path
         - field_host
+      label: URLs
+      region: content
       parent_name: group_app_overview
       weight: 3
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: 'mb-5 w--flex--2'
         show_empty_fields: false
-      label: URLs
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
     group_media:
       children:
         - field_color
         - field_icon
         - field_logo
+      label: Media
+      region: content
       parent_name: group_app_overview
       weight: 2
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: 'mb-5 w--flex--3'
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
         content_classes: 'bg-white p-4'
         title_classes: ''
-      label: Media
     group_tabs:
       children:
         - group_app_overview
@@ -86,183 +86,183 @@ third_party_settings:
         - group_design
         - group_services
         - group_meta
+      label: Tabs
+      region: content
       parent_name: ''
       weight: 1
       format_type: tabs
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: horizontal
-      label: Tabs
     group_app_overview:
       children:
         - group_overview
         - group_media
         - group_workspace_negotiation
         - group_environments
+      label: 'App Overview'
+      region: content
       parent_name: group_tabs
       weight: 20
       format_type: tab
-      region: content
       format_settings:
-        description: ''
-        formatter: open
-        required_fields: true
-        id: ''
         classes: pt-4
-      label: 'App Overview'
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
     group_design:
       children:
         - group_theme
+      label: Design
+      region: content
       parent_name: group_tabs
       weight: 22
       format_type: tab
-      region: content
       format_settings:
-        description: ''
-        formatter: closed
-        required_fields: true
-        id: ''
         classes: pt-4
-      label: Design
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
     group_theme:
       children:
         - field_theme
+      label: Theme
+      region: content
       parent_name: group_design
       weight: 22
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: mb-5
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
         content_classes: 'bg-white p-4'
-      label: Theme
     group_entity_behavior:
       children: {  }
+      label: 'Entity behavior'
+      region: content
       parent_name: group_structure
       weight: 35
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: 'mb-5 w--flex--2'
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
         content_classes: 'bg-white p-4'
-      label: 'Entity behavior'
     group_paths:
       children:
         - field_path_home
         - field_path_404
         - field_path_403
+      label: Paths
+      region: content
       parent_name: group_structure
       weight: 36
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: mb-5
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
         content_classes: 'bg-white p-4'
-      label: Paths
     group_meta:
       children:
         - field_meta
+      label: Meta
+      region: content
       parent_name: group_tabs
       weight: 24
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: pt-4
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Meta
     group_structure:
       children:
         - group_entity_behavior
         - group_paths
+      label: Structure
+      region: content
       parent_name: group_tabs
       weight: 21
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: pt-4
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Structure
     group_environments:
       children:
         - field_env
+      label: Environments
+      region: content
       parent_name: group_app_overview
       weight: 4
       format_type: details
-      region: content
       format_settings:
-        id: ''
         classes: mb-5
-        description: ''
+        id: ''
         open: true
+        description: ''
         required_fields: true
         content_classes: 'bg-white p-4'
-      label: Environments
     group_services:
       children:
         - group_chat
         - group_ssl
+      label: Services
+      region: content
       parent_name: group_tabs
       weight: 23
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: pt-4
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Services
     group_chat:
       children:
         - field_svc_chat_status
+      label: Chat
+      region: content
       parent_name: group_services
       weight: 20
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: mb-5
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
         content_classes: 'bg-white p-4'
         title_classes: ''
-      label: Chat
     group_ssl:
       children:
         - field_ssl_mode
+      label: SSL
+      region: content
       parent_name: group_services
       weight: 21
       format_type: details
-      region: content
       format_settings:
-        id: ''
         classes: mb-4
-        description: ''
+        id: ''
         open: true
+        description: ''
         required_fields: true
         content_classes: 'bg-white p-4'
         title_classes: ''
-      label: SSL
   design_system:
     actions:
       wrapper:
@@ -363,7 +363,9 @@ content:
           class:
             - mb-4
   field_color:
+    type: color_field_widget_box
     weight: 4
+    region: content
     settings:
       default_colors: |-
 
@@ -377,31 +379,31 @@ content:
         attribute:
           class:
             - mb-4
-    type: color_field_widget_box
-    region: content
   field_env:
+    type: inline_entity_form_complex
     weight: 34
+    region: content
     settings:
-      match_operator: CONTAINS
       form_mode: default
-      revision: false
       override_labels: false
       label_singular: ''
       label_plural: ''
-      collapsible: false
-      collapsed: false
       allow_new: true
       allow_existing: false
+      match_operator: CONTAINS
       allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
     third_party_settings:
       design_system:
         attribute:
           class:
             - mb-4
-    type: inline_entity_form_complex
-    region: content
   field_host:
+    type: string_textfield
     weight: 24
+    region: content
     settings:
       size: 60
       placeholder: ''
@@ -410,10 +412,10 @@ content:
         attribute:
           class:
             - mb-4
-    type: string_textfield
-    region: content
   field_icon:
+    type: fontawesome_icon_widget
     weight: 5
+    region: content
     settings:
       icon_color: false
       icon_class: {  }
@@ -422,20 +424,19 @@ content:
         attribute:
           class:
             - mb-4
-    type: fontawesome_icon_widget
-    region: content
   field_logo:
     type: entity_browser_entity_reference
     weight: 6
+    region: content
     settings:
       entity_browser: media_image_modal
       field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: embed
       field_widget_edit: true
       field_widget_remove: true
       field_widget_replace: true
       open: true
+      field_widget_display_settings:
+        view_mode: embed
       selection_mode: selection_append
     third_party_settings:
       design_system:
@@ -502,9 +503,10 @@ content:
             theme_hook_match_value: ''
             build_css_field_name: ''
             build_css: 0
-    region: content
   field_meta:
+    type: metatag_firehose
     weight: 30
+    region: content
     settings:
       sidebar: true
     third_party_settings:
@@ -512,10 +514,10 @@ content:
         attribute:
           class:
             - mb-4
-    type: metatag_firehose
-    region: content
   field_path:
+    type: string_textfield
     weight: 23
+    region: content
     settings:
       size: 60
       placeholder: ''
@@ -524,20 +526,20 @@ content:
         attribute:
           class:
             - mb-4
-    type: string_textfield
-    region: content
   field_path_403:
+    type: string_textarea
     weight: 29
+    region: content
     settings:
       rows: 2
       placeholder: ''
     third_party_settings:
       length_indicator:
+        indicator: false
         indicator_opt:
           optimin: 10
           optimax: 15
           tolerance: 5
-        indicator: false
       maxlength:
         maxlength_js: 2000
         maxlength_js_label: '@remaining / @limit remaining'
@@ -575,20 +577,20 @@ content:
           enable: 0
           mirror: 0
           once: 0
-    type: string_textarea
-    region: content
   field_path_404:
+    type: string_textarea
     weight: 28
+    region: content
     settings:
       rows: 2
       placeholder: ''
     third_party_settings:
       length_indicator:
+        indicator: false
         indicator_opt:
           optimin: 10
           optimax: 15
           tolerance: 5
-        indicator: false
       maxlength:
         maxlength_js: 2000
         maxlength_js_label: '@remaining / @limit remaining'
@@ -626,20 +628,20 @@ content:
           enable: 0
           mirror: 0
           once: 0
-    type: string_textarea
-    region: content
   field_path_home:
+    type: string_textarea
     weight: 27
+    region: content
     settings:
       rows: 2
       placeholder: ''
     third_party_settings:
       length_indicator:
+        indicator: false
         indicator_opt:
           optimin: 10
           optimax: 15
           tolerance: 5
-        indicator: false
       maxlength:
         maxlength_js: 2000
         maxlength_js_label: '@remaining / @limit remaining'
@@ -677,20 +679,20 @@ content:
           enable: 0
           mirror: 0
           once: 0
-    type: string_textarea
-    region: content
   field_ssl_mode:
+    type: options_select
     weight: 923
+    region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       autocomplete: false
       width: 100%
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_sticky_header:
+    type: boolean_checkbox
     weight: 921
+    region: content
     settings:
       display_label: true
     third_party_settings:
@@ -698,10 +700,10 @@ content:
         attribute:
           class:
             - mb-4
-    type: boolean_checkbox
-    region: content
   field_svc_chat_status:
+    type: boolean_checkbox
     weight: 922
+    region: content
     settings:
       display_label: true
     third_party_settings:
@@ -709,22 +711,22 @@ content:
         attribute:
           class:
             - mb-4
-    type: boolean_checkbox
-    region: content
   field_theme:
+    type: inline_entity_form_complex
     weight: 21
+    region: content
     settings:
       form_mode: inline
+      override_labels: false
       label_singular: ''
       label_plural: ''
       allow_new: true
       allow_existing: true
       match_operator: CONTAINS
-      revision: false
-      override_labels: false
+      allow_duplicate: false
       collapsible: false
       collapsed: false
-      allow_duplicate: false
+      revision: false
     third_party_settings:
       entity_browser_entity_form:
         entity_browser_id: theme_modal
@@ -776,8 +778,6 @@ content:
             value: ''
             format: rich_text
           use_design_system: 0
-    type: inline_entity_form_complex
-    region: content
   gid:
     type: entity_browser_entity_reference
     weight: -4
@@ -787,10 +787,10 @@ content:
       field_widget_display: label
       field_widget_edit: true
       field_widget_remove: true
-      selection_mode: selection_append
       field_widget_replace: false
       open: false
       field_widget_display_settings: {  }
+      selection_mode: selection_append
     third_party_settings:
       design_system:
         value:
@@ -849,11 +849,11 @@ content:
       placeholder: ''
     third_party_settings:
       length_indicator:
+        indicator: false
         indicator_opt:
           optimin: 10
           optimax: 15
           tolerance: 5
-        indicator: false
       maxlength:
         maxlength_js: 100
         maxlength_js_label: '@remaining / @limit remaining'

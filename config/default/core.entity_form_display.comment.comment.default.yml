@@ -14,9 +14,9 @@ mode: default
 content:
   actions:
     weight: 900
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   author:
     weight: -2
     region: content
@@ -37,9 +37,9 @@ content:
     third_party_settings: {  }
   simple_sitemap:
     weight: 910
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   subject:
     type: string_textfield
     weight: 10

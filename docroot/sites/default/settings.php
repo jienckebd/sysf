@@ -71,8 +71,8 @@ for ($n = 0; $n < $redis_node_count; $n++) {
   $settings['redis.connection']['seeds'][] = "redis-cluster-{$n}.{$redis_host}:6379";
 }
 
-$settings['redis.connection']['read_timeout'] = 1.5;
-$settings['redis.connection']['timeout'] = 2;
+$settings['redis.connection']['read_timeout'] = 120;
+$settings['redis.connection']['timeout'] = 120;
 
 $settings['cache']['default'] = 'cache.backend.redis';
 $cache_backend = 'cache.backend.redis';

@@ -19,7 +19,7 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    auto_create: true
     target_bundles:
       group_dom_css_property: group_dom_css_property
+    auto_create: true
 field_type: entity_reference

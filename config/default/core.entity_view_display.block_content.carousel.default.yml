@@ -14,17 +14,15 @@ mode: default
 content:
   field_component:
     type: slick_entityreference_vanilla
-    weight: 0
-    region: content
     label: hidden
     settings:
       optionset: carousel
-      skin: ''
       view_mode: default
       cache: 0
       current_view_mode: default
-      use_theme_field: false
-      override: false
+      skin: ''
+      fx: ''
+      style: ''
       overridables:
         arrows: '0'
         autoplay: '0'
@@ -34,11 +32,13 @@ content:
         mouseWheel: '0'
         randomize: '0'
         variableWidth: '0'
+      override: false
       skin_arrows: ''
       skin_dots: ''
-      fx: ''
-      style: ''
+      use_theme_field: false
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   base_entity: true
   changed: true

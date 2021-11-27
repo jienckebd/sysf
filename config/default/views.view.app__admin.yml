@@ -19,142 +19,12 @@ base_table: app_field_data
 base_field: id
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: perm
-        options:
-          perm: 'access app overview'
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: false
-          replica: false
-          query_comment: ''
-          query_tags: {  }
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Update
-          reset_button: true
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: full
-        options:
-          items_per_page: 25
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          expose:
-            items_per_page: true
-            items_per_page_label: 'Items to show'
-            items_per_page_options: '25, 50, 100'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
-      style:
-        type: table
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          override: true
-          sticky: true
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            views_bulk_operations_bulk_form: views_bulk_operations_bulk_form
-            label: label
-            bundle: bundle
-            id: id
-            status: status
-            uid: uid
-            created: created
-            changed: changed
-            operations: operations
-          info:
-            views_bulk_operations_bulk_form:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            label:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            bundle:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            id:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            status:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            uid:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            created:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            changed:
-              sortable: true
-              default_sort_order: desc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            operations:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: changed
-          empty_table: true
-      row:
-        type: fields
+      title: Apps
       fields:
         views_bulk_operations_bulk_form:
           id: views_bulk_operations_bulk_form
@@ -163,6 +33,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: views_bulk_operations_bulk_form
           label: 'Bulk Op'
           exclude: false
           alter:
@@ -208,8 +79,8 @@ display:
           batch_size: 10
           form_step: true
           buttons: true
-          clear_on_exposed: false
           action_title: Action
+          clear_on_exposed: false
           selected_actions:
             'entity:save_action:config:app': 0
             comment_delete_action: 0
@@ -225,17 +96,16 @@ display:
               get_bundles_from_results: 1
             views_bulk_operations_delete_entity:
               label_override: Delete
-          plugin_id: views_bulk_operations_bulk_form
         label:
+          id: label
           table: app_field_data
           field: label
-          id: label
-          entity_type: null
-          entity_field: label
-          plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: null
+          entity_field: label
+          plugin_id: field
           label: Label
           exclude: false
           alter:
@@ -297,6 +167,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: bundle
+          plugin_id: field
           label: Type
           exclude: false
           alter:
@@ -352,9 +225,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: app
-          entity_field: bundle
-          plugin_id: field
         id:
           id: id
           table: app_field_data
@@ -362,6 +232,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: id
+          plugin_id: field
           label: ID
           exclude: false
           alter:
@@ -418,9 +291,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: app
-          entity_field: id
-          plugin_id: field
         status:
           id: status
           table: app_field_data
@@ -428,6 +298,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: status
+          plugin_id: field
           label: Status
           exclude: false
           alter:
@@ -473,8 +346,8 @@ display:
           type: boolean
           settings:
             format: default
-            format_custom_true: ''
             format_custom_false: ''
+            format_custom_true: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -485,9 +358,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: app
-          entity_field: status
-          plugin_id: field
         uid:
           id: uid
           table: app_field_data
@@ -495,6 +365,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: uid
+          plugin_id: field
           label: Creator
           exclude: false
           alter:
@@ -550,9 +423,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: app
-          entity_field: uid
-          plugin_id: field
         created:
           id: created
           table: app_field_data
@@ -560,6 +430,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: created
+          plugin_id: field
           label: Created
           exclude: false
           alter:
@@ -617,9 +490,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: app
-          entity_field: created
-          plugin_id: field
         changed:
           id: changed
           table: app_field_data
@@ -627,6 +497,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: changed
+          plugin_id: field
           label: Updated
           exclude: false
           alter:
@@ -684,9 +557,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: app
-          entity_field: changed
-          plugin_id: field
         operations:
           id: operations
           table: app
@@ -694,6 +564,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          plugin_id: entity_operations
           label: Operations
           exclude: false
           alter:
@@ -736,8 +608,60 @@ display:
           empty_zero: false
           hide_alter_empty: true
           destination: false
-          entity_type: app
-          plugin_id: entity_operations
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 25
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: true
+            items_per_page_label: 'Items to show'
+            items_per_page_options: '25, 50, 100'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Update
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'access app overview'
+      cache:
+        type: tag
+        options: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: 'There are no apps that match your filters.'
+            format: basic_html
+          tokenize: false
+      sorts: {  }
+      arguments: {  }
       filters:
         label:
           id: label
@@ -746,6 +670,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: label
+          plugin_id: string
           operator: contains
           value: ''
           group: 1
@@ -779,9 +706,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: app
-          entity_field: label
-          plugin_id: string
         bundle:
           id: bundle
           table: app_field_data
@@ -789,6 +713,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: bundle
+          plugin_id: bundle
           operator: in
           value: {  }
           group: 1
@@ -823,9 +750,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: app
-          entity_field: bundle
-          plugin_id: bundle
         id:
           id: id
           table: app_field_data
@@ -833,6 +757,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: id
+          plugin_id: numeric
           operator: '='
           value:
             min: ''
@@ -846,6 +773,8 @@ display:
             description: ''
             use_operator: false
             operator: id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: id
             required: false
             remember: false
@@ -854,11 +783,9 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-            placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -871,9 +798,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: app
-          entity_field: id
-          plugin_id: numeric
         status:
           id: status
           table: app_field_data
@@ -881,6 +805,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: status
+          plugin_id: boolean
           operator: '='
           value: All
           group: 1
@@ -891,6 +818,8 @@ display:
             description: ''
             use_operator: false
             operator: status_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: status
             required: false
             remember: false
@@ -899,8 +828,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -913,11 +840,105 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: app
-          entity_field: status
-          plugin_id: boolean
-      sorts: {  }
-      title: Apps
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            views_bulk_operations_bulk_form: views_bulk_operations_bulk_form
+            label: label
+            bundle: bundle
+            id: id
+            status: status
+            uid: uid
+            created: created
+            changed: changed
+            operations: operations
+          default: changed
+          info:
+            views_bulk_operations_bulk_form:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            label:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            bundle:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            id:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            status:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uid:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            created:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            changed:
+              sortable: true
+              default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            operations:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: true
+          summary: ''
+          empty_table: true
+          caption: ''
+          description: ''
+      row:
+        type: fields
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
+      relationships: {  }
+      use_ajax: true
       header:
         result:
           id: result
@@ -926,32 +947,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: result
           empty: false
           content: '@start - @end of @total results'
-          plugin_id: result
       footer: {  }
-      empty:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: 'There are no apps that match your filters.'
-            format: basic_html
-          plugin_id: text
-      relationships: {  }
-      arguments: {  }
       display_extenders: {  }
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      use_ajax: true
     cache_metadata:
       max-age: 0
       contexts:
@@ -962,16 +962,11 @@ display:
         - user.permissions
       tags: {  }
   block_1:
-    display_plugin: block
     id: block_1
     display_title: Block
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders:
-        ajax_history:
-          enable_history: true
-        design_system: {  }
-      exposed_block: true
       fields:
         views_bulk_operations_bulk_form:
           id: views_bulk_operations_bulk_form
@@ -980,6 +975,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: views_bulk_operations_bulk_form
           label: 'Views bulk operations'
           exclude: false
           alter:
@@ -1025,17 +1021,16 @@ display:
           batch_size: 10
           form_step: true
           buttons: true
-          clear_on_exposed: true
           action_title: Action
+          clear_on_exposed: true
+          force_selection_info: false
           selected_actions:
             1:
               action_id: views_bulk_edit
               preconfiguration:
-                label_override: 'Bulk edit'
                 add_confirmation: true
+                label_override: 'Bulk edit'
                 get_bundles_from_results: true
-          force_selection_info: false
-          plugin_id: views_bulk_operations_bulk_form
         label:
           id: label
           table: app_field_data
@@ -1043,6 +1038,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: null
+          entity_field: label
+          plugin_id: field
           label: 'App name'
           exclude: false
           alter:
@@ -1099,9 +1097,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: null
-          entity_field: label
-          plugin_id: field
         bundle:
           id: bundle
           table: app_field_data
@@ -1109,6 +1104,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: bundle
+          plugin_id: field
           label: 'App type'
           exclude: false
           alter:
@@ -1164,9 +1162,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: app
-          entity_field: bundle
-          plugin_id: field
         id:
           id: id
           table: app_field_data
@@ -1174,6 +1169,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: id
+          plugin_id: field
           label: ID
           exclude: false
           alter:
@@ -1230,9 +1228,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: app
-          entity_field: id
-          plugin_id: field
         status:
           id: status
           table: app_field_data
@@ -1240,6 +1235,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: status
+          plugin_id: field
           label: Status
           exclude: false
           alter:
@@ -1285,8 +1283,8 @@ display:
           type: boolean
           settings:
             format: default
-            format_custom_true: ''
             format_custom_false: ''
+            format_custom_true: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1297,9 +1295,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: app
-          entity_field: status
-          plugin_id: field
         uid:
           id: uid
           table: app_field_data
@@ -1307,6 +1302,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: uid
+          plugin_id: field
           label: Creator
           exclude: false
           alter:
@@ -1362,9 +1360,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: app
-          entity_field: uid
-          plugin_id: field
         created:
           id: created
           table: app_field_data
@@ -1372,6 +1367,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: created
+          plugin_id: field
           label: Created
           exclude: false
           alter:
@@ -1429,9 +1427,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: app
-          entity_field: created
-          plugin_id: field
         changed:
           id: changed
           table: app_field_data
@@ -1439,6 +1434,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          entity_field: changed
+          plugin_id: field
           label: Updated
           exclude: false
           alter:
@@ -1496,9 +1494,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: app
-          entity_field: changed
-          plugin_id: field
         operations:
           id: operations
           table: app
@@ -1506,6 +1501,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: app
+          plugin_id: entity_operations
           label: Operations
           exclude: false
           alter:
@@ -1548,10 +1545,13 @@ display:
           empty_zero: false
           hide_alter_empty: true
           destination: false
-          entity_type: app
-          plugin_id: entity_operations
       defaults:
         fields: false
+      exposed_block: true
+      display_extenders:
+        ajax_history:
+          enable_history: true
+        design_system: {  }
     cache_metadata:
       max-age: 0
       contexts:
@@ -1562,17 +1562,11 @@ display:
         - user.permissions
       tags: {  }
   data_export_1:
-    display_plugin: data_export
     id: data_export_1
     display_title: 'CSV data export'
+    display_plugin: data_export
     position: 2
     display_options:
-      display_extenders: {  }
-      path: 'system/data-export/[view:id]/[view:title]'
-      filename: '[site:name] - Data Export - [view:title].csv'
-      displays:
-        block_1: block_1
-        default: '0'
       pager:
         type: none
         options:
@@ -1602,6 +1596,12 @@ display:
               manager: ''
               company: ''
       display_description: ''
+      display_extenders: {  }
+      path: 'system/data-export/[view:id]/[view:title]'
+      displays:
+        block_1: block_1
+        default: '0'
+      filename: '[site:name] - Data Export - [view:title].csv'
     cache_metadata:
       max-age: 0
       contexts:
@@ -1612,17 +1612,11 @@ display:
         - user.permissions
       tags: {  }
   data_export_2:
-    display_plugin: data_export
     id: data_export_2
     display_title: 'JSON data export'
+    display_plugin: data_export
     position: 2
     display_options:
-      display_extenders: {  }
-      path: 'system/data-export/[view:id]/[view:title]'
-      filename: '[site:name] - Data Export - [view:title].json'
-      displays:
-        block_1: block_1
-        default: '0'
       pager:
         type: none
         options:
@@ -1652,6 +1646,12 @@ display:
               manager: ''
               company: ''
       display_description: ''
+      display_extenders: {  }
+      path: 'system/data-export/[view:id]/[view:title]'
+      displays:
+        block_1: block_1
+        default: '0'
+      filename: '[site:name] - Data Export - [view:title].json'
     cache_metadata:
       max-age: 0
       contexts:
@@ -1662,17 +1662,11 @@ display:
         - user.permissions
       tags: {  }
   data_export_3:
-    display_plugin: data_export
     id: data_export_3
     display_title: 'XML data export'
+    display_plugin: data_export
     position: 2
     display_options:
-      display_extenders: {  }
-      path: 'system/data-export/[view:id]/[view:title]'
-      filename: '[site:name] - Data Export - [view:title].xml'
-      displays:
-        block_1: block_1
-        default: '0'
       pager:
         type: none
         options:
@@ -1702,6 +1696,12 @@ display:
               manager: ''
               company: ''
       display_description: ''
+      display_extenders: {  }
+      path: 'system/data-export/[view:id]/[view:title]'
+      displays:
+        block_1: block_1
+        default: '0'
+      filename: '[site:name] - Data Export - [view:title].xml'
     cache_metadata:
       max-age: 0
       contexts:

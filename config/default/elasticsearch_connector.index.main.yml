@@ -1,9 +1,9 @@
-uuid: 7b930e35-39ad-4b16-8e15-4bd13827fb61
+uuid: b9c49f06-2ccc-4ec4-9273-89a0d1a29edf
 langcode: en
 status: true
 dependencies: {  }
-index_id: test1
-name: test1
+index_id: main
+name: Main
 num_of_shards: 5
 num_of_replica: 1
 server: sys

@@ -2,6 +2,6 @@ uuid: 716aecc3-4c7e-4379-a59a-6d04b40913e2
 langcode: en
 status: true
 dependencies: {  }
-id: route
 label: Route
+id: route
 description: ''

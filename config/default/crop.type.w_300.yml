@@ -2,8 +2,8 @@ uuid: aad2d5b4-297f-4052-8f65-80a696d7ed0f
 langcode: en
 status: true
 dependencies: {  }
-id: w_300
 label: 'Wide (x300)'
+id: w_300
 description: null
 aspect_ratio: '3:1'
 soft_limit_width: 900

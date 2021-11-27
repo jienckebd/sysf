@@ -164,25 +164,56 @@ definition:
             type: string
             field_config:
               label: 'Machine Name'
-          derived:
-            deriver_plugin: entity_collection
-            definition:
-              entity_type: dom
-              bundle: media_group
-              mapping:
-                type:
-                  field_name: field_type
-                  property: value
-                label:
-                  field_name: label
-                  property: value
-                field_storage_config||settings||allowed_values:
-                  field_name: allowed_values
-                  flatten: true
-                  property: value
-                field_storage_config||settings||target_type:
-                  field_name: target_entity_type
-                  property: value
+          continuous_paged:
+            label: continuous/paged
+            field_config:
+              label: continuous/paged
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  continuous: continuous
+                  paged: paged
+            dom:
+              target_id: '389'
+          visual_audio_speech_tactile:
+            label: visual/audio/speech/tactile
+            field_config:
+              label: visual/audio/speech/tactile
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  visual: visual
+                  audio: audio
+                  speed: speed
+                  tactile: tactile
+            dom:
+              target_id: '390'
+          grid_bitmap:
+            label: grid/bitmap
+            field_config:
+              label: grid/bitmap
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  grid: grid
+                  bitmap: bitmap
+            dom:
+              target_id: '391'
+          interactive_static:
+            label: interactive/static
+            field_config:
+              label: interactive/static
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  interactive: interactive
+                  static: static
+            dom:
+              target_id: '392'
       entity_form_display:
         definition:
           default:
@@ -333,34 +364,1799 @@ definition:
       field:
         definition:
           index:
-            type: entity_index
             label: 'Entity Index'
-          derived:
-            deriver_plugin: entity_collection
-            definition:
-              entity_type: dom
-              bundle: property
-              mapping:
-                type:
-                  field_name: field_type
-                  property: value
-                label:
-                  field_name: label
-                  property: value
-                field_storage_config||settings||allowed_values:
-                  field_name: allowed_values
-                  flatten: true
-                  property: value
-                field_config||third_party_settings||bd||dom||attribute:
-                  static: style
-                field_config||third_party_settings||bd||dom||subattribute:
-                  field_name: label
-                  property: value
-                field_config||third_party_settings||bd||group:
-                  field_name: group
-                  property: target_id
-                field_config||third_party_settings||bd||index:
-                  static: true
+            type: entity_index
+          background:
+            label: background
+            field_config:
+              label: background
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: background
+                  group: '56'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  background-color: background-color
+                  background-image: background-image
+                  background-repeat: background-repeat
+                  background-attachment: background-attachment
+                  background-position: background-position
+            dom:
+              target_id: '263'
+          background_attachment:
+            label: background-attachment
+            field_config:
+              label: background-attachment
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: background-attachment
+                  group: '56'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  scroll: scroll
+                  fixed: fixed
+            dom:
+              target_id: '264'
+          background_color:
+            label: background-color
+            field_config:
+              label: background-color
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: background-color
+                  group: '56'
+                  index: true
+            type: color_field_type
+            dom:
+              target_id: '265'
+          background_image:
+            label: background-image
+            field_config:
+              label: background-image
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: background-image
+                  group: '56'
+                  index: true
+            type: string
+            dom:
+              target_id: '266'
+          background_position:
+            label: background-position
+            field_config:
+              label: background-position
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: background-position
+                  group: '56'
+                  index: true
+            type: string
+            dom:
+              target_id: '267'
+          background_repeat:
+            label: background-repeat
+            field_config:
+              label: background-repeat
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: background-repeat
+                  group: '56'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  repeat: repeat
+                  repeat-x: repeat-x
+                  repeat-y: repeat-y
+                  no-repeat: no-repeat
+            dom:
+              target_id: '268'
+          border:
+            label: border
+            field_config:
+              label: border
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border
+                  group: '57'
+                  index: true
+            type: string
+            dom:
+              target_id: '269'
+          border_bottom:
+            label: border-bottom
+            field_config:
+              label: border-bottom
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-bottom
+                  group: '57'
+                  index: true
+            type: string
+            dom:
+              target_id: '270'
+          border_bottom_color:
+            label: border-bottom-color
+            field_config:
+              label: border-bottom-color
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-bottom-color
+                  group: '57'
+                  index: true
+            type: color_field_type
+            dom:
+              target_id: '271'
+          border_bottom_style:
+            label: border-bottom-style
+            field_config:
+              label: border-bottom-style
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-bottom-style
+                  group: '57'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  none: none
+                  hidden: hidden
+                  dotted: dotted
+                  dashed: dashed
+                  solid: solid
+                  double: double
+                  groove: groove
+                  ridge: ridge
+                  inset: inset
+                  outset: outset
+            dom:
+              target_id: '272'
+          border_bottom_width:
+            label: border-bottom-width
+            field_config:
+              label: border-bottom-width
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-bottom-width
+                  group: '57'
+                  index: true
+            type: string
+            dom:
+              target_id: '273'
+          border_color:
+            label: border-color
+            field_config:
+              label: border-color
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-color
+                  group: '57'
+                  index: true
+            type: color_field_type
+            dom:
+              target_id: '274'
+          border_left:
+            label: border-left
+            field_config:
+              label: border-left
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-left
+                  group: '57'
+                  index: true
+            type: string
+            dom:
+              target_id: '275'
+          border_left_color:
+            label: border-left-color
+            field_config:
+              label: border-left-color
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-left-color
+                  group: '57'
+                  index: true
+            type: color_field_type
+            dom:
+              target_id: '276'
+          border_left_style:
+            label: border-left-style
+            field_config:
+              label: border-left-style
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-left-style
+                  group: '57'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  none: none
+                  hidden: hidden
+                  dotted: dotted
+                  dashed: dashed
+                  solid: solid
+                  double: double
+                  groove: groove
+                  ridge: ridge
+                  inset: inset
+                  outset: outset
+            dom:
+              target_id: '277'
+          border_left_width:
+            label: border-left-width
+            field_config:
+              label: border-left-width
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-left-width
+                  group: '57'
+                  index: true
+            type: string
+            dom:
+              target_id: '278'
+          border_right:
+            label: border-right
+            field_config:
+              label: border-right
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-right
+                  group: '57'
+                  index: true
+            type: string
+            dom:
+              target_id: '279'
+          border_right_color:
+            label: border-right-color
+            field_config:
+              label: border-right-color
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-right-color
+                  group: '57'
+                  index: true
+            type: color_field_type
+            dom:
+              target_id: '280'
+          border_right_style:
+            label: border-right-style
+            field_config:
+              label: border-right-style
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-right-style
+                  group: '57'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  none: none
+                  hidden: hidden
+                  dotted: dotted
+                  dashed: dashed
+                  solid: solid
+                  double: double
+                  groove: groove
+                  ridge: ridge
+                  inset: inset
+                  outset: outset
+            dom:
+              target_id: '281'
+          border_right_width:
+            label: border-right-width
+            field_config:
+              label: border-right-width
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-right-width
+                  group: '57'
+                  index: true
+            type: string
+            dom:
+              target_id: '282'
+          border_style:
+            label: border-style
+            field_config:
+              label: border-style
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-style
+                  group: '57'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  none: none
+                  hidden: hidden
+                  dotted: dotted
+                  dashed: dashed
+                  solid: solid
+                  double: double
+                  groove: groove
+                  ridge: ridge
+                  inset: inset
+                  outset: outset
+            dom:
+              target_id: '283'
+          border_top:
+            label: border-top
+            field_config:
+              label: border-top
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-top
+                  group: '57'
+                  index: true
+            type: string
+            dom:
+              target_id: '284'
+          border_top_color:
+            label: border-top-color
+            field_config:
+              label: border-top-color
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-top-color
+                  group: '57'
+                  index: true
+            type: color_field_type
+            dom:
+              target_id: '285'
+          border_top_style:
+            label: border-top-style
+            field_config:
+              label: border-top-style
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-top-style
+                  group: '57'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  none: none
+                  hidden: hidden
+                  dotted: dotted
+                  dashed: dashed
+                  solid: solid
+                  double: double
+                  groove: groove
+                  ridge: ridge
+                  inset: inset
+                  outset: outset
+            dom:
+              target_id: '286'
+          border_top_width:
+            label: border-top-width
+            field_config:
+              label: border-top-width
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-top-width
+                  group: '57'
+                  index: true
+            type: string
+            dom:
+              target_id: '287'
+          border_width:
+            label: border-width
+            field_config:
+              label: border-width
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-width
+                  group: '57'
+                  index: true
+            type: string
+            dom:
+              target_id: '288'
+          clear:
+            label: clear
+            field_config:
+              label: clear
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: clear
+                  group: '58'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  left: left
+                  right: right
+                  both: both
+                  none: none
+            dom:
+              target_id: '289'
+          cursor:
+            label: cursor
+            field_config:
+              label: cursor
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: cursor
+                  group: '58'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  url: url
+                  auto: auto
+                  crosshair: crosshair
+                  default: default
+                  pointer: pointer
+                  move: move
+                  e-resize: e-resize
+                  ne-resize: ne-resize
+                  nw-resize: nw-resize
+                  n-resize: n-resize
+                  se-resize: se-resize
+                  sw-resize: sw-resize
+                  s-resize: s-resize
+                  w-resize: w-resize
+                  text: text
+                  wait: wait
+                  help: help
+            dom:
+              target_id: '290'
+          display:
+            label: display
+            field_config:
+              label: display
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: display
+                  group: '58'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  none: none
+                  inline: inline
+                  block: block
+                  list-item: list-item
+                  run-in: run-in
+                  compact: compact
+                  marker: marker
+                  table: table
+                  inline-table: inline-table
+                  row-group: row-group
+                  table-header-group: table-header-group
+                  table-footer-group: table-footer-group
+                  table-row: table-row
+                  table-column-group: table-column-group
+                  table-column: table-column
+                  table-celltable-caption: table-celltable-caption
+            dom:
+              target_id: '291'
+          float:
+            label: float
+            field_config:
+              label: float
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: float
+                  group: '58'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  left: left
+                  right: right
+                  none: none
+            dom:
+              target_id: '292'
+          position:
+            label: position
+            field_config:
+              label: position
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: position
+                  group: '59'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  static: static
+                  relative: relative
+                  absolute: absolute
+                  fixed: fixed
+            dom:
+              target_id: '293'
+          visibility:
+            label: visibility
+            field_config:
+              label: visibility
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: visibility
+                  group: '58'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  visible: visible
+                  hidden: hidden
+                  collapse: collapse
+            dom:
+              target_id: '294'
+          height:
+            label: height
+            field_config:
+              label: height
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: height
+                  group: '60'
+                  index: true
+            type: string
+            dom:
+              target_id: '295'
+          line_height:
+            label: line-height
+            field_config:
+              label: line-height
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: line-height
+                  group: '61'
+                  index: true
+            type: string
+            dom:
+              target_id: '296'
+          max_height:
+            label: max-height
+            field_config:
+              label: max-height
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: max-height
+                  group: '60'
+                  index: true
+            type: string
+            dom:
+              target_id: '297'
+          max_width:
+            label: max-width
+            field_config:
+              label: max-width
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: max-width
+                  group: '60'
+                  index: true
+            type: string
+            dom:
+              target_id: '298'
+          min_height:
+            label: min-height
+            field_config:
+              label: min-height
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: min-height
+                  group: '60'
+                  index: true
+            type: string
+            dom:
+              target_id: '299'
+          min_width:
+            label: min-width
+            field_config:
+              label: min-width
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: min-width
+                  group: '60'
+                  index: true
+            type: string
+            dom:
+              target_id: '300'
+          width:
+            label: width
+            field_config:
+              label: width
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: width
+                  group: '60'
+                  index: true
+            type: string
+            dom:
+              target_id: '301'
+          font:
+            label: font
+            field_config:
+              label: font
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: font
+                  group: '62'
+                  index: true
+            type: string
+            dom:
+              target_id: '302'
+          font_family:
+            label: font-family
+            field_config:
+              label: font-family
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: font-family
+                  group: '62'
+                  index: true
+            type: entity_reference
+            dom:
+              target_id: '303'
+          font_size:
+            label: font-size
+            field_config:
+              label: font-size
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: font-size
+                  group: '62'
+                  index: true
+            type: string
+            dom:
+              target_id: '304'
+          font_size_adjust:
+            label: font-size-adjust
+            field_config:
+              label: font-size-adjust
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: font-size-adjust
+                  group: '62'
+                  index: true
+            type: string
+            dom:
+              target_id: '305'
+          font_stretch:
+            label: font-stretch
+            field_config:
+              label: font-stretch
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: font-stretch
+                  group: '62'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  normal: normal
+                  wider: wider
+                  narrower: narrower
+                  ultra-condensed: ultra-condensed
+                  extra-condensed: extra-condensed
+                  condensed: condensed
+                  semi-condensed: semi-condensed
+                  semi-expanded: semi-expanded
+                  expanded: expanded
+                  extra-expanded: extra-expanded
+                  ultra-expanded: ultra-expanded
+            dom:
+              target_id: '306'
+          font_style:
+            label: font-style
+            field_config:
+              label: font-style
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: font-style
+                  group: '62'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  normal: normal
+                  italic: italic
+                  oblique: oblique
+            dom:
+              target_id: '307'
+          font_variant:
+            label: font-variant
+            field_config:
+              label: font-variant
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: font-variant
+                  group: '62'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  normal: normal
+                  small-caps: small-caps
+            dom:
+              target_id: '308'
+          font_weight:
+            label: font-weight
+            field_config:
+              label: font-weight
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: font-weight
+                  group: '62'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  normal: normal
+                  bold: bold
+                  bolder: bolder
+                  lighter: lighter
+                  100: '100'
+                  200: '200'
+                  300: '300'
+                  400: '400'
+                  500: '500'
+                  600: '600'
+                  700: '700'
+                  800: '800'
+                  900: '900'
+            dom:
+              target_id: '309'
+          content:
+            label: content
+            field_config:
+              label: content
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: content
+                  group: '63'
+                  index: true
+            type: string
+            dom:
+              target_id: '310'
+          counter_increment:
+            label: counter-increment
+            field_config:
+              label: counter-increment
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: counter-increment
+                  group: '63'
+                  index: true
+            type: string
+            dom:
+              target_id: '311'
+          counter_reset:
+            label: counter-reset
+            field_config:
+              label: counter-reset
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: counter-reset
+                  group: '63'
+                  index: true
+            type: string
+            dom:
+              target_id: '312'
+          quotes:
+            label: quotes
+            field_config:
+              label: quotes
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: quotes
+                  group: '63'
+                  index: true
+            type: string
+            dom:
+              target_id: '313'
+          list_style:
+            label: list-style
+            field_config:
+              label: list-style
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: list-style
+                  group: '64'
+                  index: true
+            type: string
+            dom:
+              target_id: '314'
+          list_style_image:
+            label: list-style-image
+            field_config:
+              label: list-style-image
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: list-style-image
+                  group: '64'
+                  index: true
+            type: string
+            dom:
+              target_id: '315'
+          list_style_position:
+            label: list-style-position
+            field_config:
+              label: list-style-position
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: list-style-position
+                  group: '64'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  inside: inside
+                  outside: outside
+            dom:
+              target_id: '316'
+          list_style_type:
+            label: list-style-type
+            field_config:
+              label: list-style-type
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: list-style-type
+                  group: '64'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  none: none
+                  disc: disc
+                  circle: circle
+                  square: square
+                  decimal: decimal
+                  decimal-leading-zero: decimal-leading-zero
+                  lower-roman: lower-roman
+                  upper-roman: upper-roman
+                  lower-alpha: lower-alpha
+                  upper-alpha: upper-alpha
+                  lower-greek: lower-greek
+                  lower-latin: lower-latin
+                  upper-latin: upper-latin
+                  hebrew: hebrew
+                  armenian: armenian
+                  georgian: georgian
+                  cjk-ideographic: cjk-ideographic
+                  hiragana: hiragana
+                  katakana: katakana
+                  hiragana-iroha: hiragana-iroha
+                  katakana-iroha: katakana-iroha
+            dom:
+              target_id: '317'
+          marker_offset:
+            label: marker-offset
+            field_config:
+              label: marker-offset
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: marker-offset
+                  group: '64'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  autolength: autolength
+            dom:
+              target_id: '318'
+          margin:
+            label: margin
+            field_config:
+              label: margin
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: margin
+                  group: '65'
+                  index: true
+            type: string
+            dom:
+              target_id: '319'
+          margin_bottom:
+            label: margin-bottom
+            field_config:
+              label: margin-bottom
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: margin-bottom
+                  group: '65'
+                  index: true
+            type: string
+            dom:
+              target_id: '320'
+          margin_left:
+            label: margin-left
+            field_config:
+              label: margin-left
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: margin-left
+                  group: '65'
+                  index: true
+            type: string
+            dom:
+              target_id: '321'
+          margin_right:
+            label: margin-right
+            field_config:
+              label: margin-right
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: margin-right
+                  group: '65'
+                  index: true
+            type: string
+            dom:
+              target_id: '322'
+          margin_top:
+            label: margin-top
+            field_config:
+              label: margin-top
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: margin-top
+                  group: '65'
+                  index: true
+            type: string
+            dom:
+              target_id: '323'
+          outline:
+            label: outline
+            field_config:
+              label: outline
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: outline
+                  group: '66'
+                  index: true
+            type: string
+            dom:
+              target_id: '324'
+          outline_color:
+            label: outline-color
+            field_config:
+              label: outline-color
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: outline-color
+                  group: '66'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  color: color
+                  invert: invert
+            dom:
+              target_id: '325'
+          outline_style:
+            label: outline-style
+            field_config:
+              label: outline-style
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: outline-style
+                  group: '66'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  none: none
+                  dotted: dotted
+                  dashed: dashed
+                  solid: solid
+                  double: double
+                  groove: groove
+                  ridge: ridge
+                  inset: inset
+                  outset: outset
+            dom:
+              target_id: '326'
+          outline_width:
+            label: outline-width
+            field_config:
+              label: outline-width
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: outline-width
+                  group: '66'
+                  index: true
+            type: string
+            dom:
+              target_id: '327'
+          padding:
+            label: padding
+            field_config:
+              label: padding
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: padding
+                  group: '67'
+                  index: true
+            type: string
+            dom:
+              target_id: '328'
+          padding_bottom:
+            label: padding-bottom
+            field_config:
+              label: padding-bottom
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: padding-bottom
+                  group: '67'
+                  index: true
+            type: string
+            dom:
+              target_id: '329'
+          padding_left:
+            label: padding-left
+            field_config:
+              label: padding-left
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: padding-left
+                  group: '67'
+                  index: true
+            type: string
+            dom:
+              target_id: '330'
+          padding_right:
+            label: padding-right
+            field_config:
+              label: padding-right
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: padding-right
+                  group: '67'
+                  index: true
+            type: string
+            dom:
+              target_id: '331'
+          padding_top:
+            label: padding-top
+            field_config:
+              label: padding-top
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: padding-top
+                  group: '67'
+                  index: true
+            type: string
+            dom:
+              target_id: '332'
+          bottom:
+            label: bottom
+            field_config:
+              label: bottom
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: bottom
+                  group: '59'
+                  index: true
+            type: string
+            dom:
+              target_id: '333'
+          clip:
+            label: clip
+            field_config:
+              label: clip
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: clip
+                  group: '59'
+                  index: true
+            type: string
+            dom:
+              target_id: '334'
+          left:
+            label: left
+            field_config:
+              label: left
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: left
+                  group: '59'
+                  index: true
+            type: string
+            dom:
+              target_id: '335'
+          overflow:
+            label: overflow
+            field_config:
+              label: overflow
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: overflow
+                  group: '59'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  visible: visible
+                  hidden: hidden
+                  scroll: scroll
+                  auto: auto
+            dom:
+              target_id: '336'
+          right:
+            label: right
+            field_config:
+              label: right
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: right
+                  group: '59'
+                  index: true
+            type: string
+            dom:
+              target_id: '337'
+          top:
+            label: top
+            field_config:
+              label: top
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: top
+                  group: '59'
+                  index: true
+            type: string
+            dom:
+              target_id: '338'
+          vertical_align:
+            label: vertical-align
+            field_config:
+              label: vertical-align
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: vertical-align
+                  group: '59'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  baseline: baseline
+                  sub: sub
+                  super: super
+                  top: top
+                  text-top: text-top
+                  middle: middle
+                  bottom: bottom
+                  text-bottom: text-bottom
+                  length%: length%
+            dom:
+              target_id: '339'
+          z_index:
+            label: z-index
+            field_config:
+              label: z-index
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: z-index
+                  group: '59'
+                  index: true
+            type: string
+            dom:
+              target_id: '340'
+          border_collapse:
+            label: border-collapse
+            field_config:
+              label: border-collapse
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-collapse
+                  group: '61'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  collapse: collapse
+                  separate: separate
+            dom:
+              target_id: '341'
+          border_spacing:
+            label: border-spacing
+            field_config:
+              label: border-spacing
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: border-spacing
+                  group: '61'
+                  index: true
+            type: string
+            dom:
+              target_id: '342'
+          caption_side:
+            label: caption-side
+            field_config:
+              label: caption-side
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: caption-side
+                  group: '61'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  top: top
+                  bottom: bottom
+                  left: left
+                  right: right
+            dom:
+              target_id: '343'
+          empty_cells:
+            label: empty-cells
+            field_config:
+              label: empty-cells
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: empty-cells
+                  group: '61'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  show: show
+                  hide: hide
+            dom:
+              target_id: '344'
+          table_layout:
+            label: table-layout
+            field_config:
+              label: table-layout
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: table-layout
+                  group: '61'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  auto: auto
+                  fixed: fixed
+            dom:
+              target_id: '345'
+          color:
+            label: color
+            field_config:
+              label: color
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: color
+                  group: '61'
+                  index: true
+            type: color_field_type
+            dom:
+              target_id: '346'
+          direction:
+            label: direction
+            field_config:
+              label: direction
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: direction
+                  group: '61'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  ltr: ltr
+                  rtl: rtl
+            dom:
+              target_id: '347'
+          letter_spacing:
+            label: letter-spacing
+            field_config:
+              label: letter-spacing
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: letter-spacing
+                  group: '61'
+                  index: true
+            type: string
+            dom:
+              target_id: '348'
+          text_align:
+            label: text-align
+            field_config:
+              label: text-align
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: text-align
+                  group: '61'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  left: left
+                  right: right
+                  center: center
+                  justify: justify
+            dom:
+              target_id: '349'
+          text_decoration:
+            label: text-decoration
+            field_config:
+              label: text-decoration
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: text-decoration
+                  group: '61'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  none: none
+                  underline: underline
+                  overline: overline
+                  line-through: line-through
+                  blink: blink
+            dom:
+              target_id: '350'
+          text_indent:
+            label: text-indent
+            field_config:
+              label: text-indent
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: text-indent
+                  group: '61'
+                  index: true
+            type: string
+            dom:
+              target_id: '351'
+          text_shadow:
+            label: text-shadow
+            field_config:
+              label: text-shadow
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: text-shadow
+                  group: '61'
+                  index: true
+            type: string
+            dom:
+              target_id: '352'
+          text_transform:
+            label: text-transform
+            field_config:
+              label: text-transform
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: text-transform
+                  group: '61'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  none: none
+                  capitalize: capitalize
+                  uppercase: uppercase
+                  lowercase: lowercase
+            dom:
+              target_id: '353'
+          unicode_bidi:
+            label: unicode-bidi
+            field_config:
+              label: unicode-bidi
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: unicode-bidi
+                  group: '61'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  normal: normal
+                  embed: embed
+                  bidi-override: bidi-override
+            dom:
+              target_id: '354'
+          white_space:
+            label: white-space
+            field_config:
+              label: white-space
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: white-space
+                  group: '61'
+                  index: true
+            type: list_string
+            field_storage_config:
+              settings:
+                allowed_values:
+                  normal: normal
+                  pre: pre
+                  nowrap: nowrap
+            dom:
+              target_id: '355'
+          word_spacing:
+            label: word-spacing
+            field_config:
+              label: word-spacing
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: word-spacing
+                  group: '61'
+                  index: true
+            type: string
+            dom:
+              target_id: '356'
+          _active:
+            label: ':active'
+            field_config:
+              label: ':active'
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: ':active'
+                  group: '68'
+                  index: true
+            type: string
+            dom:
+              target_id: '357'
+          _focus:
+            label: ':focus'
+            field_config:
+              label: ':focus'
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: ':focus'
+                  group: '68'
+                  index: true
+            type: string
+            dom:
+              target_id: '358'
+          _hover:
+            label: ':hover'
+            field_config:
+              label: ':hover'
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: ':hover'
+                  group: '68'
+                  index: true
+            type: string
+            dom:
+              target_id: '359'
+          _link:
+            label: ':link'
+            field_config:
+              label: ':link'
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: ':link'
+                  group: '68'
+                  index: true
+            type: string
+            dom:
+              target_id: '360'
+          _visited:
+            label: ':visited'
+            field_config:
+              label: ':visited'
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: ':visited'
+                  group: '68'
+                  index: true
+            type: string
+            dom:
+              target_id: '361'
+          _first_child:
+            label: ':first-child'
+            field_config:
+              label: ':first-child'
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: ':first-child'
+                  group: '68'
+                  index: true
+            type: string
+            dom:
+              target_id: '362'
+          _lang:
+            label: ':lang'
+            field_config:
+              label: ':lang'
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: ':lang'
+                  group: '68'
+                  index: true
+            type: string
+            dom:
+              target_id: '363'
+          _first_letter:
+            label: '::first-letter'
+            field_config:
+              label: '::first-letter'
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: '::first-letter'
+                  group: '69'
+                  index: true
+            type: string
+            dom:
+              target_id: '364'
+          _first_line:
+            label: '::first-line'
+            field_config:
+              label: '::first-line'
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: '::first-line'
+                  group: '69'
+                  index: true
+            type: string
+            dom:
+              target_id: '365'
+          _before:
+            label: '::before'
+            field_config:
+              label: '::before'
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: '::before'
+                  group: '69'
+                  index: true
+            type: string
+            dom:
+              target_id: '366'
+          _after:
+            label: '::after'
+            field_config:
+              label: '::after'
+              third_party_settings:
+                bd:
+                  dom:
+                    attribute: style
+                    subattribute: '::after'
+                  group: '69'
+                  index: true
+            type: string
+            dom:
+              target_id: '367'
       entity_form_display:
         definition:
           default:
@@ -369,16 +2165,6 @@ definition:
       definition:
         label: Collection
         description: 'Provide a collection of DOM entities.'
-      form:
-        '*':
-          new:
-            inline:
-              save_require_field:
-                - dom
-          existing:
-            inline:
-              save_require_field:
-                - dom
       field:
         definition:
           machine_name:
@@ -407,6 +2193,16 @@ definition:
                   auto_create: true
                   target_bundles:
                     tag: tag
+      form:
+        '*':
+          new:
+            inline:
+              save_require_field:
+                - dom
+          existing:
+            inline:
+              save_require_field:
+                - dom
       entity_form_display:
         definition:
           default:
@@ -416,5 +2212,3 @@ definition:
       definition:
         label: Dependency
         description: 'Define dependencies between entities.'
-_core:
-  default_config_hash: aNIexiwC0VDz7jKLLNcl-fM14SUo0YVrwsFDy0UHme0

@@ -49,13 +49,13 @@ filters:
     status: false
     weight: 3
     settings:
-      filter_tags:
-        img: img
-        iframe: iframe
       media_switch: ''
       hybrid_style: ''
       box_style: ''
       box_caption: ''
+      filter_tags:
+        img: img
+        iframe: iframe
       use_data_uri: '0'
   media_embed:
     id: media_embed
@@ -64,5 +64,5 @@ filters:
     weight: 100
     settings:
       default_view_mode: default
-      allowed_media_types: {  }
       allowed_view_modes: {  }
+      allowed_media_types: {  }

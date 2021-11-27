@@ -18,11 +18,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_plugin_block:
+    type: 'plugin_selector:plugin_select_list'
     weight: 1
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: 'plugin_selector:plugin_select_list'
-    region: content
   info:
     type: string_textfield
     weight: 0
@@ -49,10 +49,10 @@ content:
   revision_log:
     type: string_textarea
     weight: 3
+    region: content
     settings:
       rows: 4
       placeholder: ''
-    region: content
     third_party_settings: {  }
   simple_sitemap:
     weight: 5

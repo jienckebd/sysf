@@ -16,23 +16,23 @@ mode: default
 content:
   field_icon:
     type: fontawesome_icon_formatter
-    weight: 0
-    region: content
     label: hidden
     settings:
-      size: ''
       layers: false
+      size: ''
       color: ''
     third_party_settings: {  }
+    weight: 0
+    region: content
   title:
     type: string
-    weight: 1
-    region: content
     label: hidden
     settings:
       link_to_entity: false
       filter_format: null
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   bundle: true
   changed: true

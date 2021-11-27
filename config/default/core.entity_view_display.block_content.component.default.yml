@@ -12,15 +12,15 @@ mode: default
 content:
   field_component:
     type: entity_reference_entity_view
-    weight: 0
-    region: content
     label: hidden
     settings:
+      view_mode: default
       link: true
       show_derivative_label: false
       derivative_label_class: null
-      view_mode: default
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   base_entity: true
   changed: true

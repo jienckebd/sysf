@@ -23,12 +23,12 @@ content:
     region: content
     settings:
       form_mode: default
-      revision: false
       override_labels: false
       label_singular: ''
       label_plural: ''
       collapsible: false
       collapsed: false
+      revision: false
     third_party_settings: {  }
   info:
     type: string_textfield
@@ -48,10 +48,10 @@ content:
   revision_log:
     type: string_textarea
     weight: 4
+    region: content
     settings:
       rows: 4
       placeholder: ''
-    region: content
     third_party_settings: {  }
   simple_sitemap:
     weight: 6

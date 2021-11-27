@@ -13,11 +13,11 @@ bundle: entity_field_formatter
 mode: default
 content:
   field_plugin_block:
-    weight: 0
+    type: plugin_block_built
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: plugin_block_built
+    weight: 0
     region: content
 hidden:
   base_entity: true

@@ -18,11 +18,11 @@ plugin: 'views_exposed_filter_block:entity_op__admin-block_1'
 settings:
   id: 'views_exposed_filter_block:entity_op__admin-block_1'
   label: ''
-  provider: views
   label_display: '0'
+  provider: views
   views_label: ''
 visibility:
   request_path:
     id: request_path
-    pages: /admin/structure/entity_op
     negate: false
+    pages: /admin/structure/entity_op

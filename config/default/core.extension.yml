@@ -84,6 +84,7 @@ module:
   link: 0
   linkit: 0
   locale: 0
+  mailsystem: 0
   maxlength: 0
   media: 0
   media_directories: 0
@@ -94,7 +95,6 @@ module:
   minimal: 0
   network: 0
   node: 0
-  openid_connect: 0
   options: 0
   page_cache: 0
   page_manager: 0
@@ -148,16 +148,4 @@ theme:
   bartik: 0
   seven: 0
   alpha: 0
-  autotheme__1: 0
-  autotheme__2: 0
-  autotheme__3: 0
-  autotheme__4: 0
-  autotheme__10: 0
-  autotheme__11: 0
-  autotheme__14: 0
-  autotheme__15: 0
-  autotheme__16: 0
-  autotheme__17: 0
-  autotheme__18: 0
-  autotheme__20: 0
 profile: minimal

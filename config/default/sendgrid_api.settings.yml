@@ -1,4 +1,2 @@
-api_key: ''
+api_key: sendgrid
 http_client_shim: false
-_core:
-  default_config_hash: qgwOa4O9ghSn8HlxvH7P3OIC3ir8n25M8f4azs-Jlao

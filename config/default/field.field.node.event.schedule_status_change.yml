@@ -17,8 +17,8 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
+  handler: 'default:scheduled_update'
   handler_settings:
     target_bundles:
       - node_moderation_state
-  handler: 'default:scheduled_update'
 field_type: entity_reference

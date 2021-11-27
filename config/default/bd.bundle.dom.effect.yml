@@ -2,6 +2,6 @@ uuid: 3839601e-804d-41e8-b66a-5532ad70c514
 langcode: en
 status: true
 dependencies: {  }
-id: effect
 label: Effect
+id: effect
 description: ''

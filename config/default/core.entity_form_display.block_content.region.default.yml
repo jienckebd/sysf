@@ -25,31 +25,31 @@ content:
     weight: 2
     region: content
     settings:
-      match_operator: CONTAINS
       form_mode: default
-      revision: false
       override_labels: false
       label_singular: ''
       label_plural: ''
-      collapsible: false
-      collapsed: false
       allow_new: true
       allow_existing: true
+      match_operator: CONTAINS
       allow_duplicate: true
+      collapsible: false
+      collapsed: false
+      revision: false
     third_party_settings: {  }
   field_default:
+    type: boolean_checkbox
     weight: 1
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_plugin_data_deriver:
+    type: 'plugin_selector:plugin_select_list'
     weight: 4
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: 'plugin_selector:plugin_select_list'
-    region: content
   info:
     type: string_textfield
     weight: 0

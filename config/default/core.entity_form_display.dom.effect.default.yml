@@ -16,12 +16,12 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_level:
+    type: number
     weight: 1
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
-    region: content
   label:
     type: string_textfield
     weight: 0

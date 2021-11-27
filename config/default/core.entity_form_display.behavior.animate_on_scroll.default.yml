@@ -20,70 +20,70 @@ mode: default
 content:
   actions:
     weight: 900
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_anchor_placement:
+    type: options_select
     weight: 912
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_aos_effect:
+    type: options_select
     weight: 911
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_delay:
+    type: number
     weight: 915
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
-    region: content
   field_duration:
+    type: number
     weight: 916
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
-    region: content
   field_easing:
+    type: options_select
     weight: 913
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_mirror:
+    type: boolean_checkbox
     weight: 917
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_offset:
+    type: number
     weight: 914
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
-    region: content
   field_once:
+    type: boolean_checkbox
     weight: 918
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_selector:
+    type: string_textfield
     weight: 919
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   label:
     type: string_textfield
     weight: -5
@@ -102,16 +102,16 @@ content:
   revision_log_message:
     type: string_textarea
     weight: 25
+    region: content
     settings:
       rows: 4
       placeholder: ''
-    region: content
     third_party_settings: {  }
   simple_sitemap:
     weight: 910
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   created: true
   description: true

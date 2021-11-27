@@ -16,32 +16,32 @@ mode: default
 content:
   computed_components:
     type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+      show_derivative_label: false
+      derivative_label_class: null
+    third_party_settings: {  }
     weight: 1
     region: content
-    label: hidden
-    settings:
-      link: true
-      show_derivative_label: false
-      derivative_label_class: null
-      view_mode: default
-    third_party_settings: {  }
   field_component:
     type: entity_reference_entity_view
-    weight: 0
-    region: content
     label: hidden
     settings:
+      view_mode: default
       link: true
       show_derivative_label: false
       derivative_label_class: null
-      view_mode: default
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_plugin_data_deriver:
-    weight: 2
+    type: plugin_label
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: plugin_label
+    weight: 2
     region: content
 hidden:
   base_entity: true

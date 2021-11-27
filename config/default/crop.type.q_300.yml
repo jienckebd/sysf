@@ -2,8 +2,8 @@ uuid: 3d72ed69-06db-493d-b377-fab3ac053100
 langcode: en
 status: true
 dependencies: {  }
-id: q_300
 label: 'Square (x300)'
+id: q_300
 description: null
 aspect_ratio: '4:4'
 soft_limit_width: 1200

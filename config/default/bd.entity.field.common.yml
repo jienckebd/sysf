@@ -178,5 +178,3 @@ display_configurable_disable:
       - metatag
       - workspace
       - workspace_whitelist
-_core:
-  default_config_hash: jUXBqWDJRNaMuor5AbM_SmEBnqox3QNSPDZC3LcFYYs

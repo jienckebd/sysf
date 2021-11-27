@@ -15,29 +15,29 @@ bundle: route
 mode: default
 content:
   field_id:
-    weight: 0
+    type: string
     label: above
     settings:
       link_to_entity: false
       filter_format: null
     third_party_settings: {  }
-    type: string
+    weight: 0
     region: content
   field_key_default:
-    weight: 2
+    type: key_value
     label: above
     settings:
       value_only: false
     third_party_settings: {  }
-    type: key_value
+    weight: 2
     region: content
   field_key_option:
-    weight: 1
+    type: key_value
     label: above
     settings:
       value_only: false
     third_party_settings: {  }
-    type: key_value
+    weight: 1
     region: content
 hidden:
   bundle: true

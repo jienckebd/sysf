@@ -2,8 +2,8 @@ uuid: 455723ea-03c7-4e43-b1b5-4c1f4388af2e
 langcode: en
 status: true
 dependencies: {  }
-id: s_500
 label: 'Standard (x500)'
+id: s_500
 description: null
 aspect_ratio: '4:3'
 soft_limit_width: 2000

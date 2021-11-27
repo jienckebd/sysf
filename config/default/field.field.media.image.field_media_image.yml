@@ -5,13 +5,13 @@ dependencies:
   config:
     - field.storage.media.field_media_image
     - media.type.image
-  enforced:
-    module:
-      - media
   module:
     - bd
     - content_translation
     - image
+  enforced:
+    module:
+      - media
 third_party_settings:
   bd:
     overview:
@@ -91,6 +91,8 @@ translatable: true
 default_value: {  }
 default_value_callback: '\Drupal\bd\Entity\EntityFieldDefaultValue::derivedDefaultValue'
 settings:
+  handler: 'default:file'
+  handler_settings: {  }
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
@@ -106,6 +108,4 @@ settings:
     title: ''
     width: null
     height: null
-  handler: 'default:file'
-  handler_settings: {  }
 field_type: image

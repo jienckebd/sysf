@@ -26,13 +26,13 @@ content:
     region: content
     settings:
       form_mode: default
-      revision: true
+      override_labels: false
       label_singular: ''
       label_plural: ''
-      default_bundle: '16'
-      override_labels: false
       collapsible: false
       collapsed: false
+      revision: true
+      default_bundle: '16'
     third_party_settings: {  }
 hidden:
   aid: true

@@ -21,22 +21,22 @@ widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
   ed6632f2-b017-496b-acdb-d89888a3cf14:
+    id: view
+    uuid: ed6632f2-b017-496b-acdb-d89888a3cf14
+    label: 'Group library'
+    weight: 1
     settings:
-      view: group_browser
-      view_display: entity_browser_1
       submit_text: Select
       auto_select: false
-    uuid: ed6632f2-b017-496b-acdb-d89888a3cf14
-    weight: 1
-    label: 'Group library'
-    id: view
+      view: group_browser
+      view_display: entity_browser_1
   48b92843-24a7-43f7-ada4-b64643621596:
+    id: entity_form
+    uuid: 48b92843-24a7-43f7-ada4-b64643621596
+    label: 'Create organization'
+    weight: 2
     settings:
+      submit_text: Create
       entity_type: group
       bundle: organization
       form_mode: inline
-      submit_text: Create
-    uuid: 48b92843-24a7-43f7-ada4-b64643621596
-    weight: 2
-    label: 'Create organization'
-    id: entity_form

@@ -144,5 +144,3 @@ form:
             existing: id
           theme_hook:
             - html
-_core:
-  default_config_hash: RP2lEFA6u369WY57OlV5ToiRdZwQX82Gxl_mpaIsMHU

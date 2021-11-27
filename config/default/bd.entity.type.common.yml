@@ -26,5 +26,3 @@ route:
         - 'entity.*.canonical'
       delete-form:
         - 'entity.*.delete-form'
-_core:
-  default_config_hash: 8DjrOYNH4TRvRV1NwZ1GiaXUDea_hspPMvTBqtQ0ZjA
