@@ -48,7 +48,7 @@ build:
     - kubectl exec "${POD_EXEC}" -c php-fpm -- bash -c "cd /app && /app/vendor/bin/blt --no-interaction"
 
 test-coding-standard:
-  stage: validate
+  stage: test
   environment: prd
   dependencies:
     - build
@@ -56,7 +56,7 @@ test-coding-standard:
     - 'echo "Test: coding standard..."'
 
 test-workflow-standard:
-  stage: validate
+  stage: test
   environment: prd
   dependencies:
     - build
@@ -64,7 +64,7 @@ test-workflow-standard:
     - 'echo "Test: workflow standard..."'
 
 test-security:
-  stage: validate
+  stage: test
   environment: prd
   dependencies:
     - build
@@ -72,7 +72,7 @@ test-security:
     - 'echo "Test: security..."'
 
 test-licensing:
-  stage: validate
+  stage: test
   environment: prd
   dependencies:
     - build
@@ -80,7 +80,7 @@ test-licensing:
     - 'echo "Test: licensing..."'
 
 test-visual-regression:
-  stage: validate
+  stage: test
   environment: prd
   dependencies:
     - build
@@ -88,7 +88,7 @@ test-visual-regression:
     - 'echo "Test: visual regression..."'
 
 test-behavioral:
-  stage: validate
+  stage: test
   environment: prd
   dependencies:
     - build
@@ -96,7 +96,7 @@ test-behavioral:
     - 'echo "Test: behavioral..."'
 
 test-performance:
-  stage: validate
+  stage: test
   environment: prd
   dependencies:
     - build
