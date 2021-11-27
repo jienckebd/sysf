@@ -4,7 +4,6 @@ before_script:
   - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
   - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
   - kubectl config set-context --current --namespace="${SYS_K8S_NAMESPACE}"
-  - ls -lah /tmp
 
 cache:
   key: "$CI_COMMIT_REF_SLUG"
@@ -49,7 +48,7 @@ build:
     - kubectl exec "${POD_EXEC}" -c php-fpm -- bash -c "cd /app && /app/vendor/bin/blt --no-interaction"
 
 test-coding-standard:
-  stage: test
+  stage: validate
   environment: prd
   dependencies:
     - build
@@ -57,7 +56,7 @@ test-coding-standard:
     - 'echo "Test: coding standard..."'
 
 test-workflow-standard:
-  stage: test
+  stage: validate
   environment: prd
   dependencies:
     - build
@@ -65,7 +64,7 @@ test-workflow-standard:
     - 'echo "Test: workflow standard..."'
 
 test-security:
-  stage: test
+  stage: validate
   environment: prd
   dependencies:
     - build
@@ -73,7 +72,7 @@ test-security:
     - 'echo "Test: security..."'
 
 test-licensing:
-  stage: test
+  stage: validate
   environment: prd
   dependencies:
     - build
@@ -81,7 +80,7 @@ test-licensing:
     - 'echo "Test: licensing..."'
 
 test-visual-regression:
-  stage: test
+  stage: validate
   environment: prd
   dependencies:
     - build
@@ -89,7 +88,7 @@ test-visual-regression:
     - 'echo "Test: visual regression..."'
 
 test-behavioral:
-  stage: test
+  stage: validate
   environment: prd
   dependencies:
     - build
@@ -97,7 +96,7 @@ test-behavioral:
     - 'echo "Test: behavioral..."'
 
 test-performance:
-  stage: test
+  stage: validate
   environment: prd
   dependencies:
     - build
@@ -108,7 +107,14 @@ deploy:
   stage: deploy
   environment: prd
   dependencies:
-    - test
+    - test-coding-standard
+    - test-workflow-standard
+    - test-coding-standard
+    - test-security
+    - test-licensing
+    - test-visual-regression
+    - test-behavioral
+    - test-performance
   script:
     - 'echo "Deploying build artifact..."'
     - POD_EXEC=$(kubectl get pod -l app=web-nginx-php-fpm -o jsonpath="{.items[0].metadata.name}")
