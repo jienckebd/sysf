@@ -1,6 +1,8 @@
 image: "registry.gitlab.com/gitlab-org/cluster-integration/cluster-applications:v1.1.0"
 
 before_script:
+  - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
+  - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
   - kubectl config set-context --current --namespace="${SYS_K8S_NAMESPACE}"
 
 stages:
@@ -16,8 +18,6 @@ init:
   environment: prd
   script:
     - 'echo "Initializing kubernetes Drupal environment..."'
-    - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
-    - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
     - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git /tmp/sysf
     - cd /tmp/sysf
     - kubectl create namespace "${SYS_K8S_NAMESPACE}"
@@ -25,7 +25,7 @@ init:
     - "kubectl get secret tls-sys --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - "kubectl get secret mariadb --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - helmfile --environment=cid apply
-    - while [[ $(kubectl get pods -l app=web-nginx-php-fpm -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') != "True" ]]; do echo "waiting for pod" && sleep 1; done
+    - while [[ $(kubectl get pods -l app=web-nginx-php-fpm -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') != "True" ]]; do echo "Waiting for machines to build..." && sleep 1; done
     - POD_EXEC=$(kubectl get pod -l app=web-nginx-php-fpm -o jsonpath="{.items[0].metadata.name}")
     - kubectl cp "${CI_PROJECT_DIR}" "${POD_EXEC}:/app" -c php-fpm
     - kubectl exec "${POD_EXEC}" -c php-fpm -- bash -c "mv /app/sysf/* /app"
