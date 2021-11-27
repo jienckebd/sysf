@@ -9,7 +9,7 @@ cache:
   key: "$CI_COMMIT_REF_SLUG"
   policy: pull-push
   paths:
-    - /tmp/sysf/
+    - files-private/cache
 
 stages:
   - init
@@ -24,8 +24,9 @@ init:
   environment: prd
   script:
     - 'echo "Initializing kubernetes environment..."'
-    - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git /tmp/sysf
-    - cd /tmp/sysf
+    - mkdir -p files-private/cache
+    - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git files-private/cache/sysf
+    - cd files-private/cache/sysf
     - kubectl create namespace "${SYS_K8S_NAMESPACE}"
     - "kubectl get secret ssh-config --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - "kubectl get secret tls-sys --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
@@ -136,9 +137,7 @@ cleanup:
   dependencies:
     - verify
   script:
-    - ls -lah /tmp
-    - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git /tmp/sysf
-    - cd /tmp/sysf
+    - cd files-private/cache/sysf
     - helmfile --environment=cid destroy
     - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
     - kubectl delete pvc -n "${SYS_K8S_NAMESPACE}" --all --force
