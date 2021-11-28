@@ -349,7 +349,7 @@ class Dom extends Base {
 
     $this->writeAsset($css_output);
 
-    \Drupal::cache('discovery')->delete('library_info:autotheme__14');
+    \Drupal::cache('discovery')->delete('library_info:autotheme__21');
 
   }
 

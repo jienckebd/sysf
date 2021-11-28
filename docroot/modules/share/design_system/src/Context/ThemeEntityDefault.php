@@ -23,7 +23,7 @@ class ThemeEntityDefault extends Base {
 
     $cacheability = new CacheableMetadata();
 
-    $entity_theme = $this->entityTypeManager->getStorage('theme_entity')->load(14);
+    $entity_theme = $this->entityTypeManager->getStorage('theme_entity')->load(21);
 
     $context = new Context($context_definition, $entity_theme);
     $context->addCacheableDependency($cacheability);
