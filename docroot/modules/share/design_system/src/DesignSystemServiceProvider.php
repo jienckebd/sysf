@@ -27,13 +27,6 @@ class DesignSystemServiceProvider extends ServiceProviderBase {
       ],
       'theme_handler' => [
         'class' => ThemeHandler::class,
-        'reference' => [
-          'add' => [
-            'entity.helper',
-            'cache.default',
-            'logger.channel.design_system',
-          ],
-        ],
       ],
     ],
   ];
