@@ -46,8 +46,8 @@ $config['file.settings']['make_unused_managed_files_temporary'] = TRUE;
 /**
  * Configure search_api server and index.
  */
-$config['search_api.server.local']['status'] = FALSE;
-$config['search_api.index.universe']['server'] = $_ENV['SYS_SUBCONTEXT'];
+// $config['search_api.server.local']['status'] = FALSE;
+// $config['search_api.index.universe']['server'] = $_ENV['SYS_SUBCONTEXT'];
 
 /**
  * Override Drupal's YAML parser to use persistent caching.
