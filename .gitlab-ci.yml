@@ -61,59 +61,93 @@ test-coding-standard:
   script:
     - 'echo "Test: coding standard..."'
 
-# test-workflow-standard:
-#   stage: test
-#   environment: prd/2
-#   dependencies:
-#     - build
-#   script:
-#     - 'echo "Test: workflow standard..."'
+test-workflow-standard:
+  stage: test
+  environment: prd/2
+  dependencies:
+    - build
+    - test-coding-standard
+  script:
+    - 'echo "Test: workflow standard..."'
 
-# test-security:
-#   stage: test
-#   environment: prd/3
-#   dependencies:
-#     - build
-#   script:
-#     - 'echo "Test: security..."'
+test-security:
+  stage: test
+  environment: prd/3
+  dependencies:
+    - build
+    - test-coding-standard
+    - test-workflow-standard
+    - test-coding-standard
+  script:
+    - 'echo "Test: security..."'
 
-# test-licensing:
-#   stage: test
-#   environment: prd/4
-#   dependencies:
-#     - build
-#   script:
-#     - 'echo "Test: licensing..."'
+test-licensing:
+  stage: test
+  environment: prd/4
+  dependencies:
+    - build
+    - test-coding-standard
+    - test-workflow-standard
+    - test-coding-standard
+    - test-security
+    - test-licensing
+  script:
+    - 'echo "Test: licensing..."'
 
-# test-visual-regression:
-#   stage: test
-#   environment: prd/5
-#   dependencies:
-#     - build
-#   script:
-#     - 'echo "Test: visual regression..."'
+test-visual-regression:
+  stage: test
+  environment: prd/5
+  dependencies:
+    - build
+    - test-coding-standard
+    - test-workflow-standard
+    - test-coding-standard
+    - test-security
+    - test-licensing
+  script:
+    - 'echo "Test: visual regression..."'
 
-# test-behavioral:
-#   stage: test
-#   environment: prd/6
-#   dependencies:
-#     - build
-#   script:
-#     - 'echo "Test: behavioral..."'
+test-behavioral:
+  stage: test
+  environment: prd/6
+  dependencies:
+    - build
+    - test-coding-standard
+    - test-workflow-standard
+    - test-coding-standard
+    - test-security
+    - test-licensing
+    - test-visual-regression
+  script:
+    - 'echo "Test: behavioral..."'
 
-# test-performance:
-#   stage: test
-#   environment: prd/7
-#   dependencies:
-#     - build
-#   script:
-#     - 'echo "Test: performance..."'
+test-performance:
+  stage: test
+  environment: prd/7
+  dependencies:
+    - build
+    - test-coding-standard
+    - test-workflow-standard
+    - test-coding-standard
+    - test-security
+    - test-licensing
+    - test-visual-regression
+    - test-behavioral
+  script:
+    - 'echo "Test: performance..."'
 
 deploy:
   stage: deploy
   environment: prd
   dependencies:
     - test-coding-standard
+    - test-workflow-standard
+    - test-coding-standard
+    - test-security
+    - test-licensing
+    - test-visual-regression
+    - test-behavioral
+    - test-performance
   script:
     - 'echo "Deploying build artifact..."'
     - POD_EXEC=$(kubectl get pod -l app=web-nginx-php-fpm -o jsonpath="{.items[0].metadata.name}")
