@@ -114,13 +114,6 @@ deploy:
   environment: prd
   dependencies:
     - test-coding-standard
-    - test-workflow-standard
-    - test-coding-standard
-    - test-security
-    - test-licensing
-    - test-visual-regression
-    - test-behavioral
-    - test-performance
   script:
     - 'echo "Deploying build artifact..."'
     - POD_EXEC=$(kubectl get pod -l app=web-nginx-php-fpm -o jsonpath="{.items[0].metadata.name}")
