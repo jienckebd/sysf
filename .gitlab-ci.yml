@@ -61,53 +61,53 @@ test-coding-standard:
   script:
     - 'echo "Test: coding standard..."'
 
-test-workflow-standard:
-  stage: test
-  environment: prd/2
-  dependencies:
-    - build
-  script:
-    - 'echo "Test: workflow standard..."'
+# test-workflow-standard:
+#   stage: test
+#   environment: prd/2
+#   dependencies:
+#     - build
+#   script:
+#     - 'echo "Test: workflow standard..."'
 
-test-security:
-  stage: test
-  environment: prd/3
-  dependencies:
-    - build
-  script:
-    - 'echo "Test: security..."'
+# test-security:
+#   stage: test
+#   environment: prd/3
+#   dependencies:
+#     - build
+#   script:
+#     - 'echo "Test: security..."'
 
-test-licensing:
-  stage: test
-  environment: prd/4
-  dependencies:
-    - build
-  script:
-    - 'echo "Test: licensing..."'
+# test-licensing:
+#   stage: test
+#   environment: prd/4
+#   dependencies:
+#     - build
+#   script:
+#     - 'echo "Test: licensing..."'
 
-test-visual-regression:
-  stage: test
-  environment: prd/5
-  dependencies:
-    - build
-  script:
-    - 'echo "Test: visual regression..."'
+# test-visual-regression:
+#   stage: test
+#   environment: prd/5
+#   dependencies:
+#     - build
+#   script:
+#     - 'echo "Test: visual regression..."'
 
-test-behavioral:
-  stage: test
-  environment: prd/6
-  dependencies:
-    - build
-  script:
-    - 'echo "Test: behavioral..."'
+# test-behavioral:
+#   stage: test
+#   environment: prd/6
+#   dependencies:
+#     - build
+#   script:
+#     - 'echo "Test: behavioral..."'
 
-test-performance:
-  stage: test
-  environment: prd/7
-  dependencies:
-    - build
-  script:
-    - 'echo "Test: performance..."'
+# test-performance:
+#   stage: test
+#   environment: prd/7
+#   dependencies:
+#     - build
+#   script:
+#     - 'echo "Test: performance..."'
 
 deploy:
   stage: deploy
