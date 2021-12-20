@@ -1,7 +1,7 @@
 enabled: true
 settings:
-  client_id: env.ide1
-  client_secret: xtVIL9rA1alK6ZPFR6nso6Zqh1UqmgBU
+  client_id: env
+  client_secret: env
   keycloak_base: 'https://id.sys.sysf.one/auth'
   keycloak_realm: master
   userinfo_update_email: true
