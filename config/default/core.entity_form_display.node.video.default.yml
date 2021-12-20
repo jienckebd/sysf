@@ -4,9 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.video.body
-    - field.field.node.video.field_domain_access
-    - field.field.node.video.field_domain_all_affiliates
-    - field.field.node.video.field_domain_source
     - field.field.node.video.schedule_status_change
     - node.type.video
     - workflows.workflow.editorial
@@ -38,25 +35,6 @@ content:
   created:
     type: datetime_timestamp
     weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_domain_access:
-    type: options_buttons
-    weight: 40
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_domain_all_affiliates:
-    type: boolean_checkbox
-    weight: 41
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_domain_source:
-    type: options_select
-    weight: 42
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -137,6 +137,13 @@ $databases['default']['default'] = [
   'port' => getenv("SYS_DB_PORT") ?: "3306",
   'prefix' => getenv("SYS_DB_PREFIX") ?: "",
 ];
+
+/**
+ * Config overrides.
+ */
+$config['openid_connect.settings.keycloak']['settings']['client_id'] = getenv('SYS_OPENID_CLIENT_ID');
+$config['openid_connect.settings.keycloak']['settings']['client_secret'] = getenv('SYS_OPENID_SECRET');
+
 /**
  * IMPORTANT.
  *

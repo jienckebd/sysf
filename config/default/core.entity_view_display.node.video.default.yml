@@ -4,9 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.video.body
-    - field.field.node.video.field_domain_access
-    - field.field.node.video.field_domain_all_affiliates
-    - field.field.node.video.field_domain_source
     - field.field.node.video.schedule_status_change
     - node.type.video
   module:
@@ -64,9 +61,6 @@ hidden:
   changed: true
   default_langcode: true
   description: true
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
   label_browser: true
   label_display: true
   label_ia: true

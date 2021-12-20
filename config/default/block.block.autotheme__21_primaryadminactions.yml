@@ -1,0 +1,18 @@
+uuid: a77bae40-1083-406d-8e84-9d83f89b7aed
+langcode: en
+status: true
+dependencies:
+  theme:
+    - autotheme__21
+id: autotheme__21_primaryadminactions
+theme: autotheme__21
+region: header
+weight: 1
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

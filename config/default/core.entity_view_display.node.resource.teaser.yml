@@ -5,9 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.resource.body
-    - field.field.node.resource.field_domain_access
-    - field.field.node.resource.field_domain_all_affiliates
-    - field.field.node.resource.field_domain_source
     - field.field.node.resource.field_meta_tags
     - field.field.node.resource.field_yoast_seo
     - field.field.node.resource.schedule_status_change
@@ -68,9 +65,6 @@ hidden:
   changed: true
   default_langcode: true
   description: true
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
   field_meta_tags: true
   field_yoast_seo: true
   label_browser: true

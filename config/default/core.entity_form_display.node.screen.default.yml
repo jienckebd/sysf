@@ -4,9 +4,6 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.media_image_modal
-    - field.field.node.screen.field_domain_access
-    - field.field.node.screen.field_domain_all_affiliates
-    - field.field.node.screen.field_domain_source
     - field.field.node.screen.field_image
     - field.field.node.screen.field_meta_tags
     - field.field.node.screen.field_qr_code
@@ -256,25 +253,6 @@ content:
             theme_hook_match_value: ''
             build_css_field_name: ''
             build_css: 0
-  field_domain_access:
-    type: options_buttons
-    weight: 40
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_domain_all_affiliates:
-    type: boolean_checkbox
-    weight: 41
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_domain_source:
-    type: options_select
-    weight: 42
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_image:
     type: entity_browser_entity_reference
     weight: 24

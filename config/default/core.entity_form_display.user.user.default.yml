@@ -3,9 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_domain_access
-    - field.field.user.user.field_domain_admin
-    - field.field.user.user.field_domain_all_affiliates
     - field.field.user.user.field_first_name
     - field.field.user.user.field_last_name
   module:
@@ -120,9 +117,6 @@ hidden:
   access: true
   account: true
   created: true
-  field_domain_access: true
-  field_domain_admin: true
-  field_domain_all_affiliates: true
   init: true
   login: true
   pass: true

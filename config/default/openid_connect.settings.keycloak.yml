@@ -1,0 +1,31 @@
+enabled: true
+settings:
+  client_id: env.ide1
+  client_secret: xtVIL9rA1alK6ZPFR6nso6Zqh1UqmgBU
+  keycloak_base: 'https://id.sys.sysf.one/auth'
+  keycloak_realm: master
+  userinfo_update_email: true
+  keycloak_i18n:
+    enabled: false
+    mapping: {  }
+  keycloak_groups:
+    enabled: true
+    claim_name: groups
+    split_groups: false
+    split_groups_limit: '0'
+    rules:
+      -
+        id: 78d92110-4c57-4389-8dc3-d86f174afca1
+        role: administrator
+        action: add
+        operation: equal
+        pattern: admin
+        case_sensitive: false
+        weight: 0
+        enabled: true
+  keycloak_sso: false
+  keycloak_sign_out: false
+  check_session:
+    enabled: false
+    interval: 2
+  redirect_url: ''

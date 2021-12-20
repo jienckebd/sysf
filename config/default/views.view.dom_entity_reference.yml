@@ -119,6 +119,19 @@ display:
         options: {  }
       empty: {  }
       sorts:
+        delta:
+          id: delta
+          table: dom__field_device
+          field: delta
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
         label:
           id: label
           table: dom_field_data
@@ -225,11 +238,29 @@ display:
     display_plugin: entity_reference
     position: 1
     display_options:
+      sorts:
+        label:
+          id: label
+          table: dom_field_data
+          field: label
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: dom
+          entity_field: label
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: label
+          exposed: false
       style:
         type: entity_reference
         options:
           search_fields:
             label: label
+      defaults:
+        sorts: false
       display_description: ''
       display_extenders:
         ajax_history: {  }
@@ -319,6 +350,19 @@ display:
         options:
           offset: 0
       sorts:
+        delta:
+          id: delta
+          table: dom__field_color
+          field: delta
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
         label:
           id: label
           table: dom_field_data

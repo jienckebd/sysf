@@ -6,4 +6,5 @@ enabled_fonts:
   - 'https://www.google.com/webfonts/family?family=Montserrat&subset=cyrillic#300'
   - 'https://www.google.com/webfonts/family?family=Roboto&subset=cyrillic#700'
   - 'https://www.google.com/webfonts/family?family=Montserrat&subset=cyrillic#500'
+  - 'https://www.google.com/webfonts/family?family=Cabin&subset=latin#regular'
 load_on_themes: {  }

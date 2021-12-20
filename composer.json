@@ -287,10 +287,6 @@
                 "drupal-9-readiness": "https://www.drupal.org/files/issues/2021-06-18/3172330-31.patch",
                 "content-moderation-support": "https://www.drupal.org/files/issues/2020-09-29/scheduled_updates_with_content_moderation-2821916-32.patch"
             },
-            "drupal/rules": {
-                "rules-event-forms-3010055-16": "https://www.drupal.org/files/issues/2020-08-03/rules-event-forms-3010055-16.patch",
-                "https://www.drupal.org/files/issues/2021-04-23/rules-2664280-82.select-lists.patch": "./patches/rules-select-will-not-combine-with-multi-event-patch.patch"
-            },
             "drupal/redis": {
                 "redis-cluster-support": "https://www.drupal.org/files/issues/2021-06-07/2900947-49.patch"
             },
