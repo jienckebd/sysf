@@ -75,8 +75,8 @@ for ($n = 0; $n < $redis_node_count; $n++) {
 $settings['redis.connection']['read_timeout'] = 120;
 $settings['redis.connection']['timeout'] = 120;
 
-$settings['cache']['default'] = 'cache.backend.redis';
-$cache_backend = 'cache.backend.redis';
+$settings['cache']['default'] = 'cache.backend.database';
+$cache_backend = 'cache.backend.database';
 
 $settings['cache']['bins']['advagg'] = $cache_backend;
 $settings['cache']['bins']['bootstrap']= $cache_backend;
