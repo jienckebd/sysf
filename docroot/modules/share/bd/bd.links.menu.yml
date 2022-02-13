@@ -2,4 +2,4 @@ sysf.structure.entity:
   title: 'Entity'
   parent: system.admin_structure
   description: 'Configure entity.'
-  route_name: sysf.structure.entity
+  route_name: system.admin_structure

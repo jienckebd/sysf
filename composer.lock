@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a68acedc85882511d121875b3b8c0620",
+    "content-hash": "9c5888f82737e48fef07d9e9b423ae60",
     "packages": [
         {
             "name": "acquia/blt",
@@ -9218,33 +9218,31 @@
             }
         },
         {
-            "name": "drupal/sendgrid_api",
-            "version": "1.0.0",
+            "name": "drupal/sendgrid_integration",
+            "version": "dev-2.x",
             "source": {
                 "type": "git",
-                "url": "https://git.drupalcode.org/project/sendgrid_api.git",
-                "reference": "1.0.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/sendgrid_api-1.0.0.zip",
-                "reference": "1.0.0",
-                "shasum": "9a0796c38925599a8a3e6e07f6301f7fd4798ffa"
+                "url": "https://git.drupalcode.org/project/sendgrid_integration.git",
+                "reference": "2f26308b9332512352a24ba2b0990af1ceae7d1c"
             },
             "require": {
-                "drupal/core": ">=8.8 || >= 9.0",
-                "drupal/key": "^1.14",
-                "php": ">=7.3.0",
-                "sendgrid/sendgrid": "^7.6"
+                "drupal/core": "^8 || ^9",
+                "drupal/mailsystem": "^4",
+                "ext-json": "*",
+                "fastglass/sendgrid": "~2.0.0",
+                "html2text/html2text": "^4.3.1"
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
                 "drupal": {
-                    "version": "1.0.0",
-                    "datestamp": "1637436036",
+                    "version": "8.x-2.0-beta3+1-dev",
+                    "datestamp": "1636060361",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -9254,14 +9252,28 @@
             ],
             "authors": [
                 {
-                    "name": "dpi",
-                    "homepage": "https://www.drupal.org/user/81431"
+                    "name": "Brady Owens (perignon)",
+                    "homepage": "https://www.drupal.org/u/perignon",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "exlin",
+                    "homepage": "https://www.drupal.org/user/695136"
                 }
             ],
-            "description": "Provides configuration and dependencies for connecting to SendGrid API.",
-            "homepage": "https://www.drupal.org/project/sendgrid_api",
+            "description": "Drupal module for integrating with the SendGrid API.",
+            "homepage": "https://www.drupal.org/project/sendgrid_integration",
+            "keywords": [
+                "SendGrid",
+                "email",
+                "grid",
+                "php",
+                "send",
+                "sendgrid"
+            ],
             "support": {
-                "source": "https://git.drupalcode.org/project/sendgrid_api"
+                "source": "https://git.drupalcode.org/project/sendgrid_integration",
+                "issues": "https://drupal.org/project/issues/sendgrid_integration"
             }
         },
         {
@@ -11229,6 +11241,68 @@
             "time": "2021-12-25T01:21:49+00:00"
         },
         {
+            "name": "fastglass/sendgrid",
+            "version": "2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/taz77/sendgrid-php-ng.git",
+                "reference": "8f6db86d300458c28b144d61a04dc9d3a9c17a36"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/taz77/sendgrid-php-ng/zipball/8f6db86d300458c28b144d61a04dc9d3a9c17a36",
+                "reference": "8f6db86d300458c28b144d61a04dc9d3a9c17a36",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "guzzlehttp/guzzle": "^6.3",
+                "php": ">=7.2",
+                "starkbank/ecdsa": "^0.0.4"
+            },
+            "replace": {
+                "sendgrid/sendgrid-php": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8",
+                "squizlabs/php_codesniffer": "3.*",
+                "swaggest/json-diff": "^3.4",
+                "vlucas/phpdotenv": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SendGrid\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brady Owens",
+                    "email": "brady@fastglass.net",
+                    "homepage": "https://github.com/taz77"
+                }
+            ],
+            "description": "This library allows you to send emails through SendGrid using PHP and Guzzle 6.x.",
+            "homepage": "https://github.com/taz77/sendgrid-php-ng",
+            "keywords": [
+                "email",
+                "grid",
+                "send",
+                "sendgrid",
+                "twilio sendgrid"
+            ],
+            "support": {
+                "issues": "https://github.com/taz77/sendgrid-php-ng/issues",
+                "source": "https://github.com/taz77/sendgrid-php-ng/tree/2.0.4"
+            },
+            "time": "2021-02-21T23:05:45+00:00"
+        },
+        {
             "name": "grasmash/expander",
             "version": "1.0.0",
             "source": {
@@ -11651,6 +11725,47 @@
                 }
             ],
             "time": "2021-10-05T13:56:00+00:00"
+        },
+        {
+            "name": "html2text/html2text",
+            "version": "4.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mtibben/html2text.git",
+                "reference": "61ad68e934066a6f8df29a3d23a6460536d0855c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mtibben/html2text/zipball/61ad68e934066a6f8df29a3d23a6460536d0855c",
+                "reference": "61ad68e934066a6f8df29a3d23a6460536d0855c",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance",
+                "symfony/polyfill-mbstring": "If you can't install ext-mbstring"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Html2Text\\": [
+                        "src/",
+                        "test/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Converts HTML to formatted plain text",
+            "support": {
+                "issues": "https://github.com/mtibben/html2text/issues",
+                "source": "https://github.com/mtibben/html2text/tree/4.3.1"
+            },
+            "time": "2020-04-16T23:44:31+00:00"
         },
         {
             "name": "igorw/get-in",
@@ -14604,135 +14719,6 @@
             "time": "2022-01-25T11:53:47+00:00"
         },
         {
-            "name": "sendgrid/php-http-client",
-            "version": "3.14.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sendgrid/php-http-client.git",
-                "reference": "ddb0a32ad6a90af587f53a0cfeb9fa1e17dac5ac"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/php-http-client/zipball/ddb0a32ad6a90af587f53a0cfeb9fa1e17dac5ac",
-                "reference": "ddb0a32ad6a90af587f53a0cfeb9fa1e17dac5ac",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "ext-mbstring": "*",
-                "php": ">=5.6"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16",
-                "phpunit/phpunit": "^5.7 || ^6.5",
-                "sebastian/version": "^1.0.6",
-                "squizlabs/php_codesniffer": "~2.0"
-            },
-            "suggest": {
-                "composer/ca-bundle": "Including this library will ensure that a valid CA bundle is available for secure connections"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SendGrid\\": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Matt Bernier",
-                    "email": "mbernier@twilio.com"
-                },
-                {
-                    "name": "Elmer Thomas",
-                    "email": "ethomas@twilio.com"
-                }
-            ],
-            "description": "HTTP REST client, simplified for PHP",
-            "homepage": "http://github.com/sendgrid/php-http-client",
-            "keywords": [
-                "api",
-                "fluent",
-                "http",
-                "rest",
-                "sendgrid"
-            ],
-            "support": {
-                "issues": "https://github.com/sendgrid/php-http-client/issues",
-                "source": "https://github.com/sendgrid/php-http-client/tree/3.14.3"
-            },
-            "time": "2022-02-09T22:49:27+00:00"
-        },
-        {
-            "name": "sendgrid/sendgrid",
-            "version": "7.11.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sendgrid/sendgrid-php.git",
-                "reference": "97a509b53ced9d29dde401e3b2c0c55f9ab03f5c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/97a509b53ced9d29dde401e3b2c0c55f9ab03f5c",
-                "reference": "97a509b53ced9d29dde401e3b2c0c55f9ab03f5c",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "ext-mbstring": "*",
-                "ext-openssl": "*",
-                "php": ">=5.6",
-                "sendgrid/php-http-client": "~3.10",
-                "starkbank/ecdsa": "0.*"
-            },
-            "replace": {
-                "sendgrid/sendgrid-php": "*"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.7.9 || ^6.4.3",
-                "squizlabs/php_codesniffer": "3.*",
-                "swaggest/json-diff": "^3.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SendGrid\\Mail\\": "lib/mail/",
-                    "SendGrid\\Stats\\": "lib/stats/",
-                    "SendGrid\\Helper\\": "lib/helper/",
-                    "SendGrid\\Contacts\\": "lib/contacts/",
-                    "SendGrid\\EventWebhook\\": "lib/eventwebhook/"
-                },
-                "classmap": [
-                    "lib/BaseSendGridClientInterface.php",
-                    "lib/SendGrid.php",
-                    "lib/TwilioEmail.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "This library allows you to quickly and easily send emails through Twilio SendGrid using PHP.",
-            "homepage": "http://github.com/sendgrid/sendgrid-php",
-            "keywords": [
-                "email",
-                "grid",
-                "send",
-                "sendgrid",
-                "twilio sendgrid"
-            ],
-            "support": {
-                "issues": "https://github.com/sendgrid/sendgrid-php/issues",
-                "source": "https://github.com/sendgrid/sendgrid-php/tree/7.11.4"
-            },
-            "time": "2022-02-09T22:49:28+00:00"
-        },
-        {
             "name": "sirbrillig/phpcs-variable-analysis",
             "version": "v2.11.2",
             "source": {
@@ -14958,16 +14944,16 @@
         },
         {
             "name": "starkbank/ecdsa",
-            "version": "0.0.5",
+            "version": "0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/starkbank/ecdsa-php.git",
-                "reference": "484bedac47bac4012dc73df91da221f0a66845cb"
+                "reference": "9369d35ed9019321adb4eb9fd3be21357d527c74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/starkbank/ecdsa-php/zipball/484bedac47bac4012dc73df91da221f0a66845cb",
-                "reference": "484bedac47bac4012dc73df91da221f0a66845cb",
+                "url": "https://api.github.com/repos/starkbank/ecdsa-php/zipball/9369d35ed9019321adb4eb9fd3be21357d527c74",
+                "reference": "9369d35ed9019321adb4eb9fd3be21357d527c74",
                 "shasum": ""
             },
             "require": {
@@ -14995,9 +14981,9 @@
             "homepage": "https://github.com/starkbank/ecdsa-php",
             "support": {
                 "issues": "https://github.com/starkbank/ecdsa-php/issues",
-                "source": "https://github.com/starkbank/ecdsa-php/tree/v0.0.5"
+                "source": "https://github.com/starkbank/ecdsa-php/tree/v0.0.4"
             },
-            "time": "2021-06-06T22:24:49+00:00"
+            "time": "2020-05-15T15:46:20+00:00"
         },
         {
             "name": "stecman/symfony-console-completion",
@@ -18507,7 +18493,7 @@
         "drupal/rules": 20,
         "drupal/scheduled_updates": 20,
         "drupal/select2_all": 15,
-        "drupal/sendgrid_api": 15,
+        "drupal/sendgrid_integration": 20,
         "drupal/typed_data": 15,
         "drupal/ui_patterns": 5,
         "drupal/ui_patterns_layout_builder": 20,

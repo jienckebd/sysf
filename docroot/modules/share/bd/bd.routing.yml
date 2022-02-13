@@ -1,7 +1,0 @@
-sysf.structure.entity:
-  path: '/admin/structure/entity'
-  defaults:
-    _form: 'Drupal\design_system\Form\DesignSystemSettings'
-    _title: 'Entity'
-  requirements:
-    _permission: 'administer sysf'
