@@ -187,6 +187,7 @@ display:
           order: ASC
           expose:
             label: 'Dependency name'
+            field_identifier: label
           exposed: true
         bundle:
           id: bundle
@@ -201,6 +202,7 @@ display:
           order: ASC
           expose:
             label: 'Dependency type'
+            field_identifier: bundle
           exposed: true
         id:
           id: id
@@ -215,6 +217,7 @@ display:
           order: ASC
           expose:
             label: ID
+            field_identifier: id
           exposed: true
         created:
           id: created
@@ -229,6 +232,7 @@ display:
           order: ASC
           expose:
             label: Created
+            field_identifier: created
           exposed: true
           granularity: second
       arguments: {  }

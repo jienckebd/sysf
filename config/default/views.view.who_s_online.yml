@@ -102,6 +102,7 @@ display:
           order: DESC
           expose:
             label: ''
+            field_identifier: access
           exposed: false
           granularity: second
       arguments: {  }

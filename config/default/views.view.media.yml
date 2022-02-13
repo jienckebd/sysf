@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - image.style.thumbnail
+    - taxonomy.vocabulary.media_directories
   module:
     - image
     - media
@@ -570,6 +571,7 @@ display:
           order: DESC
           expose:
             label: ''
+            field_identifier: created
           exposed: false
           granularity: second
       arguments: {  }

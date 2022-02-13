@@ -1847,7 +1847,7 @@ normalized_content:
       collection:
         rel: collection
         label: '{{ entity_type_label_plural }}'
-        parent: system.admin_structure
+        parent: sysf.structure.entity
     action:
       add-page:
         rel: add-page
@@ -1926,7 +1926,7 @@ normalized_config:
       collection:
         rel: collection
         label: '{{ entity_type_label_plural }}'
-        parent: system.admin_structure
+        parent: sysf.structure.entity
     action:
       add-form:
         rel: add-form
