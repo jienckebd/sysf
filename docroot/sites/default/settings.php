@@ -152,3 +152,4 @@ $config['openid_connect.settings.keycloak']['settings']['client_secret'] = geten
  *
  * @link https://docs.acquia.com/blt/
  */
+
