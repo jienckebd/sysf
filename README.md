@@ -56,7 +56,3 @@ entity.default_field_value | Remove?
 ### DOM Entity
 
 @todo
-
-### CSS/JS Injectors
-
-@todo
