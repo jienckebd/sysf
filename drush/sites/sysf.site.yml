@@ -9,7 +9,9 @@ prd:
 stg:
   root: /app/docroot
   uri: https://stg.env.sys.sysf.one
-  host: stg.env.sys.sysf.one
+  host: web-nginx-php-fpm.env-stg.svc.cluster.local
+  ssh:
+    options: '-J www-data@sysf.one'
   user: www-data
   paths:
     drush-script: /app/vendor/bin/drush
@@ -17,7 +19,9 @@ stg:
 dev:
   root: /app/docroot
   uri: https://dev.env.sys.sysf.one
-  host: dev.env.sys.sysf.one
+  host: web-nginx-php-fpm.env-dev.svc.cluster.local
+  ssh:
+    options: '-J www-data@sysf.one'
   user: www-data
   paths:
     drush-script: /app/vendor/bin/drush
@@ -25,7 +29,9 @@ dev:
 ide1:
   root: /app/docroot
   uri: https://ide1.env.sys.sysf.one
-  host: ide1.env.sys.sysf.one
+  host: web-nginx-php-fpm.env-ide1.svc.cluster.local
+  ssh:
+    options: '-J www-data@sysf.one'
   user: www-data
   paths:
     drush-script: /app/vendor/bin/drush
