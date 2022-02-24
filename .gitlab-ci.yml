@@ -21,7 +21,6 @@ stages:
   - verify
   - cleanup
 
-
 init:
   stage: init
   environment: prd
