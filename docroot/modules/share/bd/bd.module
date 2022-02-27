@@ -23,6 +23,8 @@ use Drupal\bd\Plugin\Field\FieldFormatter\EntityReferenceEntityFormatter;
 use Drupal\bd\Plugin\EntityReferenceSelection\DefaultSelection;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\bd\Handler\EntityCrud;
+use Drupal\Core\Database\Query\AlterableInterface;
+use Drupal\Core\Database\Query\Select;
 
 /**
  * Implements hook_entity_type_alter().
@@ -463,4 +465,13 @@ function bd_openid_connect_post_authorize(\Drupal\user\UserInterface $account, a
     $account->save();
   }
 
+}
+
+/**
+ * Implements hook_query_alter().
+ */
+function bd_query_alter(AlterableInterface $query) {
+  if ($query instanceof Select) {
+
+  }
 }
