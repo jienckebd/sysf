@@ -3,7 +3,7 @@
 namespace Drupal\bd\Element;
 
 use Drupal\bd\Component\Arrays\NestedArray;
-use Drupal\Core\Config\TypedConfigManagerInterface;
+use Drupal\bd\Config\TypedConfigManagerInterface;
 use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Cache\CacheBackendInterface;
@@ -23,9 +23,9 @@ class ConfigSchemaSubform extends FormElement implements ContainerFactoryPluginI
   /**
    * The typed config manager.
    *
-   * @var \Drupal\Core\Config\TypedConfigManagerInterface
+   * @var \Drupal\bd\Config\TypedConfigManagerInterface
    */
-  protected $typedConfigManager;
+  protected $bdTypedConfigManager;
 
   /**
    * The default cache backend.
@@ -73,7 +73,7 @@ class ConfigSchemaSubform extends FormElement implements ContainerFactoryPluginI
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('config.typed'),
+      $container->get('bd.config.typed'),
       $container->get('cache.default'),
       $container->get('logger.channel.config')
     );

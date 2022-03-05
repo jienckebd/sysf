@@ -97,6 +97,10 @@ services:
     class: Drupal\bd\Config\Deriver
     arguments: ['@entity.helper', '@entity_field.manager', '@entity.builder', '@config.processor', '@cache.default', '@logger.channel.entity']
 
+  bd.config.typed:
+    class: Drupal\bd\Config\TypedConfigManager
+    parent: config.typed
+
   bd.config.override:
     class: Drupal\bd\Config\Override
     arguments: [ '@event_dispatcher', '@cache.default', '@logger.channel.rules' ]
