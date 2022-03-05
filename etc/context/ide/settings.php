@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal settings for local context.
+ * Contains Drupal settings for ide context.
  */
 
 $_ENV['SYS_DEBUG_MODE'] = (bool) getenv('HOST_UID');

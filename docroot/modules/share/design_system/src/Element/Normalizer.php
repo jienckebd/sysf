@@ -268,7 +268,6 @@ class Normalizer implements TrustedCallbackInterface {
     unset($element['#theme']);
     $element['#type'] = 'container';
     $element['#attributes']['class'][] = 'btn-group';
-    $element['#attached']['library'][] = 'alpha/bootstrap.dropdown';
     $element['#theme_wrappers'] = ['container'];
 
     $primary_button = array_shift($element['#links']);

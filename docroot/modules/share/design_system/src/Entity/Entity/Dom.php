@@ -222,6 +222,8 @@ class Dom extends Base {
 
     $element[$attributes_key][$dom_attribute_key] = TRUE;
 
+    $element['#cache']['tags'][] = "dom:{$entity_id}";
+
     if (!$is_nested) {
       $element[$attached_key]['library'][] = $this->getlibraryName();
     }
@@ -451,7 +453,14 @@ class Dom extends Base {
         default:
 
           $value = $entity_subject->label();
-          $selector .= "{$value}";
+
+          $pieces = explode(',', $value);
+          $selector_original = $selector;
+          $selector = "";
+          foreach ($pieces as $piece) {
+            $selector .= "{$selector_original} {$piece},";
+          }
+          $selector = rtrim($selector, ',');
 
           break;
 
