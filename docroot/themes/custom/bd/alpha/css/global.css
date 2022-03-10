@@ -25,3 +25,7 @@
   color: #fff;
   background: #16586c;
 }
+
+body.toolbar-tray-open {
+  padding-top: 84px !important;
+}
