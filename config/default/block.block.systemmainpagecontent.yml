@@ -1,0 +1,25 @@
+uuid: 30293235-0e8c-4e51-ba96-38ddc545eb69
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:drupal_block:6517c140-d4c2-4094-8973-2552a9f302f3'
+  module:
+    - design_system
+  theme:
+    - autotheme__21
+id: systemmainpagecontent
+theme: autotheme__21
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:6517c140-d4c2-4094-8973-2552a9f302f3'
+settings:
+  id: 'block_content:6517c140-d4c2-4094-8973-2552a9f302f3'
+  label: 'System: Main page content'
+  label_display: '0'
+  provider: design_system
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

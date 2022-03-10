@@ -1,0 +1,25 @@
+uuid: 5154e312-915b-4096-8296-531d0ac227a0
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:drupal_block:86faa936-8814-4daa-92fa-11a198b44237'
+  module:
+    - design_system
+  theme:
+    - autotheme__21
+id: tabsprimaryandsecondary
+theme: autotheme__21
+region: header
+weight: -1
+provider: null
+plugin: 'block_content:86faa936-8814-4daa-92fa-11a198b44237'
+settings:
+  id: 'block_content:86faa936-8814-4daa-92fa-11a198b44237'
+  label: 'Tabs primary and secondary'
+  label_display: '0'
+  provider: design_system
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -96,8 +96,6 @@ module:
   openid_connect: 0
   options: 0
   page_cache: 0
-  page_manager: 0
-  page_manager_ui: 0
   path: 0
   path_alias: 0
   plugin: 0
@@ -107,8 +105,10 @@ module:
   rest: 0
   scheduled_updates: 0
   search_api: 0
+  select2: 0
   select2_all: 0
-  sendgrid_api: 0
+  sendgrid_integration: 0
+  sendgrid_integration_reports: 0
   serialization: 0
   shortcut: 0
   slick: 0

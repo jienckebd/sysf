@@ -5,9 +5,6 @@ settings:
   keycloak_base: 'https://id.sys.sysf.one/auth'
   keycloak_realm: master
   userinfo_update_email: true
-  keycloak_i18n:
-    enabled: false
-    mapping: {  }
   keycloak_groups:
     enabled: true
     claim_name: groups
@@ -29,3 +26,4 @@ settings:
     enabled: false
     interval: 2
   redirect_url: ''
+  keycloak_i18n_enabled: false

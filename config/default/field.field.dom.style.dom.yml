@@ -82,6 +82,8 @@ third_party_settings:
         theme_hook_match_value: ''
         build_css_field_name: ''
         build_css: 0
+      duplicate:
+        disable: 0
 id: dom.style.dom
 field_name: dom
 entity_type: dom

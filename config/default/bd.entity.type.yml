@@ -329,6 +329,8 @@ block_content:
         description: 'Set a base component to inherit its styling, behaviors, etc.'
         settings:
           target_type: block_content
+      entity_access:
+        template: entity_access
       container:
         type: entity_reference_revisions
         label: Containers
@@ -2195,6 +2197,9 @@ media:
       directory:
         description: 'Structure this asset in the media library by specifying its folder.'
         default_value: 112
+    definition:
+      entity_access:
+        template: entity_access
   bundle_override:
     image:
       display:
@@ -2385,8 +2390,6 @@ node:
     route_provider:
       html: \Drupal\bd\Entity\Routing\DefaultHtmlRouteProvider
       revision: \Drupal\entity\Routing\RevisionRouteProvider
-  links:
-    edit-form: '/admin/content/{node}/edit'
   field:
     alter:
       title:
@@ -2408,6 +2411,8 @@ node:
         template: label_display
       description:
         template: description
+      entity_access:
+        template: entity_access
       redirect:
         type: entity_reference
         label: Redirects
@@ -2536,6 +2541,8 @@ taxonomy_term:
         template: label_browser
       label_display:
         template: label_display
+      entity_access:
+        template: entity_access
       redirect:
         type: entity_reference
         label: Redirects

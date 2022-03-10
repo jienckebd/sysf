@@ -114,6 +114,7 @@ dependencies:
   module:
     - field_group
     - inline_entity_form
+    - select2
 third_party_settings:
   field_group:
     group_background:
@@ -708,32 +709,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
   dom:
-    type: options_select
+    type: select2_entity_reference
     weight: -4
     region: content
-    settings: {  }
-    third_party_settings:
-      bd:
-        value:
-          tag: ''
-          attribute: ''
-          override: ''
-        label:
-          tag: ''
-          attribute: ''
-          override: ''
-        description:
-          tag: ''
-          attribute: ''
-          override: ''
-        access:
-          tag: ''
-          attribute: ''
-          override: ''
-        translate:
-          tag: ''
-          attribute: ''
-          override: ''
+    settings:
+      width: 100%
+      autocomplete: true
+      match_operator: STARTS_WITH
+      match_limit: 10
+    third_party_settings: {  }
   empty_cells:
     type: options_select
     weight: 13

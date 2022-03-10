@@ -126,6 +126,13 @@ template:
     translatable: false
     settings:
       exclude_entity_types: true
+  entity_access:
+    type: 'plugin:condition'
+    label: 'Access control'
+    required: false
+    revisionable: true
+    translatable: true
+    cardinality: -1
   target:
     type: dynamic_entity_reference
     label: 'Target entity'

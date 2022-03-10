@@ -169,6 +169,7 @@
         "drupal/rules": "dev-3.x",
         "drupal/scheduled_updates": "dev-1.x",
         "drupal/seckit": "^1.0.0-alpha2",
+        "drupal/select2": "^1.13",
         "drupal/select2_all": "^1.0@alpha",
         "drupal/sendgrid_integration": "dev-2.x",
         "drupal/simple_oauth": "^5.0",

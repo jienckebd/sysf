@@ -16,7 +16,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @Condition(
  *   id = "user_permission",
  *   label = @Translation("User Permission"),
- *   context = {
+ *   context_definitions = {
  *     "user" = @ContextDefinition("entity:user", label = @Translation("User"))
  *   }
  * )
@@ -125,6 +125,9 @@ class UserPermission extends ConditionPluginBase implements ContainerFactoryPlug
   public function evaluate() {
     if (empty($this->configuration['permission'])) {
       return $this->isNegated() ? FALSE : TRUE;
+    }
+    if (empty($this->context['user'])) {
+      $this->setContextValue('user', \Drupal::entityTypeManager()->getStorage('user')->load(\Drupal::currentUser()->id()));
     }
     $user = $this->getContextValue('user');
     if ($user instanceof UserInterface) {

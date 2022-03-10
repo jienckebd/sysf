@@ -1,0 +1,25 @@
+uuid: 2fb750ea-0033-4312-bf74-0a15b905c34e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:drupal_block:223cbfe7-0cb6-4e62-bc24-00abf3725fd5'
+  module:
+    - design_system
+  theme:
+    - autotheme__21
+id: adminmenuactions
+theme: autotheme__21
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:223cbfe7-0cb6-4e62-bc24-00abf3725fd5'
+settings:
+  id: 'block_content:223cbfe7-0cb6-4e62-bc24-00abf3725fd5'
+  label: 'Admin menu actions'
+  label_display: '0'
+  provider: design_system
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

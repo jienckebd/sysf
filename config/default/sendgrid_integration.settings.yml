@@ -1,0 +1,12 @@
+apikey: sendgrid
+test_defaults:
+  to: help@shoreacresimprovementassociation.com
+  subject: 'Test Email from SendGrid Module'
+  body:
+    value: 'Test Message for SendGrid.'
+    format: plain_text
+  from_name: dfgdfg
+  to_name: ''
+  reply_to: ''
+trackopens: 1
+trackclicks: 1

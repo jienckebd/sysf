@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\bd\Plugin\Condition;
+namespace Drupal\design_system\Plugin\Condition;
 
 use Drupal\bd\Component\Arrays\NestedArray;
 use Drupal\Core\Logger\LoggerChannelInterface;

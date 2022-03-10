@@ -364,42 +364,41 @@ function bd_entity_delete(EntityInterface $entity) {
  */
 function bd_entity_access(EntityInterface $entity, $operation, AccountInterface $account) {
 
-  $access_result_neutral = AccessResult::neutral();
-
-  if ($entity->getEntityTypeId() == 'block_content') {
-    return AccessResult::allowed();
-  }
-
-  if ($operation != 'view') {
-    return $access_result_neutral;
-  }
-
   if (!$entity instanceof FieldableEntityInterface) {
-    return $access_result_neutral;
+    return AccessResult::neutral();
   }
 
-  if (!$entity->hasField('field_role')) {
-    return $access_result_neutral;
+  if ($entity->hasField('entity_access')) {
+    if (!$entity->entity_access->isEmpty()) {
+      foreach ($entity->entity_access as $delta => $field_item) {
+        if (!$plugin_instance_data_type = $field_item->get('plugin_instance')) {
+          continue;
+        }
+        if (!$plugin_instance = $plugin_instance_data_type->getValue()) {
+          continue;
+        }
+        if (!$plugin_instance->evaluate()) {
+          return AccessResult::forbidden();
+        }
+      }
+    }
   }
 
-  if ($entity->field_role->isEmpty()) {
-    return $access_result_neutral;
-  }
+  return AccessResult::neutral();
 
-  $role_field_values = $entity->field_role->getValue();
+}
 
-  $field_roles = [];
-  foreach ($role_field_values as $delta => $field_value) {
-    $field_roles[] = $field_value['target_id'];
-  }
+/**
+ * Implements hook_plugin_filter_TYPE_alter().
+ */
+function bd_plugin_filter_condition_alter(array &$definitions, array $extra, $consumer) {
 
-  $account_roles = \Drupal::currentUser()->getRoles();
-
-  if (array_intersect($field_roles, $account_roles)) {
-    return AccessResult::allowed();
-  }
-  else {
-    return AccessResult::forbidden();
+  foreach ($definitions as $key => &$definition) {
+    // Workaround to make rules stop breaking other things. These conditions
+    // show up in core/contrib and aren't compatible.
+    if (($definition['provider'] == 'rules') && ($consumer != 'rules')) {
+      unset($definitions[$key]);
+    }
   }
 
 }

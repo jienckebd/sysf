@@ -23,7 +23,9 @@ dependencies:
     - maxlength
     - metatag
     - path
+    - plugin
     - qrfield
+    - select2
     - yoast_seo
 third_party_settings:
   field_group:
@@ -82,13 +84,13 @@ third_party_settings:
         - redirect
         - group_publishing
         - schedule_status_change
+        - entity_access
         - simple_sitemap
         - menu
         - field_qr_code
         - label_browser
         - label_ia
         - label_display
-        - field_override
       label: Advanced
       region: content
       parent_name: group_tabs
@@ -253,6 +255,12 @@ content:
             theme_hook_match_value: ''
             build_css_field_name: ''
             build_css: 0
+  entity_access:
+    type: 'plugin_selector:plugin_select_list'
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_image:
     type: entity_browser_entity_reference
     weight: 24
@@ -338,10 +346,11 @@ content:
     region: content
     settings:
       sidebar: true
+      use_details: true
     third_party_settings: {  }
   field_qr_code:
     type: qrfield_widget
-    weight: 23
+    weight: 24
     region: content
     settings:
       text: 'Enter you QR text here (e.g.: Welcome to [site:name] [site:url])'
@@ -350,14 +359,14 @@ content:
         height: 100
     third_party_settings: {  }
   field_tags:
-    type: options_select
+    type: select2_entity_reference
     weight: 23
     region: content
     settings:
+      width: 100%
       autocomplete: true
       match_operator: CONTAINS
       match_limit: 10
-      width: 100%
     third_party_settings: {  }
   field_yoast_seo:
     type: yoast_seo_widget
@@ -368,7 +377,7 @@ content:
     third_party_settings: {  }
   label_browser:
     type: string_textfield
-    weight: 24
+    weight: 25
     region: content
     settings:
       size: 60
@@ -376,7 +385,7 @@ content:
     third_party_settings: {  }
   label_display:
     type: string_textfield
-    weight: 26
+    weight: 27
     region: content
     settings:
       size: 60
@@ -384,7 +393,7 @@ content:
     third_party_settings: {  }
   label_ia:
     type: string_textfield
-    weight: 25
+    weight: 26
     region: content
     settings:
       size: 60
@@ -398,7 +407,7 @@ content:
       include_locked: true
     third_party_settings: {  }
   menu:
-    weight: 22
+    weight: 23
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -406,11 +415,7 @@ content:
     type: options_select
     weight: 16
     region: content
-    settings:
-      autocomplete: true
-      match_operator: CONTAINS
-      match_limit: 10
-      width: 100%
+    settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
@@ -435,11 +440,7 @@ content:
     type: options_select
     weight: 18
     region: content
-    settings:
-      autocomplete: true
-      match_operator: CONTAINS
-      match_limit: 10
-      width: 100%
+    settings: {  }
     third_party_settings: {  }
   revision_log:
     type: string_textarea
@@ -542,7 +543,7 @@ content:
       revision: false
     third_party_settings: {  }
   simple_sitemap:
-    weight: 21
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -644,11 +645,7 @@ content:
     type: options_select
     weight: 5
     region: content
-    settings:
-      width: 100%
-      autocomplete: true
-      match_operator: CONTAINS
-      match_limit: 10
+    settings: {  }
     third_party_settings:
       design_system:
         overview:
@@ -717,5 +714,4 @@ content:
 hidden:
   layout_builder__layout: true
   status: true
-  title: true
   url_redirects: true

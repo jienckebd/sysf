@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - user
+    - views_bulk_operations
 id: user_admin_people
 label: People
 module: user
@@ -20,16 +21,15 @@ display:
     display_options:
       title: People
       fields:
-        user_bulk_form:
-          id: user_bulk_form
-          table: users
-          field: user_bulk_form
+        views_bulk_operations_bulk_form:
+          id: views_bulk_operations_bulk_form
+          table: views
+          field: views_bulk_operations_bulk_form
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: user
-          plugin_id: user_bulk_form
-          label: 'Bulk update'
+          plugin_id: views_bulk_operations_bulk_form
+          label: 'Views bulk operations'
           exclude: false
           alter:
             alter_text: false
@@ -70,6 +70,29 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          batch: true
+          batch_size: 10
+          form_step: true
+          buttons: true
+          action_title: Action
+          clear_on_exposed: true
+          force_selection_info: false
+          selected_actions:
+            4:
+              action_id: views_bulk_edit
+              preconfiguration:
+                add_confirmation: false
+                label_override: 'Bulk edit'
+                get_bundles_from_results: true
+            5:
+              action_id: views_bulk_operations_delete_entity
+              preconfiguration:
+                label_override: Delete
+            6:
+              action_id: vbo_cancel_user_action
+              preconfiguration:
+                add_confirmation: false
+                label_override: Cancel
         name:
           id: name
           table: users_field_data
