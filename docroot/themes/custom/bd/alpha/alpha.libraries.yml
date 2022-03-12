@@ -6,7 +6,5 @@ global:
   js:
     js/global.js: {}
   dependencies:
-    - core/drupal
-    - core/jquery
-    - core/drupalSettings
     - core/jquery.once
+    - core/drupal.dialog.ajax
