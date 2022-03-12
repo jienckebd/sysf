@@ -1,0 +1,14 @@
+uuid: 959cabde-29f8-4697-93b5-9f156574ea43
+langcode: en
+status: true
+dependencies:
+  module:
+    - elasticsearch_connector
+id: sys
+name: sys
+description: ''
+backend: elasticsearch
+backend_config:
+  cluster_settings:
+    cluster: sys
+  fuzziness: auto

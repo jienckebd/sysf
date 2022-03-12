@@ -1,0 +1,369 @@
+uuid: fee2c0c1-a31c-44a8-b431-3b3d20944cc0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image
+    - field.storage.node.field_tags
+    - search_api.server.sys
+  module:
+    - file
+    - media
+    - node
+    - content_moderation
+    - taxonomy
+    - search_api
+id: sys
+name: sys
+description: ''
+read_only: false
+field_settings:
+  file__changed:
+    label: Changed
+    datasource_id: 'entity:file'
+    property_path: changed
+    type: date
+    dependencies:
+      module:
+        - file
+  file__created:
+    label: Created
+    datasource_id: 'entity:file'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - file
+  file__fid:
+    label: 'File ID'
+    datasource_id: 'entity:file'
+    property_path: fid
+    type: integer
+    dependencies:
+      module:
+        - file
+  file__filemime:
+    label: 'File MIME type'
+    datasource_id: 'entity:file'
+    property_path: filemime
+    type: string
+    dependencies:
+      module:
+        - file
+  file__filename:
+    label: Filename
+    datasource_id: 'entity:file'
+    property_path: filename
+    type: string
+    dependencies:
+      module:
+        - file
+  file__filesize:
+    label: 'File size'
+    datasource_id: 'entity:file'
+    property_path: filesize
+    type: integer
+    dependencies:
+      module:
+        - file
+  file__langcode:
+    label: 'Language code'
+    datasource_id: 'entity:file'
+    property_path: langcode
+    type: string
+    dependencies:
+      module:
+        - file
+  file__status:
+    label: Status
+    datasource_id: 'entity:file'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - file
+  file__uid:
+    label: 'User ID'
+    datasource_id: 'entity:file'
+    property_path: uid
+    type: integer
+    dependencies:
+      module:
+        - file
+  file__uri:
+    label: URI
+    datasource_id: 'entity:file'
+    property_path: uri
+    type: string
+    dependencies:
+      module:
+        - file
+  media__bundle:
+    label: 'Media type'
+    datasource_id: 'entity:media'
+    property_path: bundle
+    type: string
+    dependencies:
+      module:
+        - media
+  media__changed:
+    label: Changed
+    datasource_id: 'entity:media'
+    property_path: changed
+    type: date
+    dependencies:
+      module:
+        - media
+  media__created:
+    label: 'Authored on'
+    datasource_id: 'entity:media'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - media
+  media__langcode:
+    label: Language
+    datasource_id: 'entity:media'
+    property_path: langcode
+    type: string
+    dependencies:
+      module:
+        - media
+  media__mid:
+    label: ID
+    datasource_id: 'entity:media'
+    property_path: mid
+    type: integer
+    dependencies:
+      module:
+        - media
+  media__name:
+    label: Name
+    datasource_id: 'entity:media'
+    property_path: name
+    type: string
+    dependencies:
+      module:
+        - media
+  media__status:
+    label: Published
+    datasource_id: 'entity:media'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - media
+  media__thumbnail:
+    label: Thumbnail
+    datasource_id: 'entity:media'
+    property_path: thumbnail
+    type: integer
+    dependencies:
+      module:
+        - media
+  node__changed:
+    label: Changed
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
+    dependencies:
+      module:
+        - node
+  node__created:
+    label: 'Authored on'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - node
+  node__description:
+    label: Description
+    datasource_id: 'entity:node'
+    property_path: description
+    type: text
+    dependencies:
+      module:
+        - null
+  node__field_image:
+    label: Image
+    datasource_id: 'entity:node'
+    property_path: field_image
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_image
+  node__field_tags:
+    label: Tags
+    datasource_id: 'entity:node'
+    property_path: field_tags
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_tags
+  node__moderation_state:
+    label: 'Moderation state'
+    datasource_id: 'entity:node'
+    property_path: moderation_state
+    type: string
+    dependencies:
+      module:
+        - content_moderation
+  node__nid:
+    label: ID
+    datasource_id: 'entity:node'
+    property_path: nid
+    type: integer
+    dependencies:
+      module:
+        - node
+  node__node__title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
+  node__promote:
+    label: 'Promoted to front page'
+    datasource_id: 'entity:node'
+    property_path: promote
+    type: boolean
+    dependencies:
+      module:
+        - node
+  node__status:
+    label: Published
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - node
+  node__sticky:
+    label: 'Sticky at top of lists'
+    datasource_id: 'entity:node'
+    property_path: sticky
+    type: boolean
+    dependencies:
+      module:
+        - node
+  node__type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
+  node__uid:
+    label: 'Authored by'
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    dependencies:
+      module:
+        - node
+  taxonomy_term__changed:
+    label: Changed
+    datasource_id: 'entity:taxonomy_term'
+    property_path: changed
+    type: date
+    dependencies:
+      module:
+        - taxonomy
+  taxonomy_term__langcode:
+    label: Language
+    datasource_id: 'entity:taxonomy_term'
+    property_path: langcode
+    type: string
+    dependencies:
+      module:
+        - taxonomy
+  taxonomy_term__name:
+    label: 'Taxonomy term names must be unique within a taxonomy vocabulary.'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: name
+    type: string
+    dependencies:
+      module:
+        - taxonomy
+  taxonomy_term__parent:
+    label: 'Term Parents'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: parent
+    type: integer
+    dependencies:
+      module:
+        - taxonomy
+  taxonomy_term__status:
+    label: Published
+    datasource_id: 'entity:taxonomy_term'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - taxonomy
+  taxonomy_term__tid:
+    label: 'Term ID'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: tid
+    type: integer
+    dependencies:
+      module:
+        - taxonomy
+  taxonomy_term__vid:
+    label: Vocabulary
+    datasource_id: 'entity:taxonomy_term'
+    property_path: vid
+    type: string
+    dependencies:
+      module:
+        - taxonomy
+  taxonomy_term__weight:
+    label: Weight
+    datasource_id: 'entity:taxonomy_term'
+    property_path: weight
+    type: integer
+    dependencies:
+      module:
+        - taxonomy
+datasource_settings:
+  'entity:file': {  }
+  'entity:media':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:node':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:taxonomy_term':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  entity_type: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  index_directly: true
+  track_changes_in_references: true
+server: sys

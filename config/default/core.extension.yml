@@ -46,6 +46,7 @@ module:
   entity_reference_revisions: 0
   entity_usage: 0
   entityqueue: 0
+  facets: 0
   field: 0
   field_group: 0
   field_tools: 0
@@ -75,7 +76,6 @@ module:
   keycloak: 0
   language: 0
   layout_builder: 0
-  layout_builder_iframe_modal: 0
   layout_discovery: 0
   length_indicator: 0
   libraries: 0
@@ -85,7 +85,6 @@ module:
   mailsystem: 0
   maxlength: 0
   media: 0
-  media_directories: 0
   menu_item_extras: 0
   menu_link_content: 0
   menu_ui: 0

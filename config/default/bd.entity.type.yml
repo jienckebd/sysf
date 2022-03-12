@@ -2193,10 +2193,6 @@ media:
       html: \Drupal\bd\Entity\Routing\DefaultHtmlRouteProvider
       revision: \Drupal\entity\Routing\RevisionRouteProvider
   field:
-    alter:
-      directory:
-        description: 'Structure this asset in the media library by specifying its folder.'
-        default_value: 112
     definition:
       entity_access:
         template: entity_access

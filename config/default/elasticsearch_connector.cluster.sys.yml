@@ -1,10 +1,10 @@
-uuid: d28393cd-d3fd-41dc-a5a1-48bfabba6c6e
+uuid: df711da1-7c8e-47d3-bb43-0049151f275b
 langcode: en
 status: '1'
 dependencies: {  }
 cluster_id: sys
 name: sys
-url: elasticsearch-master
+url: 'http://elasticsearch-master:9200'
 options:
   multiple_nodes_connection: true
   use_authentication: 0

@@ -4,11 +4,9 @@ status: true
 dependencies:
   config:
     - image.style.thumbnail
-    - taxonomy.vocabulary.media_directories
   module:
     - image
     - media
-    - media_directories
     - user
 id: media
 label: Media
@@ -576,38 +574,6 @@ display:
           granularity: second
       arguments: {  }
       filters:
-        directory:
-          id: directory
-          table: media_field_data
-          field: directory
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: media
-          entity_field: directory
-          plugin_id: media_directory
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: directory_op
-            label: Directory
-            description: ''
-            use_operator: false
-            operator: directory_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: directory
-            required: false
-            remember: false
-            multiple: false
-            remember_roles: {  }
-            reduce: false
-          is_grouped: false
-          group_info: {  }
-          reduce_duplicates: false
-          error_message: true
         name:
           id: name
           table: media_field_data

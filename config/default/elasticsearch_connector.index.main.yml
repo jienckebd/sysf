@@ -1,9 +1,0 @@
-uuid: b9c49f06-2ccc-4ec4-9273-89a0d1a29edf
-langcode: en
-status: true
-dependencies: {  }
-index_id: main
-name: Main
-num_of_shards: 5
-num_of_replica: 1
-server: sys

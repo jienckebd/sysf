@@ -191,7 +191,7 @@ class LayoutEntity extends LayoutDefault implements PluginFormInterface, Contain
     }
     elseif (!empty($additional['entity_id'])) {
       // This is a new cloned layout. Create duplicate.
-      $entity_layout_base = $this->designSystem->getComponent($additional['entity_id']);
+      $entity_layout_base = $this->designSystem->getComponent($additional['revision_id']);
       $entity_layout = $entity_layout_base->createDuplicate();
 
       /** @var \Drupal\bd\Entity\EntityBuilder $entity_builder */
@@ -258,6 +258,7 @@ class LayoutEntity extends LayoutDefault implements PluginFormInterface, Contain
         $build[$region_id] = $this->designSystem->viewComponent($revision_id_region);
         $build[$region_id]['#attributes']['data-region'] = $region_id;
         $build[$region_id]['#attributes']['class'][] = 'region';
+        $build[$region_id]['#attributes']['class'][] = 'js-layout-builder-region';
 
         if (!empty($mapped_regions[$region_id])) {
           foreach ($mapped_regions[$region_id] as $uuid => $build_layout_builder_component) {
