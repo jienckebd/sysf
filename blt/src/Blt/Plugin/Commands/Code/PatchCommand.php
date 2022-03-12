@@ -26,7 +26,7 @@ class PatchCommand extends BaseCommand {
    */
   public function exec(array $options = [
     'name' => InputOption::VALUE_OPTIONAL,
-    'target' => InputOption::VALUE_OPTIONAL,
+    'path' => InputOption::VALUE_OPTIONAL,
   ]) {
 
     $inputs = [
@@ -43,7 +43,7 @@ class PatchCommand extends BaseCommand {
     $options = $this->buildInput($inputs, $options, $defaults);
 
     $dependency_name = $options['name'];
-    $target_path = $options['target'];
+    $target_path = $options['path'];
 
     $package_config = $this->getComposerLockDependency($dependency_name);
 
@@ -54,6 +54,7 @@ class PatchCommand extends BaseCommand {
 
     $dependency_tmp_path = "{$_ENV['SYS_PATH_TMP']}/autopatch/{$dependency_git_code_reference}";
     $this->taskExecStack()
+      ->exec("rm -rf {$dependency_tmp_path}")
       ->exec("mkdir -p {$dependency_tmp_path}")
       ->exec("git clone {$dependency_git_url} {$dependency_tmp_path}")
       ->exec("cd {$dependency_tmp_path}")
@@ -63,6 +64,7 @@ class PatchCommand extends BaseCommand {
 
     $filename_remove = [
       'PATCHES.txt',
+      'LICENSE.txt',
     ];
     foreach ($filename_remove as $filename) {
       $filename_path = "{$dependency_tmp_path}/{$filename}";
@@ -75,9 +77,10 @@ class PatchCommand extends BaseCommand {
 
     $this->taskExecStack()
       ->dir($dependency_tmp_path)
+      ->exec("git checkout '*.info.yml'")
       ->exec("git add -A")
       ->exec("git diff --cached > {$target_path}")
-      ->exec("rm -rf {$dependency_tmp_path}")
+      #->exec("rm -rf {$dependency_tmp_path}")
       ->run();
 
   }

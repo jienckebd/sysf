@@ -116,7 +116,7 @@
         "drupal/dropzonejs": "^2.0@alpha",
         "drupal/dynamic_entity_reference": "dev-2.x",
         "drupal/efs": "*",
-        "drupal/elasticsearch_connector": "^7.0@alpha",
+        "drupal/elasticsearch_connector": "dev-7.x",
         "drupal/email_registration": "^1.1",
         "drupal/embed": "^1.0",
         "drupal/entity_browser": "^2.0",
@@ -127,6 +127,7 @@
         "drupal/entityqueue": "^1.0@alpha",
         "drupal/erd": "^1.0@beta",
         "drupal/exif_orientation": "^1.0",
+        "drupal/facets": "^2.0",
         "drupal/field_group": "dev-3.x",
         "drupal/field_tools": "^1.0@alpha",
         "drupal/field_validation": "^1.0@alpha",
@@ -154,7 +155,6 @@
         "drupal/linkit": "*",
         "drupal/mailsystem": "^4.3",
         "drupal/maxlength": "^1.0@beta",
-        "drupal/media_directories": "^2.0",
         "drupal/menu_item_extras": "2.15.0",
         "drupal/metatag": "^1.8",
         "drupal/migrate_plus": "^5.1",
@@ -168,6 +168,7 @@
         "drupal/redis": "dev-1.x",
         "drupal/rules": "dev-3.x",
         "drupal/scheduled_updates": "dev-1.x",
+        "drupal/search_api": "^1.23",
         "drupal/seckit": "^1.0.0-alpha2",
         "drupal/select2": "^1.13",
         "drupal/select2_all": "^1.0@alpha",
@@ -286,6 +287,9 @@
                 "entity-reference-views-selection-workaround-and-ids": "./patches/entity-reference-views-selection-workaround.patch",
                 "3080606-reorder-layout-sections-43": "https://www.drupal.org/files/issues/2020-06-18/3080606-reorder-layout-sections-43.patch",
                 "entity-create-duplicate-provide-source-entity-property": "https://git.drupalcode.org/project/drupal/-/merge_requests/204.diff"
+            },
+            "drupal/search_api": {
+              "search-api-core-patch-duplicate-hook": "./patches/search-api-duplicate-hook.patch"
             },
             "drupal/plugin": {
                 "use-subform-state-support-config-schema-subform": "https://www.drupal.org/files/issues/2020-07-22/2647312-32.patch"
