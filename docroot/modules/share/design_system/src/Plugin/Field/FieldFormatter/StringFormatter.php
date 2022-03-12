@@ -26,7 +26,7 @@ class StringFormatter extends Base {
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $form = parent::settingsForm($form, $form_state);
 
-    $filter_formats = $this->entityHelper->getStorage('filter_format')->loadMultiple();
+    $filter_formats = \Drupal::service('entity.helper')->getStorage('filter_format')->loadMultiple();
     $options_filter_format = [];
     foreach ($filter_formats as $entity_id => $entity) {
       $options_filter_format[$entity_id] = $entity->label();
