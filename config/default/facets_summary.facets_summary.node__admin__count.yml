@@ -1,0 +1,19 @@
+uuid: 9f349111-39fd-41b2-93a4-136b8267f54c
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.sys
+    - views.view.node_admin
+  module:
+    - search_api
+id: node__admin__count
+name: Count
+facet_source_id: 'search_api:views_block__node_admin__block_1'
+processor_configs:
+  show_count:
+    processor_id: show_count
+    weights:
+      build: '5'
+    settings: {  }
+facets: {  }

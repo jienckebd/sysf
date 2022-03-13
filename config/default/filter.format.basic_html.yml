@@ -5,7 +5,7 @@ dependencies:
   module:
     - blazy
     - editor
-    - media
+    - slick
 name: 'Basic HTML'
 format: basic_html
 weight: 0
@@ -16,7 +16,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <p> <br> <span> <img src alt height width data-entity-type data-entity-uuid data-entity-substitution data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <u> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr>'
+      allowed_html: '<a href hreflang class> <em class> <strong class> <cite class> <blockquote cite class> <code class> <ul type class> <ol start type class> <li class> <dl class> <dt class> <dd class> <h1 id class> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <p class> <br> <span class> <img src alt height width data-entity-type data-entity-uuid data-entity-substitution data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title class> <u class> <table class> <caption class> <tbody class> <thead class> <tfoot class> <th class> <td class> <tr class>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_align:
@@ -57,12 +57,34 @@ filters:
         img: img
         iframe: iframe
       use_data_uri: '0'
-  media_embed:
-    id: media_embed
-    provider: media
+  slick_filter:
+    id: slick_filter
+    provider: slick
     status: false
-    weight: 100
+    weight: 4
     settings:
-      default_view_mode: default
-      allowed_view_modes: {  }
-      allowed_media_types: {  }
+      optionset: default
+      layout: ''
+      skin: ''
+      loading: ''
+      preload: false
+      background: false
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      optionset_thumbnail: ''
+      skin_thumbnail: ''
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false

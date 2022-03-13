@@ -47,6 +47,7 @@ module:
   entity_usage: 0
   entityqueue: 0
   facets: 0
+  facets_summary: 0
   field: 0
   field_group: 0
   field_tools: 0
@@ -76,6 +77,7 @@ module:
   keycloak: 0
   language: 0
   layout_builder: 0
+  layout_builder_iframe_modal: 0
   layout_discovery: 0
   length_indicator: 0
   libraries: 0
@@ -106,6 +108,7 @@ module:
   search_api: 0
   select2: 0
   select2_all: 0
+  select2_facets: 0
   sendgrid_integration: 0
   sendgrid_integration_reports: 0
   serialization: 0

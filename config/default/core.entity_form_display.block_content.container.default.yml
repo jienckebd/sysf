@@ -12,6 +12,8 @@ dependencies:
     - field.field.block_content.container.field_color_bg
     - field.field.block_content.container.field_color_fg
     - field.field.block_content.container.field_component
+    - field.field.block_content.container.field_component_after
+    - field.field.block_content.container.field_component_before
     - field.field.block_content.container.field_dom_style
     - field.field.block_content.container.field_dom_tag
     - field.field.block_content.container.field_height
@@ -30,9 +32,43 @@ bundle: container
 mode: default
 content:
   actions:
-    weight: 3
+    weight: 5
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_component_after:
+    type: inline_entity_form_complex
+    weight: 4
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: true
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings: {  }
+  field_component_before:
+    type: inline_entity_form_complex
+    weight: 3
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: true
+      collapsible: false
+      collapsed: false
+      revision: false
     third_party_settings: {  }
   field_dom_style:
     type: inline_entity_form_complex
@@ -55,11 +91,7 @@ content:
     type: options_select
     weight: 1
     region: content
-    settings:
-      autocomplete: true
-      match_operator: CONTAINS
-      match_limit: 10
-      width: 100%
+    settings: {  }
     third_party_settings: {  }
   info:
     type: string_textfield
@@ -72,6 +104,7 @@ content:
 hidden:
   base_entity: true
   container: true
+  entity_access: true
   field_behavior_collapse: true
   field_class: true
   field_cmp_button_group: true

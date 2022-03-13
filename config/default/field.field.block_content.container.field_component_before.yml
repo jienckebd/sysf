@@ -1,10 +1,10 @@
-uuid: afef4a26-8977-4029-8aff-e1bdebf73cb7
+uuid: 2809e6a4-b66f-434d-a02b-e975bdef5ac6
 langcode: en
 status: true
 dependencies:
   config:
     - block_content.type.container
-    - field.storage.block_content.field_component
+    - field.storage.block_content.field_component_before
   module:
     - bd
     - design_system
@@ -42,16 +42,10 @@ third_party_settings:
           0:
             condition:
               plugin_id: ''
-          1:
-            condition:
-              plugin_id: ''
           condition_list:
             actions: {  }
         edit:
           0:
-            condition:
-              plugin_id: ''
-          1:
             condition:
               plugin_id: ''
           restrict_behavior: ''
@@ -82,14 +76,14 @@ third_party_settings:
         disable: 0
   design_system:
     field_formatter_config_key_override: ''
-id: block_content.container.field_component
-field_name: field_component
+id: block_content.container.field_component_before
+field_name: field_component_before
 entity_type: block_content
 bundle: container
-label: Components
+label: 'Components before'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: '\Drupal\bd\Entity\EntityFieldDefaultValue::derivedDefaultValue'
 settings:
@@ -100,5 +94,5 @@ settings:
       field: _none
       direction: ASC
     auto_create: true
-    auto_create_bundle: video_banner
+    auto_create_bundle: ''
 field_type: entity_reference_revisions

@@ -1,0 +1,25 @@
+uuid: a6d17b12-de51-4bcd-95ca-b2e78b3fa60c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:layout_builder:df65adbb-3e5b-44d5-bad7-9d1fefe3e25a'
+  module:
+    - design_system
+  theme:
+    - autotheme__21
+id: adminfooter
+theme: autotheme__21
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:df65adbb-3e5b-44d5-bad7-9d1fefe3e25a'
+settings:
+  id: 'block_content:df65adbb-3e5b-44d5-bad7-9d1fefe3e25a'
+  label: 'Admin footer'
+  label_display: '0'
+  provider: design_system
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
