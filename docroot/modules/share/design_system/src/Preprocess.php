@@ -494,7 +494,7 @@ class Preprocess implements ContainerInjectionInterface {
        * @var \Drupal\design_system\Entity\Entity\Dom $entity
        */
       foreach ($theme_doms as $entity_id => $entity) {
-        $entity->bindToElement($variables, 'attributes');
+        $entity->bindToElement($variables, 'html_attributes');
       }
     }
 

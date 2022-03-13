@@ -29,3 +29,7 @@
 body.toolbar-tray-open {
   padding-top: 84px !important;
 }
+
+.contextual-links[hidden] {
+  display: none !important;
+}

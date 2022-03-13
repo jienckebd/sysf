@@ -36,7 +36,7 @@ init:
     - "kubectl get secret mariadb --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - "kubectl get secret sys-env-var-config-cid --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | sed 's/name: sys-env-var-config-cid/name: sys-env-var-config/' | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - gl-helmfile --environment=cid apply
-    - sleep 20
+    - sleep 30
     - kubectl cp "${CI_PROJECT_DIR}" "web-nginx-php-fpm-0:/app" -c php-fpm
     - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "shopt -s dotglob nullglob && mv -vn /app/sysf/* /app"
 
@@ -171,4 +171,3 @@ cleanup:
     - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
     - kubectl delete pvc -n "${SYS_K8S_NAMESPACE}" --all --force
     - kubectl delete ns "${SYS_K8S_NAMESPACE}" --force
-

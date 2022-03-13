@@ -703,7 +703,7 @@ function design_system_path_alias_presave(EntityInterface $entity) {
  * Implements hook_form_FORM_ID_alter().
  */
 function design_system_form_facets_facet_edit_form_alter(array &$form, FormStateInterface $form_state) {
-
+return;
   $design_system = \Drupal::service('design.system');
 
   $entity = $form_state->getFormObject()->getEntity();
