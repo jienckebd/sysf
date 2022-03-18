@@ -1,0 +1,74 @@
+uuid: 725d7d43-bdf2-486f-9230-c04246ee1fc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.container
+    - field.field.block_content.container.field_behavior_collapse
+    - field.field.block_content.container.field_class
+    - field.field.block_content.container.field_cmp_button_group
+    - field.field.block_content.container.field_cmp_heading
+    - field.field.block_content.container.field_cmp_image_bg
+    - field.field.block_content.container.field_color_bg
+    - field.field.block_content.container.field_color_fg
+    - field.field.block_content.container.field_component
+    - field.field.block_content.container.field_component_after
+    - field.field.block_content.container.field_component_before
+    - field.field.block_content.container.field_dom_style
+    - field.field.block_content.container.field_dom_tag
+    - field.field.block_content.container.field_height
+    - field.field.block_content.container.field_link
+    - field.field.block_content.container.field_max_height
+    - field.field.block_content.container.field_max_width
+    - field.field.block_content.container.field_min_height
+    - field.field.block_content.container.field_min_width
+    - field.field.block_content.container.field_width
+    - field.field.block_content.container.layout_builder__layout
+id: block_content.container.default
+targetEntityType: block_content
+bundle: container
+mode: default
+content: {  }
+hidden:
+  base_entity: true
+  changed: true
+  container: true
+  default_langcode: true
+  entity_access: true
+  field_behavior_collapse: true
+  field_class: true
+  field_cmp_button_group: true
+  field_cmp_heading: true
+  field_cmp_image_bg: true
+  field_color_bg: true
+  field_color_fg: true
+  field_component: true
+  field_component_after: true
+  field_component_before: true
+  field_dom_style: true
+  field_dom_tag: true
+  field_height: true
+  field_link: true
+  field_max_height: true
+  field_max_width: true
+  field_min_height: true
+  field_min_width: true
+  field_width: true
+  id: true
+  info: true
+  langcode: true
+  layout_builder__layout: true
+  metatag: true
+  reusable: true
+  revision_created: true
+  revision_default: true
+  revision_id: true
+  revision_log: true
+  revision_translation_affected: true
+  revision_user: true
+  search_api_excerpt: true
+  status: true
+  tags: true
+  type: true
+  uuid: true
+  view_mode: true

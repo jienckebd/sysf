@@ -1,0 +1,44 @@
+uuid: 3af59f79-cbd8-4c11-a598-5d0b8fbb483b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.text
+    - field.field.block_content.text.field_text
+  module:
+    - text
+id: block_content.text.default
+targetEntityType: block_content
+bundle: text
+mode: default
+content:
+  field_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  base_entity: true
+  changed: true
+  container: true
+  default_langcode: true
+  entity_access: true
+  id: true
+  info: true
+  langcode: true
+  metatag: true
+  reusable: true
+  revision_created: true
+  revision_default: true
+  revision_id: true
+  revision_log: true
+  revision_translation_affected: true
+  revision_user: true
+  search_api_excerpt: true
+  status: true
+  tags: true
+  type: true
+  uuid: true
+  view_mode: true
