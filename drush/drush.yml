@@ -17,12 +17,12 @@ options:
 
 command:
   sql:
-    dump:
-      options:
-        structure-tables-key: light
+    # dump:
+    #   options:
+    #     structure-tables-key: light
     sync:
       options:
-        structure-tables-key: light
+        # structure-tables-key: light
         target-dump: /app/files-private/tmp/sync-target.sql.gz
         source-dump: /app/files-private/tmp/sync-source.sql.gz
 
