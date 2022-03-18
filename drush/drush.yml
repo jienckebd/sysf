@@ -17,19 +17,19 @@ options:
 
 command:
   sql:
-    # dump:
-    #   options:
-    #     structure-tables-key: common
+    dump:
+      options:
+        structure-tables-key: light
     sync:
       options:
-        # structure-tables-key: common
+        structure-tables-key: light
         target-dump: /app/files-private/tmp/sync-target.sql.gz
         source-dump: /app/files-private/tmp/sync-source.sql.gz
 
 sql:
   # An explicit list of tables which should be included in sql-dump and sql-sync.
   tables:
-    common:
+    user:
       - user
       - permissions
       - role_permissions
@@ -38,7 +38,7 @@ sql:
   # commands when the "--structure-tables-key=common" option is provided.
   # You may add specific tables to the existing array or add a new element.
   structure-tables:
-    common:
+    light:
       - cache
       - 'cache_*'
       - 'sessions'
@@ -48,6 +48,6 @@ sql:
   # provided on the command line.  This is useful if your database contains
   # non-Drupal tables used by some other application or during a migration for
   # example.  You may add new tables to the existing array or add a new element.
-  # skip-tables:
-  #   common:
-  #     - 'migration_*'
+  skip-tables:
+    migration:
+      - 'migration_*'
