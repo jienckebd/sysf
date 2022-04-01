@@ -15,3 +15,4 @@ regions:
   content: Content
   post_content: Post content
   footer: Footer
+  disabled: Disabled

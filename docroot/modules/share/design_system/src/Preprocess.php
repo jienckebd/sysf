@@ -516,6 +516,9 @@ class Preprocess implements ContainerInjectionInterface {
     ];
 
     foreach (Element::children($variables['page']) as $theme_region_id) {
+      if (in_array($theme_region_id, ['disabled'])) {
+        continue;
+      }
 
       $child = &$variables['page'][$theme_region_id];
       $build[$theme_region_id] = $child;
