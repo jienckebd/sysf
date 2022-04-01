@@ -125,7 +125,7 @@ $databases['default']['default']['init_commands'] = [
   'sql_mode' => "SET sql_mode = ''",
 ];
 
-error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+error_reporting(E_ERROR | E_PARSE | E_NOTICE);
 
 $databases['default']['default'] = [
   'database' => getenv("SYS_DB_NAME") ?: "drupal",
