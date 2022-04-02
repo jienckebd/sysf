@@ -1,2 +1,17 @@
 {
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "mariadb-galera.env-ide1.svc.cluster.local",
+      "port": 3306,
+      "driver": "MariaDB",
+      "name": "env-ide1--mariadb-galera",
+      "database": "drupal",
+      "username": "drupal",
+      "password": "drupal"
+    }
+  ]
 }

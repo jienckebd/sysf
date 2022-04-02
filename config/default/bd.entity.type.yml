@@ -322,6 +322,8 @@ block_content:
         label: Name
         description: 'Provide a name.'
         constraints: {  }
+      reusable:
+        default_value: true
     definition:
       base_entity:
         template: base_entity

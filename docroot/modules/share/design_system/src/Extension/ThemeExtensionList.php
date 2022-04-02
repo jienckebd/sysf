@@ -133,6 +133,7 @@ class ThemeExtensionList extends Base {
             $derived_theme->info['regions'][$region_id] = $region_config['label'];
           }
         }
+        $derived_theme->info['regions']['disabled'] = 'Disabled';
       }
 
       if ($media_entity = $theme_entity->field_image->entity) {

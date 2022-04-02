@@ -310,6 +310,9 @@
             },
             "drupal/oauth2_server": {
                 "remove-entity-reference-dependency-d9": "https://git.drupalcode.org/project/oauth2_server/-/merge_requests/2.diff"
+            },
+            "drupal/entity_reference_revisions": {
+              "entity_reference_revisions-3206499-5-moderation-translation-changed-constraint-violation": "https://www.drupal.org/files/issues/2021-05-26/entity_reference_revisions-3206499-5.patch"
             }
         }
     },

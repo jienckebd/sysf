@@ -455,9 +455,6 @@ function design_system_field_widget_info_alter(array &$info) {
   $info['inline_entity_form_simple']['class'] = InlineEntityFormSimple::class;
   $info['inline_entity_form_complex']['class'] = InlineEntityFormComplex::class;
 
-  $info['inline_entity_form_simple']['field types'][] = 'entity_reference_revisions';
-  $info['inline_entity_form_complex']['field types'][] = 'entity_reference_revisions';
-
   if (!empty($info['datetime_default'])) {
     $info['datetime_default']['class'] = DateTimeDefaultWidget::class;
   }

@@ -505,6 +505,12 @@ class Preprocess implements ContainerInjectionInterface {
    */
   protected function page(array &$variables) {
 
+    $theme_handler = \Drupal::service('theme_handler');
+
+    $entity_theme_active = $theme_handler->getActiveThemeEntity();
+    $entity_layout = $entity_theme_active->field_layout->entity;
+    $layout_config = \Drupal::service('design.system')->getLayoutEntityConfig($entity_layout);
+
     $build = [
       '#type' => 'container',
       '#attributes' => [
@@ -514,6 +520,7 @@ class Preprocess implements ContainerInjectionInterface {
         'id' => 'screen',
       ],
     ];
+    #$build['theme'] = \Drupal::service('design.system')->viewComponent($entity_layout);
 
     foreach (Element::children($variables['page']) as $theme_region_id) {
       if (in_array($theme_region_id, ['disabled'])) {

@@ -17,6 +17,8 @@ use Drupal\dropzonejs\Events\DropzoneMediaEntityCreateEvent;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\design_system\MediaHelper;
 use Drupal\Core\Cache\CacheBackendInterface;
+use Drupal\Core\Render\RenderEvents;
+use Drupal\Core\Render\PageDisplayVariantSelectionEvent;
 
 /**
  * Class Generic.
@@ -106,7 +108,18 @@ class Generic implements EventSubscriberInterface {
     $events[LayoutBuilderEvents::SECTION_COMPONENT_BUILD_RENDER_ARRAY] = ['onBuildRender'];
     $events[KernelEvents::RESPONSE] = ['onResponse'];
     $events[Events::MEDIA_ENTITY_PRECREATE] = ['onDropzoneJsMediaEntityPreCreate'];
+    $events[RenderEvents::SELECT_PAGE_DISPLAY_VARIANT][] = ['onSelectPageDisplayVariant'];
     return $events;
+  }
+
+  /**
+   * Selects the block page display variant.
+   *
+   * @param \Drupal\Core\Render\PageDisplayVariantSelectionEvent $event
+   *   The event to process.
+   */
+  public function onSelectPageDisplayVariant(PageDisplayVariantSelectionEvent $event) {
+    $event->setPluginId('entity_layout');
   }
 
   /**
