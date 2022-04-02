@@ -269,6 +269,33 @@ integration:
   label: Integration
   label_plural: Integrations
   base: normalized_content
+component:
+  generate: true
+  label: Component
+  label_plural: Components
+  base: normalized_content
+  menu:
+    task:
+      layout:
+        rel: layout
+        label: Layout
+        base_route: 'entity.{{ entity_type_id }}.canonical'
+    link:
+      collection:
+        rel: collection
+        label: '{{ entity_type_label_plural }}'
+        parent: system.themes_page
+        weight: 100
+  field:
+    definition:
+      base_entity:
+        template: base_entity
+        label: 'Base component'
+        settings:
+          target_type: component
+      reuse:
+        template: reuse
+        label: 'Reuse'
 dom:
   generate: true
   label: DOM
@@ -414,7 +441,157 @@ block_content:
               weight: '0'
               use_layout_builder: 0
               allow_custom: 0
+            nw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            nw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            q_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            s_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
             token:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            tw_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            t_800:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_100:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_1300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_300:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_500:
+              inherit: ''
+              weight: '0'
+              use_layout_builder: 0
+              allow_custom: 0
+            w_800:
               inherit: ''
               weight: '0'
               use_layout_builder: 0

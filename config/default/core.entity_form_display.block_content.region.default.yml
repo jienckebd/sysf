@@ -8,6 +8,7 @@ dependencies:
     - field.field.block_content.region.field_default
     - field.field.block_content.region.field_plugin_data_deriver
   module:
+    - entity_browser_entity_form
     - inline_entity_form
     - plugin
 id: block_content.region.default
@@ -16,7 +17,7 @@ bundle: region
 mode: default
 content:
   actions:
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -37,6 +38,25 @@ content:
       collapsed: false
       revision: false
     third_party_settings: {  }
+  field_component:
+    type: inline_entity_form_complex
+    weight: 3
+    region: content
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: true
+      collapsible: true
+      collapsed: false
+      revision: true
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: _none
   field_default:
     type: boolean_checkbox
     weight: 1
@@ -46,7 +66,7 @@ content:
     third_party_settings: {  }
   field_plugin_data_deriver:
     type: 'plugin_selector:plugin_select_list'
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -68,7 +88,7 @@ content:
     third_party_settings: {  }
 hidden:
   base_entity: true
-  field_component: true
+  entity_access: true
   langcode: true
   reusable: true
   reuse: true

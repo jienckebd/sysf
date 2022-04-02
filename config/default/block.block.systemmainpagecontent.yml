@@ -10,8 +10,8 @@ dependencies:
     - autotheme__21
 id: systemmainpagecontent
 theme: autotheme__21
-region: content
-weight: 0
+region: layout_entity__1585__1593
+weight: -1
 provider: null
 plugin: 'block_content:6517c140-d4c2-4094-8973-2552a9f302f3'
 settings:

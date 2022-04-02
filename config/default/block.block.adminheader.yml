@@ -10,8 +10,8 @@ dependencies:
     - autotheme__21
 id: adminheader
 theme: autotheme__21
-region: header
-weight: 0
+region: layout_entity__1570__1579
+weight: -2
 provider: null
 plugin: 'block_content:c93ea04a-eee0-4a52-bf61-9f74748f1156'
 settings:

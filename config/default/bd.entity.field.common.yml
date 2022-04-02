@@ -58,6 +58,13 @@ template:
     revisionable: true
     translatable: true
     default_value: 0
+  reuse:
+    type: boolean
+    label: Reuse
+    description: 'Reuse this elsewhere.'
+    revisionable: true
+    translatable: true
+    default_value: 0
   sticky:
     type: boolean
     label: Sticky
