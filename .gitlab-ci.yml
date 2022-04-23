@@ -1,4 +1,6 @@
-image: "registry.gitlab.com/gitlab-org/cluster-integration/cluster-applications:v1.1.0"
+image:
+  name: registry.gitlab.com/sysf/docker/image/helmfile:latest
+  entrypoint: [""]
 
 before_script:
   - env
@@ -37,7 +39,9 @@ init:
     - "kubectl get secret mariadb-galera --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - "kubectl get secret sys-env-var-config-cid --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | sed 's/name: sys-env-var-config-cid/name: sys-env-var-config/' | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - helmfile --environment=cid apply
-    - kubectl cp . "web-nginx-php-fpm-0:/app" -c php-fpm
+    - kubectl get pods
+    - kubectl exec -it web-nginx-php-fpm-0 -c php-fpm -- bash -c "ls -lah /app"
+    - kubectl cp "${CI_PROJECT_DIR}" "web-nginx-php-fpm-0:/app" -c php-fpm
     - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "shopt -s dotglob nullglob && mv -vn /app/sysf/* /app"
 
 build:
