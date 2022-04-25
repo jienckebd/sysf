@@ -1,13 +1,11 @@
-image:
-  name: registry.gitlab.com/sysf/docker/image/helmfile:latest
-  entrypoint: [""]
+image: "registry.gitlab.com/gitlab-org/cluster-integration/cluster-applications:v1.1.0"
 
 before_script:
   - env
+  - kubectl config use-context sysf/drupal/instance/sysf:sysf
   - export SYS_HELM_NEW="true"
   - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
   - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
-  - kubectl config use-context sysf/drupal/instance/sysf:sysf
   - kubectl config set-context --current --namespace="${SYS_K8S_NAMESPACE}"
 
 cache:
