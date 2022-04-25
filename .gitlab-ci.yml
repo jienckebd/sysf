@@ -4,10 +4,10 @@ image:
 
 before_script:
   - env
+  - kubectl config use-context sysf/drupal/instance/sysf:sysf
   - export SYS_HELM_NEW="true"
   - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
   - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
-  - kubectl config use-context sysf/drupal/instance/sysf:sysf
   - kubectl config set-context --current --namespace="${SYS_K8S_NAMESPACE}"
 
 cache:
@@ -43,7 +43,6 @@ init:
     - kubectl exec -it web-nginx-php-fpm-0 -c php-fpm -- bash -c "ls -lah /app"
     - kubectl cp "${CI_PROJECT_DIR}" "web-nginx-php-fpm-0:/app" -c php-fpm
     - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "shopt -s dotglob nullglob && mv -vn /app/sysf/* /app"
-
 
 build:
   stage: build
