@@ -35,7 +35,7 @@ init:
     - cd files-private/cache/sysf
     - kubectl create namespace "${SYS_K8S_NAMESPACE}"
     - "kubectl get secret ssh-config --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
-    - "kubectl get secret tls-sys --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
+    - "kubectl get secret sysf-one-tls --namespace=admin -o yaml | sed \"s/namespace: admin/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - "kubectl get secret mariadb-galera --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - "kubectl get secret sys-env-var-config-cid --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | sed 's/name: sys-env-var-config-cid/name: sys-env-var-config/' | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - helmfile --environment=cid apply
