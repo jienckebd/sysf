@@ -150,7 +150,7 @@ deploy:
     - test-performance
   script:
     - 'echo "Deploying build artifact..."'
-    - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "cd /app && /app/vendor/bin/blt artifact:deploy --branch=master-build --no-interaction"
+    # - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "cd /app && /app/vendor/bin/blt artifact:deploy --branch=master-build --no-interaction"
 
 verify:
   stage: verify
