@@ -1,4 +1,4 @@
-image: "registry.gitlab.com/gitlab-org/cluster-integration/cluster-applications:v1.1.0"
+image: "registry.gitlab.com/gitlab-org/cluster-integration/cluster-applications:v1.5.0"
 
 before_script:
   - env
@@ -33,7 +33,7 @@ init:
     - cd files-private/cache/sysf
     - kubectl create namespace "${SYS_K8S_NAMESPACE}"
     - "kubectl get secret ssh-config --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
-    - "kubectl get secret sysf-one-tls --namespace=admin -o yaml | sed \"s/namespace: admin/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
+    - "kubectl get secret sysf.one-tls --namespace=admin -o yaml | sed \"s/namespace: admin/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - "kubectl get secret mariadb-galera --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - "kubectl get secret sys-env-var-config-cid --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | sed 's/name: sys-env-var-config-cid/name: sys-env-var-config/' | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - helmfile --environment=cid apply
