@@ -3,11 +3,8 @@ image:
 
 before_script:
   - env
-  - ls -lah /app
   - rm -rf /app
   - ln -s "${CI_PROJECT_DIR}" /app
-  - ls -lah /
-  - ls -lah /app/
 
 cache:
   key: "$CI_COMMIT_REF_SLUG"
@@ -84,7 +81,7 @@ deploy:
   environment: prd
   script:
     - 'echo "Deploying build artifact..."'
-    - ./vendor/bin/blt artifact:deploy --branch=master-build --no-interaction
+    - /app/vendor/bin/blt artifact:deploy --branch=master-build --no-interaction
 
 verify:
   stage: verify
