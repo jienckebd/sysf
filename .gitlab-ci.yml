@@ -1,6 +1,4 @@
-image:
-  name: registry.gitlab.com/sysf/docker/image/helmfile:latest
-  entrypoint: [""]
+image: "registry.gitlab.com/gitlab-org/cluster-integration/cluster-applications:v1.1.0"
 
 before_script:
   - env
