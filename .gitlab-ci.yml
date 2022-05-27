@@ -5,6 +5,7 @@ before_script:
   - env
   - rm -rf /app
   - ln -s "${CI_PROJECT_DIR}" /app
+  - su www-data
 
 cache:
   key: "$CI_COMMIT_REF_SLUG"
