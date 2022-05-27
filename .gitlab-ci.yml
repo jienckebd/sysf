@@ -5,8 +5,9 @@ before_script:
   - env
   - ls -lah /app
   - rm -rf /app
-  - ln -s . /app
+  - ln -s "${CI_PROJECT_DIR}" /app
   - ls -lah /
+  - ls -lah /app/
 
 cache:
   key: "$CI_COMMIT_REF_SLUG"
