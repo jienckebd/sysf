@@ -46,8 +46,6 @@ init:
 build:
   stage: build
   environment: prd
-  dependencies:
-    - init
   script:
     - 'echo "Building source repo..."'
     - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "composer install"
@@ -56,98 +54,48 @@ build:
 test-coding-standard:
   stage: test
   environment: prd/1
-  dependencies:
-    - build
   script:
     - 'echo "Test: coding standard..."'
 
 test-workflow-standard:
   stage: test
   environment: prd/2
-  dependencies:
-    - build
-    - test-coding-standard
   script:
     - 'echo "Test: workflow standard..."'
 
 test-security:
   stage: test
   environment: prd/3
-  dependencies:
-    - build
-    - test-coding-standard
-    - test-workflow-standard
-    - test-coding-standard
   script:
     - 'echo "Test: security..."'
 
 test-licensing:
   stage: test
   environment: prd/4
-  dependencies:
-    - build
-    - test-coding-standard
-    - test-workflow-standard
-    - test-coding-standard
-    - test-security
-    - test-licensing
   script:
     - 'echo "Test: licensing..."'
 
 test-visual-regression:
   stage: test
   environment: prd/5
-  dependencies:
-    - build
-    - test-coding-standard
-    - test-workflow-standard
-    - test-coding-standard
-    - test-security
-    - test-licensing
   script:
     - 'echo "Test: visual regression..."'
 
 test-behavioral:
   stage: test
   environment: prd/6
-  dependencies:
-    - build
-    - test-coding-standard
-    - test-workflow-standard
-    - test-coding-standard
-    - test-security
-    - test-licensing
-    - test-visual-regression
   script:
     - 'echo "Test: behavioral..."'
 
 test-performance:
   stage: test
   environment: prd/7
-  dependencies:
-    - build
-    - test-coding-standard
-    - test-workflow-standard
-    - test-coding-standard
-    - test-security
-    - test-licensing
-    - test-visual-regression
-    - test-behavioral
   script:
     - 'echo "Test: performance..."'
 
 deploy:
   stage: deploy
   environment: prd
-  dependencies:
-    - test-coding-standard
-    - test-workflow-standard
-    - test-coding-standard
-    - test-security
-    - test-licensing
-    - test-visual-regression
-    - test-behavioral
-    - test-performance
   script:
     - 'echo "Deploying build artifact..."'
     - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "cd /app && /app/vendor/bin/blt artifact:deploy --branch=master-build --no-interaction"
