@@ -33,7 +33,7 @@ build:
   script:
     - 'echo "Building source repo..."'
     - composer install
-    - blt artifact:deploy --branch=master-build --no-interaction
+    - ./vendor/bin/blt artifact:deploy --branch=master-build --no-interaction
 
 test-coding-standard:
   stage: test
