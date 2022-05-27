@@ -3,9 +3,10 @@ image:
 
 before_script:
   - env
-  - ls -lah /
+  - ls -lah /app
   - rm -rf /app
   - ln -s . /app
+  - ls -lah /
 
 cache:
   key: "$CI_COMMIT_REF_SLUG"
