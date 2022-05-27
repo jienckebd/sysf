@@ -51,6 +51,7 @@ build:
     - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "composer install"
     - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "cd /app && /app/vendor/bin/blt --no-interaction"
 
+
 test-coding-standard:
   stage: test
   environment: prd/1
