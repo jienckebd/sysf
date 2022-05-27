@@ -163,9 +163,7 @@ verify:
 cleanup:
   stage: cleanup
   environment: prd
-  dependencies:
-    - build
-    - verify
+  when: always
   script:
     - rm -rf files-private/cache/sysf
     - git clone https://gitlab.com/sysf/kubernetes/cluster/sysf.git files-private/cache/sysf
