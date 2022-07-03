@@ -10,7 +10,7 @@ project:
 git:
   default_branch: master
   remotes:
-    artifact: git@gitlab.com:sysf/drupal/instance/sysf-build.git
+    artifact: git@gitlab.sysf.one:drupal/instance/sysf-build.git
     prd: ssh://www-data@sysf.one:/app
   hooks:
     pre-commit: ${blt.root}/script/git-hook
