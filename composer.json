@@ -294,10 +294,6 @@
             "drupal/plugin": {
                 "use-subform-state-support-config-schema-subform": "https://www.drupal.org/files/issues/2020-07-22/2647312-32.patch"
             },
-            "drupal/entity_browser": {
-                "entity_browser-allowed_bundles_entity_form_widget-2765295-22": "https://www.drupal.org/files/issues/2021-03-25/entity_browser-allowed_bundles_entity_form_widget-2765295-22.patch",
-                "base-fields-target-bundle-null": "https://www.drupal.org/files/issues/2019-08-15/entity_browser-3075119.patch"
-            },
             "drupal/scheduled_updates": {
                 "drupal-9-readiness": "https://www.drupal.org/files/issues/2021-06-18/3172330-31.patch",
                 "content-moderation-support": "https://www.drupal.org/files/issues/2020-09-29/scheduled_updates_with_content_moderation-2821916-32.patch"
