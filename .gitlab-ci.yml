@@ -31,6 +31,7 @@ init:
     - 'echo "Initializing kubernetes environment..."'
     - mkdir -p files-private/cache
     - rm -rf files-private/cache/sysf
+    - rm ~/.ssh/known_hosts
     - git clone git@gitlab.sysf.one:drupal/instance/sysf.git files-private/cache/sysf
     - cd files-private/cache/sysf
     - kubectl create namespace "${SYS_K8S_NAMESPACE}"
