@@ -57,6 +57,17 @@ test-coding-standard:
   script:
     - 'echo "Test: coding standard..."'
 
+test-code-intelligence:
+  stage: test
+  needs: []
+  allow_failure: true
+  image: sourcegraph/lsif-go:v1
+  script:
+    - lsif-go
+  artifacts:
+    reports:
+      lsif: dump.lsif
+
 test-workflow-standard:
   stage: test
   environment: prd/2
