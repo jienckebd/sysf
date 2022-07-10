@@ -4,11 +4,11 @@ image:
 
 before_script:
   - env
-  - kubectl config use-context drupal/instance/sysf:sysf
-  - export SYS_HELM_NEW="true"
-  - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
-  - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
-  - kubectl config set-context --current --namespace="${SYS_K8S_NAMESPACE}"
+  # - kubectl config use-context drupal/instance/sysf:sysf
+  # - export SYS_HELM_NEW="true"
+  # - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
+  # - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
+  # - kubectl config set-context --current --namespace="${SYS_K8S_NAMESPACE}"
 
 cache:
   key: "$CI_COMMIT_REF_SLUG"
