@@ -151,6 +151,7 @@
         "drupal/key_value_field": "^1.0",
         "drupal/keycloak": "dev-1.x",
         "drupal/layout_builder_iframe_modal": "^1.1",
+        "drupal/layoutcomponents": "^4.0",
         "drupal/length_indicator": "^1.1",
         "drupal/libraries": "^3.0@alpha",
         "drupal/linkit": "*",

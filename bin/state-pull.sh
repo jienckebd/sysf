@@ -9,6 +9,7 @@ drush rsync @sysf.prd:/app/files-private/ @self:/app/files-private/ -y -v
 drush cr -v
 drush search-api:reset-tracker -v
 drush search-api:index -v
+drush cr -v
 drush uli -v
 
 echo "Done."

@@ -7,6 +7,7 @@ drush rsync @self:/app/files-private/ @sysf.prd:/app/files-private/ -y -v
 drush @sysf.prd cr -v
 drush @sysf.prd search-api:reset-tracker -v
 drush @sysf.prd search-api:index -v
+drush @sysf.prd cr -v
 drush @sysf.prd uli -v
 
 # drush sql-sync @self @sysf.dev --target-dump=/app/files-private/sync.sql.gz --create-db -y -v
