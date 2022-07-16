@@ -4,6 +4,8 @@ image:
 
 before_script:
   - env
+  - echo $HOME
+  - ls -lah ~/
   - kubectl config use-context drupal/instance/sysf:sysf
   - export SYS_HELM_NEW="true"
   - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
@@ -30,26 +32,26 @@ init:
   script:
     - 'echo "Initializing kubernetes environment..."'
     - mkdir -p files-private/cache
-    # - rm -rf files-private/cache/sysf
-    # - git clone git@gitlab.sysf.one:kubernetes/cluster/sysf.git files-private/cache/sysf
-    # - cd files-private/cache/sysf
-    # - kubectl create namespace "${SYS_K8S_NAMESPACE}"
-    # - "kubectl get secret ssh-config --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
-    # - "kubectl get secret sysf.one-tls --namespace=admin -o yaml | sed \"s/namespace: admin/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
-    # - "kubectl get secret mariadb-galera --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
-    # - "kubectl get secret sys-env-var-config-cid --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | sed 's/name: sys-env-var-config-cid/name: sys-env-var-config/' | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
-    # - helmfile --environment=cid apply
-    # - kubectl get pods
-    # - kubectl cp "${CI_PROJECT_DIR}" "web-nginx-php-fpm-0:/app" -c php-fpm
-    # - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "shopt -s dotglob nullglob && mv -vn /app/sysf/* /app"
+    - rm -rf files-private/cache/sysf
+    - git clone git@gitlab.sysf.one:kubernetes/cluster/sysf.git files-private/cache/sysf
+    - cd files-private/cache/sysf
+    - kubectl create namespace "${SYS_K8S_NAMESPACE}"
+    - "kubectl get secret ssh-config --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
+    - "kubectl get secret sysf.one-tls --namespace=admin -o yaml | sed \"s/namespace: admin/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
+    - "kubectl get secret mariadb-galera --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
+    - "kubectl get secret sys-env-var-config-cid --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | sed 's/name: sys-env-var-config-cid/name: sys-env-var-config/' | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
+    - helmfile --environment=cid apply
+    - kubectl get pods
+    - kubectl cp "${CI_PROJECT_DIR}" "web-nginx-php-fpm-0:/app" -c php-fpm
+    - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "shopt -s dotglob nullglob && mv -vn /app/sysf/* /app"
 
 build:
   stage: build
   environment: prd
   script:
     - 'echo "Building source repo..."'
-    # - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "composer install"
-    # - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "cd /app && /app/vendor/bin/blt --no-interaction"
+    - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "composer install"
+    - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "cd /app && /app/vendor/bin/blt --no-interaction"
 
 test-coding-standard:
   stage: test
@@ -98,7 +100,7 @@ deploy:
   environment: prd
   script:
     - 'echo "Deploying build artifact..."'
-    # - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "cd /app && /app/vendor/bin/blt artifact:deploy --branch=master-build --no-interaction"
+    - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "cd /app && /app/vendor/bin/blt artifact:deploy --branch=master-build --no-interaction"
 
 verify:
   stage: verify
@@ -114,9 +116,9 @@ cleanup:
   when: always
   script:
     - rm -rf files-private/cache/sysf
-    # - git clone git@gitlab.sysf.one:kubernetes/cluster/sysf.git files-private/cache/sysf
-    # - cd files-private/cache/sysf
-    # - helmfile --environment=cid destroy
-    # - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
-    # - kubectl delete pvc -n "${SYS_K8S_NAMESPACE}" --all --force
-    # - kubectl delete ns "${SYS_K8S_NAMESPACE}" --force
+    - git clone git@gitlab.sysf.one:kubernetes/cluster/sysf.git files-private/cache/sysf
+    - cd files-private/cache/sysf
+    - helmfile --environment=cid destroy
+    - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
+    - kubectl delete pvc -n "${SYS_K8S_NAMESPACE}" --all --force
+    - kubectl delete ns "${SYS_K8S_NAMESPACE}" --force
