@@ -5,6 +5,8 @@ image:
 before_script:
   - env
   - echo $HOME
+  - ls -lah ~/
+  - rm -rf /root/.ssh
   - ls -lah ~/.ssh-workaround/
   - mkdir -p /root/.ssh
   - ln -s /root/.ssh-workaround/id_rsa /root/.ssh/id_rsa
