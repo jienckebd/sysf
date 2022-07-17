@@ -10,10 +10,11 @@ before_script:
   - ls -lah ~/.ssh-workaround/
   - mkdir -p /root/.ssh
   - ln -s /root/.ssh-workaround/id_rsa /root/.ssh/id_rsa
-  - chmod 600 /root/.ssh/id_rsa
+  # - chmod 600 /root/.ssh/id_rsa
   - ln -s /root/.ssh-workaround/id_rsa.pub /root/.ssh/id_rsa.pub
   - ln -s /root/.ssh-workaround/config /root/.ssh/config
   - ln -s /root/.ssh-workaround/authorized_keys /root/.ssh/authorized_keys
+  - ls -lah ~/.ssh
   - kubectl config use-context drupal/instance/sysf:sysf
   - export SYS_HELM_NEW="true"
   - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
