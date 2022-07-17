@@ -15,7 +15,6 @@ before_script:
   - kubectl config set-context --current --namespace="${SYS_K8S_NAMESPACE}"
   - shopt -s expand_aliases
   - alias exec_cmd="ssh www-data@web-nginx-php-fpm.${SYS_K8S_NAMESPACE}.svc.cluster.local"
-  - exec_cmd ls
 
 cache:
   key: "$CI_COMMIT_REF_SLUG"
@@ -48,6 +47,7 @@ init:
     - "kubectl get secret sys-env-var-config-cid --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | sed 's/name: sys-env-var-config-cid/name: sys-env-var-config/' | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - helmfile --environment=cid apply
     - kubectl get pods
+    - exec_cmd ls
 
 build:
   stage: build
