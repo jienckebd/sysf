@@ -8,7 +8,7 @@ before_script:
   - mkdir -p ~/.ssh
   - touch ~/.ssh/test1
   - ls -lah ~/.ssh/
-  - cat /root/.ssh-workaround > ~/.ssh/id_rsa
+  - cat /root/.ssh-workaround/id_rsa > ~/.ssh/id_rsa
   - chmod 600 ~/.ssh/id_rsa
   # - eval `ssh-agent -s`
   # - ssh-add ~/.ssh-workaround/id_rsa
