@@ -6,7 +6,6 @@ before_script:
   - env
   - echo $HOME
   - eval `ssh-agent -s`
-  - ssh-add
   - ssh-add -K ~/.ssh-workaround/id_rsa
   - kubectl config use-context drupal/instance/sysf:sysf
   - export SYS_HELM_NEW="true"
