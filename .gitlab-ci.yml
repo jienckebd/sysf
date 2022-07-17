@@ -5,8 +5,11 @@ image:
 before_script:
   - env
   - echo $HOME
-  - eval `ssh-agent -s`
-  - ssh-add ~/.ssh-workaround/id_rsa
+  - mkdir -p ~/.ssh
+  - cat /root/.ssh-workaround > ~/.ssh/id_rsa
+  - chmod 600 ~/.id_rsa
+  # - eval `ssh-agent -s`
+  # - ssh-add ~/.ssh-workaround/id_rsa
   - kubectl config use-context drupal/instance/sysf:sysf
   - export SYS_HELM_NEW="true"
   - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
