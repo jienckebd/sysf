@@ -14,7 +14,6 @@ before_script:
   - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
   - kubectl config set-context --current --namespace="${SYS_K8S_NAMESPACE}"
 
-
 cache:
   key: "$CI_COMMIT_REF_SLUG"
   policy: pull-push
@@ -46,8 +45,6 @@ init:
     - "kubectl get secret sys-env-var-config-cid --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | sed 's/name: sys-env-var-config-cid/name: sys-env-var-config/' | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - helmfile --environment=cid apply
     - kubectl get pods
-    - kubectl cp "${CI_PROJECT_DIR}" "web-nginx-php-fpm-0:/app" -c php-fpm
-    - kubectl exec web-nginx-php-fpm-0 -c php-fpm -- bash -c "shopt -s dotglob nullglob && mv -vn /app/sysf/* /app"
 
 build:
   stage: build
@@ -120,9 +117,9 @@ cleanup:
   when: always
   script:
     - rm -rf files-private/cache/sysf
-    - git clone git@gitlab.sysf.one:kubernetes/cluster/sysf.git files-private/cache/sysf
-    - cd files-private/cache/sysf
-    - helmfile --environment=cid destroy
-    - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
-    - kubectl delete pvc -n "${SYS_K8S_NAMESPACE}" --all --force
-    - kubectl delete ns "${SYS_K8S_NAMESPACE}" --force
+    # - git clone git@gitlab.sysf.one:kubernetes/cluster/sysf.git files-private/cache/sysf
+    # - cd files-private/cache/sysf
+    # - helmfile --environment=cid destroy
+    # - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
+    # - kubectl delete pvc -n "${SYS_K8S_NAMESPACE}" --all --force
+    # - kubectl delete ns "${SYS_K8S_NAMESPACE}" --force
