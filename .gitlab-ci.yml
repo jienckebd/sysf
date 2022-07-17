@@ -46,6 +46,7 @@ init:
     - helmfile --environment=cid apply
     - kubectl get pods
 
+
 build:
   stage: build
   environment: prd
