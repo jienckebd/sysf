@@ -8,6 +8,7 @@ before_script:
   - mkdir -p /root/.ssh
   - cp /root/.ssh-workaround/* /root/.ssh/
   - chmod 600 /root/.ssh/id_rsa
+  - cat ~/.ssh/config
   - kubectl config use-context drupal/instance/sysf:sysf2
   - export SYS_HELM_NEW="true"
   - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
@@ -15,7 +16,6 @@ before_script:
   - kubectl config set-context --current --namespace="${SYS_K8S_NAMESPACE}"
   - shopt -s expand_aliases
   - alias exec_cmd="ssh www-data@web-nginx-php-fpm.${SYS_K8S_NAMESPACE}.svc.cluster.local"
-
 
 cache:
   key: "$CI_COMMIT_REF_SLUG"
