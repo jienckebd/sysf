@@ -50,6 +50,7 @@ init:
     - helmfile --environment=cid apply
     - exec_cmd "git clone git@gitlab.sysf.one:drupal/instance/sysf.git --branch=${CI_BUILD_REF_SLUG} /app"
 
+
 build:
   stage: build
   environment: prd
