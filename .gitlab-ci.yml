@@ -58,7 +58,7 @@ build:
   script:
     - 'echo "Building source repo..."'
     - exec_cmd "cd /app && composer install"
-    - exec_cmd "cd /app && blt --no-interaction"
+    - exec_cmd "cd /app && /app/vendor/bin/blt --no-interaction"
 
 test-coding-standard:
   stage: test
@@ -107,7 +107,7 @@ deploy:
   environment: prd
   script:
     - 'echo "Deploying build artifact..."'
-    - exec_cmd "cd /app && blt artifact:deploy --branch=master-build --no-interaction"
+    - exec_cmd "cd /app && /app/vendor/bin/blt artifact:deploy --branch=master-build --no-interaction"
 
 verify:
   stage: verify
