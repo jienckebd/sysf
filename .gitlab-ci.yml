@@ -57,7 +57,6 @@ build:
     - exec_cmd "composer install"
     - exec_cmd "drush sql:sync @sysf.prd @self --create-db --yes --verbose"
 
-
 test-coding-standard:
   stage: test
   environment: prd/1
