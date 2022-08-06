@@ -1,7 +1,3 @@
-image:
-  name: registry.gitlab.sysf.one/docker/image/helmfile:latest
-  entrypoint: [""]
-
 before_script:
   - env
   - echo $HOME
@@ -33,7 +29,12 @@ stages:
 
 init:
   stage: init
+  image:
+    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+    entrypoint: [""]
   environment: prd
+  tags:
+    - kubernetes
   script:
     - 'echo "Initializing kubernetes environment..."'
     - mkdir -p files-private/cache
@@ -50,7 +51,12 @@ init:
 
 build:
   stage: build
+  image:
+    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+    entrypoint: [""]
   environment: prd
+  tags:
+    - kubernetes
   script:
     - 'echo "Building source repo..."'
     - exec_cmd "composer install"
@@ -58,56 +64,101 @@ build:
 
 test-coding-standard:
   stage: test
+  image:
+    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+    entrypoint: [""]
   environment: prd/1
+  tags:
+    - kubernetes
   script:
     - 'echo "Test: coding standard..."'
 
 test-workflow-standard:
   stage: test
+  image:
+    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+    entrypoint: [""]
   environment: prd/2
+  tags:
+    - kubernetes
   script:
     - 'echo "Test: workflow standard..."'
 
 test-security:
   stage: test
+  image:
+    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+    entrypoint: [""]
   environment: prd/3
+  tags:
+    - kubernetes
   script:
     - 'echo "Test: security..."'
 
 test-licensing:
   stage: test
+  image:
+    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+    entrypoint: [""]
   environment: prd/4
+  tags:
+    - kubernetes
   script:
     - 'echo "Test: licensing..."'
 
 test-visual-regression:
   stage: test
+  image:
+    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+    entrypoint: [""]
   environment: prd/5
+  tags:
+    - kubernetes
   script:
     - 'echo "Test: visual regression..."'
 
 test-behavioral:
   stage: test
+  image:
+    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+    entrypoint: [""]
   environment: prd/6
+  tags:
+    - kubernetes
   script:
     - 'echo "Test: behavioral..."'
 
 test-performance:
   stage: test
+  image:
+    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+    entrypoint: [""]
   environment: prd/7
+  tags:
+    - kubernetes
   script:
     - 'echo "Test: performance..."'
 
 deploy:
   stage: deploy
+  image:
+    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+    entrypoint: [""]
   environment: prd
+  tags:
+    - kubernetes
   script:
     - 'echo "Deploying build artifact..."'
     - exec_cmd "blt artifact:deploy --branch=master-build --no-interaction"
 
 verify:
   stage: verify
+  image:
+    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+    entrypoint: [""]
   environment: prd
+  tags:
+    - kubernetes
   dependencies:
     - deploy
   script:
@@ -115,7 +166,12 @@ verify:
 
 cleanup:
   stage: cleanup
+  image:
+    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+    entrypoint: [""]
   environment: prd
+  tags:
+    - kubernetes
   when: always
   script:
     - rm -rf files-private/cache/sysf
