@@ -2,184 +2,184 @@ image:
     name: registry.gitlab.sysf.one/docker/image/helmfile:latest
     entrypoint: [""]
 
-before_script:
-  - mkdir -p /root/.ssh
-  - cp /root/.ssh-workaround/* /root/.ssh/
-  - chmod 600 /root/.ssh/id_rsa
-  - kubectl config use-context drupal/instance/sysf:sysf2
-  - export SYS_HELM_NEW="true"
-  - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
-  - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
-  - kubectl config set-context --current --namespace="${SYS_K8S_NAMESPACE}"
-  - shopt -s expand_aliases
-  - alias exec_cmd='ssh www-data@web-nginx-php-fpm.${SYS_K8S_NAMESPACE}.svc.cluster.local "source ~/.bashrc && cd /app && "'
+# before_script:
+#   - mkdir -p /root/.ssh
+#   - cp /root/.ssh-workaround/* /root/.ssh/
+#   - chmod 600 /root/.ssh/id_rsa
+#   - kubectl config use-context drupal/instance/sysf:sysf2
+#   - export SYS_HELM_NEW="true"
+#   - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
+#   - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
+#   - kubectl config set-context --current --namespace="${SYS_K8S_NAMESPACE}"
+#   - shopt -s expand_aliases
+#   - alias exec_cmd='ssh www-data@web-nginx-php-fpm.${SYS_K8S_NAMESPACE}.svc.cluster.local "source ~/.bashrc && cd /app && "'
 
 cache:
   key: "$CI_COMMIT_REF_SLUG"
   policy: pull-push
   paths:
-    - cache
+    - files-private/cache
 
 stages:
   - init
-  - build
-  - test
-  - deploy
-  - verify
-  - cleanup
+  # - build
+  # - test
+  # - deploy
+  # - verify
+  # - cleanup
 
 test1:
   stage: init
-  environment: prd/2
+  environment: prd
   tags:
     - ssh
   script:
     - 'ls -lah'
 
-init:
-  stage: init
-  image:
-    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
-    entrypoint: [""]
-  environment: prd
-  tags:
-    - kubernetes
-  script:
-    - 'echo "Initializing kubernetes environment..."'
-    - rm -rf cache/sysf && git clone git@gitlab.sysf.one:kubernetes/cluster/sysf.git cache/sysf && cd cache/sysf
-    - kubectl create namespace "${SYS_K8S_NAMESPACE}"
-    - kubectl label ns "${SYS_K8S_NAMESPACE}" env=true || true
-    - "kubectl get secret sys-env-var-config-cid --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | sed 's/name: sys-env-var-config-cid/name: sys-env-var-config/' | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
-    - helmfile --file applications/env/helmfile.yaml --environment=cid apply
-    - sleep 10
-    - exec_cmd "git init && git remote add origin git@gitlab.sysf.one:drupal/instance/sysf.git && git fetch && git checkout ${CI_BUILD_REF_SLUG}"
+# init:
+#   stage: init
+#   image:
+#     name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+#     entrypoint: [""]
+#   environment: prd
+#   tags:
+#     - kubernetes
+#   script:
+#     - 'echo "Initializing kubernetes environment..."'
+#     - rm -rf files-private/cache/sysf && git clone git@gitlab.sysf.one:kubernetes/cluster/sysf.git files-private/cache/sysf && cd files-private/cache/sysf
+#     - kubectl create namespace "${SYS_K8S_NAMESPACE}"
+#     - kubectl label ns "${SYS_K8S_NAMESPACE}" env=true || true
+#     - "kubectl get secret sys-env-var-config-cid --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | sed 's/name: sys-env-var-config-cid/name: sys-env-var-config/' | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
+#     - helmfile --file applications/env/helmfile.yaml --environment=cid apply
+#     - sleep 10
+#     - exec_cmd "git init && git remote add origin git@gitlab.sysf.one:drupal/instance/sysf.git && git fetch && git checkout ${CI_BUILD_REF_SLUG}"
 
-build:
-  stage: build
-  image:
-    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
-    entrypoint: [""]
-  environment: prd
-  tags:
-    - kubernetes
-  script:
-    - 'echo "Building source repo..."'
-    - exec_cmd "composer install"
-    - exec_cmd "drush sql:sync @sysf.prd @self --create-db --yes --verbose"
+# build:
+#   stage: build
+#   image:
+#     name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+#     entrypoint: [""]
+#   environment: prd
+#   tags:
+#     - kubernetes
+#   script:
+#     - 'echo "Building source repo..."'
+#     - exec_cmd "composer install"
+#     - exec_cmd "drush sql:sync @sysf.prd @self --create-db --yes --verbose"
 
-test-coding-standard:
-  stage: test
-  image:
-    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
-    entrypoint: [""]
-  environment: prd/1
-  tags:
-    - kubernetes
-  script:
-    - 'echo "Test: coding standard..."'
+# test-coding-standard:
+#   stage: test
+#   image:
+#     name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+#     entrypoint: [""]
+#   environment: prd/1
+#   tags:
+#     - kubernetes
+#   script:
+#     - 'echo "Test: coding standard..."'
 
-test-workflow-standard:
-  stage: test
-  image:
-    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
-    entrypoint: [""]
-  environment: prd/2
-  tags:
-    - kubernetes
-  script:
-    - 'echo "Test: workflow standard..."'
+# test-workflow-standard:
+#   stage: test
+#   image:
+#     name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+#     entrypoint: [""]
+#   environment: prd/2
+#   tags:
+#     - kubernetes
+#   script:
+#     - 'echo "Test: workflow standard..."'
 
-test-security:
-  stage: test
-  image:
-    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
-    entrypoint: [""]
-  environment: prd/3
-  tags:
-    - kubernetes
-  script:
-    - 'echo "Test: security..."'
+# test-security:
+#   stage: test
+#   image:
+#     name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+#     entrypoint: [""]
+#   environment: prd/3
+#   tags:
+#     - kubernetes
+#   script:
+#     - 'echo "Test: security..."'
 
-test-licensing:
-  stage: test
-  image:
-    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
-    entrypoint: [""]
-  environment: prd/4
-  tags:
-    - kubernetes
-  script:
-    - 'echo "Test: licensing..."'
+# test-licensing:
+#   stage: test
+#   image:
+#     name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+#     entrypoint: [""]
+#   environment: prd/4
+#   tags:
+#     - kubernetes
+#   script:
+#     - 'echo "Test: licensing..."'
 
-test-visual-regression:
-  stage: test
-  image:
-    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
-    entrypoint: [""]
-  environment: prd/5
-  tags:
-    - kubernetes
-  script:
-    - 'echo "Test: visual regression..."'
+# test-visual-regression:
+#   stage: test
+#   image:
+#     name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+#     entrypoint: [""]
+#   environment: prd/5
+#   tags:
+#     - kubernetes
+#   script:
+#     - 'echo "Test: visual regression..."'
 
-test-behavioral:
-  stage: test
-  image:
-    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
-    entrypoint: [""]
-  environment: prd/6
-  tags:
-    - kubernetes
-  script:
-    - 'echo "Test: behavioral..."'
+# test-behavioral:
+#   stage: test
+#   image:
+#     name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+#     entrypoint: [""]
+#   environment: prd/6
+#   tags:
+#     - kubernetes
+#   script:
+#     - 'echo "Test: behavioral..."'
 
-test-performance:
-  stage: test
-  image:
-    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
-    entrypoint: [""]
-  environment: prd/7
-  tags:
-    - kubernetes
-  script:
-    - 'echo "Test: performance..."'
+# test-performance:
+#   stage: test
+#   image:
+#     name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+#     entrypoint: [""]
+#   environment: prd/7
+#   tags:
+#     - kubernetes
+#   script:
+#     - 'echo "Test: performance..."'
 
-deploy:
-  stage: deploy
-  image:
-    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
-    entrypoint: [""]
-  environment: prd
-  tags:
-    - kubernetes
-  script:
-    - 'echo "Deploying build artifact..."'
-    - exec_cmd "blt artifact:deploy --branch=master-build --no-interaction"
+# deploy:
+#   stage: deploy
+#   image:
+#     name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+#     entrypoint: [""]
+#   environment: prd
+#   tags:
+#     - kubernetes
+#   script:
+#     - 'echo "Deploying build artifact..."'
+#     - exec_cmd "blt artifact:deploy --branch=master-build --no-interaction"
 
-verify:
-  stage: verify
-  image:
-    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
-    entrypoint: [""]
-  environment: prd
-  tags:
-    - kubernetes
-  dependencies:
-    - deploy
-  script:
-    - 'echo "Verifying deploy..."'
+# verify:
+#   stage: verify
+#   image:
+#     name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+#     entrypoint: [""]
+#   environment: prd
+#   tags:
+#     - kubernetes
+#   dependencies:
+#     - deploy
+#   script:
+#     - 'echo "Verifying deploy..."'
 
-cleanup:
-  stage: cleanup
-  image:
-    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
-    entrypoint: [""]
-  environment: prd
-  tags:
-    - kubernetes
-  when: always
-  script:
-    - cd cache/sysf
-    - helmfile --file applications/env/helmfile.yaml --environment=cid destroy
-    - kubectl delete all --all -n "${SYS_K8S_NAMESPACE}" --force
-    - kubectl delete ns "${SYS_K8S_NAMESPACE}" --force
+# cleanup:
+#   stage: cleanup
+#   image:
+#     name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+#     entrypoint: [""]
+#   environment: prd
+#   tags:
+#     - kubernetes
+#   when: always
+#   script:
+#     - cd files-private/cache/sysf
+#     - helmfile --file applications/env/helmfile.yaml --environment=cid destroy
+#     - kubectl delete all --all -n "${SYS_K8S_NAMESPACE}" --force
+#     - kubectl delete ns "${SYS_K8S_NAMESPACE}" --force
