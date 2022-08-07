@@ -178,7 +178,7 @@ cleanup:
     - rm -rf files-private/cache/sysf
     - git clone git@gitlab.sysf.one:kubernetes/cluster/sysf.git files-private/cache/sysf
     - cd files-private/cache/sysf
-    - helmfile --environment=cid destroy
+    - helmfile --file applications/env/helmfile.yaml --environment=cid destroy
     - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
     - kubectl delete pvc -n "${SYS_K8S_NAMESPACE}" --all --force
     - kubectl delete ns "${SYS_K8S_NAMESPACE}" --force
