@@ -169,5 +169,5 @@ cleanup:
   script:
     - cd cache/sysf
     - helmfile --file applications/env/helmfile.yaml --environment=cid destroy
-    - kubectl delete --all -n "${SYS_K8S_NAMESPACE}" --force
+    - kubectl delete all --all -n "${SYS_K8S_NAMESPACE}" --force
     - kubectl delete ns "${SYS_K8S_NAMESPACE}" --force
