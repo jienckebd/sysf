@@ -1,3 +1,7 @@
+image:
+    name: registry.gitlab.sysf.one/docker/image/helmfile:latest
+    entrypoint: [""]
+
 before_script:
   - mkdir -p /root/.ssh
   - cp /root/.ssh-workaround/* /root/.ssh/
