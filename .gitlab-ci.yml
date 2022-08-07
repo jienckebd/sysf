@@ -28,14 +28,6 @@ stages:
   - verify
   - cleanup
 
-test1:
-  stage: init
-  environment: prd/2
-  tags:
-    - ssh
-  script:
-    - 'ls -lah'
-
 init:
   stage: init
   image:
