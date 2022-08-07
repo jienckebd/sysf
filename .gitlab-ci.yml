@@ -34,8 +34,7 @@ init:
     - kubernetes
   script:
     - 'echo "Initializing kubernetes environment..."'
-    - pwd
-    - git clone git@gitlab.sysf.one:kubernetes/cluster/sysf.git cache/sysf && cd cache/sysf
+    - rm -rf cache/sysf && git clone git@gitlab.sysf.one:kubernetes/cluster/sysf.git cache/sysf && cd cache/sysf
     - kubectl create namespace "${SYS_K8S_NAMESPACE}"
     - kubectl label ns "${SYS_K8S_NAMESPACE}" env=true || true
     - "kubectl get secret sys-env-var-config-cid --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | sed 's/name: sys-env-var-config-cid/name: sys-env-var-config/' | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
