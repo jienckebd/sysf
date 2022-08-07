@@ -1,10 +1,7 @@
 before_script:
-  - env
-  - echo $HOME
   - mkdir -p /root/.ssh
   - cp /root/.ssh-workaround/* /root/.ssh/
   - chmod 600 /root/.ssh/id_rsa
-  - cat ~/.ssh/config
   - kubectl config use-context drupal/instance/sysf:sysf2
   - export SYS_HELM_NEW="true"
   - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
@@ -17,7 +14,7 @@ cache:
   key: "$CI_COMMIT_REF_SLUG"
   policy: pull-push
   paths:
-    - files-private/cache
+    - cache
 
 stages:
   - init
@@ -37,14 +34,10 @@ init:
     - kubernetes
   script:
     - 'echo "Initializing kubernetes environment..."'
-    - mkdir -p files-private/cache
-    - rm -rf files-private/cache/sysf
-    - chmod 600 /root/.ssh/id_rsa
-    - git clone git@gitlab.sysf.one:kubernetes/cluster/sysf.git files-private/cache/sysf
-    - cd files-private/cache/sysf
+    - pwd
+    - git clone git@gitlab.sysf.one:kubernetes/cluster/sysf.git cache/sysf && cd cache/sysf
     - kubectl create namespace "${SYS_K8S_NAMESPACE}"
     - kubectl label ns "${SYS_K8S_NAMESPACE}" env=true || true
-    - "kubectl get secret sysf.one-tls --namespace=admin -o yaml | sed \"s/namespace: admin/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - "kubectl get secret sys-env-var-config-cid --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | sed 's/name: sys-env-var-config-cid/name: sys-env-var-config/' | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - helmfile --file applications/env/helmfile.yaml --environment=cid apply
     - sleep 10
@@ -175,10 +168,7 @@ cleanup:
     - kubernetes
   when: always
   script:
-    - rm -rf files-private/cache/sysf
-    - git clone git@gitlab.sysf.one:kubernetes/cluster/sysf.git files-private/cache/sysf
-    - cd files-private/cache/sysf
+    - cd cache/sysf
     - helmfile --file applications/env/helmfile.yaml --environment=cid destroy
-    - kubectl delete pods -n "${SYS_K8S_NAMESPACE}" --all --force
-    - kubectl delete pvc -n "${SYS_K8S_NAMESPACE}" --all --force
+    - kubectl all --all -n "${SYS_K8S_NAMESPACE}" --force
     - kubectl delete ns "${SYS_K8S_NAMESPACE}" --force
