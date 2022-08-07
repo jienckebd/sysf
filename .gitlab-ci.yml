@@ -35,6 +35,7 @@ test1:
     - ssh
   script:
     - 'ls -lah'
+    - 'ls -lah /root/.ssh-workaround'
     - 'touch files-private/tmp/test3'
 
 # init:
