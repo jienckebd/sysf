@@ -13,6 +13,7 @@ before_script:
   - shopt -s expand_aliases
   - alias exec_cmd='ssh www-data@web-nginx-php-fpm.${SYS_K8S_NAMESPACE}.svc.cluster.local "source ~/.bashrc && cd /app && "'
 
+
 cache:
   key: "$CI_COMMIT_REF_SLUG"
   policy: pull-push
@@ -47,7 +48,6 @@ init:
     - "kubectl get secret sysf.one-tls --namespace=admin -o yaml | sed \"s/namespace: admin/namespace: $SYS_K8S_NAMESPACE/\" | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - "kubectl get secret sys-env-var-config-cid --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | sed 's/name: sys-env-var-config-cid/name: sys-env-var-config/' | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - helmfile --file applications/env/helmfile.yaml --environment=cid apply
-    - sleep 30
     - exec_cmd "git init && git remote add origin git@gitlab.sysf.one:drupal/instance/sysf.git && git fetch && git checkout ${CI_BUILD_REF_SLUG}"
 
 build:
