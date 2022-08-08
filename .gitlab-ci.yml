@@ -28,6 +28,7 @@ stages:
   - verify
   - cleanup
 
+
 init:
   stage: init
   image:
