@@ -265,5 +265,5 @@ Session.vim
 package.json
 package-lock.json
 
-files-private
+# files-private
 .gitlab-ci.yml
