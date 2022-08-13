@@ -58,7 +58,7 @@ build:
   script:
     - 'echo "Building source repo..."'
     - exec_cmd "composer install"
-    - exec_cmd "drush sql:sync @sysf.prd @self --create-db --yes --verbose"
+    # - exec_cmd "drush sql:sync @sysf.prd @self --create-db --yes --verbose"
 
 test-coding-standard:
   stage: test
