@@ -20,6 +20,8 @@ vendor/
 /travis_wait*
 /deployment_identifier
 
+/docroot/sites/default/files
+
 # Drupal scaffold.
 /.editorconfig
 /.gitattributes

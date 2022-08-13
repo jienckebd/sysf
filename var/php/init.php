@@ -44,7 +44,7 @@ $_ENV['SYS_IS_LOWER'] = ($_ENV['SYS_IS_CLOUD'] && empty($_ENV['SYS_IS_UPPER'])) 
  * Define common paths.
  */
 $_ENV['SYS_PATH_ROOT'] = dirname(dirname(dirname(__FILE__)));
-$_ENV['SYS_PATH_DOCROOT'] = "{$_ENV['SYS_PATH_ROOT']}/web";
+$_ENV['SYS_PATH_DOCROOT'] = "{$_ENV['SYS_PATH_ROOT']}/docroot";
 $_ENV['SYS_PATH_CONFIG'] = "{$_ENV['SYS_PATH_ROOT']}/var/config";
 $_ENV['SYS_PATH_CONFIG_DEPLOY'] = "{$_ENV['SYS_PATH_ROOT']}/var/deploy/config";
 $_ENV['SYS_PATH_CONTENT'] = "{$_ENV['SYS_PATH_ROOT']}/var/deploy/content";
@@ -52,7 +52,7 @@ $_ENV['SYS_PATH_DEPLOY_CONFIG'] = "{$_ENV['SYS_PATH_ROOT']}/var/deploy/deploy.ym
 $_ENV['SYS_PATH_ETC'] = "{$_ENV['SYS_PATH_ROOT']}/etc";
 $_ENV['SYS_PATH_VAR'] = "{$_ENV['SYS_PATH_ROOT']}/var";
 $_ENV['SYS_PATH_CACHE'] = "{$_ENV['SYS_PATH_ROOT']}/.cache";
-$_ENV['SYS_PATH_PRIVATE'] = $_ENV['SYS_PATH_PRIVATE'] ?? "/app/files-private";
+$_ENV['SYS_PATH_PRIVATE'] = $_ENV['SYS_PATH_PRIVATE'] ?? "/app/files-private/private";
 $_ENV['SYS_PATH_TMP'] = $_ENV['SYS_PATH_TMP'] ?? "{$_ENV['SYS_PATH_PRIVATE']}/tmp";
 
 ini_set('display_errors', 1);
