@@ -50,6 +50,6 @@ vendor/
 *.sql.gz
 *.tar.gz
 
-files-private
+/files-private
 
 .history
