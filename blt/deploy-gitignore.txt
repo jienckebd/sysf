@@ -6,7 +6,7 @@ local.blt.yml
 # Ignore paths that contain user-generated content.
 # /docroot/sites/*/files
 # /docroot/sites/*/private
-/files-private
+# /files-private
 
 # Ignore build artifacts.
 /tmp/
