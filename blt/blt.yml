@@ -32,7 +32,7 @@ git:
 deploy:
   tag_source: true
   dir: /tmp/blt_artifact_deploy
-  exclude_additions_file: ${repo.root}/blt/deploy-exclude-additions.txt
+  exclude_file: ${repo.root}/blt/deploy-exclude.txt
   gitignore_file: ${repo.root}/blt/deploy-gitignore.txt
 drush:
   bin: ${composer.bin}/drush
