@@ -44,7 +44,7 @@ init:
     - kubectl annotate --overwrite ns "${SYS_K8S_NAMESPACE}" scheduler.alpha.kubernetes.io/node-selector='cloud.google.com/gke-nodepool=ephemeral'
     - "kubectl get secret sys-env-var-config-cid --namespace=default -o yaml | sed \"s/namespace: default/namespace: $SYS_K8S_NAMESPACE/\" | sed 's/name: sys-env-var-config-cid/name: sys-env-var-config/' | kubectl apply --namespace=$SYS_K8S_NAMESPACE -f - || true"
     - helmfile --file applications/env/helmfile.yaml --environment=cid apply
-    - sleep 10
+    - sleep 20
     - exec_cmd "git init && git remote add origin git@gitlab.sysf.one:drupal/instance/sysf.git && git fetch && git checkout ${CI_BUILD_REF_SLUG}"
 
 build:
