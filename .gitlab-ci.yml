@@ -6,7 +6,7 @@ before_script:
   - mkdir -p /root/.ssh
   - cp /root/.ssh-workaround/* /root/.ssh/
   - chmod 600 /root/.ssh/id_rsa
-  - kubectl config use-context drupal/instance/sysf:sysf2
+  - kubectl config use-context kubernetes/cluster/sysf:sysf
   - export SYS_HELM_NEW="true"
   - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
   - export SYS_K8S_NAMESPACE="env-${SYS_HELM_NAMESPACE_SUFFIX}"
