@@ -6,6 +6,7 @@ before_script:
   - mkdir -p /root/.ssh
   - cp /root/.ssh-workaround/* /root/.ssh/
   - chmod 600 /root/.ssh/id_rsa
+  - echo "\nHost *\n  StrictHostKeyChecking no" > /root/.ssh/config
   - kubectl config use-context drupal/instance/sysf:sysf2
   - export SYS_HELM_NEW="true"
   - export SYS_HELM_NAMESPACE_SUFFIX="cid${CI_PIPELINE_ID}"
