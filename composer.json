@@ -1,6 +1,3 @@
-// 20230202180217
-// https://gitlab.sysf.one/drupal/instance/sysf/-/raw/9b5376fd8990c5440556fe578bebf79e072afe6d/composer.json
-
 {
   "name": "sysf/sysf",
   "description": "Multi-tenant system everything.",
