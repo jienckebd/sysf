@@ -2,8 +2,6 @@
 
 // @codingStandardsIgnoreFile
 
-use Drupal\bd\Serialization\CachedYamlParser;
-
 # require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
 
 $databases = [];
@@ -48,14 +46,6 @@ $config['file.settings']['make_unused_managed_files_temporary'] = TRUE;
  */
 // $config['search_api.server.local']['status'] = FALSE;
 // $config['search_api.index.universe']['server'] = $_ENV['SYS_SUBCONTEXT'];
-
-/**
- * Override Drupal's YAML parser to use persistent caching.
- *
- * This provides a significant performance improvement because YAML parsing is
- * extremely expensive and output should be cached in core.
- */
-$settings['yaml_parser_class'] = CachedYamlParser::class;
 
 /**
  * Tuned cache config.
