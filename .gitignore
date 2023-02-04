@@ -53,3 +53,5 @@ vendor/
 /files-private
 
 .history
+
+/tmp
