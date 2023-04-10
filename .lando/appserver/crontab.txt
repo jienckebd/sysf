@@ -1,0 +1,3 @@
+SHELL=/bin/bash
+
+* * * * * bash -l -c "/app/vendor/bin/drush cron --uri=fp --verbose > /tmp/cron.log"

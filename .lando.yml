@@ -1,0 +1,44 @@
+name: sysf
+recipe: drupal9
+config:
+  php: '8.1'
+  webroot: ./docroot
+  config:
+    php: .lando/appserver/php.ini
+proxy:
+  appserver:
+    - sysf.lndo.site
+    - "*.sysf.lndo.site"
+services:
+  database:
+    portforward: 33061
+    run_as_root:
+      - mysql -uroot -e "SHOW databases;"
+  appserver:
+    run_as_root:
+      - service apache2 reload
+      - service cron start
+      - env > /etc/environment
+    run:
+      - crontab /app/.lando/appserver/crontab.txt
+    build_as_root:
+      - apt update -y
+      - apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates vim htop zsh cron
+      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
+      - apt -y install nodejs
+      - a2enmod headers
+    build:
+      # Install ohmyzsh.
+      - echo "Y" | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
+      - git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions || true
+      - cp /app/.lando/appserver/.zshrc /var/www
+    xdebug: true
+    overrides:
+      environment:
+        SYS_CONTEXT: lando
+        XDEBUG_MODE: "debug,profile"
+        XDEBUG_CONFIG: "client_host=host.docker.internal discover_client_host=1 log=/tmp/xdebug.log remote_enable=true remote_host=host.docker.internal"
+        DISABLE_UPDATE_PROMPT: "true"
+        DISABLE_AUTO_UPDATE: "true"
+  redis:
+    type: redis
