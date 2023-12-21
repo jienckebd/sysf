@@ -3,42 +3,79 @@ recipe: drupal9
 config:
   php: '8.1'
   webroot: ./docroot
-  config:
-    php: .lando/appserver/php.ini
+  # config:
+  #   php: .lando/appserver/php.ini
 proxy:
   appserver:
     - sysf.lndo.site
     - "*.sysf.lndo.site"
+  solr:
+    - solr.sysf.lndo.site:8984
 services:
   database:
     portforward: 33061
     run_as_root:
       - mysql -uroot -e "SHOW databases;"
   appserver:
-    run_as_root:
-      - service apache2 reload
-      - service cron start
-      - env > /etc/environment
-    run:
-      - crontab /app/.lando/appserver/crontab.txt
-    build_as_root:
-      - apt update -y
-      - apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates vim htop zsh cron
-      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
-      - apt -y install nodejs
-      - a2enmod headers
-    build:
-      # Install ohmyzsh.
-      - echo "Y" | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
-      - git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions || true
-      - cp /app/.lando/appserver/.zshrc /var/www
+    # run_as_root:
+    #   - service apache2 reload
+    #   - service cron start
+    #   - env > /etc/environment
+    # run:
+    #   - crontab /app/.lando/appserver/crontab.txt
+    # build_as_root:
+    #   - apt update -y
+    #   - apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates vim htop zsh cron
+    #   - curl -sL https://deb.nodesource.com/setup_12.x | bash -
+    #   - apt -y install nodejs
+    #   - mkdir -p /usr/share/php/Net
+    #   - cp -r /app/.lando/appserver/ace/dns2/* /usr/share/php/Net
+    #   - a2enmod headers
+    # build:
+    #   # Install ohmyzsh.
+    #   - echo "Y" | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
+    #   - git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions || true
+    #   - cp /app/.lando/appserver/.zshrc /var/www
+    #   # Install pipelines CLI.
+    #   - curl -o pipelines https://cloud.acquia.com/pipeline-client/download
+    #   - chmod a+x pipelines
+    #   - mv pipelines /usr/local/bin/pipelines
+    #   # Install acli CLI.
+    #   - curl -OL https://github.com/acquia/cli/releases/latest/download/acli.phar
+    #   - chmod +x acli.phar
+    #   - mv acli.phar /usr/local/bin/acli
     xdebug: true
     overrides:
       environment:
         SYS_CONTEXT: lando
+        SYS_SUBCONTEXT: lando
+        SYS_PATH_ROOT: /app
+        SYS_PATH_TMP: "/tmp"
+        SYS_PATH_PRIVATE: "/tmp/private"
+        SYS_DB_NAME: drupal9
+        SYS_DB_USER: root
+        SYS_DB_PASS: ""
+        SYS_DB_HOST: "database"
         XDEBUG_MODE: "debug,profile"
         XDEBUG_CONFIG: "client_host=host.docker.internal discover_client_host=1 log=/tmp/xdebug.log remote_enable=true remote_host=host.docker.internal"
         DISABLE_UPDATE_PROMPT: "true"
         DISABLE_AUTO_UPDATE: "true"
+        DRUSH_OPTIONS_URI: "https://sysf.lndo.site"
+  solr:
+    type: solr:7
+    portforward: 8984
+    core: lando
+    # config:
+    #   dir: .lando/solr/conf
+    # run:
+    #   - /opt/solr/bin/solr create -c sysf -d /solrconf/conf
+  memcached:
+    type: memcached:1
+    portforward: false
+    mem: 64
   redis:
     type: redis
+    # portforward: false
+    # mem: 64
+  elasticsearch:
+    type: elasticsearch:7

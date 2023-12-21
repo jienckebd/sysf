@@ -67,26 +67,23 @@ $settings['redis.connection']['timeout'] = 120;
 // $settings['cache']['default'] = 'cache.backend.redis';
 // $cache_backend = 'cache.backend.redis';
 
-$settings['cache']['default'] = 'cache.backend.database';
-$cache_backend = 'cache.backend.database';
-
-$settings['cache']['bins']['advagg'] = $cache_backend;
-$settings['cache']['bins']['bootstrap']= $cache_backend;
-$settings['cache']['bins']['config']= $cache_backend;
-$settings['cache']['bins']['container']= $cache_backend;
-$settings['cache']['bins']['data']= $cache_backend;
-$settings['cache']['bins']['default']= $cache_backend;
-$settings['cache']['bins']['entity']= $cache_backend;
-$settings['cache']['bins']['file_mdm']= $cache_backend;
-$settings['cache']['bins']['group_permission']= $cache_backend;
-$settings['cache']['bins']['jsonapi_normalizations']= $cache_backend;
-$settings['cache']['bins']['library']= $cache_backend;
-$settings['cache']['bins']['menu']= $cache_backend;
-$settings['cache']['bins']['migrate']= $cache_backend;
-$settings['cache']['bins']['rest']= $cache_backend;
-$settings['cache']['bins']['signal']= $cache_backend;
-$settings['cache']['bins']['toolbar']= $cache_backend;
-$settings['cache']['bins']['ultimate_cron_logger']= $cache_backend;
+// $settings['cache']['bins']['advagg'] = $cache_backend;
+// $settings['cache']['bins']['bootstrap']= $cache_backend;
+// $settings['cache']['bins']['config']= $cache_backend;
+// $settings['cache']['bins']['container']= $cache_backend;
+// $settings['cache']['bins']['data']= $cache_backend;
+// $settings['cache']['bins']['default']= $cache_backend;
+// $settings['cache']['bins']['entity']= $cache_backend;
+// $settings['cache']['bins']['file_mdm']= $cache_backend;
+// $settings['cache']['bins']['group_permission']= $cache_backend;
+// $settings['cache']['bins']['jsonapi_normalizations']= $cache_backend;
+// $settings['cache']['bins']['library']= $cache_backend;
+// $settings['cache']['bins']['menu']= $cache_backend;
+// $settings['cache']['bins']['migrate']= $cache_backend;
+// $settings['cache']['bins']['rest']= $cache_backend;
+// $settings['cache']['bins']['signal']= $cache_backend;
+// $settings['cache']['bins']['toolbar']= $cache_backend;
+// $settings['cache']['bins']['ultimate_cron_logger']= $cache_backend;
 
 /**
  * Load context specific settings, either local, CI, or cloud.
@@ -98,7 +95,6 @@ $path_settings_context = "{$_ENV['SYS_PATH_ROOT']}/etc/context/{$_ENV['SYS_CONTE
 if (is_file($path_settings_context)) {
   require_once "${path_settings_context}";
 }
-
 /**
  * Load subcontext specific settings.
  *
@@ -123,7 +119,7 @@ error_reporting(E_ERROR | E_PARSE | E_NOTICE);
 $databases['default']['default'] = [
   'database' => getenv("SYS_DB_NAME") ?: "drupal",
   'username' => getenv("SYS_DB_USER") ?: "drupal",
-  'password' => getenv("SYS_DB_PASS") ?: "drupal",
+  'password' => isset($_ENV['SYS_DB_PASS']) ? $_ENV['SYS_DB_PASS'] : "drupal",
   'host' => getenv("SYS_DB_HOST") ?: "database",
   'driver' => getenv("SYS_DB_DRIVER") ?: "mysql",
   'port' => getenv("SYS_DB_PORT") ?: "3306",
